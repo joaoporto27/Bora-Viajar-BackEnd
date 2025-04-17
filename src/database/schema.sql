@@ -53,7 +53,10 @@ CREATE TABLE news (
 INSERT INTO users (name, email, city, state, password) VALUES
 ('Amanda Gomes Mechi', 'amanda.mechi@aluno.senai.br', 'Campinas', 'SP', '123456'),
 ('Andre Lucca Santos', 'andre.l.santos45@aluno.senai.br', 'Campinas', 'SP', '234561'),
-('Flavia Regina Alexandre Mendes', 'andre.l.santos45@aluno.senai.br', 'Campinas', 'SP', '345612'),
+('Flavia Regina Alexandre Mendes', 'flavia.r.mendes@aluno.senai.br', 'Campinas', 'SP', '345612'),
 ('Giovanna Caron de Barros', 'giovanna.c.barros@aluno.senai.br', 'Valinhos', 'SP', '456123'),
 ('Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@aluno.senai.br', 'Valinhos', 'SP', '567234'),
 ('João Vitor Porto Sales', 'joao.v.sales15@aluno.senai.br', 'Campinas', 'SP', '678345');
+
+INSERT INTO users (name, email, city, state, password) VALUES
+('Laura Ferreira Violla', 'laura.violla@aluno.senai.br', 'Valinhos', 'SP', '789456');

@@ -7,7 +7,7 @@ const getUsers = async () => {
 };
 
 //Buscar um usuário pelo id
-const getUserById = async () => {
+const getUserById = async (id) => {
     const result = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
     return result.rows[0];
 };
@@ -23,7 +23,10 @@ const createUser = async (name, email, city, state, password) => {
 
 //Atualizar um usuário
 const updateUser = async (id, email, password) => {
-    const result = await pool.query("UPDATE users SET email = $1, password = $2 WHERE id = $3 RETURNING *", [email, password, id]);
+    const result = await pool.query(
+        "UPDATE users SET email = $1, password = $2 WHERE id = $3 RETURNING *", 
+        [email, password, id] 
+    );
     return result.rows[0];
 };
 
@@ -33,7 +36,7 @@ const deleteUser = async (id) => {
     if (result.rowCount === 0) {
         throw new Error("Usuário não encontrado");
     }
-    return {message: "Usuário deletado com sucesso!"};
+    return result.rows[0];
 }
 
 module.exports = { getUsers, getUserById, createUser, updateUser, deleteUser };
