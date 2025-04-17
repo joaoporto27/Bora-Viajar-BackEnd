@@ -1,6 +1,6 @@
-CREATE DATABASE BoraViajar;
+CREATE DATABASE bora_viajar;
 
-\c BoraViajar;
+\c bora_viajar;
 
 -- Tabela de USERS
 CREATE TABLE users (
