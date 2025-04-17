@@ -6,10 +6,12 @@ const userRoutes = require("./src/routes/userRoutes");
 //const regionsRouter = require("./src/routes/regionsRouter");
 //const commentsRouter = require("./src/routes/commentsRouter");
 //const newsRouter = require("./src/routes/newsRouter")
+const setupSwagger = require('./src/config/swagger');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+setupSwagger(app);
 
 app.use("/api", userRoutes);
 //app.use("/api/posts", postsRouter);
