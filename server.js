@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const userRoutes = require("./src/routes/userRoutes");
-//const postsRouter = require("./src/routes/postsRouter");
+const postRouter = require("./src/routes/postRoutes");
 //const regionsRouter = require("./src/routes/regionsRouter");
 //const commentsRouter = require("./src/routes/commentsRouter");
 //const newsRouter = require("./src/routes/newsRouter")
@@ -14,7 +14,7 @@ app.use(express.json());
 setupSwagger(app);
 
 app.use("/api", userRoutes);
-//app.use("/api/posts", postsRouter);
+app.use("/api", postRouter);
 //app.use("/api/regions", regionsRouter);
 //app.use("/api/comments", commentsRouter);
 //app.use("/api/news", newsRouter)
