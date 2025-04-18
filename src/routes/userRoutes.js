@@ -63,11 +63,11 @@ router.post("/users", userController.createUser);
  *               email:
  *                 type: string
  *               city:
- *                type: string
+ *                 type: string
  *               state:
- *                type: string
- *              password:
- *               type: string
+ *                 type: string
+ *               password:
+ *                 type: string
  *     responses:
  *       201:
  *         description: Usuário criado com sucesso
@@ -75,7 +75,49 @@ router.post("/users", userController.createUser);
 
 // Rota para atualizar um usuário
 router.put("/users/:id", userController.updateUser);
+/**
+ * @swagger
+ * /api/users/{id}:
+ *   put:
+ *     summary: Atualiza um usuário existente
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Usuário atualizado com sucesso
+ */
+
 // Rota para deletar um usuário
 router.delete("/users/:id", userController.deleteUser);
+/**
+ * @swagger
+ * /api/users/{id}:
+ *   delete:
+ *     summary: Deleta um Usuário
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Usuário deletado
+ */
 
 module.exports = router;

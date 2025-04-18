@@ -22,10 +22,10 @@ const createUser = async (name, email, city, state, password) => {
 };
 
 //Atualizar um usuário
-const updateUser = async (id, email, password) => {
+const updateUser = async (id, password) => {
     const result = await pool.query(
-        "UPDATE users SET email = $1, password = $2 WHERE id = $3 RETURNING *", 
-        [email, password, id] 
+        "UPDATE users SET password = $1 WHERE id = $2 RETURNING *", 
+        [password, id] 
     );
     return result.rows[0];
 };
