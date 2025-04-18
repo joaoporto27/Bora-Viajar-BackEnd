@@ -41,8 +41,8 @@ const createUser = async (req, res) => {
 //Atualizar um usuário
 const updateUser = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const updatedUser = await userModel.updateUser(req.params.id, email, password);
+        const { password } = req.body;
+        const updatedUser = await userModel.updateUser(req.params.id, password);
         if (!updatedUser) {
             return res.status(404).json({ message: "Usuário não encontrado" });
         }
