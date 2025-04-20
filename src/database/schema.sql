@@ -37,7 +37,7 @@ CREATE TABLE regions (
     state VARCHAR(255) NOT NULL,
     image VARCHAR(255) NOT NULL,
     text TEXT NOT NULL,
-    URL VARCHAR(255)
+    links VARCHAR(255)
 );
 
 -- Tabela de NEWS
@@ -66,3 +66,9 @@ INSERT INTO posts (user_id, image, description, tag) VALUES
 (1, 'https://example.com/image1.jpg', 'Descrição do post 1', 'NOVIDADE'),
 (2, 'https://example.com/image2.jpg', 'Descrição do post 2', 'ALERTA'),
 (3, 'https://example.com/image3.jpg', 'Descrição do post 3', 'PROMOÇÃO');
+
+-- INSERTS da tabela REGIONS
+INSERT INTO regions (name, state, image, text, links) VALUES
+('São Paulo', 'SP', 'https://example.com/image1.jpg', 'Texto sobre São Paulo', 'https://example.com/sp'),
+('Rio de Janeiro', 'RJ', 'https://example.com/image2.jpg', 'Texto sobre Rio de Janeiro', 'https://example.com/rj'),
+('Minas Gerais', 'MG', 'https://example.com/image3.jpg', 'Texto sobre Minas Gerais', 'https://example.com/mg');

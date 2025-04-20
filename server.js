@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const userRoutes = require("./src/routes/userRoutes");
 const postRouter = require("./src/routes/postRoutes");
-//const regionsRouter = require("./src/routes/regionsRouter");
+const regionRouter = require("./src/routes/regionRoutes");
 //const commentsRouter = require("./src/routes/commentsRouter");
 //const newsRouter = require("./src/routes/newsRouter")
 const setupSwagger = require('./src/config/swagger');
@@ -15,7 +15,7 @@ setupSwagger(app);
 
 app.use("/api", userRoutes);
 app.use("/api", postRouter);
-//app.use("/api/regions", regionsRouter);
+app.use("/api/regions", regionRouter);
 //app.use("/api/comments", commentsRouter);
 //app.use("/api/news", newsRouter)
 
