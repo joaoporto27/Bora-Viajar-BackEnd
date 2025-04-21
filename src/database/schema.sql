@@ -67,6 +67,13 @@ INSERT INTO posts (user_id, image, description, tag) VALUES
 (2, 'https://example.com/image2.jpg', 'Descrição do post 2', 'ALERTA'),
 (3, 'https://example.com/image3.jpg', 'Descrição do post 3', 'PROMOÇÃO');
 
+-- INSERTS da tabela COMMENTS
+INSERT INTO comments (post_id, user_id, comment) VALUES
+(1, 2, 'Comentário do usuário 2 no post 1'),
+(1, 3, 'Comentário do usuário 3 no post 1'),
+(2, 1, 'Comentário do usuário 1 no post 2'),
+(3, 2, 'Comentário do usuário 2 no post 3');
+
 -- INSERTS da tabela REGIONS
 INSERT INTO regions (name, state, image, text, links) VALUES
 ('São Paulo', 'SP', 'https://example.com/image1.jpg', 'Texto sobre São Paulo', 'https://example.com/sp'),
