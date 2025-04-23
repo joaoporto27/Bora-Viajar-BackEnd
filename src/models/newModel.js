@@ -36,4 +36,14 @@ const updateNews = async (id, name, place, image, text, URL) => {
     return result.rows[0];
 };
 
-module.exports = { getNews, getNewsById, createNews, updateNews  };
+//Deletar uma notícia
+
+const deleteNews = async (id) => {
+    const result = await pool.query("DELETE FROM news WHERE id = $1 RETURNING *", [id]);
+    if (result.rowCount === 0) {
+        throw new Error("Notícia não encontrada");
+    }
+    return result.rows[0];
+}
+
+module.exports = { getNews, getNewsById, createNews, updateNews, deleteNews  };

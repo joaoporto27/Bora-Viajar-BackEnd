@@ -55,6 +55,7 @@ const updateRegion = async (req, res) => {
 };
 
 //Deletar um usuário
+
 const deleteRegion = async (req, res) => {
     try {
         const deletedRegion = await regionModel.deleteRegion(req.params.id);
