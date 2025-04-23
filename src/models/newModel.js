@@ -24,4 +24,16 @@ const createNews = async (name, place, image, text, URL) => {
     return result.rows[0];
 };
 
-module.exports = { getNews, getNewsById, createNews  };
+//Atualizar uma notícia
+
+const updateNews = async (id, name, place, image, text, URL) => {
+    const result = await pool.query(
+       `UPDATE news 
+        SET name = $1, place = $2, image = $3, text = $4, URL = $5
+        WHERE id = $6 RETURNING *`, 
+        [name, place, image, text, URL, id] 
+    );
+    return result.rows[0];
+};
+
+module.exports = { getNews, getNewsById, createNews, updateNews  };

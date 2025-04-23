@@ -76,4 +76,46 @@ router.post("/", newController.createNews);
  *         description: notícia criada com sucesso
  */
 
+// Rota para atualizar uma notícia
+
+router.put("/:id", newController.updateNews);
+/**
+ * @swagger
+ * /api/news/{id}:
+ *   put:
+ *     summary: Atualiza uma notícia existente
+ *     tags: [News]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               place:
+ *                 type: string
+ *               image:
+ *                 type: string
+ *               text:
+ *                 type: string
+ *               URL:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Notícia atualizada com sucesso
+ *       404:
+ *         description: Notícia não encontrada
+ *       500:
+ *         description: Erro ao atualizar a Notícia
+ */
+
+
 module.exports = router;
