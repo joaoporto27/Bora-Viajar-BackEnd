@@ -16,11 +16,27 @@ const getAllNews = async (req, res) => {
 const getNewsById = async (req, res) => {
     try {
          const news = await newModel.getNewsById(req.params.id);
-               res.json({ message: "Região encontrada com sucesso!", news });
+               res.json({ message: "Notícia encontrada com sucesso!", news });
     } catch (error) {
         res.status(404).json({ message: "Notícia não encontrada" });
     }
 };
 
+//Criar uma notícia
 
-module.exports = { getAllNews, getNewsById };
+const createNews = async (req, res) => {
+    try {
+        const { name, place, image, text, URL } = req.body;
+        const newNews = await newModel.createNews( name, place, image, text, URL );
+        res.status(201).json({ message: "Notícia criada com sucesso", newNews });
+    } catch (error) {
+        console.error(error);
+        if (error.code === "23505") {
+            return res.status(409).json({ message: "Notícia já existente" });
+        }
+        res.status(404).json({ message: "Erro ao criar Notícia" });
+    }
+};
+
+
+module.exports = { getAllNews, getNewsById, createNews };

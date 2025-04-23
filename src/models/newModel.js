@@ -14,4 +14,14 @@ const getNewsById = async (id) => {
     return result.rows[0];
 };
 
-module.exports = { getNews, getNewsById  };
+//Criar uma notícia
+
+const createNews = async (name, place, image, text, URL) => {
+    const result = await pool.query(
+        "INSERT INTO news (name, place, image, text, URL) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+        [name, place, image, text, URL]
+    );
+    return result.rows[0];
+};
+
+module.exports = { getNews, getNewsById, createNews  };
