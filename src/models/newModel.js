@@ -7,4 +7,11 @@ const getNews = async () => {
     return result.rows;
 };
 
-module.exports = { getNews };
+//Buscar uma notícia pelo id
+
+const getNewsById = async (id) => {
+    const result = await pool.query("SELECT * FROM news WHERE id = $1", [id]);
+    return result.rows[0];
+};
+
+module.exports = { getNews, getNewsById  };

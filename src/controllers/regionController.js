@@ -1,6 +1,7 @@
 const regionModel = require("../models/regionModel");
 
 //Buscar todas as regiões
+
 const getAllRegions = async (req, res) => {
     try {
         const regions = await regionModel.getRegions();
@@ -11,6 +12,7 @@ const getAllRegions = async (req, res) => {
 };
 
 //Buscar uma região pelo id
+
 const getRegionById = async (req, res) => {
     try {
         const region = await regionModel.getRegionById(req.params.id);

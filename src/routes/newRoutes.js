@@ -20,7 +20,28 @@ router.get("/", newController.getAllNews);
  *     tags: [News]
  *     responses:
  *       200:
- *         description: Regiões retornadas com sucesso
+ *         description: Notícias retornadas com sucesso
  */
 
+// Rota para buscar uma notícia pelo id
+
+router.get("/:id", newController.getNewsById);
+/**
+ * @swagger
+ * /api/news/{id}:
+ *   get:
+ *     summary: Busca uma notícia por ID
+ *     tags: [News]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: notícia encontrado
+ *       404:
+ *         description: notícia não encontrado
+ */
 module.exports = router;
