@@ -42,6 +42,7 @@ CREATE TABLE regions (
 
 -- Tabela de NEWS
 CREATE TABLE news (
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     place VARCHAR(255) NOT NULL,
     image VARCHAR(255) NOT NULL,
