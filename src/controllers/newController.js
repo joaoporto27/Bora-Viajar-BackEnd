@@ -54,4 +54,15 @@ const updateNews = async (req, res) => {
     }
 };
 
-module.exports = { getAllNews, getNewsById, createNews, updateNews };
+//Deletar um notícia
+
+const deleteNews = async (req, res) => {
+    try {
+        const deletedNews = await newModel.deleteNews(req.params.id);
+        res.status(200).json({ message: "Notícia deletada com sucesso", deletedNews });
+    } catch (error) {
+        res.status(404).json({ message: "Erro ao deletar notícia" });
+    }
+};
+
+module.exports = { getAllNews, getNewsById, createNews, updateNews, deleteNews };

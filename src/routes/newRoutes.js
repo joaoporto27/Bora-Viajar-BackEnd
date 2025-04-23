@@ -117,5 +117,24 @@ router.put("/:id", newController.updateNews);
  *         description: Erro ao atualizar a Notícia
  */
 
+// Rota para deletar um notícia
+
+router.delete("/:id", newController.deleteNews);
+/**
+ * @swagger
+ * /api/news/{id}:
+ *   delete:
+ *     summary: Deleta uma notícia
+ *     tags: [News]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: notícia deletada
+ */
 
 module.exports = router;
