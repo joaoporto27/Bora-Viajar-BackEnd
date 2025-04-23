@@ -44,4 +44,36 @@ router.get("/:id", newController.getNewsById);
  *       404:
  *         description: notícia não encontrado
  */
+
+// Rota para criar um notícia
+
+router.post("/", newController.createNews);
+/**
+ * @swagger
+ * /api/news:
+ *   post:
+ *     summary: Cria uma nova notícia
+ *     tags: [News]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               place:
+ *                 type: string
+ *               image:
+ *                 type: string
+ *               text:
+ *                 type: string
+ *               URL:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: notícia criada com sucesso
+ */
+
 module.exports = router;
