@@ -38,5 +38,20 @@ const createNews = async (req, res) => {
     }
 };
 
+//Atualizar uma Notícia
 
-module.exports = { getAllNews, getNewsById, createNews };
+const updateNews = async (req, res) => {
+    try {
+        const { name, place, image, text, URL } = req.body;
+        const {id} = req.params
+        const updatedNews = await newModel.updateNews(req.params.id, id, name, place, image, text, URL );
+        if (!updatedNews) {
+            return res.status(404).json({ message: "Notícia não encontrada" });
+        }
+        res.json({ message: "Notícia atualizada com sucesso!", updatedNews });
+    } catch (error) {
+        res.status(404).json({ message: "Erro ao atualizar Notícia" });
+    }
+};
+
+module.exports = { getAllNews, getNewsById, createNews, updateNews };
