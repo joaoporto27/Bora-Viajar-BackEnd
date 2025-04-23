@@ -1,5 +1,4 @@
 const pool = require("../config/database");
-const { updateUser } = require("./userModel");
 
 //Buscar todas as regiões
 

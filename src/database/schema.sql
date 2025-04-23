@@ -79,3 +79,9 @@ INSERT INTO regions (name, state, image, text, links) VALUES
 ('São Paulo', 'SP', 'https://example.com/image1.jpg', 'Texto sobre São Paulo', 'https://example.com/sp'),
 ('Rio de Janeiro', 'RJ', 'https://example.com/image2.jpg', 'Texto sobre Rio de Janeiro', 'https://example.com/rj'),
 ('Minas Gerais', 'MG', 'https://example.com/image3.jpg', 'Texto sobre Minas Gerais', 'https://example.com/mg');
+
+-- INSERTS da tabela NEWS
+INSERT INTO news (name, place, image, text, URL) VALUES
+('Notícia 1', 'São Paulo', 'https://example.com/news1.jpg', 'Texto da notícia 1', 'https://example.com/news1'),
+('Notícia 2', 'Rio de Janeiro', 'https://example.com/news2.jpg', 'Texto da notícia 2', 'https://example.com/news2'),
+('Notícia 3', 'Minas Gerais', 'https://example.com/news3.jpg', 'Texto da notícia 3', 'https://example.com/news3');
