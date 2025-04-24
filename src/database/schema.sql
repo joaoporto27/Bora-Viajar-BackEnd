@@ -9,6 +9,7 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL UNIQUE,
     city VARCHAR(120) NOT NULL,
     state VARCHAR(120) NOT NULL,
+    type_user VARCHAR(20) DEFAULT 'usuário',
     password VARCHAR(15) NOT NULL
 );
 
@@ -51,16 +52,14 @@ CREATE TABLE news (
 );
 
 -- INSERTS da tabela USERS
-INSERT INTO users (name, email, city, state, password) VALUES
-('Amanda Gomes Mechi', 'amanda.mechi@aluno.senai.br', 'Campinas', 'SP', '123456'),
-('Andre Lucca Santos', 'andre.l.santos45@aluno.senai.br', 'Campinas', 'SP', '234561'),
-('Flavia Regina Alexandre Mendes', 'flavia.r.mendes@aluno.senai.br', 'Campinas', 'SP', '345612'),
-('Giovanna Caron de Barros', 'giovanna.c.barros@aluno.senai.br', 'Valinhos', 'SP', '456123'),
-('Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@aluno.senai.br', 'Valinhos', 'SP', '567234'),
-('João Vitor Porto Sales', 'joao.v.sales15@aluno.senai.br', 'Campinas', 'SP', '678345');   
-
-INSERT INTO users (name, email, city, state, password) VALUES
-('Laura Ferreira Violla', 'laura.violla@aluno.senai.br', 'Valinhos', 'SP', '789456');
+INSERT INTO users (name, email, city, state, type_user, password) VALUES
+('Amanda Gomes Mechi', 'amanda.mechi@aluno.senai.br', 'Campinas', 'SP', 'usuário','123456'),
+('Andre Lucca Santos', 'andre.l.santos45@aluno.senai.br', 'Campinas', 'SP', 'guia turístico','234561'),
+('Flavia Regina Alexandre Mendes', 'flavia.r.mendes@aluno.senai.br', 'Campinas', 'SP', 'usuário','345612'),
+('Giovanna Caron de Barros', 'giovanna.c.barros@aluno.senai.br', 'Valinhos', 'SP', 'guia turístico','456123'),
+('Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@aluno.senai.br', 'Valinhos', 'SP', 'usuário','567234'),
+('João Vitor Porto Sales', 'joao.v.sales15@aluno.senai.br', 'Campinas', 'SP', 'guia turístico','678345'),
+('Laura Ferreira Violla', 'laura.violla@aluno.senai.br', 'Valinhos', 'SP', 'usuário','789456');
 
 -- INSERTS da tabela POSTS
 INSERT INTO posts (user_id, image, description, tag) VALUES

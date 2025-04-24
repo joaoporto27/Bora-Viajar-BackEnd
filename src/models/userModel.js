@@ -13,10 +13,10 @@ const getUserById = async (id) => {
 };
 
 //Criar um usuário
-const createUser = async (name, email, city, state, password) => {
+const createUser = async (name, email, city, state, type_user, password) => {
     const result = await pool.query(
-        "INSERT INTO users (name, email, city, state, password) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-        [name, email, city, state, password]
+        "INSERT INTO users (name, email, city, state, type_user, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+        [name, email, city, state, type_user, password]
     );
     return result.rows[0];
 };

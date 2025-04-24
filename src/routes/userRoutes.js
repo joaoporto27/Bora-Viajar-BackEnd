@@ -66,6 +66,8 @@ router.post("/users", userController.createUser);
  *                 type: string
  *               state:
  *                 type: string
+ *              type_user:
+ *                  type: string
  *               password:
  *                 type: string
  *     responses:
