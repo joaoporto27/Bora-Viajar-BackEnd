@@ -26,8 +26,20 @@ const getUserById = async (req, res) => {
 //Criar um usuário
 const createUser = async (req, res) => {
     try {
-        const { name, email, city, state, password } = req.body;
-        const newUser = await userModel.createUser(name, email, city, state, password);
+        const { name, email, city, state, type_user ,password } = req.body;
+        if (!email.includes("@gmail.com" || "@hotmail.com" || "@outlook.com")) {
+            return res.status(400).json({ message: "Email inválido, deve conter @gmail.com, @hotmail.com ou outlook.com" });
+        }
+        if (password.length < 6 || password.length > 20){
+            return res.status(400).json({ message: "Senha deve conter somente entre 6 a 20 caracteres"})
+        }
+        if (password.includes(" ")) {
+            return res.status(400).json({ message: "Senha não pode conter espaços" });
+        }
+        if (!password.includes("@") && !password.includes("#") && !password.includes("$") && !password.includes("%") && !password.includes("&")) {
+            return res.status(400).json({ message: "Senha deve conter pelo menos um caractere especial (@,!,#,$,%,&)" });
+        }
+        const newUser = await userModel.createUser(name, email, city, state, type_user, password);
         res.status(201).json({ message: "Bem vindo a Bora Viajar!", newUser });
     } catch (error) {
         console.error(error);
