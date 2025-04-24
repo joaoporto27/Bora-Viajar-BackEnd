@@ -6,6 +6,7 @@ const postRouter = require("./src/routes/postRoutes");
 const commentsRouter = require("./src/routes/commentRoutes");
 const regionRouter = require("./src/routes/regionRoutes");
 const newRouter = require("./src/routes/newRoutes");
+const reportRoutes = require("./src/routes/reportRoutes");
 const setupSwagger = require('./src/config/swagger');
 
 const app = express();
@@ -15,6 +16,7 @@ setupSwagger(app);
 
 app.use("/api", userRoutes);
 app.use("/api", postRouter);
+app.use("/api", reportRoutes);
 app.use("/api", commentsRouter);
 app.use("/api/regions", regionRouter);
 app.use("/api/news", newRouter)
