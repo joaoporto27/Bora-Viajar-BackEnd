@@ -40,7 +40,6 @@ CREATE TABLE regions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     state VARCHAR(255) NOT NULL,
-    image VARCHAR(255) NOT NULL,
     text TEXT NOT NULL,
     links VARCHAR(255)
 );
