@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
+const upload = require("./../config/upload.js");
 
 /**
  * @swagger
@@ -44,7 +45,7 @@ router.get("/users/:id", userController.getUserById);
  */
 
 // Rota para criar um usuário
-router.post("/users", userController.createUser);
+router.post("/users", upload.single("photo"), userController.createUser);
 /**
  * @swagger
  * /api/users:
@@ -54,7 +55,7 @@ router.post("/users", userController.createUser);
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:
@@ -66,17 +67,20 @@ router.post("/users", userController.createUser);
  *                 type: string
  *               state:
  *                 type: string
- *              type_user:
- *                  type: string
+ *               type_user:
+ *                 type: string
  *               password:
  *                 type: string
+ *               photo:
+ *                 type: string
+ *                 format: binary
  *     responses:
  *       201:
  *         description: Usuário criado com sucesso
  */
 
 // Rota para atualizar um usuário
-router.put("/users/:id", userController.updateUser);
+router.put("/users/:id", upload.single("photo"), userController.updateUser);
 /**
  * @swagger
  * /api/users/{id}:
@@ -92,12 +96,15 @@ router.put("/users/:id", userController.updateUser);
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:
  *               password:
  *                 type: string
+ *               photo:
+ *                 type: string
+ *                 format: binary
  *     responses:
  *       200:
  *         description: Usuário atualizado com sucesso

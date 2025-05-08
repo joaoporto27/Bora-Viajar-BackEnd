@@ -39,7 +39,11 @@ const createUser = async (req, res) => {
         if (!password.includes("@") && !password.includes("#") && !password.includes("$") && !password.includes("%") && !password.includes("&")) {
             return res.status(400).json({ message: "Senha deve conter pelo menos um caractere especial (@,!,#,$,%,&)" });
         }
-        const newUser = await userModel.createUser(name, email, city, state, type_user, password);
+        if (type_user !== "Usuário" || "Guia turístico"){
+            return res.status(400).json({ message: "O tipo de conta pode ser somente 'Usuário' ou 'Guia turístico'" });
+        }
+        const photo = req.file ? req.file.filename : null;
+        const newUser = await userModel.createUser(name, email, city, state, type_user, photo, password);
         res.status(201).json({ message: "Bem vindo a Bora Viajar!", newUser });
     } catch (error) {
         console.error(error);
@@ -54,13 +58,24 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         const { password } = req.body;
-        const updatedUser = await userModel.updateUser(req.params.id, password);
+        if (password.length < 6 || password.length > 20){
+            return res.status(400).json({ message: "Senha deve conter somente entre 6 a 20 caracteres"})
+        }
+        if (password.includes(" ")) {
+            return res.status(400).json({ message: "Senha não pode conter espaços" });
+        }
+        if (!password.includes("@") && !password.includes("#") && !password.includes("$") && !password.includes("%") && !password.includes("&")) {
+            return res.status(400).json({ message: "Senha deve conter pelo menos um caractere especial (@,!,#,$,%,&)" });
+        }
+        const photo = req.file ? req.file.filename : null;
+        const updatedUser = await userModel.updateUser(req.params.id, photo, password);
         if (!updatedUser) {
             return res.status(404).json({ message: "Usuário não encontrado" });
         }
         res.json({ message: "Email ou senha atualizado com sucesso!", updatedUser });
     } catch (error) {
-        res.status(404).json({ message: "Erro ao atualizar email ou senha" });
+        console.log("testeee")
+        res.status(500).json({ message: "Erro ao atualizar email ou senha" });
     }
 };
 
