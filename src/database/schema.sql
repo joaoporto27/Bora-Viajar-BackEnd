@@ -13,6 +13,10 @@ CREATE TABLE users (
     password VARCHAR(15) NOT NULL
 );
 
+-- Alteração da tabela USERS
+
+ALTER TABLE users ADD COLUMN photo TEXT;
+
 -- Tabela de POSTS
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
