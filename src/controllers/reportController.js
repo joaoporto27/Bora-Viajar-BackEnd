@@ -4,7 +4,7 @@ const PDFDocument = require("pdfkit");
 const userModel = require("../models/userModel");
 const postModel = require("../models/postModel");
 
-// Função para gerar o PDF de usuários
+// Função para gerar documento PDF
 const exportUserPDF = async (req, res) => {
     try {
         const users = await userModel.getUsers();
@@ -17,33 +17,50 @@ const exportUserPDF = async (req, res) => {
 
         // Título
         doc.fontSize(20).text("Relatório de Usuários", { align: "center" });
-        doc.moveDown(); 
+        doc.moveDown();
 
-        // Cabeçalho da Tabela
-        const tableTop = 130; 
-        const rowHeight = 25; 
+        // Configurações da tabela
+        const tableTop = 110;
+        const rowHeight = 25;
         const columnWidths = [200, 200, 200, 200, 200];
         let y = tableTop;
-        
-        doc.fontSize(12).font("Helvetica-Bold");
-        doc.text("Nome", 50, y, { width: columnWidths[0], align: "left" });
-        doc.text("Email", 250, y, { width: columnWidths[1], align: "left" });
-        doc.text("Cidade", 450, y, { width: columnWidths[2], align: "left" });
-        doc.text("Estado", 550, y, { width: columnWidths[3], align: "left" });
-        doc.text("Tipo de usuário", 600, y, { width: columnWidths[4], align: "left" });
-        doc.moveTo(50, y + rowHeight - 5).lineTo(700, y + rowHeight - 5).stroke(); 
-        
-        // Dados da Tabela
+
+        // Função para desenhar o cabeçalho da tabela
+        const drawTableHeader = () => {
+            doc.fontSize(12).font("Helvetica-Bold");
+            doc.text("Nome", 50, y, { width: columnWidths[0], align: "left" });
+            doc.text("Email", 240, y, { width: columnWidths[1], align: "left" });
+            doc.text("Cidade", 450, y, { width: columnWidths[2], align: "left" });
+            doc.text("Estado", 550, y, { width: columnWidths[3], align: "left" });
+            doc.text("Tipo de usuário", 600, y, { width: columnWidths[4], align: "left" });
+            doc.moveTo(50, y + rowHeight - 5).lineTo(700, y + rowHeight - 5).stroke();
+        };
+
+        // Desenhar cabeçalho inicial
+        drawTableHeader();
+
+        // Função para verificar se é necessário criar uma nova página
+        const checkPageOverflow = () => {
+            if (y + rowHeight > doc.page.height - 50) {
+                doc.addPage();
+                y = tableTop;
+                drawTableHeader();
+                y += rowHeight; // <-- Move os dados para baixo após o cabeçalho
+            }
+        };
+
+        // Dados da tabela
         doc.font("Helvetica");
         y += rowHeight;
         users.forEach((user) => {
+            checkPageOverflow(); // Verifica se precisa de nova página
             doc.text(user.name, 50, y, { width: columnWidths[0], align: "left" });
-            doc.text(user.email, 250, y, { width: columnWidths[1], align: "left" });
+            doc.text(user.email, 240, y, { width: columnWidths[1], align: "left" });
             doc.text(user.city, 450, y, { width: columnWidths[2], align: "left" });
             doc.text(user.state, 550, y, { width: columnWidths[3], align: "left" });
             doc.text(user.type_user, 600, y, { width: columnWidths[4], align: "left" });
             y += rowHeight;
-        
+
             doc.moveTo(50, y - 5).lineTo(700, y - 5).stroke();
         });
 
@@ -54,7 +71,6 @@ const exportUserPDF = async (req, res) => {
     }
 };
 
-// Função para gerar o PDF de posts
 const exportPostPDF = async (req, res) => {
     try {
         const posts = await postModel.getPosts();
@@ -100,6 +116,7 @@ const exportPostPDF = async (req, res) => {
     }
 };
 
+// Função para gerar documento CSV 
 const exportUserCSV = async (req, res) => {
     try {
         const users = await userModel.getUsers();
