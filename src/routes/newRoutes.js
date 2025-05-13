@@ -65,11 +65,7 @@ router.post("/", newController.createNews);
  *                 type: string
  *               place:
  *                 type: string
- *               image:
- *                 type: string
  *               text:
- *                 type: string
- *               URL:
  *                 type: string
  *     responses:
  *       201:
@@ -102,11 +98,7 @@ router.put("/:id", newController.updateNews);
  *                 type: string
  *               place:
  *                 type: string
- *               image:
- *                 type: string
  *               text:
- *                 type: string
- *               URL:
  *                 type: string
  *     responses:
  *       200:

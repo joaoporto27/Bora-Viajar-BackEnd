@@ -16,22 +16,22 @@ const getNewsById = async (id) => {
 
 //Criar uma notícia
 
-const createNews = async (name, place, image, text, URL) => {
+const createNews = async (name, place, text ) => {
     const result = await pool.query(
-        "INSERT INTO news (name, place, image, text, URL) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-        [name, place, image, text, URL]
+        "INSERT INTO news (name, place, text) VALUES ($1, $2, $3) RETURNING *",
+        [name, place, text]
     );
     return result.rows[0];
 };
 
 //Atualizar uma notícia
 
-const updateNews = async (id, name, place, image, text, URL) => {
+const updateNews = async (id, name, place, text) => {
     const result = await pool.query(
        `UPDATE news 
-        SET name = $1, place = $2, image = $3, text = $4, URL = $5
-        WHERE id = $6 RETURNING *`, 
-        [name, place, image, text, URL, id] 
+        SET name = $1, place = $2, text = $3
+        WHERE id = $4 RETURNING *`, 
+        [name, place, text, id] 
     );
     return result.rows[0];
 };
