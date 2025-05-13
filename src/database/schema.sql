@@ -49,9 +49,7 @@ CREATE TABLE news (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     place VARCHAR(255) NOT NULL,
-    image VARCHAR(255) NOT NULL,
-    text TEXT NOT NULL,
-    URL VARCHAR(255)
+    text TEXT NOT NULL
 );
 
 -- INSERTS da tabela USERS: usuários
@@ -527,7 +525,7 @@ INSERT INTO regions (name, state, text, links) VALUES
 ('Brasília (distrito federal)', 'DF', 'A capital federal do Brasil é reconhecida por sua arquitetura modernista, projetada por Oscar Niemeyer. Pontos turísticos como a Catedral Metropolitana, o Congresso Nacional e o Palácio da Alvorada são imperdíveis.', 'https://www.tripadvisor.com.br/Attractions-g303322-Activities-Brasilia_Federal_District.html');
 
 -- INSERTS da tabela NEWS
-INSERT INTO news (name, place, image, text, URL) VALUES
-('Notícia 1', 'São Paulo', 'https://example.com/news1.jpg', 'Texto da notícia 1', 'https://example.com/news1'),
-('Notícia 2', 'Rio de Janeiro', 'https://example.com/news2.jpg', 'Texto da notícia 2', 'https://example.com/news2'),
-('Notícia 3', 'Minas Gerais', 'https://example.com/news3.jpg', 'Texto da notícia 3', 'https://example.com/news3');
+INSERT INTO news (name, place, text) VALUES
+('Notícia 1', 'São Paulo', 'Texto da notícia 1' ),
+('Notícia 2', 'Rio de Janeiro', 'Texto da notícia 2'),
+('Notícia 3', 'Minas Gerais', 'Texto da notícia 3');
