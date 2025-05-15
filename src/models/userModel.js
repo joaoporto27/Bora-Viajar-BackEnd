@@ -1,9 +1,17 @@
 const pool = require("../config/database");
 
 //Buscar todos os usuários
-const getUsers = async () => {
-    const result = await pool.query("SELECT * FROM users");
-    return result.rows;
+const getUsers = async (name) => {
+    if (!name) {
+        const result = await pool.query("SELECT * FROM users");
+        return result.rows
+       } else {
+        const result = await pool.query(
+            "SELECT * FROM users WHERE name ILIKE $1",
+            [`%${name}%`]);
+        return result.rows;
+       }
+    
 };
 
 //Buscar um usuário pelo id
