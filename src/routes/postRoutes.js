@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const postController = require("../controllers/postController");
+const upload = require("./../config/upload.js");
 
 /**
  * @swagger
@@ -44,7 +45,7 @@ router.get("/posts/:id", postController.getPostById);
  */
 
 // Rota para criar um post
-router.post("/posts", postController.createPost);
+router.post("/posts", upload.single("photo"), postController.createPost);
 /**
  * @swagger
  * /api/posts:

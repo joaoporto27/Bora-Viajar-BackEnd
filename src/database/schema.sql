@@ -26,34 +26,6 @@ CREATE TABLE posts (
     tag VARCHAR(100),
     likes_count INTEGER DEFAULT 0
 );
-CREATE DATABASE bora_viajar;
-
-\c bora_viajar;
-
--- Tabela de USERS
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    city VARCHAR(120) NOT NULL,
-    state VARCHAR(120) NOT NULL,
-    type_user VARCHAR(20) DEFAULT 'usuário',
-    password VARCHAR(15) NOT NULL
-);
-
--- Alteração da tabela USERS
-
-ALTER TABLE users ADD COLUMN photo TEXT;
-
--- Tabela de POSTS
-CREATE TABLE posts (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    image TEXT,
-    description TEXT NOT NULL,
-    tag VARCHAR(100),
-    likes_count INTEGER DEFAULT 0
-);
 
 -- Tabela de COMMENTS
 CREATE TABLE comments (
@@ -82,92 +54,126 @@ CREATE TABLE news (
 
 -- INSERTS da tabela USERS: usuários
 INSERT INTO users (name, email, city, state, type_user, password) VALUES
-('Amanda Gomes Mechi', 'amanda.mechi@aluno.senai.br', 'Campinas', 'SP', 'usuário','123456'),
-('Andre Lucca Santos', 'andre.l.santos45@aluno.senai.br', 'Campinas', 'SP', 'guia turístico','234561'),
-('Flavia Regina Alexandre Mendes', 'flavia.r.mendes@aluno.senai.br', 'Campinas', 'SP', 'usuário','345612'),
-('Giovanna Caron de Barros', 'giovanna.c.barros@aluno.senai.br', 'Valinhos', 'SP', 'guia turístico','456123'),
-('Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@aluno.senai.br', 'Valinhos', 'SP', 'usuário','567234'),
-('João Vitor Porto Sales', 'joao.v.sales15@aluno.senai.br', 'Campinas', 'SP', 'guia turístico','678345'),
-('Laura Ferreira Violla', 'laura.violla@aluno.senai.br', 'Valinhos', 'SP', 'usuário','789456'),
-('Carlos Silva', 'carlos.silva1@gmail.com', 'São Paulo', 'SP', 'usuário', '512735'),
-('Ana Oliveira', 'ana.oliveira2@gmail.com', 'Rio de Janeiro', 'RJ', 'usuário', '184767'),
-('Marcos Souza', 'marcos.souza3@gmail.com', 'Belo Horizonte', 'MG', 'usuário', '941209'),
-('Juliana Lima', 'juliana.lima4@gmail.com', 'Curitiba', 'PR', 'usuário', '408734'),
-('Rafael Costa', 'rafael.costa5@gmail.com', 'Porto Alegre', 'RS', 'usuário', '089987'),
-('Fernanda Rocha', 'fernanda.rocha6@gmail.com', 'Recife', 'PE', 'usuário', '555133'),
-('Lucas Martins', 'lucas.martins7@gmail.com', 'Salvador', 'BA', 'usuário', '576843'),
-('Camila Ribeiro', 'camila.ribeiro8@gmail.com', 'Brasília', 'DF', 'usuário', '216441'),
-('Pedro Almeida', 'pedro.almeida9@gmail.com', 'Fortaleza', 'CE', 'usuário', '418251'),
-('Aline Mendes', 'aline.mendes10@gmail.com', 'Manaus', 'AM', 'usuário', '442272'),
-('Vinícius Andrade', 'vinicius.andrade101@gmail.com', 'Campinas', 'SP', 'usuário', '180577'),
-('Patrícia Moraes', 'patricia.moraes102@gmail.com', 'Maceió', 'AL', 'usuário', '900128'),
-('Bruno Teixeira', 'bruno.teixeira103@gmail.com', 'João Pessoa', 'PB', 'usuário', '769424'),
-('Larissa Pires', 'larissa.pires104@gmail.com', 'São Luís', 'MA', 'usuário', '638515'),
-('Tiago Nunes', 'tiago.nunes105@gmail.com', 'Goiânia', 'GO', 'usuário', '378299'),
-('Amanda Barreto', 'amanda.barreto201@gmail.com', 'Blumenau', 'SC', 'usuário', '717463'),
-('João Vitor Sales', 'joao.sales202@gmail.com', 'Cuiabá', 'MT', 'usuário', '504921'),
-('Luana Neves', 'luana.neves203@hotmail.com', 'Palmas', 'TO', 'usuário', '137840'),
-('Henrique Batista', 'henrique.batista204@hotmail.com', 'Vitória', 'ES', 'usuário', '801356'),
-('Bruna Costa', 'bruna.costa205@hotmail.com', 'Maringá', 'PR', 'usuário', '370614'),
-('André Souza', 'andre.souza206@hotmail.com', 'Londrina', 'PR', 'usuário', '939015'),
-('Tatiane Silva', 'tatiane.silva207@hotmail.com', 'Caxias do Sul', 'RS', 'usuário', '905764'),
-('Douglas Fernandes', 'douglas.fernandes208@hotmail.com', 'Ribeirão Preto', 'SP', 'usuário', '425876'),
-('Letícia Gomes', 'leticia.gomes209@hotmail.com', 'Santarém', 'PA', 'usuário', '304881'),
-('Gabriel Monteiro', 'gabriel.monteiro210@hotmail.com', 'São José dos Campos', 'SP', 'usuário', '717008'),
-('Lorena Dias', 'lorena.dias211@hotmail.com', 'Uberlândia', 'MG', 'usuário', '643917'),
-('Fábio Pimentel', 'fabio.pimentel212@hotmail.com', 'Bauru', 'SP', 'usuário', '382112'),
-('Rayssa Lopes', 'rayssa.lopes213@hotmail.com', 'Aracaju', 'SE', 'usuário', '181202'),
-('Caio Antunes', 'caio.antunes214@hotmail.com', 'Macapá', 'AP', 'usuário', '641973'),
-('Isis Ferreira', 'isis.ferreira215@hotmail.com', 'Boa Vista', 'RR', 'usuário', '104559'),
-('Eduarda Martins', 'eduarda.martins216@hotmail.com', 'Joinville', 'SC', 'usuário', '178194'),
-('Matheus Rocha', 'matheus.rocha217@hotmail.com', 'São Bernardo do Campo', 'SP', 'usuário', '698730'),
-('Yasmin Duarte', 'yasmin.duarte218@hotmail.com', 'Teresina', 'PI', 'usuário', '390458'),
-('Diego Cunha', 'diego.cunha219@hotmail.com', 'Caruaru', 'PE', 'usuário', '952316'),
-('Rebeca Vasconcelos', 'rebeca.vasconcelos220@hotmail.com', 'Juazeiro do Norte', 'CE', 'usuário', '820013');
+('Amanda Gomes Mechi', 'amanda.mechi@gmail.com', 'Campinas', 'SP', 'Usuário','123456!@'),
+('Andre Lucca Santos', 'andre.l.santos45@gmail.com', 'Campinas', 'SP', 'Usuário','234561$'),
+('Flavia Regina Alexandre Mendes', 'flavia.r.mendes@gmail.com', 'Campinas', 'SP', 'Usuário','345612%'),
+('Giovanna Caron de Barros', 'giovanna.c.barros@gmail.com', 'Valinhos', 'SP', 'Usuário','456123@'),
+('Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@gmail.com', 'Valinhos', 'SP', 'Usuário','567234%'),
+('João Vitor Porto Sales', 'joao.v.sales15@gmail.com', 'Campinas', 'SP', 'Usuário','678345#'),
+('Laura Ferreira Violla', 'laura.violla@gmail.com', 'Valinhos', 'SP', 'Usuário','789456#'),
+('Carlos Silva', 'carlos.silva1@gmail.com', 'São Paulo', 'SP', 'Usuário', '512735$'),
+('Vinícius Andrade', 'vinicius.andrade101@gmail.com', 'Campinas', 'SP', 'Usuário', '180577%'),
+('Matheus Rocha', 'matheus.rocha217@gmail.com', 'São Bernardo do Campo', 'SP', 'Usuário', '698730&'),
+('Ana Oliveira', 'ana.oliveira2@gmail.com', 'Rio de Janeiro', 'RJ', 'Usuário', '184767#'),
+('Marcos Souza', 'marcos.souza3@gmail.com', 'Belo Horizonte', 'MG', 'Usuário', '941291#'),
+('Juliana Lima', 'juliana.lima4@gmail.com', 'Curitiba', 'PR', 'Usuário', '408734#'),
+('Bruna Costa', 'bruna.costa205@gmail.com', 'Maringá', 'PR', 'Usuário', '370614#'),
+('André Souza', 'andre.souza206@gmail.com', 'Londrina', 'PR', 'Usuário', '939015#'),
+('Rafael Costa', 'rafael.costa5@gmail.com', 'Porto Alegre', 'RS', 'Usuário', '089987@'),
+('Tatiane Silva', 'tatiane.silva207@gmail.com', 'Caxias do Sul', 'RS', 'Usuário', '905764@'),
+('Fernanda Rocha', 'fernanda.rocha6@gmail.com', 'Recife', 'PE', 'Usuário', '555133@'),
+('Lucas Martins', 'lucas.martins7@gmail.com', 'Salvador', 'BA', 'Usuário', '576843$'),
+('Camila Ribeiro', 'camila.ribeiro8@gmail.com', 'Brasília', 'DF', 'Usuário', '216441$'),
+('Pedro Almeida', 'pedro.almeida9@gmail.com', 'Fortaleza', 'CE', 'Usuário', '418251$')
+('Aline Mendes', 'aline.mendes10@gmail.com', 'Manaus', 'AM', 'Usuário', '442272#'),
+('Patrícia Moraes', 'patricia.moraes102@gmail.com', 'Maceió', 'AL', 'Usuário', '900128#'),
+('Bruno Teixeira', 'bruno.teixeira103@gmail.com', 'João Pessoa', 'PB', 'Usuário', '769424#'),
+('Larissa Pires', 'larissa.pires104@gmail.com', 'São Luís', 'MA', 'Usuário', '638515@'),
+('Tiago Nunes', 'tiago.nunes105@gmail.com', 'Goiânia', 'GO', 'Usuário', '378299@'),
+('Amanda Barreto', 'amanda.barreto201@gmail.com', 'Blumenau', 'SC', 'Usuário', '717463@'),
+('João Vitor Sales', 'joao.sales202@gmail.com', 'Cuiabá', 'MT', 'Usuário', '5049215%'),
+('Luana Neves', 'luana.neves203@gmail.com', 'Palmas', 'TO', 'Usuário', '137840%'),
+('Letícia Gomes', 'leticia.gomes209@gmail.com', 'Santarém', 'PA', 'Usuário', '304881$'),
+('Rayssa Lopes', 'rayssa.lopes213@gmail.com', 'Aracaju', 'SE', 'Usuário', '181202#'),
+('Caio Antunes', 'caio.antunes214@gmail.com', 'Macapá', 'AP', 'Usuário', '641973#'),
+('Yasmin Duarte', 'yasmin.duarte218@gmail.com', 'Teresina', 'PI', 'Usuário', '390458#'),
+('Larissa Freitas', 'larissa.freitas233@gmail.com', 'Vitória', 'ES', 'Usuário', '213904!'),
+('Rafael Castro', 'rafael.castro234@gmail.com', 'Palmas', 'TO', 'Usuário', '785412!'),
+('Juliana Paiva', 'juliana.paiva235@gmail.com', 'São Paulo', 'SP', 'Usuário', '634291!'),
+('André Nascimento', 'andre.nascimento236@gmail.com', 'Rio de Janeiro', 'RJ', 'Usuário', '981276!'),
+('Bruna Oliveira', 'bruna.oliveira237@gmail.com', 'Curitiba', 'PR', 'Usuário', '453018!'),
+('Henrique Souza', 'henrique.souza238@gmail.com', 'Recife', 'PE', 'Usuário', '719830!'),
+('Letícia Andrade', 'leticia.andrade239@gmail.com', 'Porto Seguro', 'BA', 'Usuário', '168392!'),
+('Gustavo Moura', 'gustavo.moura240@gmail.com', 'João Pessoa', 'PB', 'Usuário', '823105!'),
+('Marina Duarte', 'marina.duarte241@gmail.com', 'Aracaju', 'SE', 'Usuário', '290186!'),
+('Eduardo Pinto', 'eduardo.pinto242@gmail.com', 'Macapá', 'AP', 'Usuário', '331094!'),
+('Talita Ribeiro', 'talita.ribeiro243@gmail.com', 'Rio Branco', 'AC', 'Usuário', '557319!'),
+('César Martins', 'cesar.martins244@gmail.com', 'Boa Vista', 'RR', 'Usuário', '671042!'),
+('Mirela Cardoso', 'mirela.cardoso245@gmail.com', 'Petrolina', 'PE', 'Usuário', '442011!'),
+('Paulo Henrique', 'paulo.henrique246@gmail.com', 'Maragogi', 'AL', 'Usuário', '799034!'),
+('Nina Bastos', 'nina.bastos247@gmail.com', 'Chapada dos Veadeiros', 'GO', 'Usuário', '915376!'),
+('Alana Cruz', 'alana.cruz248@gmail.com', 'Foz do Iguaçu', 'PR', 'Usuário', '348190!'),
+('Sabrina Teles', 'sabrina.teles249@gmail.com', 'Paraty', 'RJ', 'Usuário', '624781#'),
+('Fernando Mello', 'fernando.mello250@gmail.com', 'São Luís', 'MA', 'Usuário', '813470#'),
+('Amanda Prado', 'amanda.prado251@gmail.com', 'Balneário Camboriú', 'SC', 'Usuário', '938624#'),
+('Tatiana Correia', 'tatiana.correia253@gmail.com', 'Vitória da Conquista', 'BA', 'Usuário', '409782#'),
+('Cristiano Neves', 'cristiano.neves254@gmail.com', 'Campina Grande', 'PB', 'Usuário', '517209#'),
+('Elisa Martins', 'elisa.martins255@gmail.com', 'Altamira', 'PA', 'Usuário', '374821#'),
+('Rodrigo Sales', 'rodrigo.sales256@gmail.com', 'Rondonópolis', 'MT', 'Usuário', '902184#'),
+('Marcela Luz', 'marcela.luz258@gmail.com', 'Teresópolis', 'RJ', 'Usuário', '281905@'),
+('Eduardo Lima', 'eduardo.lima259@gmail.com', 'Caxias do Sul', 'RS', 'Usuário', '650378@'),
+('Júlia Viana', 'julia.viana260@gmail.com', 'Franca', 'SP', 'Usuário', '195024@'),
+('Mariane Costa', 'mariane.costa262@gmail.com', 'Itabuna', 'BA', 'Usuário', '347902@');
 
 -- INSERTS da tabela USERS: guia turístico
 INSERT INTO users (name, email, city, state, type_user, password) VALUES
-('Eduardo Campos', 'eduardo.campos181@hotmail.com', 'Foz do Iguaçu', 'PR', 'guia turístico', '781304'),
-('Daniela Freitas', 'daniela.freitas182@gmail.com', 'Olinda', 'PE', 'guia turístico', '954702'),
-('Rodrigo Leal', 'rodrigo.leal183@gmail.com', 'Paraty', 'RJ', 'guia turístico', '430872'),
-('Vanessa Prado', 'vanessa.prado184@gmail.com', 'Bonito', 'MS', 'guia turístico', '629103'),
-('Sérgio Araújo', 'sergio.araujo185@gmail.com', 'Lençóis', 'BA', 'guia turístico', '206187'),
-('Beatriz Tavares', 'beatriz.tavares186@gmail.com', 'Gramado', 'RS', 'guia turístico', '540161'),
-('Marcelo Barros', 'marcelo.barros187@gmail.com', 'Ouro Preto', 'MG', 'guia turístico', '811935'),
-('Tatiane Lopes', 'tatiane.lopes188@gmail.com', 'Fernando de Noronha', 'PE', 'guia turístico', '731508'),
-('Rogério Melo', 'rogerio.melo189@gmail.com', 'Chapada dos Veadeiros', 'GO', 'guia turístico', '647091'),
-('Cíntia Fernandes', 'cintia.fernandes190@gmail.com', 'Ilhabela', 'SP', 'guia turístico', '300742'),
-('Gustavo Reis', 'gustavo.reis191@gmail.com', 'Petrolina', 'PE', 'guia turístico', '284105'),
-('Isabela Rocha', 'isabela.rocha192@gmail.com', 'Caldas Novas', 'GO', 'guia turístico', '578619'),
-('Alexandre Duarte', 'alexandre.duarte193@gmail.com', 'Ilhéus', 'BA', 'guia turístico', '457680'),
+('Cíntia Fernandes', 'cintia.fernandes190@gmail.com', 'Ilhabela', 'SP', 'Guia turístico', '300742@'),
+('Rodrigo Leal', 'rodrigo.leal183@gmail.com', 'Paraty', 'RJ', 'Guia turístico', '430872@'),
+('Marcelo Barros', 'marcelo.barros187@gmail.com', 'Ouro Preto', 'MG', 'Guia turístico', '811935@'),
+('Eduardo Campos', 'eduardo.campos181@gmail.com', 'Foz do Iguaçu', 'PR', 'Guia turístico', '781304@'),
+('Beatriz Tavares', 'beatriz.tavares186@gmail.com', 'Gramado', 'RS', 'Guia turístico', '540161#'),
+('Daniela Freitas', 'daniela.freitas182@gmail.com', 'Olinda', 'PE', 'Guia turístico', '954702#'),
+('Tatiane Lopes', 'tatiane.lopes188@gmail.com', 'Fernando de Noronha', 'PE', 'Guia turístico', '731508%'),
+('Sérgio Araújo', 'sergio.araujo185@gmail.com', 'Lençóis', 'BA', 'Guia turístico', '206187%'),
+('Vanessa Prado', 'vanessa.prado184@gmail.com', 'Bonito', 'MS', 'Guia turístico', '629103%'),
+('Rogério Melo', 'rogerio.melo189@gmail.com', 'Chapada dos Veadeiros', 'GO', 'Guia turístico', '647091%'),
+('Gustavo Reis', 'gustavo.reis191@gmail.com', 'Petrolina', 'PE', 'Guia turístico', '284105%'),
+('Leandro Rocha', 'leandro.rocha252@gmail.com', 'Porto Velho', 'RO', 'guia turístico', '110348#'),
+('Daniela Furtado', 'daniela.furtado257@gmail.com', 'São João del-Rei', 'MG', 'guia turístico', '764392@'),
+('Pedro Cunha', 'pedro.cunha261@gmail.com', 'Piracicaba', 'SP', 'guia turístico', '817402@'),
+('Otávio Nunes', 'otavio.nunes263@gmail.com', 'Penedo', 'AL', 'guia turístico', '713289@');
+
+-- INSERTS da tabela USERS: sem fotos
+INSERT INTO users (name, email, city, state, type_user, password) VALUES
+('Douglas Fernandes', 'douglas.fernandes208@gmail.com', 'Ribeirão Preto', 'SP', 'Usuário', '425876'),
+('Gabriel Monteiro', 'gabriel.monteiro210@gmail.com', 'São José dos Campos', 'SP', 'Usuário', '717008'),
+('Fábio Pimentel', 'fabio.pimentel212@gmail.com', 'Bauru', 'SP', 'Usuário', '382112'),
+('Murilo Batista', 'murilo.batista199@gmail.com', 'Ubatuba', 'SP', 'guia turístico', '794320'),
+('Natália Gomes', 'natalia.gomes196@gmail.com', 'Arraial do Cabo', 'RJ', 'guia turístico', '602513'),
+('Lorena Dias', 'lorena.dias211@gmail.com', 'Uberlândia', 'MG', 'Usuário', '643917'),
 ('Priscila Martins', 'priscila.martins194@gmail.com', 'Tiradentes', 'MG', 'guia turístico', '810026'),
 ('Ricardo Farias', 'ricardo.farias195@gmail.com', 'Canela', 'RS', 'guia turístico', '990348'),
-('Natália Gomes', 'natalia.gomes196@gmail.com', 'Arraial do Cabo', 'RJ', 'guia turístico', '602513'),
+('Diego Cunha', 'diego.cunha219@gmail.com', 'Caruaru', 'PE', 'Usuário', '952316'),
+('Alexandre Duarte', 'alexandre.duarte193@gmail.com', 'Ilhéus', 'BA', 'guia turístico', '457680'),
+('Helena Carvalho', 'helena.carvalho200@gmail.com', 'Itacaré', 'BA', 'guia turístico', '239851'),
+('Isis Ferreira', 'isis.ferreira215@gmail.com', 'Boa Vista', 'RR', 'Usuário', '104559'),
+('Eduarda Martins', 'eduarda.martins216@gmail.com', 'Joinville', 'SC', 'Usuário', '178194'),
+('Rebeca Vasconcelos', 'rebeca.vasconcelos220@gmail.com', 'Juazeiro do Norte', 'CE', 'Usuário', '820013'),
 ('Felipe Soares', 'felipe.soares197@gmail.com', 'Jericoacoara', 'CE', 'guia turístico', '928471'),
 ('Jéssica Castro', 'jessica.castro198@gmail.com', 'São Miguel dos Milagres', 'AL', 'guia turístico', '153709'),
-('Murilo Batista', 'murilo.batista199@gmail.com', 'Ubatuba', 'SP', 'guia turístico', '794320'),
-('Helena Carvalho', 'helena.carvalho200@gmail.com', 'Itacaré', 'BA', 'guia turístico', '239851');
+
+
 
 -- INSERTS da tabela POSTS
 INSERT INTO posts (user_id, description, tag) VALUES
 (38, 'ALERTA: Algumas lagoas dos Lençóis Maranhenses estão com menor volume de água este mês por causa das chuvas irregulares. Melhor confirmar com os guias antes de agendar passeio.', 'ALERTA'),
-(15, 'PROMOÇÃO imperdível em Gramado! Reserve 3 noites e ganhe um jantar colonial completo em um dos cafés artesanais parceiros da nova rota gourmet.', 'PROMOÇÃO'),
+(88, 'PROMOÇÃO imperdível em Gramado! Reserve 3 noites e ganhe um jantar colonial completo em um dos cafés artesanais parceiros da nova rota gourmet.', 'PROMOÇÃO'),
 (7, 'PROMOÇÃO em Alter do Chão! Hospedagem flutuante com desconto para reservas feitas até o fim do mês. Ideal pra quem quer dormir com vista pro rio.', 'PROMOÇÃO'),
 (61, 'PROMOÇÃO em Porto de Galinhas (PE): pacotes com desconto de 30% para quem reserva até domingo. Ótimo para famílias com crianças!', 'PROMOÇÃO'),
 (53, 'ALERTA: Em Manaus (AM), o porto está parcialmente fechado para embarques turísticos devido à cheia do rio Negro. Verifiquem antes de comprar passeio.', 'ALERTA'),
-(36, 'A Serra do Cipó (MG) me surpreendeu! Trilhas lindas, cachoeiras de águas cristalinas e um clima perfeito pra quem curte natureza e sossego.', 'NOVIDADES'),
-(11, 'PROMOÇÃO na Chapada Diamantina (BA): pousadas em Lençóis com até 40% de desconto no mês de junho. Aproveitem antes da alta temporada!', 'PROMOÇÃO'),
+(78, 'A Serra do Cipó (MG) me surpreendeu! Trilhas lindas, cachoeiras de águas cristalinas e um clima perfeito pra quem curte natureza e sossego.', 'NOVIDADES'),
+(76, 'PROMOÇÃO na Chapada Diamantina (BA): pousadas em Lençóis com até 40% de desconto no mês de junho. Aproveitem antes da alta temporada!', 'PROMOÇÃO'),
 (21, 'ALERTA: Forte calor em Palmas (TO), especialmente nas trilhas do Parque Estadual do Lajeado. Leve bastante água e evite caminhadas no horário de pico.', 'ALERTA'),
 (14, 'ALERTA: A travessia de balsa está com longas filas nos fins de semana. (Ilhabela (SP))', 'ALERTA'),
 (10, 'PROMOÇÃO em Lençóis (BA)! Nova sinalização nas trilhas da Chapada garante mais segurança.', 'PROMOÇÃO'),
 (31, 'PROMOÇÃO em Canela (RS)! Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'PROMOÇÃO'),
-(46, 'ALERTA: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA'),
+(90, 'ALERTA: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA'),
 (56, 'PROMOÇÃO em Foz do Iguaçu (PR)! Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMOÇÃO'),
 (13, 'PROMOÇÃO em Belém (PA)! Mercado Ver-o-Peso restaurado com nova área gastronômica.', 'PROMOÇÃO'),
 (48, 'PROMOÇÃO em João Pessoa (PB)! Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMOÇÃO'),
 (17, 'PROMOÇÃO em Natal (RN)! Passeio de buggy pelas dunas está com 20% de desconto.', 'PROMOÇÃO'),
 (8, 'Aproveite a PROMOÇÃO em São Miguel do Gostoso (RN): Praia calma e vento constante, ótimo para kitesurf.', 'PROMOÇÃO' ),
-(15, 'Aproveite a PROMOÇÃO em Canela (RS): Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'PROMOÇÃO' ),
+(88, 'Aproveite a PROMOÇÃO em Canela (RS): Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'PROMOÇÃO' ),
 (7, 'Aproveite a PROMOÇÃO em Natal (RN): Passeio de buggy pelas dunas está com 20% de desconto.', 'PROMOÇÃO' ),
 (30, 'Aproveite a PROMOÇÃO em Arraial do Cabo (RJ): ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'PROMOÇÃO' ),
 (23, 'ATENÇÃO: Orla nova com ciclovia e feirinhas noturnas animadas. (João Pessoa (PB))', 'ALERTA' ),
@@ -178,7 +184,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (5, 'ATENÇÃO: Mercado Ver-o-Peso restaurado com nova área gastronômica. (Belém (PA))', 'ALERTA' ),
 (40, 'Aproveite a PROMOÇÃO em Natal (RN): Passeio de buggy pelas dunas está com 20% de desconto.', 'PROMOÇÃO' ),
 (23, 'ATENÇÃO: Nova iluminação na Catedral de Pedra está deslumbrante à noite. (Canela (RS))', 'ALERTA' ),
-(36, 'Aproveite a PROMOÇÃO em Vale dos Vinhedos (RS): Tour noturno com degustação, vinícolas encantadoras.', 'PROMOÇÃO' ),
+(78, 'Aproveite a PROMOÇÃO em Vale dos Vinhedos (RS): Tour noturno com degustação, vinícolas encantadoras.', 'PROMOÇÃO' ),
 (4, 'ATENÇÃO: Nova iluminação na Catedral de Pedra está deslumbrante à noite. (Canela (RS))', 'ALERTA' ),
 (55, 'Aproveite a PROMOÇÃO em Jalapão (TO): Os fervedouros são impressionantes e a paisagem é surreal.', 'PROMOÇÃO' ),
 (7, 'Aproveite a PROMOÇÃO em Pipa (RN): Pousadas com diária reduzida durante o meio da semana.', 'PROMOÇÃO' ),
@@ -197,7 +203,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (38, 'Aproveite a PROMOÇÃO em Foz do Iguaçu (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMOÇÃO' ),
 (21, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
 (58, 'Aproveite a PROMOÇÃO em Jalapão (TO): Os fervedouros são impressionantes e a paisagem é surreal.', 'PROMOÇÃO' ),
-(36, 'ATENÇÃO: O porto está parcialmente fechado devido à cheia do rio Negro. (Manaus (AM))', 'ALERTA' ),
+(78, 'ATENÇÃO: O porto está parcialmente fechado devido à cheia do rio Negro. (Manaus (AM))', 'ALERTA' ),
 (29, 'Aproveite a PROMOÇÃO em Manaus (AM): O porto está parcialmente fechado devido à cheia do rio Negro.', 'PROMOÇÃO' ),
 (22, 'ATENÇÃO: Praia calma e vento constante, ótimo para kitesurf. (São Miguel do Gostoso (RN))', 'ALERTA' ),
 (44, 'Aproveite a PROMOÇÃO em Arraial do Cabo (RJ): ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'PROMOÇÃO' ),
@@ -215,7 +221,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (54, 'Aproveite a PROMOÇÃO em Lençóis (BA): Nova sinalização nas trilhas da Chapada garante mais segurança.', 'PROMOÇÃO' ),
 (26, 'Aproveite a PROMOÇÃO em Porto de Galinhas (PE): Pacotes com desconto de 30% para reservas até domingo.', 'PROMOÇÃO' ),
 (3, 'Aproveite a PROMOÇÃO em Ilhabela (SP): A travessia de balsa está com longas filas nos fins de semana.', 'PROMOÇÃO' ),
-(11, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
+(76, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
 (23, 'ATENÇÃO: Pousadas em Lençóis com até 40% de desconto em junho. (Chapada Diamantina (BA))', 'ALERTA' ),
 (56, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
 (7, 'ATENÇÃO: Os fervedouros são impressionantes e a paisagem é surreal. (Jalapão (TO))', 'ALERTA' ),
@@ -224,10 +230,10 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (45, 'Aproveite a PROMOÇÃO em Lençóis (BA): Nova sinalização nas trilhas da Chapada garante mais segurança.', 'PROMOÇÃO' ),
 (17, 'Aproveite a PROMOÇÃO em Pipa (RN): Pousadas com diária reduzida durante o meio da semana.', 'PROMOÇÃO' ),
 (58, 'ATENÇÃO: Orla nova com ciclovia e feirinhas noturnas animadas. (João Pessoa (PB))', 'ALERTA' ),
-(62, 'Aproveite a PROMOÇÃO em Foz do Iguaçu (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMOÇÃO' ),
+(82, 'Aproveite a PROMOÇÃO em Foz do Iguaçu (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMOÇÃO' ),
 (13, 'ATENÇÃO: Forte calor nas trilhas do Parque do Lajeado, leve bastante água. (Palmas (TO))', 'ALERTA' ),
 (13, 'Aproveite a PROMOÇÃO em Palmas (TO): Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'PROMOÇÃO' ),
-(36, 'Aproveite a PROMOÇÃO em Manaus (AM): O porto está parcialmente fechado devido à cheia do rio Negro.', 'PROMOÇÃO' ),
+(78, 'Aproveite a PROMOÇÃO em Manaus (AM): O porto está parcialmente fechado devido à cheia do rio Negro.', 'PROMOÇÃO' ),
 (57, 'ATENÇÃO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cipó (MG))', 'ALERTA' ),
 (55, 'ATENÇÃO: ALERTA: Acesso limitado à Praia do Farol por excesso de turistas. (Arraial do Cabo (RJ))', 'ALERTA' ),
 (54, 'ATENÇÃO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cipó (MG))', 'ALERTA' ),
@@ -235,7 +241,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (6, 'Aproveite a PROMOÇÃO em Ilhabela (SP): A travessia de balsa está com longas filas nos fins de semana.', 'PROMOÇÃO' ),
 (18, 'ALERTA: Acesso à Praia do Farol, em Arraial do Cabo (RJ), está restrito devido ao grande número de turistas. Planeje com antecedência.', 'ALERTA'),
 (53, 'PROMOÇÃO em Pipa (RN): Passeios de barco com desconto para quem compra até sexta-feira!', 'PROMOÇÃO'),
-(62, 'Fui a Pirenópolis (GO) no Festival de Inverno, e os shows e a comida típica me conquistaram. Uma verdadeira festa!', 'NOVIDADES'),
+(82, 'Fui a Pirenópolis (GO) no Festival de Inverno, e os shows e a comida típica me conquistaram. Uma verdadeira festa!', 'NOVIDADES'),
 (59, 'ALERTA: O calor está muito intenso em Palmas (TO). Cuidado com as trilhas no Parque Estadual do Lajeado.', 'ALERTA'),
 (44, 'O Mercado Ver-o-Peso em Belém (PA) ficou ainda melhor com a nova área gastronômica. Perfeito para quem ama sabores exóticos!', 'NOVIDADES'),
 (28, 'PROMOÇÃO no Vale dos Vinhedos (RS): Descontos em pacotes turísticos para quem visita mais de duas vinícolas no mesmo dia.', 'PROMOÇÃO'),
@@ -244,11 +250,11 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (08, 'Descubra a histórica cidade de Goiás Velho, repleta de charme colonial.', 'NOVIDADES'),
 (09, 'Promoção especial para o Jalapão! Pacotes com até 30% de desconto.', 'PROMOÇÃO'),
 (10, 'ALERTA: Praia do Gunga está com acesso limitado devido à maré alta.', 'ALERTA'),
-(11, 'Nova rota gastronômica em Tiradentes promete encantar os visitantes.', 'NOVIDADES'),
+(76, 'Nova rota gastronômica em Tiradentes promete encantar os visitantes.', 'NOVIDADES'),
 (12, 'Descontos imperdíveis para conhecer os Lençóis Maranhenses!', 'PROMOÇÃO'),
 (13, 'ALERTA: Forte temporal previsto para a região de Paraty neste fim de semana.', 'ALERTA'),
 (14, 'Explore as belezas naturais da Chapada das Mesas com nossos novos pacotes.', 'NOVIDADES'),
-(15, 'Descontos de até 40% para viagens à Serra do Cipó!', 'PROMOÇÃO'),
+(88, 'Descontos de até 40% para viagens à Serra do Cipó!', 'PROMOÇÃO'),
 (16, 'ALERTA: Interdição temporária da estrada para o Pico da Bandeira por deslizamento.', 'ALERTA'),
 (17, 'Nova trilha ecológica aberta no Parque Estadual do Ibitipoca!', 'NOVIDADES'),
 (18, 'Pacotes promocionais para conhecer o Jalapão com guias locais.', 'PROMOÇÃO'),
@@ -266,7 +272,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (32, 'Festival de música ao ar livre chega ao Vale dos Vinhedos neste mês!', 'NOVIDADES'),
 (33, 'Pacotes promocionais para o Pantanal durante o mês de junho!', 'PROMOÇÃO'),
 (34, 'ALERTA: Forte calor atinge o litoral do Espírito Santo. Evite exposição prolongada.', 'ALERTA'),
-(36, 'Oferta imperdível para explorar a Ilha do Cardoso com desconto!', 'PROMOÇÃO'),
+(78, 'Oferta imperdível para explorar a Ilha do Cardoso com desconto!', 'PROMOÇÃO'),
 (37, 'ALERTA: Acesso à Cachoeira da Fumaça restrito por riscos de queda de rochas.', 'ALERTA'),
 (39, 'Hospedagem em Alter do Chão com até 35% de desconto por tempo limitado.', 'PROMOÇÃO'),
 (40, 'ALERTA: Interdição da travessia para Ilha de Itamaracá por manutenção na balsa.', 'ALERTA'),
@@ -274,7 +280,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (42, 'Promoção especial para roteiros de aventura no Parque do Cantão!', 'PROMOÇÃO'),
 (43, 'ALERTA: Forte correnteza no Rio São Francisco. Cuidado ao praticar esportes aquáticos.', 'ALERTA'),
 (45, 'Hospedagens em pousadas de charme em Paraty com preços especiais!', 'PROMOÇÃO'),
-(46, 'ALERTA: Níveis de poluição do ar elevados em Belo Horizonte. Evite atividades ao ar livre.', 'ALERTA'),
+(90, 'ALERTA: Níveis de poluição do ar elevados em Belo Horizonte. Evite atividades ao ar livre.', 'ALERTA'),
 (48, 'Viagens para Bonito com descontos especiais neste mês!', 'PROMOÇÃO'),
 (49, 'ALERTA: Aviso de ressaca para o litoral sul de São Paulo. Cuidado com o banho de mar.', 'ALERTA'),
 (51, 'Descontos de até 50% para passeios na Rota das Cachoeiras em Goiás!', 'PROMOÇÃO'),
@@ -290,7 +296,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (4, 'ALERTA: Trilha da Pedra Redonda fechada temporariamente por risco de deslizamento.', 'ALERTA'),
 (35, 'Festival de inverno em Campos do Jordão começa com atrações musicais e gastronômicas.', 'NOVIDADES'),
 (61, 'Descontos de baixa temporada para destinos de ecoturismo em Rondônia.', 'PROMOÇÃO'),
-(15, 'ALERTA: Queimadas afetam visibilidade na Chapada dos Guimarães.', 'ALERTA'),
+(88, 'ALERTA: Queimadas afetam visibilidade na Chapada dos Guimarães.', 'ALERTA'),
 (10, 'Hospedagens em Morro de São Paulo com promoções para grupos!', 'PROMOÇÃO'),
 (3, 'ALERTA: Animais silvestres avistados em trilhas do Parque Nacional do Caparaó. Atenção redobrada.', 'ALERTA'),
 (38, 'Pacotes com valores reduzidos para conhecer o Vale do Ribeira!', 'PROMOÇÃO'),
@@ -308,10 +314,10 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (44, 'ALERTA: Forte correnteza no litoral norte da Bahia. Cuidado com crianças e idosos.', 'ALERTA'),
 (14, 'Reabertura de centro histórico em São Luís após restauração de casarões coloniais.', 'NOVIDADES'),
 (31, 'Pacotes para a Chapada dos Veadeiros com até 35% de desconto.', 'PROMOÇÃO'),
-(11, 'ALERTA: Alta concentração de águas-vivas em praias do sul de Santa Catarina.', 'ALERTA'),
+(76, 'ALERTA: Alta concentração de águas-vivas em praias do sul de Santa Catarina.', 'ALERTA'),
 (60, 'Inauguração de ciclofaixa turística em Florianópolis com vista para o mar.', 'NOVIDADES'),
 (55, 'Descontos em pacotes para conhecer o Delta do Parnaíba!', 'PROMOÇÃO'),
-(46, 'ALERTA: Interrupção no fornecimento de energia em pontos turísticos de Natal.', 'ALERTA'),
+(90, 'ALERTA: Interrupção no fornecimento de energia em pontos turísticos de Natal.', 'ALERTA'),
 (22, 'Pacotes com valores especiais para turismo de base comunitária no Xingu!', 'PROMOÇÃO'),
 (30, 'ALERTA: Restrição de visitas em áreas indígenas por motivos sanitários.', 'ALERTA'),
 (1, 'Reabertura de passarela sobre o Rio Tocantins com nova iluminação noturna.', 'NOVIDADES'),
@@ -322,14 +328,14 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (58, 'ALERTA: Interdição temporária no Parque Nacional da Serra da Bocaina por manutenção.', 'ALERTA'),
 (28, 'Festival indígena em Tocantins celebra cultura com atividades abertas ao público.', 'NOVIDADES');
 
--- INSERTS da tabela POSTS
+-- INSERTS da tabela POSTS: com fotos
 INSERT INTO posts (user_id, description, tag) VALUES
 (34, 'Acabei de voltar de Bonito (MS) e fiquei encantado com o novo Mirante da Nascente Azul! A passarela suspensa é incrível e a vista é de tirar o fôlego.', 'NOVIDADES'),
 (1, 'Visitei Ouro Preto no último fim de semana e recomendo muito a nova rota noturna com luzes cênicas. Caminhar pelas ladeiras históricas à noite foi mágico!', 'NOVIDADES'),
 (43, 'ALERTA: Trilha principal da Chapada dos Veadeiros está com interdição parcial para manutenção das passarelas ecológicas. Só está liberado o acesso ao Vale da Lua.', 'ALERTA'),
 (28, 'Fui na FLIP em Paraty e participei de um sarau literário incrível em um dos casarões restaurados. A cidade respira cultura o tempo todo.', 'NOVIDADES'),
 (59, 'Recife está um espetáculo com o Festival Recife na Rua. Tem música, teatro e comidinhas típicas em cada esquina do bairro antigo. Vale muito a visita!', 'NOVIDADES'),
-(62, 'ALERTA: Praia da Joaquina em Florianópolis com forte correnteza nesta semana. Evitem nadar em áreas sem sinalização de segurança.', 'ALERTA'),
+(82, 'ALERTA: Praia da Joaquina em Florianópolis com forte correnteza nesta semana. Evitem nadar em áreas sem sinalização de segurança.', 'ALERTA'),
 (26, 'Achei ótima a nova ciclovia entre a Praia Mole e Lagoa da Conceição. Pedalei com a família inteira e foi super tranquilo!', 'NOVIDADES'),
 (12, 'Visitei o Jalapão (TO) semana passada e fiquei impressionado com os fervedouros! A água parece te empurrar pra cima. Experiência surreal!', 'NOVIDADES'),
 (28, 'ALERTA: Em Ilhabela (SP), a travessia de balsa está com longas filas nos fins de semana. Recomendo ir bem cedo pra evitar atrasos.', 'ALERTA'),
@@ -345,7 +351,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (56, 'Visitei Belém (PA) e adorei! Mercado Ver-o-Peso restaurado com nova área gastronômica.', 'NOVIDADES' ),
 (6, 'Visitei Porto de Galinhas (PE) e adorei! Pacotes com desconto de 30% para reservas até domingo.', 'NOVIDADES' ),
 (45, 'Visitei Brotas (SP) e adorei! Novo circuito de tirolesas foi inaugurado no parque de aventuras.', 'NOVIDADES' ),
-(36, 'Visitei Chapada Diamantina (BA) e adorei! Pousadas em Lençóis com até 40% de desconto em junho.', 'NOVIDADES' ),
+(78, 'Visitei Chapada Diamantina (BA) e adorei! Pousadas em Lençóis com até 40% de desconto em junho.', 'NOVIDADES' ),
 (11, 'Visitei Arraial do Cabo (RJ) e adorei! ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'NOVIDADES' ),
 (32, 'Visitei Natal (RN) e adorei! Passeio de buggy pelas dunas está com 20% de desconto.', 'NOVIDADES' ),
 (8, 'Visitei Manaus (AM) e adorei! O porto está parcialmente fechado devido à cheia do rio Negro.', 'NOVIDADES' ),
@@ -371,6 +377,8 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (32, 'Nova linha de trem turístico ligando Curitiba a Morretes é reinaugurada.', 'NOVIDADES'),
 (26, 'Nova exposição sobre biodiversidade marinha no Museu Nacional da UFRJ.', 'NOVIDADES');
 
+
+
 -- INSERTS da tabela COMMENTS
 INSERT INTO comments (post_id, user_id, comment) VALUES
 (1, 10, 'Esse mirante em Bonito parece imperdível! Quero muito conhecer.'),
@@ -434,7 +442,7 @@ INSERT INTO comments (post_id, user_id, comment) VALUES
 (59, 53, 'Desconto de 30% para pacotes de reservas em Porto de Galinhas até domingo! Aproveite!'),
 (60, 26, 'Pousadas em Pipa com diárias reduzidas durante a semana. Uma ótima oportunidade de aproveitar mais!'),
 (61, 12, 'Desconto em passeios de teleférico em Balneário Camboriú na temporada de inverno. Não perca!'),
-(62, 47, 'Promoção nos passeios de teleférico em Balneário Camboriú! Aproveite o inverno com desconto!'),
+82, 47, 'Promoção nos passeios de teleférico em Balneário Camboriú! Aproveite o inverno com desconto!'),
 (63, 8, 'Pousadas com diária reduzida em Pipa durante o meio da semana. Super recomendada!'),
 (64, 26, 'Desconto de 30% para pacotes de Porto de Galinhas até domingo! Aproveite!'),
 (65, 19, 'Novo circuito de tirolesas em Brotas! Uma aventura e tanto!'),
@@ -505,547 +513,7 @@ INSERT INTO regions (name, state, text) VALUES
 ('Geoglifos do Acre', 'AC', 'Estruturas geométricas misteriosas esculpidas no solo, com mais de 3.000 anos de idade, que despertam interesse arqueológico.');
 
 INSERT INTO regions (name, state, text, links) VALUES
-('Boa Vista (capital)', 'RR', 'Única capital brasileira situada completamente ao norte da linha do Equador e é conhecida por sua proximidade com a natureza e por ser uma cidade com forte presença de influências indígenas e amazônicas.', 'https://www.tripadvisor.com.br/Attractions-g303562-Activities-State_of_Roraima.html');
-INSERT INTO regions (name, state, text) VALUES
-('Monte Roraima', 'RR', 'Uma das formações geológicas mais antigas do planeta, oferece trilhas desafiadoras e vistas deslumbrantes, sendo inspiração para obras como "O Mundo Perdido" de Arthur Conan Doyle.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Palmas (capital)', 'TO', 'Cidade planejada, inaugurada em 1989, e está situada às margens do Lago de Palmas, em uma região de grande beleza natural.', 'https://www.tripadvisor.com.br/Attractions-g303645-Activities-State_of_Tocantins.html');
-INSERT INTO regions (name, state, text) VALUES
-('Jalapão', 'TO', 'Conhecido por suas dunas douradas, fervedouros (poços de água que borbulham devido à pressão da água subterrânea) e cachoeiras, é um destino ideal para quem busca aventura e contato com a natureza.');
-
--- INSERTS da tabela REGIONS: Nordeste
-INSERT INTO regions (name, state, text, links) VALUES
-('Salvador (capital)', 'BA', 'Capital cultural do Brasil, famosa pelo Pelourinho, igrejas históricas e o Elevador Lacerda.', 'https://www.tripadvisor.com.br/Attractions-g303251-Activities-State_of_Bahia.html');
-INSERT INTO regions (name, state, text) VALUES
-('Chapada Diamantina', 'BA', 'Parque nacional com cachoeiras, cavernas e trilhas, ideal para os amantes de ecoturismo.'),
-('Ilha de Itaparica', 'BA', 'Destino tranquilo com praias de águas calmas, perfeito para relaxar.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Recife (capital)', 'PE', 'Cidade com forte influência cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade está situada às margens do Lago Guaíba e é conhecida por sua divePEidade cultural, gastronomia, e seus famosos centros históricos e espaços ao ar livre.', 'https://www.tripadvisor.com.br/Attractions-g303459-Activities-State_of_Pernambuco.html');
-INSERT INTO regions (name, state, text) VALUES
-('Olinda', 'PE', 'Cidade histórica com igrejas barrocas e ladeiras coloridas.'),
-('Porto de Galinhas', 'PE', 'Praias paradisíacas com piscinas naturais e águas cristalinas.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Fortaleza (capital)', 'CE', 'Capital vibrante com praias urbanas como Praia do Futuro e atrações culturais como o Mercado Central.', 'https://www.tripadvisor.com.br/Attractions-g303284-Activities-State_of_Ceara.html');
-INSERT INTO regions (name, state, text) VALUES
-('Jericoacoara', 'CE', 'Vila charmosa com dunas, lagoas e pôr do sol deslumbrante.'),
-('Canoa Quebrada', 'CE', 'Praia famosa por suas falésias vermelhas e vida noturna animada.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('São Luís (capital)', 'MA', 'Centro histórico com casarões coloniais e manifestações culturais como o Bumba Meu Boi.', 'https://www.tripadvisor.com.br/Attractions-g303325-Activities-State_of_Maranhao.html');
-INSERT INTO regions (name, state, text) VALUES
-('Lençóis Maranhenses', 'MA', 'Parque nacional com dunas de areia branca e lagoas de água doce, criando paisagens únicas.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Maceió (capital)', 'AL', 'Praias urbanas como Pajuçara e Ponta Verde, além de lagoas e piscinas naturais.', 'https://www.tripadvisor.com.br/Attractions-g303208-Activities-State_of_Alagoas.html');
-INSERT INTO regions (name, state, text) VALUES
-('Maragogi', 'AL', 'Conhecida como o "Caribe Brasileiro", com suas águas transparentes e recifes de corais.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('João Pessoa (capital)', 'PB', 'Capital tranquila com praias como Tambaú e Cabo Branco, além do Centro Histórico bem preservado.', 'https://www.tripadvisor.com.br/Attractions-g303422-Activities-State_of_Paraiba.html');
-INSERT INTO regions (name, state, text) VALUES
-('Praia de Coqueirinho', 'PB', 'Praia paradisíaca com falésias e águas calmas.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Teresina (capital)', 'PI', 'Capital com rica culinária e proximidade com o Parque Nacional de Sete Cidades, conhecido por suas formações rochosas.', 'https://www.tripadvisor.com.br/Attractions-g303462-Activities-State_of_Piaui.html');
-INSERT INTO regions (name, state, text) VALUES
-('Delta do Parnaíba', 'PI', 'Único delta em mar aberto das Américas, com ilhas e igarapés.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Natal (capital)', 'RN', 'Capital com praias urbanas como Ponta Negra e o famoso Forte dos Reis Magos.', 'https://www.tripadvisor.com.br/Attractions-g303510-Activities-State_of_Rio_Grande_do_Norte.html');
-INSERT INTO regions (name, state, text) VALUES
-('Genipabu', 'RN', 'Conhecida por suas dunas móveis e passeios de buggy.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Aracaju (capital)', 'SE', 'Capital com praias como Atalaia e Orla de Atalaia, além de museus e mercados artesanais.', 'https://www.tripadvisor.com.br/Attractions-g303637-Activities-State_of_Sergipe.html');
-INSERT INTO regions (name, state, text) VALUES
-('Cânion do Xingó', 'SE', 'Formações rochosas impressionantes no Rio São Francisco.');
-
--- INSERTS da tabela REGIONS: Centro-Oeste
-INSERT INTO regions (name, state, text, links) VALUES
-('Goiânia (capital)', 'GO', 'Cidade moderna, planejada, e um dos principais centros urbanos da região Centro-Oeste do Brasil.', 'https://www.tripadvisor.com.br/Attractions-g303323-Activities-State_of_Goias.html');
-INSERT INTO regions (name, state, text) VALUES
-('Chapada dos Veadeiros', 'GO', 'Localizada no estado de Goiás, a Chapada dos Veadeiros é um parque nacional famoso por suas cachoeiras, trilhas e formações rochosas. Destinos como a Cachoeira de Santa Bárbara e a Cachoeira do Segredo são altamente recomendados para os amantes de natureza.'),
-('Rio Quente', 'GO', 'Situado no estado de Goiás, Rio Quente é famoso por suas águas termais, com temperaturas que chegam a 38°C. O Hot Park é um dos maiores parques aquáticos da região e oferece diversas atrações para todas as idades.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Cuiabá (capital)', 'MT', 'Conhecida como a "porta de entrada para o Pantanal" e também pela sua localização geográfica única: é considerada o centro da América do Sul.', 'https://www.tripadvisor.com.br/Attractions-g303346-Activities-State_of_Mato_Grosso.html');
-INSERT INTO regions (name, state, text) VALUES
-('Chapada dos Guimarães', 'MT', 'Próxima à Cuiabá, a Chapada dos Guimarães é conhecida por suas cachoeiras, cavernas e mirantes. O Parque Nacional da Chapada dos Guimarães é um local ideal para trilhas e observação da fauna local.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Campo Grande (capital)', 'MS', 'Conhecida como a "Cidade Morena" devido à coloração avermelhada de seu solo, Campo Grande é um importante centro urbano e econômico do Centro-Oeste do Brasil. A cidade é uma mistura de culturas indígenas, sul-mato-grossense, paraguaia e pantaneira.', 'https://www.tripadvisor.com.br/Attractions-g303368-Activities-State_of_Mato_Grosso_do_Sul.html');
-INSERT INTO regions (name, state, text) VALUES
-('Bonito', 'MS', 'Famosa por suas águas cristalinas, Bonito oferece atividades como flutuação em rios, visita a cavernas e cachoeiras. A Gruta da Lagoa Azul e o Abismo Anhumas são atrações renomadas.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Brasília (distrito federal)', 'DF', 'A capital federal do Brasil é reconhecida por sua arquitetura modernista, projetada por Oscar Niemeyer. Pontos turísticos como a Catedral Metropolitana, o Congresso Nacional e o Palácio da Alvorada são imperdíveis.', 'https://www.tripadvisor.com.br/Attractions-g303322-Activities-Brasilia_Federal_District.html');
-
--- INSERTS da tabela NEWS
-INSERT INTO news (name, place, text) VALUES
-('Festival de Cinema agita a Serra Gaúcha com novas atrações gastronômicas', 'Gramado (RS)', 'A charmosa cidade de Gramado está em clima de celebração com o aguardado Festival de Cinema de 2025. O evento, que atrai artistas e turistas de todo o Brasil, traz neste ano uma mostra dedicada ao cinema latino-americano contemporâneo. Além disso, a prefeitura lançou a Rota do Café Colonial Artesanal, reunindo 18 produtores locais que oferecem experiências únicas de sabores coloniais em ambientes rústicos e acolhedores. A iluminação temática nas ruas centrais completa o cenário encantador.' ),
-('Novo mirante e passarelas ecológicas valorizam o ecoturismo', 'Bonito (MS)', 'Bonito continua sendo referência em turismo sustentável, e acaba de inaugurar o "Mirante da Nascente Azul", com passarelas suspensas que oferecem uma visão aérea das águas cristalinas e da fauna local. Com foco na preservação e na acessibilidade, o complexo agora conta também com trilhas inclusivas para cadeirantes e idosos, além de áreas de descanso com sombra e sinalização ambiental educativa. A cidade recebe ainda, neste mês, a Feira de Turismo Ecológico do Centro-Oeste, reunindo especialistas e operadores de turismo.'),
-('Festival de esportes aquáticos e novas trilhas de aventura', 'Jericoacoara (CE)', 'A paradisíaca vila de Jericoacoara realizou a primeira edição do Festival de Kite e Windsurf Sustentável, que reuniu atletas de todo o país em competições que valorizam práticas de baixo impacto ambiental. Novas trilhas ecológicas para quadriciclos e caminhadas foram abertas na área da Pedra Furada, com sinalização bilíngue e mirantes panorâmicos. O pôr do sol nas dunas continua sendo uma atração imperdível, agora com apresentações culturais ao vivo nos fins de tarde.'),
-('Patrimônio cultural em destaque na celebração dos 60 anos da FLIP', 'Paraty (RJ)', 'Paraty se transformou num grande palco literário com a comemoração dos 60 anos da Festa Literária Internacional. A cidade recebe autores de renome, debates sobre literatura indígena e oficinas de escrita criativa em casarões históricos. Uma das grandes novidades é a reabertura do Forte Defensor Perpétuo, agora restaurado com um museu interativo e trilhas que oferecem vista panorâmica da baía de Paraty. Restaurantes locais também entraram na festa com menus especiais inspirados em livros e personagens literários.'),
-('Caribe amazônico ganha hotel flutuante e turismo sustentável cresce', 'Alter do Chão (PA)', 'As águas claras do Rio Tapajós estão ainda mais atrativas com a chegada do primeiro hotel flutuante ecológico da região, operando com energia solar, coleta de água da chuva e cardápios que valorizam a culinária ribeirinha. A alta temporada das praias de rio está a todo vapor, com destaque para a Ilha do Amor, que recebeu nova sinalização turística e quiosques padronizados com foco em limpeza e organização. Passeios guiados de canoa agora incluem oficinas sobre plantas medicinais da floresta.'),
-('Concertos barrocos e nova rota noturna celebram 40 anos de patrimônio mundial', 'Ouro Preto (MG)', 'Ouro Preto comemora quatro décadas como Patrimônio Mundial da UNESCO com uma agenda intensa de atrações. As igrejas do centro histórico sediam concertos noturnos com música barroca ao vivo, criando uma atmosfera mágica nas ladeiras coloniais. A nova "Rota da Luz e História", um passeio noturno guiado, utiliza iluminação cênica para valorizar os principais monumentos e casarões. A Casa dos Contos também abriu uma nova exposição interativa sobre a Inconfidência Mineira.'),
-('Realidade aumentada e novas trilhas inclusivas encantam visitantes', 'Chapada dos Veadeiros (GO)', 'O Parque Nacional da Chapada dos Veadeiros acaba de ganhar um moderno centro de visitantes com experiências em realidade aumentada, simulando voos de drone sobre os cânions e cachoeiras mais icônicos da região. As trilhas principais foram reformadas com passarelas ecológicas e sinalização em braile, tornando o ecoturismo ainda mais acessível. Restaurantes e pousadas locais estão adotando práticas sustentáveis, com destaque para a gastronomia baseada em ingredientes do cerrado.'),
-('Recife Antigo revive com arte de rua e nova fase do Cais do Sertão', 'Recife (PE)', 'O bairro histórico do Recife Antigo vive um momento vibrante com a reabertura ampliada do museu Cais do Sertão, que agora conta com salas interativas sobre o ciclo do forró e da poesia nordestina. As ruas do bairro estão tomadas pelo Festival Recife na Rua, com música ao vivo, gastronomia regional, teatro de rua e maracatus que desfilam entre os casarões coloniais. A ciclovia recém-inaugurada ligando o Marco Zero à Praia de Boa Viagem estimula o turismo sustentável.'),
-('Ilha da Magia promove festival vegano e amplia ciclovias litorâneas', 'Florianópolis (SC)', 'Florianópolis está em clima de consciência ecológica com o Floripa Veg Festival, que reúne chefs renomados, produtores locais e painéis sobre alimentação consciente e saúde. O evento ocorre simultaneamente em várias praias e centros culturais da cidade. Novas ciclovias foram concluídas entre a Praia Mole, Joaquina e o centrinho da Lagoa da Conceição, promovendo o transporte alternativo e o contato com a natureza. Trilhas autoguiadas com QR Codes foram instaladas no Morro da Cruz e no Costão do Santinho.'),
-('Temporada de lagoas cheias traz passaporte turístico e novos voos', 'Lençóis Maranhenses (MA)', 'A beleza única dos Lençóis Maranhenses está ainda mais acessível com a chegada de novos voos diretos para Barreirinhas, principal porta de entrada do parque. A temporada de lagoas cheias está deslumbrante, e os visitantes agora podem participar do programa “Passaporte dos Lençóis”, que premia quem explora diferentes circuitos como Lagoa Azul, Lagoa Bonita e Canto do Atins. Barqueiros e guias locais estão sendo capacitados para oferecer experiências mais seguras e informativas aos turistas.');
--- Tabela de COMMENTS
-CREATE TABLE comments (
-    id SERIAL PRIMARY KEY,
-    post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    comment TEXT
-);
-
--- Tabela de REGIONS
-CREATE TABLE regions (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    state VARCHAR(255) NOT NULL,
-    text TEXT NOT NULL,
-    links VARCHAR(255)
-);
-
--- Tabela de NEWS
-CREATE TABLE news (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    place VARCHAR(255) NOT NULL,
-    text TEXT NOT NULL
-);
-
--- INSERTS da tabela USERS: usuários
-INSERT INTO users (name, email, city, state, type_user, password) VALUES
-('Amanda Gomes Mechi', 'amanda.mechi@aluno.senai.br', 'Campinas', 'SP', 'usuário','123456'),
-('Andre Lucca Santos', 'andre.l.santos45@aluno.senai.br', 'Campinas', 'SP', 'guia turístico','234561'),
-('Flavia Regina Alexandre Mendes', 'flavia.r.mendes@aluno.senai.br', 'Campinas', 'SP', 'usuário','345612'),
-('Giovanna Caron de Barros', 'giovanna.c.barros@aluno.senai.br', 'Valinhos', 'SP', 'guia turístico','456123'),
-('Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@aluno.senai.br', 'Valinhos', 'SP', 'usuário','567234'),
-('João Vitor Porto Sales', 'joao.v.sales15@aluno.senai.br', 'Campinas', 'SP', 'guia turístico','678345'),
-('Laura Ferreira Violla', 'laura.violla@aluno.senai.br', 'Valinhos', 'SP', 'usuário','789456'),
-('Carlos Silva', 'carlos.silva1@gmail.com', 'São Paulo', 'SP', 'usuário', '512735'),
-('Ana Oliveira', 'ana.oliveira2@gmail.com', 'Rio de Janeiro', 'RJ', 'usuário', '184767'),
-('Marcos Souza', 'marcos.souza3@gmail.com', 'Belo Horizonte', 'MG', 'usuário', '941209'),
-('Juliana Lima', 'juliana.lima4@gmail.com', 'Curitiba', 'PR', 'usuário', '408734'),
-('Rafael Costa', 'rafael.costa5@gmail.com', 'Porto Alegre', 'RS', 'usuário', '089987'),
-('Fernanda Rocha', 'fernanda.rocha6@gmail.com', 'Recife', 'PE', 'usuário', '555133'),
-('Lucas Martins', 'lucas.martins7@gmail.com', 'Salvador', 'BA', 'usuário', '576843'),
-('Camila Ribeiro', 'camila.ribeiro8@gmail.com', 'Brasília', 'DF', 'usuário', '216441'),
-('Pedro Almeida', 'pedro.almeida9@gmail.com', 'Fortaleza', 'CE', 'usuário', '418251'),
-('Aline Mendes', 'aline.mendes10@gmail.com', 'Manaus', 'AM', 'usuário', '442272'),
-('Vinícius Andrade', 'vinicius.andrade101@gmail.com', 'Campinas', 'SP', 'usuário', '180577'),
-('Patrícia Moraes', 'patricia.moraes102@gmail.com', 'Maceió', 'AL', 'usuário', '900128'),
-('Bruno Teixeira', 'bruno.teixeira103@gmail.com', 'João Pessoa', 'PB', 'usuário', '769424'),
-('Larissa Pires', 'larissa.pires104@gmail.com', 'São Luís', 'MA', 'usuário', '638515'),
-('Tiago Nunes', 'tiago.nunes105@gmail.com', 'Goiânia', 'GO', 'usuário', '378299'),
-('Amanda Barreto', 'amanda.barreto201@gmail.com', 'Blumenau', 'SC', 'usuário', '717463'),
-('João Vitor Sales', 'joao.sales202@gmail.com', 'Cuiabá', 'MT', 'usuário', '504921'),
-('Luana Neves', 'luana.neves203@hotmail.com', 'Palmas', 'TO', 'usuário', '137840'),
-('Henrique Batista', 'henrique.batista204@hotmail.com', 'Vitória', 'ES', 'usuário', '801356'),
-('Bruna Costa', 'bruna.costa205@hotmail.com', 'Maringá', 'PR', 'usuário', '370614'),
-('André Souza', 'andre.souza206@hotmail.com', 'Londrina', 'PR', 'usuário', '939015'),
-('Tatiane Silva', 'tatiane.silva207@hotmail.com', 'Caxias do Sul', 'RS', 'usuário', '905764'),
-('Douglas Fernandes', 'douglas.fernandes208@hotmail.com', 'Ribeirão Preto', 'SP', 'usuário', '425876'),
-('Letícia Gomes', 'leticia.gomes209@hotmail.com', 'Santarém', 'PA', 'usuário', '304881'),
-('Gabriel Monteiro', 'gabriel.monteiro210@hotmail.com', 'São José dos Campos', 'SP', 'usuário', '717008'),
-('Lorena Dias', 'lorena.dias211@hotmail.com', 'Uberlândia', 'MG', 'usuário', '643917'),
-('Fábio Pimentel', 'fabio.pimentel212@hotmail.com', 'Bauru', 'SP', 'usuário', '382112'),
-('Rayssa Lopes', 'rayssa.lopes213@hotmail.com', 'Aracaju', 'SE', 'usuário', '181202'),
-('Caio Antunes', 'caio.antunes214@hotmail.com', 'Macapá', 'AP', 'usuário', '641973'),
-('Isis Ferreira', 'isis.ferreira215@hotmail.com', 'Boa Vista', 'RR', 'usuário', '104559'),
-('Eduarda Martins', 'eduarda.martins216@hotmail.com', 'Joinville', 'SC', 'usuário', '178194'),
-('Matheus Rocha', 'matheus.rocha217@hotmail.com', 'São Bernardo do Campo', 'SP', 'usuário', '698730'),
-('Yasmin Duarte', 'yasmin.duarte218@hotmail.com', 'Teresina', 'PI', 'usuário', '390458'),
-('Diego Cunha', 'diego.cunha219@hotmail.com', 'Caruaru', 'PE', 'usuário', '952316'),
-('Rebeca Vasconcelos', 'rebeca.vasconcelos220@hotmail.com', 'Juazeiro do Norte', 'CE', 'usuário', '820013');
-
--- INSERTS da tabela USERS: guia turístico
-INSERT INTO users (name, email, city, state, type_user, password) VALUES
-('Eduardo Campos', 'eduardo.campos181@hotmail.com', 'Foz do Iguaçu', 'PR', 'guia turístico', '781304'),
-('Daniela Freitas', 'daniela.freitas182@gmail.com', 'Olinda', 'PE', 'guia turístico', '954702'),
-('Rodrigo Leal', 'rodrigo.leal183@gmail.com', 'Paraty', 'RJ', 'guia turístico', '430872'),
-('Vanessa Prado', 'vanessa.prado184@gmail.com', 'Bonito', 'MS', 'guia turístico', '629103'),
-('Sérgio Araújo', 'sergio.araujo185@gmail.com', 'Lençóis', 'BA', 'guia turístico', '206187'),
-('Beatriz Tavares', 'beatriz.tavares186@gmail.com', 'Gramado', 'RS', 'guia turístico', '540161'),
-('Marcelo Barros', 'marcelo.barros187@gmail.com', 'Ouro Preto', 'MG', 'guia turístico', '811935'),
-('Tatiane Lopes', 'tatiane.lopes188@gmail.com', 'Fernando de Noronha', 'PE', 'guia turístico', '731508'),
-('Rogério Melo', 'rogerio.melo189@gmail.com', 'Chapada dos Veadeiros', 'GO', 'guia turístico', '647091'),
-('Cíntia Fernandes', 'cintia.fernandes190@gmail.com', 'Ilhabela', 'SP', 'guia turístico', '300742'),
-('Gustavo Reis', 'gustavo.reis191@gmail.com', 'Petrolina', 'PE', 'guia turístico', '284105'),
-('Isabela Rocha', 'isabela.rocha192@gmail.com', 'Caldas Novas', 'GO', 'guia turístico', '578619'),
-('Alexandre Duarte', 'alexandre.duarte193@gmail.com', 'Ilhéus', 'BA', 'guia turístico', '457680'),
-('Priscila Martins', 'priscila.martins194@gmail.com', 'Tiradentes', 'MG', 'guia turístico', '810026'),
-('Ricardo Farias', 'ricardo.farias195@gmail.com', 'Canela', 'RS', 'guia turístico', '990348'),
-('Natália Gomes', 'natalia.gomes196@gmail.com', 'Arraial do Cabo', 'RJ', 'guia turístico', '602513'),
-('Felipe Soares', 'felipe.soares197@gmail.com', 'Jericoacoara', 'CE', 'guia turístico', '928471'),
-('Jéssica Castro', 'jessica.castro198@gmail.com', 'São Miguel dos Milagres', 'AL', 'guia turístico', '153709'),
-('Murilo Batista', 'murilo.batista199@gmail.com', 'Ubatuba', 'SP', 'guia turístico', '794320'),
-('Helena Carvalho', 'helena.carvalho200@gmail.com', 'Itacaré', 'BA', 'guia turístico', '239851');
-
--- INSERTS da tabela POSTS
-INSERT INTO posts (user_id, description, tag) VALUES
-(38, 'ALERTA: Algumas lagoas dos Lençóis Maranhenses estão com menor volume de água este mês por causa das chuvas irregulares. Melhor confirmar com os guias antes de agendar passeio.', 'ALERTA'),
-(15, 'PROMOÇÃO imperdível em Gramado! Reserve 3 noites e ganhe um jantar colonial completo em um dos cafés artesanais parceiros da nova rota gourmet.', 'PROMOÇÃO'),
-(7, 'PROMOÇÃO em Alter do Chão! Hospedagem flutuante com desconto para reservas feitas até o fim do mês. Ideal pra quem quer dormir com vista pro rio.', 'PROMOÇÃO'),
-(61, 'PROMOÇÃO em Porto de Galinhas (PE): pacotes com desconto de 30% para quem reserva até domingo. Ótimo para famílias com crianças!', 'PROMOÇÃO'),
-(53, 'ALERTA: Em Manaus (AM), o porto está parcialmente fechado para embarques turísticos devido à cheia do rio Negro. Verifiquem antes de comprar passeio.', 'ALERTA'),
-(36, 'A Serra do Cipó (MG) me surpreendeu! Trilhas lindas, cachoeiras de águas cristalinas e um clima perfeito pra quem curte natureza e sossego.', 'NOVIDADES'),
-(11, 'PROMOÇÃO na Chapada Diamantina (BA): pousadas em Lençóis com até 40% de desconto no mês de junho. Aproveitem antes da alta temporada!', 'PROMOÇÃO'),
-(21, 'ALERTA: Forte calor em Palmas (TO), especialmente nas trilhas do Parque Estadual do Lajeado. Leve bastante água e evite caminhadas no horário de pico.', 'ALERTA'),
-(14, 'ALERTA: A travessia de balsa está com longas filas nos fins de semana. (Ilhabela (SP))', 'ALERTA'),
-(10, 'PROMOÇÃO em Lençóis (BA)! Nova sinalização nas trilhas da Chapada garante mais segurança.', 'PROMOÇÃO'),
-(31, 'PROMOÇÃO em Canela (RS)! Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'PROMOÇÃO'),
-(46, 'ALERTA: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA'),
-(56, 'PROMOÇÃO em Foz do Iguaçu (PR)! Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMOÇÃO'),
-(13, 'PROMOÇÃO em Belém (PA)! Mercado Ver-o-Peso restaurado com nova área gastronômica.', 'PROMOÇÃO'),
-(48, 'PROMOÇÃO em João Pessoa (PB)! Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMOÇÃO'),
-(17, 'PROMOÇÃO em Natal (RN)! Passeio de buggy pelas dunas está com 20% de desconto.', 'PROMOÇÃO'),
-(8, 'Aproveite a PROMOÇÃO em São Miguel do Gostoso (RN): Praia calma e vento constante, ótimo para kitesurf.', 'PROMOÇÃO' ),
-(15, 'Aproveite a PROMOÇÃO em Canela (RS): Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'PROMOÇÃO' ),
-(7, 'Aproveite a PROMOÇÃO em Natal (RN): Passeio de buggy pelas dunas está com 20% de desconto.', 'PROMOÇÃO' ),
-(30, 'Aproveite a PROMOÇÃO em Arraial do Cabo (RJ): ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'PROMOÇÃO' ),
-(23, 'ATENÇÃO: Orla nova com ciclovia e feirinhas noturnas animadas. (João Pessoa (PB))', 'ALERTA' ),
-(51, 'ATENÇÃO: Pousadas com diária reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA' ),
-(18, 'Aproveite a PROMOÇÃO em Pipa (RN): Pousadas com diária reduzida durante o meio da semana.', 'PROMOÇÃO' ),,
-(8, 'Aproveite a PROMOÇÃO em Pipa (RN): Pousadas com diária reduzida durante o meio da semana.', 'PROMOÇÃO' ),
-(60, 'Aproveite a PROMOÇÃO em Jalapão (TO): Os fervedouros são impressionantes e a paisagem é surreal.', 'PROMOÇÃO' ),
-(5, 'ATENÇÃO: Mercado Ver-o-Peso restaurado com nova área gastronômica. (Belém (PA))', 'ALERTA' ),
-(40, 'Aproveite a PROMOÇÃO em Natal (RN): Passeio de buggy pelas dunas está com 20% de desconto.', 'PROMOÇÃO' ),
-(23, 'ATENÇÃO: Nova iluminação na Catedral de Pedra está deslumbrante à noite. (Canela (RS))', 'ALERTA' ),
-(36, 'Aproveite a PROMOÇÃO em Vale dos Vinhedos (RS): Tour noturno com degustação, vinícolas encantadoras.', 'PROMOÇÃO' ),
-(4, 'ATENÇÃO: Nova iluminação na Catedral de Pedra está deslumbrante à noite. (Canela (RS))', 'ALERTA' ),
-(55, 'Aproveite a PROMOÇÃO em Jalapão (TO): Os fervedouros são impressionantes e a paisagem é surreal.', 'PROMOÇÃO' ),
-(7, 'Aproveite a PROMOÇÃO em Pipa (RN): Pousadas com diária reduzida durante o meio da semana.', 'PROMOÇÃO' ),
-(12, 'Aproveite a PROMOÇÃO em Arraial do Cabo (RJ): ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'PROMOÇÃO' ),
-(31, 'ATENÇÃO: A travessia de balsa está com longas filas nos fins de semana. (Ilhabela (SP))', 'ALERTA' ),
-(51, 'Aproveite a PROMOÇÃO em Ilhabela (SP): A travessia de balsa está com longas filas nos fins de semana.', 'PROMOÇÃO' ),
-(42, 'ATENÇÃO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cipó (MG))', 'ALERTA' ),
-(32, 'Aproveite a PROMOÇÃO em Jalapão (TO): Os fervedouros são impressionantes e a paisagem é surreal.', 'PROMOÇÃO' ),
-(53, 'ATENÇÃO: Pacotes com desconto de 30% para reservas até domingo. (Porto de Galinhas (PE))', 'ALERTA' ),
-(33, 'ATENÇÃO: Pousadas com diária reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA' ),
-(22, 'ATENÇÃO: PROMOÇÃO em passeios de teleférico na temporada de inverno. (Balneário Camboriú (SC))', 'ALERTA' ),
-(37, 'Aproveite a PROMOÇÃO em Balneário Camboriú (SC): PROMOÇÃO em passeios de teleférico na temporada de inverno.', 'PROMOÇÃO' ),
-(8, 'ATENÇÃO: Pousadas com diária reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA' ),
-(19, 'ATENÇÃO: Novo circuito de tirolesas foi inaugurado no parque de aventuras. (Brotas (SP))', 'ALERTA' ),
-(2, 'Aproveite a PROMOÇÃO em Belém (PA): Mercado Ver-o-Peso restaurado com nova área gastronômica.', 'PROMOÇÃO' ),
-(38, 'Aproveite a PROMOÇÃO em Foz do Iguaçu (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMOÇÃO' ),
-(21, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
-(58, 'Aproveite a PROMOÇÃO em Jalapão (TO): Os fervedouros são impressionantes e a paisagem é surreal.', 'PROMOÇÃO' ),
-(36, 'ATENÇÃO: O porto está parcialmente fechado devido à cheia do rio Negro. (Manaus (AM))', 'ALERTA' ),
-(29, 'Aproveite a PROMOÇÃO em Manaus (AM): O porto está parcialmente fechado devido à cheia do rio Negro.', 'PROMOÇÃO' ),
-(22, 'ATENÇÃO: Praia calma e vento constante, ótimo para kitesurf. (São Miguel do Gostoso (RN))', 'ALERTA' ),
-(44, 'Aproveite a PROMOÇÃO em Arraial do Cabo (RJ): ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'PROMOÇÃO' ),
-(42, 'ATENÇÃO: Orla nova com ciclovia e feirinhas noturnas animadas. (João Pessoa (PB))', 'ALERTA' ),
-(13, 'ATENÇÃO: Orla nova com ciclovia e feirinhas noturnas animadas. (João Pessoa (PB))', 'ALERTA' ),
-(52, 'ATENÇÃO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cipó (MG))', 'ALERTA' ),
-(1, 'Aproveite a PROMOÇÃO em João Pessoa (PB): Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMOÇÃO' ),
-(59, 'Aproveite a PROMOÇÃO em Brotas (SP): Novo circuito de tirolesas foi inaugurado no parque de aventuras.', 'PROMOÇÃO' ),
-(3, 'ATENÇÃO: Passeio de buggy pelas dunas está com 20% de desconto. (Natal (RN))', 'ALERTA' ),
-(23, 'ATENÇÃO: Nova sinalização nas trilhas da Chapada garante mais segurança. (Lençóis (BA))', 'ALERTA' ),
-(27, 'Aproveite a PROMOÇÃO em João Pessoa (PB): Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMOÇÃO' ),
-(53, 'ATENÇÃO: O porto está parcialmente fechado devido à cheia do rio Negro. (Manaus (AM))', 'ALERTA' ),
-(32, 'ATENÇÃO: Praia calma e vento constante, ótimo para kitesurf. (São Miguel do Gostoso (RN))', 'ALERTA' ),
-(17, 'ATENÇÃO: Pacotes com desconto de 30% para reservas até domingo. (Porto de Galinhas (PE))', 'ALERTA' ),
-(54, 'Aproveite a PROMOÇÃO em Lençóis (BA): Nova sinalização nas trilhas da Chapada garante mais segurança.', 'PROMOÇÃO' ),
-(26, 'Aproveite a PROMOÇÃO em Porto de Galinhas (PE): Pacotes com desconto de 30% para reservas até domingo.', 'PROMOÇÃO' ),
-(3, 'Aproveite a PROMOÇÃO em Ilhabela (SP): A travessia de balsa está com longas filas nos fins de semana.', 'PROMOÇÃO' ),
-(11, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
-(23, 'ATENÇÃO: Pousadas em Lençóis com até 40% de desconto em junho. (Chapada Diamantina (BA))', 'ALERTA' ),
-(56, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
-(7, 'ATENÇÃO: Os fervedouros são impressionantes e a paisagem é surreal. (Jalapão (TO))', 'ALERTA' ),
-(16, 'ATENÇÃO: Nova sinalização nas trilhas da Chapada garante mais segurança. (Lençóis (BA))', 'ALERTA' ),
-(40, 'ATENÇÃO: PROMOÇÃO em passeios de teleférico na temporada de inverno. (Balneário Camboriú (SC))', 'ALERTA' ),
-(45, 'Aproveite a PROMOÇÃO em Lençóis (BA): Nova sinalização nas trilhas da Chapada garante mais segurança.', 'PROMOÇÃO' ),
-(17, 'Aproveite a PROMOÇÃO em Pipa (RN): Pousadas com diária reduzida durante o meio da semana.', 'PROMOÇÃO' ),
-(58, 'ATENÇÃO: Orla nova com ciclovia e feirinhas noturnas animadas. (João Pessoa (PB))', 'ALERTA' ),
-(62, 'Aproveite a PROMOÇÃO em Foz do Iguaçu (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMOÇÃO' ),
-(13, 'ATENÇÃO: Forte calor nas trilhas do Parque do Lajeado, leve bastante água. (Palmas (TO))', 'ALERTA' ),
-(13, 'Aproveite a PROMOÇÃO em Palmas (TO): Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'PROMOÇÃO' ),
-(36, 'Aproveite a PROMOÇÃO em Manaus (AM): O porto está parcialmente fechado devido à cheia do rio Negro.', 'PROMOÇÃO' ),
-(57, 'ATENÇÃO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cipó (MG))', 'ALERTA' ),
-(55, 'ATENÇÃO: ALERTA: Acesso limitado à Praia do Farol por excesso de turistas. (Arraial do Cabo (RJ))', 'ALERTA' ),
-(54, 'ATENÇÃO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cipó (MG))', 'ALERTA' ),
-(48, 'Aproveite a PROMOÇÃO em Ilhabela (SP): A travessia de balsa está com longas filas nos fins de semana.', 'PROMOÇÃO' ),
-(6, 'Aproveite a PROMOÇÃO em Ilhabela (SP): A travessia de balsa está com longas filas nos fins de semana.', 'PROMOÇÃO' ),
-(18, 'ALERTA: Acesso à Praia do Farol, em Arraial do Cabo (RJ), está restrito devido ao grande número de turistas. Planeje com antecedência.', 'ALERTA'),
-(53, 'PROMOÇÃO em Pipa (RN): Passeios de barco com desconto para quem compra até sexta-feira!', 'PROMOÇÃO'),
-(62, 'Fui a Pirenópolis (GO) no Festival de Inverno, e os shows e a comida típica me conquistaram. Uma verdadeira festa!', 'NOVIDADES'),
-(59, 'ALERTA: O calor está muito intenso em Palmas (TO). Cuidado com as trilhas no Parque Estadual do Lajeado.', 'ALERTA'),
-(44, 'O Mercado Ver-o-Peso em Belém (PA) ficou ainda melhor com a nova área gastronômica. Perfeito para quem ama sabores exóticos!', 'NOVIDADES'),
-(28, 'PROMOÇÃO no Vale dos Vinhedos (RS): Descontos em pacotes turísticos para quem visita mais de duas vinícolas no mesmo dia.', 'PROMOÇÃO'),
-(19, 'ALERTA em São Miguel do Gostoso (RN): O vento está muito forte, então, se você vai praticar kitesurf, tome cuidado.', 'ALERTA'),
-(58, 'Descobri uma PROMOÇÃO imperdível em Gramado (RS): Hospedagem com 25% de desconto no próximo feriado!', 'PROMOÇÃO'),
-(08, 'Descubra a histórica cidade de Goiás Velho, repleta de charme colonial.', 'NOVIDADES'),
-(09, 'Promoção especial para o Jalapão! Pacotes com até 30% de desconto.', 'PROMOÇÃO'),
-(10, 'ALERTA: Praia do Gunga está com acesso limitado devido à maré alta.', 'ALERTA'),
-(11, 'Nova rota gastronômica em Tiradentes promete encantar os visitantes.', 'NOVIDADES'),
-(12, 'Descontos imperdíveis para conhecer os Lençóis Maranhenses!', 'PROMOÇÃO'),
-(13, 'ALERTA: Forte temporal previsto para a região de Paraty neste fim de semana.', 'ALERTA'),
-(14, 'Explore as belezas naturais da Chapada das Mesas com nossos novos pacotes.', 'NOVIDADES'),
-(15, 'Descontos de até 40% para viagens à Serra do Cipó!', 'PROMOÇÃO'),
-(16, 'ALERTA: Interdição temporária da estrada para o Pico da Bandeira por deslizamento.', 'ALERTA'),
-(17, 'Nova trilha ecológica aberta no Parque Estadual do Ibitipoca!', 'NOVIDADES'),
-(18, 'Pacotes promocionais para conhecer o Jalapão com guias locais.', 'PROMOÇÃO'),
-(19, 'ALERTA: Chuva forte e risco de enchente em Manaus. Redobre os cuidados.', 'ALERTA'),
-(20, 'Lançamento de circuito cultural em Salvador com foco na herança afro-brasileira.', 'NOVIDADES'),
-(21, 'Aproveite a super oferta para conhecer a Rota das Emoções!', 'PROMOÇÃO'),
-(22, 'ALERTA: Temporada de algas atinge praias de Alagoas, com impacto na balneabilidade.', 'ALERTA'),
-(24, 'Pacotes com desconto para visitas à Serra do Roncador disponíveis!', 'PROMOÇÃO'),
-(25, 'ALERTA: Praia de Copacabana está temporariamente fechada para eventos oficiais.', 'ALERTA'),
-(27, 'Super promoção para excursões escolares à Floresta Nacional do Tapajós!', 'PROMOÇÃO'),
-(28, 'ALERTA: Interdição parcial da trilha da Pedra da Gávea por manutenção.', 'ALERTA'),
-(29, 'Reabertura do Museu do Mar em São Francisco do Sul com exposições inéditas.', 'NOVIDADES'),
-(30, 'Descontos exclusivos para casais em pousadas da Serra Gaúcha.', 'PROMOÇÃO'),
-(31, 'ALERTA: Área de mergulho em Maragogi fechada temporariamente por preservação.', 'ALERTA'),
-(32, 'Festival de música ao ar livre chega ao Vale dos Vinhedos neste mês!', 'NOVIDADES'),
-(33, 'Pacotes promocionais para o Pantanal durante o mês de junho!', 'PROMOÇÃO'),
-(34, 'ALERTA: Forte calor atinge o litoral do Espírito Santo. Evite exposição prolongada.', 'ALERTA'),
-(36, 'Oferta imperdível para explorar a Ilha do Cardoso com desconto!', 'PROMOÇÃO'),
-(37, 'ALERTA: Acesso à Cachoeira da Fumaça restrito por riscos de queda de rochas.', 'ALERTA'),
-(39, 'Hospedagem em Alter do Chão com até 35% de desconto por tempo limitado.', 'PROMOÇÃO'),
-(40, 'ALERTA: Interdição da travessia para Ilha de Itamaracá por manutenção na balsa.', 'ALERTA'),
-(41, 'Lançamento de roteiro sustentável na região do Jalapão em parceria com comunidades locais.', 'NOVIDADES'),
-(42, 'Promoção especial para roteiros de aventura no Parque do Cantão!', 'PROMOÇÃO'),
-(43, 'ALERTA: Forte correnteza no Rio São Francisco. Cuidado ao praticar esportes aquáticos.', 'ALERTA'),
-(45, 'Hospedagens em pousadas de charme em Paraty com preços especiais!', 'PROMOÇÃO'),
-(46, 'ALERTA: Níveis de poluição do ar elevados em Belo Horizonte. Evite atividades ao ar livre.', 'ALERTA'),
-(48, 'Viagens para Bonito com descontos especiais neste mês!', 'PROMOÇÃO'),
-(49, 'ALERTA: Aviso de ressaca para o litoral sul de São Paulo. Cuidado com o banho de mar.', 'ALERTA'),
-(51, 'Descontos de até 50% para passeios na Rota das Cachoeiras em Goiás!', 'PROMOÇÃO'),
-(52, 'ALERTA: Fauna silvestre visível em áreas urbanas de Florianópolis. Mantenha distância.', 'ALERTA'),
-(54, 'Pacotes promocionais para conhecer o Vale Europeu em SC!', 'PROMOÇÃO'),
-(55, 'ALERTA: Interdição parcial do bondinho do Pão de Açúcar por manutenção preventiva.', 'ALERTA'),
-(56, 'Evento especial de observação de aves no Parque Nacional do Viruá.', 'NOVIDADES'),
-(34, 'Super desconto para visitas guiadas ao Parque Nacional da Serra da Capivara!', 'PROMOÇÃO'),
-(27, 'ALERTA: Trecho da Estrada Real interditado por obras de revitalização.', 'ALERTA'),
-(13, 'Pacotes com até 45% de desconto para visitar a Serra do Espinhaço!', 'PROMOÇÃO'),
-(48, 'ALERTA: Possibilidade de neblina densa na região da Serra do Mar durante a madrugada.', 'ALERTA'),
-(19, 'Ofertas imperdíveis para hospedagem em Fernando de Noronha neste mês!', 'PROMOÇÃO'),
-(4, 'ALERTA: Trilha da Pedra Redonda fechada temporariamente por risco de deslizamento.', 'ALERTA'),
-(35, 'Festival de inverno em Campos do Jordão começa com atrações musicais e gastronômicas.', 'NOVIDADES'),
-(61, 'Descontos de baixa temporada para destinos de ecoturismo em Rondônia.', 'PROMOÇÃO'),
-(15, 'ALERTA: Queimadas afetam visibilidade na Chapada dos Guimarães.', 'ALERTA'),
-(10, 'Hospedagens em Morro de São Paulo com promoções para grupos!', 'PROMOÇÃO'),
-(3, 'ALERTA: Animais silvestres avistados em trilhas do Parque Nacional do Caparaó. Atenção redobrada.', 'ALERTA'),
-(38, 'Pacotes com valores reduzidos para conhecer o Vale do Ribeira!', 'PROMOÇÃO'),
-(24, 'ALERTA: Interdição parcial do Elevador Lacerda em Salvador por manutenção elétrica.', 'ALERTA'),
-(57, 'Pacotes promocionais para o São João em Caruaru já estão disponíveis!', 'PROMOÇÃO'),
-(2, 'ALERTA: Forte vento na orla de Fortaleza. Redobre o cuidado com barracas e guarda-sóis.', 'ALERTA'),
-(41, 'Inauguração de centro de visitantes no Parque Estadual do Jalapão.', 'NOVIDADES'),
-(16, 'Viagens para Porto Seguro com até 50% OFF para reservas antecipadas!', 'PROMOÇÃO'),
-(50, 'ALERTA: Aviso de maré alta em praias do norte do Pará. Acesso restrito em alguns pontos.', 'ALERTA'),
-(21, 'Pacotes para turismo de aventura na Serra do Mar com valores reduzidos.', 'PROMOÇÃO'),
-(9, 'ALERTA: Mosquitos transmissores de doenças tropicais em alta no litoral do Amapá.', 'ALERTA'),
-(6, 'Promoções exclusivas para destinos históricos no interior paulista.', 'PROMOÇÃO'),
-(18, 'ALERTA: Obras na BR-101 provocam lentidão no acesso a destinos do litoral sul.', 'ALERTA'),
-(17, 'Hospedagens em Caraíva com pacotes promocionais de fim de semana.', 'PROMOÇÃO'),
-(44, 'ALERTA: Forte correnteza no litoral norte da Bahia. Cuidado com crianças e idosos.', 'ALERTA'),
-(14, 'Reabertura de centro histórico em São Luís após restauração de casarões coloniais.', 'NOVIDADES'),
-(31, 'Pacotes para a Chapada dos Veadeiros com até 35% de desconto.', 'PROMOÇÃO'),
-(11, 'ALERTA: Alta concentração de águas-vivas em praias do sul de Santa Catarina.', 'ALERTA'),
-(60, 'Inauguração de ciclofaixa turística em Florianópolis com vista para o mar.', 'NOVIDADES'),
-(55, 'Descontos em pacotes para conhecer o Delta do Parnaíba!', 'PROMOÇÃO'),
-(46, 'ALERTA: Interrupção no fornecimento de energia em pontos turísticos de Natal.', 'ALERTA'),
-(22, 'Pacotes com valores especiais para turismo de base comunitária no Xingu!', 'PROMOÇÃO'),
-(30, 'ALERTA: Restrição de visitas em áreas indígenas por motivos sanitários.', 'ALERTA'),
-(1, 'Reabertura de passarela sobre o Rio Tocantins com nova iluminação noturna.', 'NOVIDADES'),
-(40, 'Hospedagens com até 40% de desconto no Vale do Itajaí!', 'PROMOÇÃO'),
-(43, 'ALERTA: Forte calor no sertão nordestino. Hidratação e proteção solar são essenciais.', 'ALERTA'),
-(7, 'Lançamento de aplicativo de turismo para o interior de Minas Gerais.', 'NOVIDADES'),
-(5, 'Promoção para pacotes de ecoturismo com foco em observação de aves.', 'PROMOÇÃO'),
-(58, 'ALERTA: Interdição temporária no Parque Nacional da Serra da Bocaina por manutenção.', 'ALERTA'),
-(28, 'Festival indígena em Tocantins celebra cultura com atividades abertas ao público.', 'NOVIDADES');
-
--- INSERTS da tabela POSTS
-INSERT INTO posts (user_id, description, tag) VALUES
-(34, 'Acabei de voltar de Bonito (MS) e fiquei encantado com o novo Mirante da Nascente Azul! A passarela suspensa é incrível e a vista é de tirar o fôlego.', 'NOVIDADES'),
-(1, 'Visitei Ouro Preto no último fim de semana e recomendo muito a nova rota noturna com luzes cênicas. Caminhar pelas ladeiras históricas à noite foi mágico!', 'NOVIDADES'),
-(43, 'ALERTA: Trilha principal da Chapada dos Veadeiros está com interdição parcial para manutenção das passarelas ecológicas. Só está liberado o acesso ao Vale da Lua.', 'ALERTA'),
-(28, 'Fui na FLIP em Paraty e participei de um sarau literário incrível em um dos casarões restaurados. A cidade respira cultura o tempo todo.', 'NOVIDADES'),
-(59, 'Recife está um espetáculo com o Festival Recife na Rua. Tem música, teatro e comidinhas típicas em cada esquina do bairro antigo. Vale muito a visita!', 'NOVIDADES'),
-(62, 'ALERTA: Praia da Joaquina em Florianópolis com forte correnteza nesta semana. Evitem nadar em áreas sem sinalização de segurança.', 'ALERTA'),
-(26, 'Achei ótima a nova ciclovia entre a Praia Mole e Lagoa da Conceição. Pedalei com a família inteira e foi super tranquilo!', 'NOVIDADES'),
-(12, 'Visitei o Jalapão (TO) semana passada e fiquei impressionado com os fervedouros! A água parece te empurrar pra cima. Experiência surreal!', 'NOVIDADES'),
-(28, 'ALERTA: Em Ilhabela (SP), a travessia de balsa está com longas filas nos fins de semana. Recomendo ir bem cedo pra evitar atrasos.', 'ALERTA'),
-(29, 'Passei o feriado em São Miguel do Gostoso (RN) e foi incrível! Praia calma, vento constante, ótima pra kitesurf e descanso total.', 'NOVIDADES'),
-(5, 'PROMOÇÃO rolando em Foz do Iguaçu (PR): desconto para quem visitar as Cataratas e o Parque das Aves no mesmo dia. Entrada combinada vale a pena!', 'PROMOÇÃO'),
-(13, 'Estive em Vale dos Vinhedos (RS) recentemente. Tour noturno com degustação, vinícolas encantadoras.', 'NOVIDADES'),
-(9, 'Visitei Arraial do Cabo (RJ) e adorei! ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'NOVIDADES' )
-(39, 'ATENÇÃO: Desconto especial para quem visita as Cataratas e o Parque das Aves. (Foz do Iguaçu (PR))', 'ALERTA' ),
-(12, 'Visitei Palmas (TO) e adorei! Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'NOVIDADES' ),
-(26, 'Visitei Pipa (RN) e adorei! Pousadas com diária reduzida durante o meio da semana.', 'NOVIDADES' ),
-(58, 'Visitei Canela (RS) e adorei! Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'NOVIDADES' ),
-(37, 'Visitei Serra do Cipó (MG) e adorei! Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo.', 'NOVIDADES' ),
-(56, 'Visitei Belém (PA) e adorei! Mercado Ver-o-Peso restaurado com nova área gastronômica.', 'NOVIDADES' ),
-(6, 'Visitei Porto de Galinhas (PE) e adorei! Pacotes com desconto de 30% para reservas até domingo.', 'NOVIDADES' ),
-(45, 'Visitei Brotas (SP) e adorei! Novo circuito de tirolesas foi inaugurado no parque de aventuras.', 'NOVIDADES' ),
-(36, 'Visitei Chapada Diamantina (BA) e adorei! Pousadas em Lençóis com até 40% de desconto em junho.', 'NOVIDADES' ),
-(11, 'Visitei Arraial do Cabo (RJ) e adorei! ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'NOVIDADES' ),
-(32, 'Visitei Natal (RN) e adorei! Passeio de buggy pelas dunas está com 20% de desconto.', 'NOVIDADES' ),
-(8, 'Visitei Manaus (AM) e adorei! O porto está parcialmente fechado devido à cheia do rio Negro.', 'NOVIDADES' ),
-(9, 'Visitei João Pessoa (PB) e adorei! Orla nova com ciclovia e feirinhas noturnas animadas.', 'NOVIDADES' ),
-(19, 'Visitei Palmas (TO) e adorei! Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'NOVIDADES' ),
-(50, 'Visitei Balneário Camboriú (SC) e adorei! PROMOÇÃO em passeios de teleférico na temporada de inverno.', 'NOVIDADES' ),
-(53, 'Visitei São Miguel do Gostoso (RN) e adorei! Praia calma e vento constante, ótimo para kitesurf.', 'NOVIDADES' ),
-(8, 'Visitei Vale dos Vinhedos (RS) e adorei! Tour noturno com degustação, vinícolas encantadoras.', 'NOVIDADES' ),
-(35, 'Novo mirante aberto ao público no Parque Nacional de Aparados da Serra.', 'NOVIDADES'),
-(44, 'Novo centro de visitantes no Parque Nacional da Serra dos Órgãos oferece experiências imersivas.', 'NOVIDADES'),
-(47, 'Reabertura da Rota do Vinho em São Roque com novos empreendimentos.', 'NOVIDADES'),
-(29, 'Novo passeio de barco em Arraial do Cabo oferece experiências ao pôr do sol.', 'NOVIDADES'),
-(45, 'Rota dos Cânions é ampliada com novos mirantes e áreas de descanso.', 'NOVIDADES'),
-(12, 'Novo roteiro de ecoturismo no Acre oferece experiências únicas na floresta.', 'NOVIDADES'),
-(26, 'Inaugurado o novo teleférico panorâmico no Parque Nacional de Itatiaia.', 'NOVIDADES'),
-(38, 'Inaugurado o circuito de cicloturismo na Serra da Mantiqueira.', 'NOVIDADES'),
-(23, 'Nova atração turística em São João del Rei celebra a cultura mineira.', 'NOVIDADES'),
-(53, 'Abertura de nova trilha acessível para pessoas com deficiência no Parque da Tijuca.', 'NOVIDADES'),
-(8, 'Reinauguração do Museu da Imigração em São Paulo com novas exposições interativas.', 'NOVIDADES'),
-(59, 'Nova feira cultural em Olinda destaca artistas locais e artesanato regional.', 'NOVIDADES'),
-(20, 'Nova rota de turismo religioso no interior do Paraná é lançada.', 'NOVIDADES'),
-(36, 'Nova atração interativa no Instituto Inhotim atrai visitantes de todas as idades.', 'NOVIDADES'),
-(32, 'Nova linha de trem turístico ligando Curitiba a Morretes é reinaugurada.', 'NOVIDADES'),
-(26, 'Nova exposição sobre biodiversidade marinha no Museu Nacional da UFRJ.', 'NOVIDADES'),
-
--- INSERTS da tabela COMMENTS
-INSERT INTO comments (post_id, user_id, comment) VALUES
-(1, 10, 'Esse mirante em Bonito parece imperdível! Quero muito conhecer.'),
-(2, 2, 'Adorei a ideia do passeio noturno em Ouro Preto, super diferente!'),
-(3, 7, 'Sarau na FLIP é tudo! Excelente dica cultural.'),
-(4, 22, 'Recife sempre surpreende com eventos criativos, amei!'),
-(5, 3, 'Boa notícia para quem curte pedalar em Floripa!'),
-(6, 16, 'Fervedouros do Jalapão são mesmo únicos, recomendadíssimo!'),
-(7, 17, 'Kitesurf em São Miguel do Gostoso? Já quero reservar!'),
-(8, 18, 'Serra do Cipó é perfeita para recarregar as energias.'),
-(9, 4, 'Tour noturno com vinho? Parece super romântico!'),
-(10, 11, 'Boa saber sobre a baixa das lagoas nos Lençóis, vou me programar melhor.'),
-(11, 46, 'Triste pela trilha fechada, mas que bom que tem outras opções!'),
-(12, 12, 'Alerta importante, principalmente para quem viaja com crianças.'),
-(13, 34, 'Sempre bom lembrar dos horários de pico para a balsa de Ilhabela.'),
-(14, 14, 'Notícia importante pra quem faz passeios de barco. Valeu o aviso!'),
-(15, 15, 'Calor intenso em Palmas é de respeito, obrigado pelo alerta!'),
-(16, 55, 'Promoção ótima pra curtir Gramado sem gastar tanto!'),
-(17, 17, 'Hospedagem flutuante com desconto? Que sonho!'),
-(18, 18, 'Adoro Porto de Galinhas! Com esse desconto, fica ainda melhor.'),
-(19, 17, 'Ótimo combo! Cataratas e Parque das Aves são imperdíveis.'),
-(20, 20, 'Desconto excelente na Chapada Diamantina, vou aproveitar!'),
-(21, 44, 'A travessia de balsa em Ilhabela está com longas filas. Cuidado se for viajar no fim de semana!'),
-(22 ,15, 'Ótima promoção em Lençóis, a nova sinalização nas trilhas da Chapada vai garantir mais segurança! #Promoção'),
-(23, 31, 'Visitei Canela e fiquei encantado com a nova iluminação da Catedral de Pedra à noite, vale muito a pena!'),
-(24, 6, 'O tour noturno com degustação no Vale dos Vinhedos foi sensacional! Vale a pena conferir as vinícolas!'),
-(25, 11, 'Desconto especial para quem visitar as Cataratas e o Parque das Aves em Foz do Iguaçu! Aproveitem!'),
-(26, 3, 'O Mercado Ver-o-Peso em Belém foi restaurado e está com uma nova área gastronômica incrível!'),
-(27, 8, 'A orla nova de João Pessoa com ciclovia e feirinhas noturnas ficou maravilhosa. Super recomendo!'),
-(28, 17, 'Passeio de buggy pelas dunas de Natal com 20% de desconto, não dá para perder!'),
-(29, 33, 'Acabei de voltar do Vale dos Vinhedos e o tour noturno com degustação foi uma experiência incrível!'),
-(30, 6, 'São Miguel do Gostoso é um paraíso para kitesurf! Praia calma e vento constante, perfeito!'),
-(31, 45, 'A iluminação da Catedral de Pedra em Canela é ainda mais bonita à noite. Vale a pena a visita!'),
-(32, 37, 'Não perca a chance de fazer o passeio de buggy pelas dunas de Natal com 20% de desconto!'),
-(33, 30, 'Acesso à Praia do Farol em Arraial do Cabo está restrito por excesso de turistas. Planeje com antecedência.'),
-(34, 23, 'A orla nova de João Pessoa com ciclovia e feirinhas noturnas ficou ainda mais encantadora!'),
-(35, 51, 'Pousadas com diária reduzida em Pipa no meio da semana! Perfeito para quem quer aproveitar mais com menos!'),
-(36, 18, 'Em Pipa, as pousadas estão com diária reduzida no meio da semana. Excelente para quem quer economizar!'),
-(37, 20, 'Fui a Arraial do Cabo e adorei! Acesso à Praia do Farol está restrito por excesso de turistas, então se planeje!'),
-(38, 19, 'Desconto especial para quem visita as Cataratas e o Parque das Aves em Foz do Iguaçu!'),
-(39, 12, 'Forte calor nas trilhas do Parque do Lajeado em Palmas! Leve bastante água!'),
-(40, 8, 'Pousadas com diária reduzida em Pipa no meio da semana! Excelente oportunidade!'),
-(41, 60, 'Os fervedouros de Jalapão são incríveis! A paisagem é surreal, um lugar perfeito para aventura!'),
-(42, 5, 'O Mercado Ver-o-Peso em Belém está renovado e com uma nova área gastronômica. Vale a pena visitar!'),
-(43, 40, 'Aproveite o desconto em passeios de buggy em Natal! Passeio pelas dunas imperdível!'),
-(44, 23, 'A iluminação da Catedral de Pedra em Canela está incrível à noite, imperdível!'),
-(45, 26, 'Tour noturno com degustação nas vinícolas de Vale dos Vinhedos. Uma experiência maravilhosa!'),
-(46, 10, 'Em Palmas, o calor nas trilhas do Parque do Lajeado é intenso. Leve muita água!'),
-(47, 16, 'Desconto especial em Foz do Iguaçu para quem visita as Cataratas e o Parque das Aves. Não perca!'),
-(48, 4, 'A iluminação da Catedral de Pedra em Canela está ainda mais deslumbrante à noite. Imperdível!'),
-(49, 55, 'Fervedouros de Jalapão são impressionantes! Paisagens incríveis para quem ama ecoturismo.'),
-(50, 57, 'Aproveite a promoção em Pipa com diárias reduzidas no meio da semana!'),
-(51, 12, 'Acesso à Praia do Farol em Arraial do Cabo está limitado devido ao excesso de turistas. Fique atento!'),
-(52, 38, 'Em Canela, a iluminação da Catedral de Pedra à noite é um espetáculo! Vale cada minuto da visita!'),
-(53, 7, 'A Serra do Cipó tem trilhas lindas e cachoeiras cristalinas, ótimo para ecoturismo!'),
-(54, 11, 'A travessia de balsa em Ilhabela está com longas filas nos fins de semana. Se planeje!'),
-(55, 46, 'Mercado Ver-o-Peso em Belém foi renovado com uma área gastronômica incrível. Muito legal!'),
-(56, 51, 'A travessia de balsa em Ilhabela está com longas filas nos fins de semana. Melhor evitar esse pico!'),
-(57, 42, 'Em Serra do Cipó, as trilhas são maravilhosas e as cachoeiras cristalinas são imperdíveis!'),
-(58, 18, 'Fervedouros em Jalapão são uma experiência única. Paisagens de tirar o fôlego!'),
-(59, 53, 'Desconto de 30% para pacotes de reservas em Porto de Galinhas até domingo! Aproveite!'),
-(60, 26, 'Pousadas em Pipa com diárias reduzidas durante a semana. Uma ótima oportunidade de aproveitar mais!'),
-(61, 12, 'Desconto em passeios de teleférico em Balneário Camboriú na temporada de inverno. Não perca!'),
-(62, 47, 'Promoção nos passeios de teleférico em Balneário Camboriú! Aproveite o inverno com desconto!'),
-(63, 8, 'Pousadas com diária reduzida em Pipa durante o meio da semana. Super recomendada!'),
-(64, 26, 'Desconto de 30% para pacotes de Porto de Galinhas até domingo! Aproveite!'),
-(65, 19, 'Novo circuito de tirolesas em Brotas! Uma aventura e tanto!'),
-(66, 2, 'Mercado Ver-o-Peso em Belém está com nova área gastronômica. Vale muito a pena!'),
-(67, 45, 'Novo circuito de tirolesas em Brotas é uma diversão para os aventureiros!'),
-(68, 15, 'Os fervedouros de Jalapão são impressionantes. Paisagens de outro mundo!'),
-(69, 38, 'Desconto especial em Foz do Iguaçu para quem visita as Cataratas e o Parque das Aves. Aproveite!'),
-(70, 53, 'A travessia de balsa em Ilhabela está com longas filas nos fins de semana. Se organize!'),
-(71, 41, 'O tour noturno com degustação nas vinícolas do Vale dos Vinhedos é uma experiência única!'),
-(72, 36, 'Pousadas com diárias reduzidas durante a semana em Pipa. Ótima oportunidade!');
-
--- INSERTS da tabela REGIONS: Sudeste
-INSERT INTO regions (name, state, text, links) VALUES
-('São Paulo (capital)', 'SP', 'Centro cultural e econômico do país, com atrações como o MASP, Mercado Municipal, Parque Ibirapuera e a Avenida Paulista.', 'https://www.tripadvisor.com.br/Attractions-g303631-Activities-Sao_Paulo_State_of_Sao_Paulo.html');
-INSERT INTO regions (name, state, text) VALUES
-('Ilhabela', 'SP', 'Ilha paradisíaca com praias intocadas, trilhas na Mata Atlântica e ótimos locais para mergulho e esportes aquáticos.'),
-('Campos do Jordão', 'SP', 'Conhecida como a “Suíça Brasileira”, oferece clima ameno, arquitetura europeia e o famoso Festival de Inverno.'),
-('Holambra', 'SP', '"Capital das Flores", com campos floridos e o maior moinho da América Latina, refletindo a herança holandesa.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Rio de Janeiro (capital)', 'RJ', 'Famosa mundialmente por suas belezas naturais, como o Pão de Açúcar, Cristo Redentor e praias como Copacabana e Ipanema.', 'https://www.tripadvisor.com.br/Attractions-g303506-Activities-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html');
-INSERT INTO regions (name, state, text) VALUES
-('Paraty', 'RJ', ' Cidade colonial charmosa, reconhecida como Patrimônio Mundial da UNESCO, com centro histórico preservado e belas praias.'),
-('Região dos Lagos:', 'RJ', 'Inclui destinos como Búzios, Arraial do Cabo e Cabo Frio, conhecidos por suas praias paradisíacas e excelente infraestrutura turística.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Belo Horizonte (capital)', 'MG', 'Famosa por sua hospitalidade, culinária e vida noturna animada. Ponto de partida para cidades históricas como Ouro Preto e Mariana.', 'https://www.tripadvisor.com.br/Attractions-g303370-Activities-State_of_Minas_Gerais.html');
-INSERT INTO regions (name, state, text) VALUES
-('Ouro Preto', 'MG', 'Cidade colonial que preserva a rica herança do período do ouro no Brasil, com igrejas barrocas e ruas de paralelepípedos.'),
-('Parques Nacionais', 'MG', 'Como o da Serra da Canastra, onde nasce o Rio São Francisco, e o da Serra do Cipó, conhecidos por suas belezas naturais e biodiversidade.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Vitória (capital)', 'ES', 'Cidade litorânea com praias tranquilas, como a Ilha do Boi e a Ilha do Frade, além de uma rica gastronomia baseada em frutos do mar.', 'https://www.tripadvisor.com.br/Attractions-g303308-Activities-State_of_Espirito_Santo.html');
-
--- INSERTS da tabela REGIONS: Sul
-INSERT INTO regions (name, state, text, links) VALUES
-('Curitiba (capital)', 'PR', 'Reconhecida por seu planejamento urbano, oferece atrações como o Jardim Botânico, o Museu Oscar Niemeyer e o Parque Barigui.', 'https://www.tripadvisor.com.br/Attractions-g303435-Activities-State_of_Parana.html');
-INSERT INTO regions (name, state, text) VALUES
-('Foz do Iguaçu', 'PR', 'Lar das impressionantes Cataratas do Iguaçu, uma das Sete Maravilhas Naturais do Mundo, e da Represa de Itaipu. A cidade também é ponto de acesso a Ciudad del Este (Paraguai) e Puerto Iguazú (Argentina).'),
-('Serra do Mar', 'PR', 'Ideal para ecoturismo, com trilhas que levam a vilarejos históricos como Morretes e Antonina, onde se pode degustar o tradicional barreado.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Florianópolis (capital)', 'SC', ' A capital, conhecida por suas belas praias, como Joaquina e Campeche, além da Lagoa da Conceição e da Ponte Hercílio Luz.', 'https://www.tripadvisor.com.br/Attractions-g303570-Activities-State_of_Santa_Catarina.html');
-INSERT INTO regions (name, state, text) VALUES
-('Balneário Camboriú', 'SC', 'Famosa por sua vida noturna vibrante e pelo Parque Unipraias, que oferece vistas panorâmicas e atividades de ecoturismo.'),
-('São Joaquim', 'SC', 'Destino ideal para quem deseja vivenciar o inverno brasileiro, com possibilidade de neve e temperaturas negativas.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Porto Alegre (capital)', 'RS', 'Cidade com forte influência cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade está situada às margens do Lago Guaíba e é conhecida por sua diversidade cultural, gastronomia, e seus famosos centros históricos e espaços ao ar livre.', 'https://www.tripadvisor.com.br/Attractions-g303530-Activities-State_of_Rio_Grande_do_Sul.html');
-INSERT INTO regions (name, state, text) VALUES
-('Vale dos Vinhedos', 'RS', 'Região produtora de vinhos, onde é possível visitar vinícolas e participar de degustações.'),
-('Cânion Itaimbezinho', 'RS', 'Localizado no Parque Nacional de Aparados da Serra, oferece trilhas e vistas deslumbrantes.');
-
--- INSERTS da tabela REGIONS: Norte
-INSERT INTO regions (name, state, text, links) VALUES
-('Manaus (capital)', 'AM', 'Porta de entrada para a Amazônia, a capital amazonense oferece atrações como o Teatro Amazonas, o Mercado Municipal e o Encontro das Águas, onde os rios Negro e Solimões correm lado a lado sem se misturar.', 'https://www.tripadvisor.com.br/Attractions-g303226-Activities-State_of_Amazonas.html');
-INSERT INTO regions (name, state, text) VALUES
-('Floresta Amazônica', 'AM', 'Possibilidade de realizar passeios de barco, caminhadas na selva e observação de fauna e flora únicas.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Belém (capital)', 'PA', 'Capital paraense, famosa por sua culinária típica, como o tacacá e o açaí, além de pontos turísticos como o Mercado Ver-o-Peso e o Museu Paraense Emílio Goeldi.', 'https://www.tripadvisor.com.br/Attractions-g303402-Activities-State_of_Para.html');
-INSERT INTO regions (name, state, text) VALUES
-('Alter do Chão', 'PA', 'Conhecida como o "Caribe Amazônico", oferece praias de água doce com areia branca e águas cristalinas, sendo considerada uma das praias mais bonitas do Brasil.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Rio Branco (capital)', 'AC', 'Maior cidade do estado e está localizada na região norte do Brasil, próxima à fronteira com o Peru e a Bolívia. A cidade tem uma mistura de história, cultura e natureza, sendo a principal porta de entrada para quem deseja explorar a Floresta Amazônica e as belezas naturais do Acre.', 'https://www.tripadvisor.com.br/Attractions-g303199-Activities-State_of_Acre.html');
-INSERT INTO regions (name, state, text) VALUES
-('Geoglifos do Acre', 'AC', 'Estruturas geométricas misteriosas esculpidas no solo, com mais de 3.000 anos de idade, que despertam interesse arqueológico.');
-
-INSERT INTO regions (name, state, text, links) VALUES
-('Boa Vista (capital)', 'RR', 'Única capital brasileira situada completamente ao norte da linha do Equador e é conhecida por sua proximidade com a natureza e por ser uma cidade com forte presença de influências indígenas e amazônicas.', 'https://www.tripadvisor.com.br/Attractions-g303562-Activities-State_of_Roraima.html');
+('Boa Vista (capital)', 'RR', 'Única capital brasileira situada completamente ao norte da linha do Equador e é conhecida por sua proximidade com a natureza e por ser uma cidade com forte presença de influências indígenas e amazônicas.', 'https://www.tripadvisor.com.br/Attractions-g30362-Activities-State_of_Roraima.html');
 INSERT INTO regions (name, state, text) VALUES
 ('Monte Roraima', 'RR', 'Uma das formações geológicas mais antigas do planeta, oferece trilhas desafiadoras e vistas deslumbrantes, sendo inspiração para obras como "O Mundo Perdido" de Arthur Conan Doyle.');
 

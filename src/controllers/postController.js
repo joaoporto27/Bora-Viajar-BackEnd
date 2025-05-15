@@ -27,7 +27,8 @@ const getPostById = async (req, res) => {
 //Criar um post
 const createPost = async (req, res) => {
     try {
-        const { user_id, image, description, tag} = req.body;
+        const image = req.file ? req.file.filename : null;
+        const { user_id, description, tag} = req.body;
         const newPost = await postModel.createPost(user_id, image, description, tag);
         res.status(201).json({ message: "Post criado com sucesso!", newPost });
     } catch (error) {
