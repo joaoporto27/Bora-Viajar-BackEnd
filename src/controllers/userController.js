@@ -39,9 +39,6 @@ const createUser = async (req, res) => {
         if (!password.includes("@") && !password.includes("#") && !password.includes("$") && !password.includes("%") && !password.includes("&")) {
             return res.status(400).json({ message: "Senha deve conter pelo menos um caractere especial (@,!,#,$,%,&)" });
         }
-        if (type_user !== "Usuário" || "Guia turístico"){
-            return res.status(400).json({ message: "O tipo de conta pode ser somente 'Usuário' ou 'Guia turístico'" });
-        }
         const photo = req.file ? req.file.filename : null;
         const newUser = await userModel.createUser(name, email, city, state, type_user, photo, password);
         res.status(201).json({ message: "Bem vindo a Bora Viajar!", newUser });

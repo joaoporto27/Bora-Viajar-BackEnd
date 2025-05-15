@@ -16,7 +16,7 @@ const getPostById = async (id) => {
 
 //Criar um post
 const createPost = async (user_id, image, description, tag) => {
-    const result = await pool.query("INSERT INTO posts (user_id, image, description, tag) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+    const result = await pool.query("INSERT INTO posts (user_id, image, description, tag) VALUES ($1, $2, $3, $4) RETURNING *",
         [user_id, image, description, tag]
     );
     return result.rows[0];
