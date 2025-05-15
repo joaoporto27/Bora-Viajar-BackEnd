@@ -1,11 +1,18 @@
 const pool = require("../config/database");
 
 //Buscar todos os posts
-const getPosts = async () => {
-    const result = await pool.query(`SELECT users.name AS usuario, posts.image, posts.description, posts.tag
+const getPosts = async (tag) => {
+    if (!tag) {
+        const result = await pool.query(`SELECT users.name AS usuario, posts.image, posts.description, posts.tag
             FROM posts 
             LEFT JOIN users ON posts.user_id = users.id`);
-    return result.rows;
+            return result.rows;
+    } else {
+        const result = await pool.query(
+            "SELECT * FROM posts WHERE tag ILIKE $1",
+            [`%${tag}%`]);
+            return result.rows;
+    }
 };
 
 //Buscar um post pelo id

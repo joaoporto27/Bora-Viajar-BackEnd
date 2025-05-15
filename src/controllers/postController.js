@@ -3,7 +3,8 @@ const postModel = require("../models/postModel");
 //Buscar todos os posts
 const getAllPosts = async (req, res) => {
     try {
-        const posts = await postModel.getPosts();
+        const { tag } = req.query; 
+        const posts = await postModel.getPosts(tag);
         res.status(200).json(posts);
     } catch (error) {
         res.status(404).json({ message: "Não foi possível rodar a Timeline" });

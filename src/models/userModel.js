@@ -11,7 +11,6 @@ const getUsers = async (name) => {
             [`%${name}%`]);
         return result.rows;
        }
-    
 };
 
 //Buscar um usuário pelo id
