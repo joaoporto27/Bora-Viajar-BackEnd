@@ -54,14 +54,14 @@ CREATE TABLE news (
 
 -- INSERTS da tabela USERS: usuários
 INSERT INTO users (name, email, city, state, type_user, password) VALUES
-('Amanda Gomes Mechi', 'amanda.mechi@gmail.com', 'Campinas', 'SP', 'Usuário','123456!@'),
+('Amanda Gomes Mechi', 'amanda.mechi@gmail.com', 'Campinas', 'SP', 'Usuário','123456@'),
 ('Andre Lucca Santos', 'andre.l.santos45@gmail.com', 'Campinas', 'SP', 'Usuário','234561$'),
 ('Flavia Regina Alexandre Mendes', 'flavia.r.mendes@gmail.com', 'Campinas', 'SP', 'Usuário','345612%'),
 ('Giovanna Caron de Barros', 'giovanna.c.barros@gmail.com', 'Valinhos', 'SP', 'Usuário','456123@'),
 ('Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@gmail.com', 'Valinhos', 'SP', 'Usuário','567234%'),
 ('João Vitor Porto Sales', 'joao.v.sales15@gmail.com', 'Campinas', 'SP', 'Usuário','678345#'),
 ('Laura Ferreira Violla', 'laura.violla@gmail.com', 'Valinhos', 'SP', 'Usuário','789456#'),
-('Carlos Silva', 'carlos.silva1@gmail.com', 'São Paulo', 'SP', 'Usuário', '512735$'),
+('Carlos Silva', 'carlos.silva435@gmail.com', 'São Paulo', 'SP', 'Usuário', '512735$'),
 ('Vinícius Andrade', 'vinicius.andrade101@gmail.com', 'Campinas', 'SP', 'Usuário', '180577%'),
 ('Matheus Rocha', 'matheus.rocha217@gmail.com', 'São Bernardo do Campo', 'SP', 'Usuário', '698730&'),
 ('Ana Oliveira', 'ana.oliveira2@gmail.com', 'Rio de Janeiro', 'RJ', 'Usuário', '184767#'),
@@ -86,34 +86,8 @@ INSERT INTO users (name, email, city, state, type_user, password) VALUES
 ('Letícia Gomes', 'leticia.gomes209@gmail.com', 'Santarém', 'PA', 'Usuário', '304881$'),
 ('Rayssa Lopes', 'rayssa.lopes213@gmail.com', 'Aracaju', 'SE', 'Usuário', '181202#'),
 ('Caio Antunes', 'caio.antunes214@gmail.com', 'Macapá', 'AP', 'Usuário', '641973#'),
-('Yasmin Duarte', 'yasmin.duarte218@gmail.com', 'Teresina', 'PI', 'Usuário', '390458#'),
-('Larissa Freitas', 'larissa.freitas233@gmail.com', 'Vitória', 'ES', 'Usuário', '213904!'),
-('Rafael Castro', 'rafael.castro234@gmail.com', 'Palmas', 'TO', 'Usuário', '785412!'),
-('Juliana Paiva', 'juliana.paiva235@gmail.com', 'São Paulo', 'SP', 'Usuário', '634291!'),
-('André Nascimento', 'andre.nascimento236@gmail.com', 'Rio de Janeiro', 'RJ', 'Usuário', '981276!'),
-('Bruna Oliveira', 'bruna.oliveira237@gmail.com', 'Curitiba', 'PR', 'Usuário', '453018!'),
-('Henrique Souza', 'henrique.souza238@gmail.com', 'Recife', 'PE', 'Usuário', '719830!'),
-('Letícia Andrade', 'leticia.andrade239@gmail.com', 'Porto Seguro', 'BA', 'Usuário', '168392!'),
-('Gustavo Moura', 'gustavo.moura240@gmail.com', 'João Pessoa', 'PB', 'Usuário', '823105!'),
-('Marina Duarte', 'marina.duarte241@gmail.com', 'Aracaju', 'SE', 'Usuário', '290186!'),
-('Eduardo Pinto', 'eduardo.pinto242@gmail.com', 'Macapá', 'AP', 'Usuário', '331094!'),
-('Talita Ribeiro', 'talita.ribeiro243@gmail.com', 'Rio Branco', 'AC', 'Usuário', '557319!'),
-('César Martins', 'cesar.martins244@gmail.com', 'Boa Vista', 'RR', 'Usuário', '671042!'),
-('Mirela Cardoso', 'mirela.cardoso245@gmail.com', 'Petrolina', 'PE', 'Usuário', '442011!'),
-('Paulo Henrique', 'paulo.henrique246@gmail.com', 'Maragogi', 'AL', 'Usuário', '799034!'),
-('Nina Bastos', 'nina.bastos247@gmail.com', 'Chapada dos Veadeiros', 'GO', 'Usuário', '915376!'),
-('Alana Cruz', 'alana.cruz248@gmail.com', 'Foz do Iguaçu', 'PR', 'Usuário', '348190!'),
-('Sabrina Teles', 'sabrina.teles249@gmail.com', 'Paraty', 'RJ', 'Usuário', '624781#'),
-('Fernando Mello', 'fernando.mello250@gmail.com', 'São Luís', 'MA', 'Usuário', '813470#'),
-('Amanda Prado', 'amanda.prado251@gmail.com', 'Balneário Camboriú', 'SC', 'Usuário', '938624#'),
-('Tatiana Correia', 'tatiana.correia253@gmail.com', 'Vitória da Conquista', 'BA', 'Usuário', '409782#'),
-('Cristiano Neves', 'cristiano.neves254@gmail.com', 'Campina Grande', 'PB', 'Usuário', '517209#'),
-('Elisa Martins', 'elisa.martins255@gmail.com', 'Altamira', 'PA', 'Usuário', '374821#'),
-('Rodrigo Sales', 'rodrigo.sales256@gmail.com', 'Rondonópolis', 'MT', 'Usuário', '902184#'),
-('Marcela Luz', 'marcela.luz258@gmail.com', 'Teresópolis', 'RJ', 'Usuário', '281905@'),
-('Eduardo Lima', 'eduardo.lima259@gmail.com', 'Caxias do Sul', 'RS', 'Usuário', '650378@'),
-('Júlia Viana', 'julia.viana260@gmail.com', 'Franca', 'SP', 'Usuário', '195024@'),
-('Mariane Costa', 'mariane.costa262@gmail.com', 'Itabuna', 'BA', 'Usuário', '347902@');
+('Yasmin Duarte', 'yasmin.duarte218@gmail.com', 'Teresina', 'PI', 'Usuário', '390458#');
+
 
 -- INSERTS da tabela USERS: guia turístico
 INSERT INTO users (name, email, city, state, type_user, password) VALUES
@@ -127,11 +101,8 @@ INSERT INTO users (name, email, city, state, type_user, password) VALUES
 ('Sérgio Araújo', 'sergio.araujo185@gmail.com', 'Lençóis', 'BA', 'Guia turístico', '206187%'),
 ('Vanessa Prado', 'vanessa.prado184@gmail.com', 'Bonito', 'MS', 'Guia turístico', '629103%'),
 ('Rogério Melo', 'rogerio.melo189@gmail.com', 'Chapada dos Veadeiros', 'GO', 'Guia turístico', '647091%'),
-('Gustavo Reis', 'gustavo.reis191@gmail.com', 'Petrolina', 'PE', 'Guia turístico', '284105%'),
-('Leandro Rocha', 'leandro.rocha252@gmail.com', 'Porto Velho', 'RO', 'guia turístico', '110348#'),
-('Daniela Furtado', 'daniela.furtado257@gmail.com', 'São João del-Rei', 'MG', 'guia turístico', '764392@'),
-('Pedro Cunha', 'pedro.cunha261@gmail.com', 'Piracicaba', 'SP', 'guia turístico', '817402@'),
-('Otávio Nunes', 'otavio.nunes263@gmail.com', 'Penedo', 'AL', 'guia turístico', '713289@');
+('Gustavo Reis', 'gustavo.reis191@gmail.com', 'Petrolina', 'PE', 'Guia turístico', '284105%');
+
 
 -- INSERTS da tabela USERS: sem fotos
 INSERT INTO users (name, email, city, state, type_user, password) VALUES
@@ -151,6 +122,37 @@ INSERT INTO users (name, email, city, state, type_user, password) VALUES
 ('Rebeca Vasconcelos', 'rebeca.vasconcelos220@gmail.com', 'Juazeiro do Norte', 'CE', 'Usuário', '820013'),
 ('Felipe Soares', 'felipe.soares197@gmail.com', 'Jericoacoara', 'CE', 'guia turístico', '928471'),
 ('Jéssica Castro', 'jessica.castro198@gmail.com', 'São Miguel dos Milagres', 'AL', 'guia turístico', '153709'),
+('Rafael Castro', 'rafael.castro234@gmail.com', 'Palmas', 'TO', 'Usuário', '785412#'),
+('Juliana Paiva', 'juliana.paiva235@gmail.com', 'São Paulo', 'SP', 'Usuário', '634291#'),
+('André Nascimento', 'andre.nascimento236@gmail.com', 'Rio de Janeiro', 'RJ', 'Usuário', '981276#'),
+('Bruna Oliveira', 'bruna.oliveira237@gmail.com', 'Curitiba', 'PR', 'Usuário', '453018#'),
+('Henrique Souza', 'henrique.souza238@gmail.com', 'Recife', 'PE', 'Usuário', '719830#'),
+('Letícia Andrade', 'leticia.andrade239@gmail.com', 'Porto Seguro', 'BA', 'Usuário', '168392#'),
+('Gustavo Moura', 'gustavo.moura240@gmail.com', 'João Pessoa', 'PB', 'Usuário', '823105#'),
+('Marina Duarte', 'marina.duarte241@gmail.com', 'Aracaju', 'SE', 'Usuário', '290186#'),
+('Eduardo Pinto', 'eduardo.pinto242@gmail.com', 'Macapá', 'AP', 'Usuário', '331094#'),
+('Talita Ribeiro', 'talita.ribeiro243@gmail.com', 'Rio Branco', 'AC', 'Usuário', '557319#'),
+('César Martins', 'cesar.martins244@gmail.com', 'Boa Vista', 'RR', 'Usuário', '671042#'),
+('Mirela Cardoso', 'mirela.cardoso245@gmail.com', 'Petrolina', 'PE', 'Usuário', '442011#'),
+('Paulo Henrique', 'paulo.henrique246@gmail.com', 'Maragogi', 'AL', 'Usuário', '799034#'),
+('Nina Bastos', 'nina.bastos247@gmail.com', 'Chapada dos Veadeiros', 'GO', 'Usuário', '915376#'),
+('Alana Cruz', 'alana.cruz248@gmail.com', 'Foz do Iguaçu', 'PR', 'Usuário', '348190#'),
+('Sabrina Teles', 'sabrina.teles249@gmail.com', 'Paraty', 'RJ', 'Usuário', '624781#'),
+('Fernando Mello', 'fernando.mello250@gmail.com', 'São Luís', 'MA', 'Usuário', '813470#'),
+('Amanda Prado', 'amanda.prado251@gmail.com', 'Balneário Camboriú', 'SC', 'Usuário', '938624#'),
+('Tatiana Correia', 'tatiana.correia253@gmail.com', 'Vitória da Conquista', 'BA', 'Usuário', '409782#'),
+('Cristiano Neves', 'cristiano.neves254@gmail.com', 'Campina Grande', 'PB', 'Usuário', '517209#'),
+('Elisa Martins', 'elisa.martins255@gmail.com', 'Altamira', 'PA', 'Usuário', '374821#'),
+('Rodrigo Sales', 'rodrigo.sales256@gmail.com', 'Rondonópolis', 'MT', 'Usuário', '902184#'),
+('Marcela Luz', 'marcela.luz258@gmail.com', 'Teresópolis', 'RJ', 'Usuário', '281905@'),
+('Eduardo Lima', 'eduardo.lima259@gmail.com', 'Caxias do Sul', 'RS', 'Usuário', '650378@'),
+('Júlia Viana', 'julia.viana260@gmail.com', 'Franca', 'SP', 'Usuário', '195024@'),
+('Mariane Costa', 'mariane.costa262@gmail.com', 'Itabuna', 'BA', 'Usuário', '347902@'),
+('Leandro Rocha', 'leandro.rocha252@gmail.com', 'Porto Velho', 'RO', 'guia turístico', '110348#'),
+('Daniela Furtado', 'daniela.furtado257@gmail.com', 'São João del-Rei', 'MG', 'guia turístico', '764392@'),
+('Pedro Cunha', 'pedro.cunha261@gmail.com', 'Piracicaba', 'SP', 'guia turístico', '817402@'),
+('Larissa Freitas', 'larissa.freitas233@gmail.com', 'Vitória', 'ES', 'Usuário', '213904#'),
+('Otávio Nunes', 'otavio.nunes263@gmail.com', 'Penedo', 'AL', 'guia turístico', '713289@');
 
 
 
