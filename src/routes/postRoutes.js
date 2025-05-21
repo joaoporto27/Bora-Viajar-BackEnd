@@ -45,7 +45,7 @@ router.get("/posts/:id", postController.getPostById);
  */
 
 // Rota para criar um post
-router.post("/posts", upload.single("photo"), postController.createPost);
+router.post("/posts", upload.single("image"), postController.createPost);
 /**
  * @swagger
  * /api/posts:
@@ -55,7 +55,7 @@ router.post("/posts", upload.single("photo"), postController.createPost);
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:

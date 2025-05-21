@@ -152,7 +152,17 @@ INSERT INTO users (name, email, city, state, type_user, password) VALUES
 ('Daniela Furtado', 'daniela.furtado257@gmail.com', 'São João del-Rei', 'MG', 'guia turístico', '764392@'),
 ('Pedro Cunha', 'pedro.cunha261@gmail.com', 'Piracicaba', 'SP', 'guia turístico', '817402@'),
 ('Larissa Freitas', 'larissa.freitas233@gmail.com', 'Vitória', 'ES', 'Usuário', '213904#'),
-('Otávio Nunes', 'otavio.nunes263@gmail.com', 'Penedo', 'AL', 'guia turístico', '713289@');
+('Otávio Nunes', 'otavio.nunes263@gmail.com', 'Penedo', 'AL', 'guia turístico', '713289@'),
+('Larissa Almeida', 'larissa.almeida123@gmail.com', 'Campinas', 'SP', 'Usuário', '983214@'),
+('Renato Cardoso', 'renato.cardoso99@gmail.com', 'Belo Horizonte', 'MG', 'Usuário', '612347@'),
+('Juliana Mendes', 'juliana.mendes@gmail.com', 'Curitiba', 'PR', 'Usuário', '704128@'),
+('Tiago Oliveira', 'tiago.oliveira87@gmail.com', 'Porto Alegre', 'RS', 'Usuário', '559876@'),
+('Bruna Souza', 'bruna.souza@gmail.com', 'Salvador', 'BA', 'Usuário', '347281@'),
+('Marcelo Ribeiro', 'marcelo.ribeiro@hotmail.com', 'Recife', 'PE', 'Usuário', '890173$'),
+('Diego Nascimento', 'diego.nascimento@gmail.com', 'João Pessoa', 'PB', 'Usuário', '519283$'),
+('Camila Duarte', 'camila.duarte@gmail.com', 'Fortaleza', 'CE', 'Usuário', '209134$'),
+('André Lima', 'andre.lima@gmail.com', 'Goiânia', 'GO', 'Usuário', '381947$');
+
 
 
 
@@ -223,7 +233,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (54, 'Aproveite a PROMOÇÃO em Lençóis (BA): Nova sinalização nas trilhas da Chapada garante mais segurança.', 'PROMOÇÃO' ),
 (26, 'Aproveite a PROMOÇÃO em Porto de Galinhas (PE): Pacotes com desconto de 30% para reservas até domingo.', 'PROMOÇÃO' ),
 (3, 'Aproveite a PROMOÇÃO em Ilhabela (SP): A travessia de balsa está com longas filas nos fins de semana.', 'PROMOÇÃO' ),
-(76, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
+(96, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
 (23, 'ATENÇÃO: Pousadas em Lençóis com até 40% de desconto em junho. (Chapada Diamantina (BA))', 'ALERTA' ),
 (56, 'ATENÇÃO: Tour noturno com degustação, vinícolas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA' ),
 (7, 'ATENÇÃO: Os fervedouros são impressionantes e a paisagem é surreal. (Jalapão (TO))', 'ALERTA' ),
@@ -269,7 +279,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (27, 'Super promoção para excursões escolares à Floresta Nacional do Tapajós!', 'PROMOÇÃO'),
 (28, 'ALERTA: Interdição parcial da trilha da Pedra da Gávea por manutenção.', 'ALERTA'),
 (29, 'Reabertura do Museu do Mar em São Francisco do Sul com exposições inéditas.', 'NOVIDADES'),
-(30, 'Descontos exclusivos para casais em pousadas da Serra Gaúcha.', 'PROMOÇÃO'),
+(90, 'Descontos exclusivos para casais em pousadas da Serra Gaúcha.', 'PROMOÇÃO'),
 (31, 'ALERTA: Área de mergulho em Maragogi fechada temporariamente por preservação.', 'ALERTA'),
 (32, 'Festival de música ao ar livre chega ao Vale dos Vinhedos neste mês!', 'NOVIDADES'),
 (33, 'Pacotes promocionais para o Pantanal durante o mês de junho!', 'PROMOÇÃO'),
@@ -286,7 +296,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (48, 'Viagens para Bonito com descontos especiais neste mês!', 'PROMOÇÃO'),
 (49, 'ALERTA: Aviso de ressaca para o litoral sul de São Paulo. Cuidado com o banho de mar.', 'ALERTA'),
 (51, 'Descontos de até 50% para passeios na Rota das Cachoeiras em Goiás!', 'PROMOÇÃO'),
-(52, 'ALERTA: Fauna silvestre visível em áreas urbanas de Florianópolis. Mantenha distância.', 'ALERTA'),
+(88, 'ALERTA: Fauna silvestre visível em áreas urbanas de Florianópolis. Mantenha distância.', 'ALERTA'),
 (54, 'Pacotes promocionais para conhecer o Vale Europeu em SC!', 'PROMOÇÃO'),
 (55, 'ALERTA: Interdição parcial do bondinho do Pão de Açúcar por manutenção preventiva.', 'ALERTA'),
 (56, 'Evento especial de observação de aves no Parque Nacional do Viruá.', 'NOVIDADES'),
@@ -328,7 +338,32 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (7, 'Lançamento de aplicativo de turismo para o interior de Minas Gerais.', 'NOVIDADES'),
 (5, 'Promoção para pacotes de ecoturismo com foco em observação de aves.', 'PROMOÇÃO'),
 (58, 'ALERTA: Interdição temporária no Parque Nacional da Serra da Bocaina por manutenção.', 'ALERTA'),
-(28, 'Festival indígena em Tocantins celebra cultura com atividades abertas ao público.', 'NOVIDADES');
+(28, 'Festival indígena em Tocantins celebra cultura com atividades abertas ao público.', 'NOVIDADES'),
+(17, 'NOVIDADE em Foz do Iguaçu! O novo centro de visitantes do Parque Nacional está incrível, com experiências imersivas e interativas sobre a fauna local.', 'NOVIDADES'),
+(22, 'ALERTA: Estrada de acesso ao Pico da Bandeira está com trechos escorregadios devido às chuvas intensas. Redobrem a atenção ao subir.', 'ALERTA'),
+(36, 'Participei da Festa do Divino em Alcântara (MA) neste mês e foi emocionante. As tradições locais seguem vivas e encantadoras.', 'NOVIDADES'),
+(91, 'PROMOÇÃO: Pacotes com 30% de desconto para passeios de barco pelo Delta do Parnaíba até o final deste mês. Imperdível!', 'PROMOÇÃO'),
+(4, 'Descobri um café novo em Tiradentes com vista para as montanhas e ambiente colonial. Ótima parada depois das trilhas culturais.', 'NOVIDADES'),
+(55, 'ALERTA: O acesso à Cachoeira do Formiga, em Jalapão, está restrito durante a semana para recuperação da trilha. Planejem-se para visitar aos fins de semana.', 'ALERTA'),
+(12, 'PROMOÇÃO especial em Jericoacoara: pousadas com diária grátis na terceira noite durante a baixa temporada. Uma ótima oportunidade para relaxar!', 'PROMOÇÃO'),
+(67, 'NOVIDADES em Belém! O Mercado Ver-o-Peso agora conta com um espaço gourmet reformado, reunindo chefs locais e ingredientes típicos amazônicos.', 'NOVIDADES'),
+(23, 'PROMOÇÃO: Passeios guiados pelo centro histórico de Salvador com 50% de desconto durante o mês de junho. Aproveite para conhecer mais da cultura baiana!', 'PROMOÇÃO'),
+(38, 'ALERTA: Sobe para nível máximo o risco de incêndios na região do Jalapão (TO). Evite acampamentos e não faça fogueiras.', 'ALERTA'),
+(10, 'Nova passarela panorâmica inaugurada na Serra do Rio do Rastro! Agora dá pra ter uma vista completa dos cânions com segurança.', 'NOVIDADES'),
+(47, 'PROMOÇÃO: Resort em Caldas Novas com tarifa reduzida para famílias e cortesia para crianças menores de 10 anos durante os fins de semana.', 'PROMOÇÃO'),
+(61, 'ALERTA: Temporada de chuvas fortes no litoral do Espírito Santo. Algumas praias estão com acesso restrito devido a deslizamentos.', 'ALERTA'),
+(30, 'Participei de um festival de culinária caiçara em Ilhabela com pratos típicos e música ao vivo. Um ótimo programa para quem ama gastronomia regional.', 'NOVIDADES'),
+(5, 'PROMOÇÃO relâmpago para trilha guiada na Serra da Canastra: grupos com até 4 pessoas pagam o preço de 3!', 'PROMOÇÃO'),
+(75, 'ALERTA: Observação de baleias em Abrolhos suspensa temporariamente por conta do aumento da atividade marítima irregular na área.', 'ALERTA'),
+(18, 'NOVIDADES em Curitiba: o Jardim Botânico agora oferece visitas noturnas com iluminação artística e trilhas sensoriais. Uma experiência única!', 'NOVIDADES'),
+(52, 'ALERTA: A travessia do Parque Nacional de Itatiaia está fechada por tempo indeterminado devido a deslizamentos recentes.', 'ALERTA'),
+(7, 'PROMOÇÃO: City tour por Belo Horizonte com degustação de queijos e doces mineiros incluso no pacote. Descontos válidos até o final do mês.', 'PROMOÇÃO'),
+(33, 'Descobri um novo circuito de bike em Bento Gonçalves entre vinhedos e paisagens incríveis. Ideal para quem curte pedal e enoturismo.', 'NOVIDADES'),
+(26, 'ALERTA: Forte neblina nas estradas da Serra Gaúcha. Redobrem a atenção e evitem dirigir à noite neste período.', 'ALERTA'),
+(89, 'PROMOÇÃO: Hospedagem em hostels de São Paulo com 20% OFF para reservas feitas pelo app até sexta-feira.', 'PROMOÇÃO'),
+(41, 'A rota do cangaço em Piranhas (AL) está com novas sinalizações e painéis interativos contando a história de Lampião e Maria Bonita. Muito bem feita!', 'NOVIDADES'),
+(13, 'ALERTA: A travessia do Vale do Pati, na Chapada Diamantina, requer guias credenciados obrigatoriamente a partir deste mês. Fiscalização aumentada.', 'ALERTA');
+
 
 -- INSERTS da tabela POSTS: com fotos
 INSERT INTO posts (user_id, description, tag) VALUES
@@ -340,12 +375,12 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (82, 'ALERTA: Praia da Joaquina em Florianópolis com forte correnteza nesta semana. Evitem nadar em áreas sem sinalização de segurança.', 'ALERTA'),
 (26, 'Achei ótima a nova ciclovia entre a Praia Mole e Lagoa da Conceição. Pedalei com a família inteira e foi super tranquilo!', 'NOVIDADES'),
 (12, 'Visitei o Jalapão (TO) semana passada e fiquei impressionado com os fervedouros! A água parece te empurrar pra cima. Experiência surreal!', 'NOVIDADES'),
-(28, 'ALERTA: Em Ilhabela (SP), a travessia de balsa está com longas filas nos fins de semana. Recomendo ir bem cedo pra evitar atrasos.', 'ALERTA'),
+(98, 'ALERTA: Em Ilhabela (SP), a travessia de balsa está com longas filas nos fins de semana. Recomendo ir bem cedo pra evitar atrasos.', 'ALERTA'),
 (29, 'Passei o feriado em São Miguel do Gostoso (RN) e foi incrível! Praia calma, vento constante, ótima pra kitesurf e descanso total.', 'NOVIDADES'),
 (5, 'PROMOÇÃO rolando em Foz do Iguaçu (PR): desconto para quem visitar as Cataratas e o Parque das Aves no mesmo dia. Entrada combinada vale a pena!', 'PROMOÇÃO'),
 (13, 'Estive em Vale dos Vinhedos (RS) recentemente. Tour noturno com degustação, vinícolas encantadoras.', 'NOVIDADES'),
 (9, 'Visitei Arraial do Cabo (RJ) e adorei! ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'NOVIDADES' )
-(39, 'ATENÇÃO: Desconto especial para quem visita as Cataratas e o Parque das Aves. (Foz do Iguaçu (PR))', 'ALERTA' ),
+(39, 'ATENÇÃO: Desconto especial para quem visita as Cataratas e o Parque das Aves. (Foz do Iguaçu (PR))', 'PROMOÇÃO' ),
 (12, 'Visitei Palmas (TO) e adorei! Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'NOVIDADES' ),
 (26, 'Visitei Pipa (RN) e adorei! Pousadas com diária reduzida durante o meio da semana.', 'NOVIDADES' ),
 (58, 'Visitei Canela (RS) e adorei! Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'NOVIDADES' ),
@@ -359,7 +394,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (8, 'Visitei Manaus (AM) e adorei! O porto está parcialmente fechado devido à cheia do rio Negro.', 'NOVIDADES' ),
 (9, 'Visitei João Pessoa (PB) e adorei! Orla nova com ciclovia e feirinhas noturnas animadas.', 'NOVIDADES' ),
 (19, 'Visitei Palmas (TO) e adorei! Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'NOVIDADES' ),
-(50, 'Visitei Balneário Camboriú (SC) e adorei! PROMOÇÃO em passeios de teleférico na temporada de inverno.', 'NOVIDADES' ),
+(80, 'Visitei Balneário Camboriú (SC) e adorei! PROMOÇÃO em passeios de teleférico na temporada de inverno.', 'NOVIDADES' ),
 (53, 'Visitei São Miguel do Gostoso (RN) e adorei! Praia calma e vento constante, ótimo para kitesurf.', 'NOVIDADES' ),
 (8, 'Visitei Vale dos Vinhedos (RS) e adorei! Tour noturno com degustação, vinícolas encantadoras.', 'NOVIDADES' ),
 (35, 'Novo mirante aberto ao público no Parque Nacional de Aparados da Serra.', 'NOVIDADES'),
@@ -368,7 +403,7 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (29, 'Novo passeio de barco em Arraial do Cabo oferece experiências ao pôr do sol.', 'NOVIDADES'),
 (45, 'Rota dos Cânions é ampliada com novos mirantes e áreas de descanso.', 'NOVIDADES'),
 (12, 'Novo roteiro de ecoturismo no Acre oferece experiências únicas na floresta.', 'NOVIDADES'),
-(26, 'Inaugurado o novo teleférico panorâmico no Parque Nacional de Itatiaia.', 'NOVIDADES'),
+(76, 'Inaugurado o novo teleférico panorâmico no Parque Nacional de Itatiaia.', 'NOVIDADES'),
 (38, 'Inaugurado o circuito de cicloturismo na Serra da Mantiqueira.', 'NOVIDADES'),
 (23, 'Nova atração turística em São João del Rei celebra a cultura mineira.', 'NOVIDADES'),
 (53, 'Abertura de nova trilha acessível para pessoas com deficiência no Parque da Tijuca.', 'NOVIDADES'),
@@ -377,7 +412,16 @@ INSERT INTO posts (user_id, description, tag) VALUES
 (20, 'Nova rota de turismo religioso no interior do Paraná é lançada.', 'NOVIDADES'),
 (36, 'Nova atração interativa no Instituto Inhotim atrai visitantes de todas as idades.', 'NOVIDADES'),
 (32, 'Nova linha de trem turístico ligando Curitiba a Morretes é reinaugurada.', 'NOVIDADES'),
-(26, 'Nova exposição sobre biodiversidade marinha no Museu Nacional da UFRJ.', 'NOVIDADES');
+(26, 'Nova exposição sobre biodiversidade marinha no Museu Nacional da UFRJ.', 'NOVIDADES'),
+(20, 'PROMOÇÃO em Bonito (MS): agências locais estão oferecendo combos de flutuação + trilha com 25% de desconto durante a semana.', 'PROMOÇÃO'),
+(64, 'NOVIDADES em São Luís (MA): reabertura do Teatro Arthur Azevedo com programação cultural gratuita nas noites de sexta-feira.', 'NOVIDADES'),
+(11, 'ALERTA: Praia do Rosa (SC) com alta concentração de águas-vivas nesta temporada. Atenção redobrada para quem for entrar no mar.', 'ALERTA'),
+(58, 'PROMOÇÃO: Passeios de buggy nas dunas de Natal com valores promocionais para grupos a partir de 3 pessoas. Ideal para famílias!', 'PROMOÇÃO'),
+(39, 'NOVIDADE em Manaus: novo mirante do Encontro das Águas oferece vista privilegiada e acesso facilitado com estacionamento.', 'NOVIDADES'),
+(6, 'ALERTA: Interdição temporária do acesso ao Morro do Pai Inácio, na Chapada Diamantina, para manutenção nas escadarias e corrimãos.', 'ALERTA'),
+(95, 'PROMOÇÃO para amantes do frio: pousadas na Serra Catarinense com café colonial incluso e descontos de até 40% na baixa temporada.', 'PROMOÇÃO'),
+(72, 'NOVIDADES em Brasília: o Eixo Cultural Ibero-americano foi inaugurado com exposições permanentes sobre arte e arquitetura latino-americana.', 'NOVIDADES'),
+(14, 'ALERTA: Forte ressaca atinge a orla do Rio de Janeiro, especialmente entre o Leme e o Leblon. Evitem a faixa de areia e áreas de pedras.', 'ALERTA');
 
 
 
@@ -444,7 +488,7 @@ INSERT INTO comments (post_id, user_id, comment) VALUES
 (59, 53, 'Desconto de 30% para pacotes de reservas em Porto de Galinhas até domingo! Aproveite!'),
 (60, 26, 'Pousadas em Pipa com diárias reduzidas durante a semana. Uma ótima oportunidade de aproveitar mais!'),
 (61, 12, 'Desconto em passeios de teleférico em Balneário Camboriú na temporada de inverno. Não perca!'),
-82, 47, 'Promoção nos passeios de teleférico em Balneário Camboriú! Aproveite o inverno com desconto!'),
+(82, 47, 'Promoção nos passeios de teleférico em Balneário Camboriú! Aproveite o inverno com desconto!'),
 (63, 8, 'Pousadas com diária reduzida em Pipa durante o meio da semana. Super recomendada!'),
 (64, 26, 'Desconto de 30% para pacotes de Porto de Galinhas até domingo! Aproveite!'),
 (65, 19, 'Novo circuito de tirolesas em Brotas! Uma aventura e tanto!'),
@@ -454,7 +498,22 @@ INSERT INTO comments (post_id, user_id, comment) VALUES
 (69, 38, 'Desconto especial em Foz do Iguaçu para quem visita as Cataratas e o Parque das Aves. Aproveite!'),
 (70, 53, 'A travessia de balsa em Ilhabela está com longas filas nos fins de semana. Se organize!'),
 (71, 41, 'O tour noturno com degustação nas vinícolas do Vale dos Vinhedos é uma experiência única!'),
-(72, 36, 'Pousadas com diárias reduzidas durante a semana em Pipa. Ótima oportunidade!');
+(72, 36, 'Pousadas com diárias reduzidas durante a semana em Pipa. Ótima oportunidade!'),
+(172, 1, 'Esse mirante da Nascente Azul em Bonito parece incrível! Mal posso esperar para visitar.'),
+(173, 12, 'A rota noturna em Ouro Preto parece mágica, já está na minha lista!'),
+(174, 53, 'Boa dica sobre a interdição da trilha na Chapada dos Veadeiros, obrigado pelo alerta!'),
+(175, 14, 'Sarau literário na FLIP deve ser maravilhoso, Paraty é realmente um lugar cultural.'),
+(176, 55, 'Festival Recife na Rua é um dos melhores eventos, ótima dica para quem ama cultura local!'),
+(177, 26, 'Obrigado pelo alerta da correnteza na Praia da Joaquina, segurança em primeiro lugar.'),
+(178, 97, 'A nova ciclovia em Florianópolis vai facilitar muito os passeios em família.'),
+(179, 18, 'Os fervedouros do Jalapão são espetaculares, uma experiência única!'),
+(180, 9, 'Valeu pelo aviso das filas na balsa em Ilhabela, vou planejar para sair cedo.'),
+(181, 11, 'São Miguel do Gostoso parece o destino perfeito para relaxar e curtir o kitesurf.'),
+(182, 61, 'Ótima promoção para quem quer aproveitar as Cataratas e o Parque das Aves juntos!'),
+(183, 82, 'Degustação noturna no Vale dos Vinhedos deve ser uma experiência inesquecível!'),
+(184, 13, 'Acesso restrito na Praia do Farol é importante para preservar o local, obrigado pelo aviso!');
+
+
 
 -- INSERTS da tabela REGIONS: Sudeste
 INSERT INTO regions (name, state, text, links) VALUES
