@@ -38,8 +38,8 @@ CREATE TABLE comments (
 -- Tabela de REGIONS
 CREATE TABLE regions (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
     region VARCHAR(70) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     state VARCHAR(255) NOT NULL,
     text TEXT NOT NULL,
     links VARCHAR(255)
@@ -517,141 +517,141 @@ INSERT INTO comments (post_id, user_id, comment) VALUES
 
 
 -- INSERTS da tabela REGIONS: Sudeste
-INSERT INTO regions (name, region, state, text, links) VALUES
-('São Paulo (capital)', 'Sudeste', 'SP', 'Centro cultural e econômico do país, com atrações como o MASP, Mercado Municipal, Parque Ibirapuera e a Avenida Paulista.', 'https://www.tripadvisor.com.br/Attractions-g303631-Activities-Sao_Paulo_State_of_Sao_Paulo.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Ilhabela', 'Sudeste', 'SP', 'Ilha paradisíaca com praias intocadas, trilhas na Mata Atlântica e ótimos locais para mergulho e esportes aquáticos.', NULL),
-('Campos do Jordão', 'Sudeste', 'SP', 'Conhecida como a “Suíça Brasileira”, oferece clima ameno, arquitetura europeia e o famoso Festival de Inverno.', NULL),
-('Holambra', 'Sudeste', 'SP', '"Capital das Flores", com campos floridos e o maior moinho da América Latina, refletindo a herança holandesa.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sudeste', 'São Paulo (capital)', 'SP', 'Centro cultural e econômico do país, com atrações como o MASP, Mercado Municipal, Parque Ibirapuera e a Avenida Paulista.', 'https://www.tripadvisor.com.br/Attractions-g303631-Activities-Sao_Paulo_State_of_Sao_Paulo.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sudeste', 'Ilhabela', 'SP', 'Ilha paradisíaca com praias intocadas, trilhas na Mata Atlântica e ótimos locais para mergulho e esportes aquáticos.', NULL),
+('Sudeste', 'Campos do Jordão', 'SP', 'Conhecida como a “Suíça Brasileira”, oferece clima ameno, arquitetura europeia e o famoso Festival de Inverno.', NULL),
+('Sudeste', 'Holambra', 'SP', '"Capital das Flores", com campos floridos e o maior moinho da América Latina, refletindo a herança holandesa.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Rio de Janeiro (capital)', 'Sudeste', 'RJ', 'Famosa mundialmente por suas belezas naturais, como o Pão de Açúcar, Cristo Redentor e praias como Copacabana e Ipanema.', 'https://www.tripadvisor.com.br/Attractions-g303506-Activities-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Paraty', 'Sudeste', 'RJ', ' Cidade colonial charmosa, reconhecida como Patrimônio Mundial da UNESCO, com centro histórico preservado e belas praias.', NULL),
-('Região dos Lagos:', 'Sudeste', 'RJ', 'Inclui destinos como Búzios, Arraial do Cabo e Cabo Frio, conhecidos por suas praias paradisíacas e excelente infraestrutura turística.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sudeste', 'Rio de Janeiro (capital)', 'RJ', 'Famosa mundialmente por suas belezas naturais, como o Pão de Açúcar, Cristo Redentor e praias como Copacabana e Ipanema.', 'https://www.tripadvisor.com.br/Attractions-g303506-Activities-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sudeste', 'Paraty', 'RJ', ' Cidade colonial charmosa, reconhecida como Patrimônio Mundial da UNESCO, com centro histórico preservado e belas praias.', NULL),
+('Sudeste', 'Região dos Lagos:', 'RJ', 'Inclui destinos como Búzios, Arraial do Cabo e Cabo Frio, conhecidos por suas praias paradisíacas e excelente infraestrutura turística.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Belo Horizonte (capital)', 'Sudeste', 'MG', 'Famosa por sua hospitalidade, culinária e vida noturna animada. Ponto de partida para cidades históricas como Ouro Preto e Mariana.', 'https://www.tripadvisor.com.br/Attractions-g303370-Activities-State_of_Minas_Gerais.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Ouro Preto', 'Sudeste', 'MG', 'Cidade colonial que preserva a rica herança do período do ouro no Brasil, com igrejas barrocas e ruas de paralelepípedos.', NULL),
-('Parques Nacionais', 'Sudeste', 'MG', 'Como o da Serra da Canastra, onde nasce o Rio São Francisco, e o da Serra do Cipó, conhecidos por suas belezas naturais e biodiversidade.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sudeste', 'Belo Horizonte (capital)', 'MG', 'Famosa por sua hospitalidade, culinária e vida noturna animada. Ponto de partida para cidades históricas como Ouro Preto e Mariana.', 'https://www.tripadvisor.com.br/Attractions-g303370-Activities-State_of_Minas_Gerais.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sudeste', 'Ouro Preto', 'MG', 'Cidade colonial que preserva a rica herança do período do ouro no Brasil, com igrejas barrocas e ruas de paralelepípedos.', NULL),
+('Sudeste', 'Parques Nacionais', 'MG', 'Como o da Serra da Canastra, onde nasce o Rio São Francisco, e o da Serra do Cipó, conhecidos por suas belezas naturais e biodiversidade.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Vitória (capital)', 'Sudeste', 'ES', 'Cidade litorânea com praias tranquilas, como a Ilha do Boi e a Ilha do Frade, além de uma rica gastronomia baseada em frutos do mar.', 'https://www.tripadvisor.com.br/Attractions-g303308-Activities-State_of_Espirito_Santo.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sudeste', 'Vitória (capital)', 'ES', 'Cidade litorânea com praias tranquilas, como a Ilha do Boi e a Ilha do Frade, além de uma rica gastronomia baseada em frutos do mar.', 'https://www.tripadvisor.com.br/Attractions-g303308-Activities-State_of_Espirito_Santo.html');
 
 -- INSERTS da tabela REGIONS: Sul
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Curitiba (capital)', 'Sul', 'PR', 'Reconhecida por seu planejamento urbano, oferece atrações como o Jardim Botânico, o Museu Oscar Niemeyer e o Parque Barigui.', 'https://www.tripadvisor.com.br/Attractions-g303435-Activities-State_of_Parana.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Foz do Iguaçu', 'Sul', 'PR', 'Lar das impressionantes Cataratas do Iguaçu, uma das Sete Maravilhas Naturais do Mundo, e da Represa de Itaipu. A cidade também é ponto de acesso a Ciudad del Este (Paraguai) e Puerto Iguazú (Argentina).', NULL),
-('Serra do Mar', 'Sul', 'PR', 'Ideal para ecoturismo, com trilhas que levam a vilarejos históricos como Morretes e Antonina, onde se pode degustar o tradicional barreado.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sul', 'Curitiba (capital)', 'PR', 'Reconhecida por seu planejamento urbano, oferece atrações como o Jardim Botânico, o Museu Oscar Niemeyer e o Parque Barigui.', 'https://www.tripadvisor.com.br/Attractions-g303435-Activities-State_of_Parana.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sul', 'Foz do Iguaçu', 'PR', 'Lar das impressionantes Cataratas do Iguaçu, uma das Sete Maravilhas Naturais do Mundo, e da Represa de Itaipu. A cidade também é ponto de acesso a Ciudad del Este (Paraguai) e Puerto Iguazú (Argentina).', NULL),
+('Sul', 'Serra do Mar', 'PR', 'Ideal para ecoturismo, com trilhas que levam a vilarejos históricos como Morretes e Antonina, onde se pode degustar o tradicional barreado.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Florianópolis (capital)', 'Sul', 'SC', ' A capital, conhecida por suas belas praias, como Joaquina e Campeche, além da Lagoa da Conceição e da Ponte Hercílio Luz.', 'https://www.tripadvisor.com.br/Attractions-g303570-Activities-State_of_Santa_Catarina.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Balneário Camboriú', 'Sul', 'SC', 'Famosa por sua vida noturna vibrante e pelo Parque Unipraias, que oferece vistas panorâmicas e atividades de ecoturismo.', NULL),
-('São Joaquim', 'Sul', 'SC', 'Destino ideal para quem deseja vivenciar o inverno brasileiro, com possibilidade de neve e temperaturas negativas.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sul', 'Florianópolis (capital)', 'SC', ' A capital, conhecida por suas belas praias, como Joaquina e Campeche, além da Lagoa da Conceição e da Ponte Hercílio Luz.', 'https://www.tripadvisor.com.br/Attractions-g303570-Activities-State_of_Santa_Catarina.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sul', 'Balneário Camboriú', 'SC', 'Famosa por sua vida noturna vibrante e pelo Parque Unipraias, que oferece vistas panorâmicas e atividades de ecoturismo.', NULL),
+('Sul', 'São Joaquim', 'SC', 'Destino ideal para quem deseja vivenciar o inverno brasileiro, com possibilidade de neve e temperaturas negativas.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Porto Alegre (capital)', 'Sul', 'RS', 'Cidade com forte influência cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade está situada às margens do Lago Guaíba e é conhecida por sua diversidade cultural, gastronomia, e seus famosos centros históricos e espaços ao ar livre.', 'https://www.tripadvisor.com.br/Attractions-g303530-Activities-State_of_Rio_Grande_do_Sul.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Vale dos Vinhedos', 'Sul', 'RS', 'Região produtora de vinhos, onde é possível visitar vinícolas e participar de degustações.', NULL),
-('Cânion Itaimbezinho', 'Sul', 'RS', 'Localizado no Parque Nacional de Aparados da Serra, oferece trilhas e vistas deslumbrantes.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sul', 'Porto Alegre (capital)', 'RS', 'Cidade com forte influência cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade está situada às margens do Lago Guaíba e é conhecida por sua diversidade cultural, gastronomia, e seus famosos centros históricos e espaços ao ar livre.', 'https://www.tripadvisor.com.br/Attractions-g303530-Activities-State_of_Rio_Grande_do_Sul.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Sul', 'Vale dos Vinhedos', 'RS', 'Região produtora de vinhos, onde é possível visitar vinícolas e participar de degustações.', NULL),
+('Sul', 'Cânion Itaimbezinho', 'RS', 'Localizado no Parque Nacional de Aparados da Serra, oferece trilhas e vistas deslumbrantes.', NULL);
 
 -- INSERTS da tabela REGIONS: Norte
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Manaus (capital)', 'Norte', 'AM', 'Porta de entrada para a Amazônia, a capital amazonense oferece atrações como o Teatro Amazonas, o Mercado Municipal e o Encontro das Águas, onde os rios Negro e Solimões correm lado a lado sem se misturar.', 'https://www.tripadvisor.com.br/Attractions-g303226-Activities-State_of_Amazonas.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Floresta Amazônica', 'Norte', 'AM', 'Possibilidade de realizar passeios de barco, caminhadas na selva e observação de fauna e flora únicas.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Manaus (capital)', 'AM', 'Porta de entrada para a Amazônia, a capital amazonense oferece atrações como o Teatro Amazonas, o Mercado Municipal e o Encontro das Águas, onde os rios Negro e Solimões correm lado a lado sem se misturar.', 'https://www.tripadvisor.com.br/Attractions-g303226-Activities-State_of_Amazonas.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Floresta Amazônica', 'AM', 'Possibilidade de realizar passeios de barco, caminhadas na selva e observação de fauna e flora únicas.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Belém (capital)', 'Norte', 'PA', 'Capital paraense, famosa por sua culinária típica, como o tacacá e o açaí, além de pontos turísticos como o Mercado Ver-o-Peso e o Museu Paraense Emílio Goeldi.', 'https://www.tripadvisor.com.br/Attractions-g303402-Activities-State_of_Para.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Alter do Chão', 'Norte', 'PA', 'Conhecida como o "Caribe Amazônico", oferece praias de água doce com areia branca e águas cristalinas, sendo considerada uma das praias mais bonitas do Brasil.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Belém (capital)', 'PA', 'Capital paraense, famosa por sua culinária típica, como o tacacá e o açaí, além de pontos turísticos como o Mercado Ver-o-Peso e o Museu Paraense Emílio Goeldi.', 'https://www.tripadvisor.com.br/Attractions-g303402-Activities-State_of_Para.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Alter do Chão', 'PA', 'Conhecida como o "Caribe Amazônico", oferece praias de água doce com areia branca e águas cristalinas, sendo considerada uma das praias mais bonitas do Brasil.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Rio Branco (capital)', 'Norte', 'AC', 'Maior cidade do estado e está localizada na região norte do Brasil, próxima à fronteira com o Peru e a Bolívia. A cidade tem uma mistura de história, cultura e natureza, sendo a principal porta de entrada para quem deseja explorar a Floresta Amazônica e as belezas naturais do Acre.', 'https://www.tripadvisor.com.br/Attractions-g303199-Activities-State_of_Acre.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Geoglifos do Acre', 'Norte', 'AC', 'Estruturas geométricas misteriosas esculpidas no solo, com mais de 3.000 anos de idade, que despertam interesse arqueológico.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Rio Branco (capital)', 'AC', 'Maior cidade do estado e está localizada na região norte do Brasil, próxima à fronteira com o Peru e a Bolívia. A cidade tem uma mistura de história, cultura e natureza, sendo a principal porta de entrada para quem deseja explorar a Floresta Amazônica e as belezas naturais do Acre.', 'https://www.tripadvisor.com.br/Attractions-g303199-Activities-State_of_Acre.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Geoglifos do Acre', 'AC', 'Estruturas geométricas misteriosas esculpidas no solo, com mais de 3.000 anos de idade, que despertam interesse arqueológico.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Boa Vista (capital)', 'Norte', 'RR', 'Única capital brasileira situada completamente ao norte da linha do Equador e é conhecida por sua proximidade com a natureza e por ser uma cidade com forte presença de influências indígenas e amazônicas.', 'https://www.tripadvisor.com.br/Attractions-g30362-Activities-State_of_Roraima.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Monte Roraima', 'Norte', 'RR', 'Uma das formações geológicas mais antigas do planeta, oferece trilhas desafiadoras e vistas deslumbrantes, sendo inspiração para obras como "O Mundo Perdido" de Arthur Conan Doyle.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Boa Vista (capital)', 'RR', 'Única capital brasileira situada completamente ao norte da linha do Equador e é conhecida por sua proximidade com a natureza e por ser uma cidade com forte presença de influências indígenas e amazônicas.', 'https://www.tripadvisor.com.br/Attractions-g30362-Activities-State_of_Roraima.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Monte Roraima', 'RR', 'Uma das formações geológicas mais antigas do planeta, oferece trilhas desafiadoras e vistas deslumbrantes, sendo inspiração para obras como "O Mundo Perdido" de Arthur Conan Doyle.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Palmas (capital)', 'Norte', 'TO', 'Cidade planejada, inaugurada em 1989, e está situada às margens do Lago de Palmas, em uma região de grande beleza natural.', 'https://www.tripadvisor.com.br/Attractions-g303645-Activities-State_of_Tocantins.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Jalapão', 'Norte', 'TO', 'Conhecido por suas dunas douradas, fervedouros (poços de água que borbulham devido à pressão da água subterrânea) e cachoeiras, é um destino ideal para quem busca aventura e contato com a natureza.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Palmas (capital)', 'TO', 'Cidade planejada, inaugurada em 1989, e está situada às margens do Lago de Palmas, em uma região de grande beleza natural.', 'https://www.tripadvisor.com.br/Attractions-g303645-Activities-State_of_Tocantins.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Norte', 'Jalapão', 'TO', 'Conhecido por suas dunas douradas, fervedouros (poços de água que borbulham devido à pressão da água subterrânea) e cachoeiras, é um destino ideal para quem busca aventura e contato com a natureza.', NULL);
 
 -- INSERTS da tabela REGIONS: Nordeste
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Salvador (capital)', 'Nordeste', 'BA', 'Capital cultural do Brasil, famosa pelo Pelourinho, igrejas históricas e o Elevador Lacerda.', 'https://www.tripadvisor.com.br/Attractions-g303251-Activities-State_of_Bahia.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Chapada Diamantina', 'Nordeste', 'BA', 'Parque nacional com cachoeiras, cavernas e trilhas, ideal para os amantes de ecoturismo.', NULL),
-('Ilha de Itaparica', 'Nordeste', 'BA', 'Destino tranquilo com praias de águas calmas, perfeito para relaxar.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Salvador (capital)', 'BA', 'Capital cultural do Brasil, famosa pelo Pelourinho, igrejas históricas e o Elevador Lacerda.', 'https://www.tripadvisor.com.br/Attractions-g303251-Activities-State_of_Bahia.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Chapada Diamantina', 'BA', 'Parque nacional com cachoeiras, cavernas e trilhas, ideal para os amantes de ecoturismo.', NULL),
+('Nordeste', 'Ilha de Itaparica', 'BA', 'Destino tranquilo com praias de águas calmas, perfeito para relaxar.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Recife (capital)', 'Nordeste', 'PE', 'Cidade com forte influência cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade está situada às margens do Lago Guaíba e é conhecida por sua divePEidade cultural, gastronomia, e seus famosos centros históricos e espaços ao ar livre.', 'https://www.tripadvisor.com.br/Attractions-g303459-Activities-State_of_Pernambuco.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Olinda', 'Nordeste', 'PE', 'Cidade histórica com igrejas barrocas e ladeiras coloridas.', NULL),
-('Porto de Galinhas', 'Nordeste', 'PE', 'Praias paradisíacas com piscinas naturais e águas cristalinas.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Recife (capital)', 'PE', 'Cidade com forte influência cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade está situada às margens do Lago Guaíba e é conhecida por sua divePEidade cultural, gastronomia, e seus famosos centros históricos e espaços ao ar livre.', 'https://www.tripadvisor.com.br/Attractions-g303459-Activities-State_of_Pernambuco.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Olinda', 'PE', 'Cidade histórica com igrejas barrocas e ladeiras coloridas.', NULL),
+('Nordeste', 'Porto de Galinhas', 'PE', 'Praias paradisíacas com piscinas naturais e águas cristalinas.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Fortaleza (capital)', 'Nordeste', 'CE', 'Capital vibrante com praias urbanas como Praia do Futuro e atrações culturais como o Mercado Central.', 'https://www.tripadvisor.com.br/Attractions-g303284-Activities-State_of_Ceara.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Jericoacoara', 'Nordeste', 'CE', 'Vila charmosa com dunas, lagoas e pôr do sol deslumbrante.', NULL),
-('Canoa Quebrada', 'Nordeste', 'CE', 'Praia famosa por suas falésias vermelhas e vida noturna animada.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Fortaleza (capital)', 'CE', 'Capital vibrante com praias urbanas como Praia do Futuro e atrações culturais como o Mercado Central.', 'https://www.tripadvisor.com.br/Attractions-g303284-Activities-State_of_Ceara.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Jericoacoara', 'CE', 'Vila charmosa com dunas, lagoas e pôr do sol deslumbrante.', NULL),
+('Nordeste', 'Canoa Quebrada', 'CE', 'Praia famosa por suas falésias vermelhas e vida noturna animada.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('São Luís (capital)', 'Nordeste', 'MA', 'Centro histórico com casarões coloniais e manifestações culturais como o Bumba Meu Boi.', 'https://www.tripadvisor.com.br/Attractions-g303325-Activities-State_of_Maranhao.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Lençóis Maranhenses', 'Nordeste', 'MA', 'Parque nacional com dunas de areia branca e lagoas de água doce, criando paisagens únicas.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'São Luís (capital)', 'MA', 'Centro histórico com casarões coloniais e manifestações culturais como o Bumba Meu Boi.', 'https://www.tripadvisor.com.br/Attractions-g303325-Activities-State_of_Maranhao.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Lençóis Maranhenses', 'MA', 'Parque nacional com dunas de areia branca e lagoas de água doce, criando paisagens únicas.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Maceió (capital)', 'Nordeste', 'AL', 'Praias urbanas como Pajuçara e Ponta Verde, além de lagoas e piscinas naturais.', 'https://www.tripadvisor.com.br/Attractions-g303208-Activities-State_of_Alagoas.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Maragogi', 'Nordeste', 'AL', 'Conhecida como o "Caribe Brasileiro", com suas águas transparentes e recifes de corais.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Maceió (capital)', 'AL', 'Praias urbanas como Pajuçara e Ponta Verde, além de lagoas e piscinas naturais.', 'https://www.tripadvisor.com.br/Attractions-g303208-Activities-State_of_Alagoas.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Maragogi', 'AL', 'Conhecida como o "Caribe Brasileiro", com suas águas transparentes e recifes de corais.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('João Pessoa (capital)', 'Nordeste', 'PB', 'Capital tranquila com praias como Tambaú e Cabo Branco, além do Centro Histórico bem preservado.', 'https://www.tripadvisor.com.br/Attractions-g303422-Activities-State_of_Paraiba.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Praia de Coqueirinho', 'Nordeste', 'PB', 'Praia paradisíaca com falésias e águas calmas.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'João Pessoa (capital)', 'PB', 'Capital tranquila com praias como Tambaú e Cabo Branco, além do Centro Histórico bem preservado.', 'https://www.tripadvisor.com.br/Attractions-g303422-Activities-State_of_Paraiba.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Praia de Coqueirinho', 'PB', 'Praia paradisíaca com falésias e águas calmas.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Teresina (capital)', 'Nordeste', 'PI', 'Capital com rica culinária e proximidade com o Parque Nacional de Sete Cidades, conhecido por suas formações rochosas.', 'https://www.tripadvisor.com.br/Attractions-g303462-Activities-State_of_Piaui.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Delta do Parnaíba', 'Nordeste', 'PI', 'Único delta em mar aberto das Américas, com ilhas e igarapés.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Teresina (capital)', 'PI', 'Capital com rica culinária e proximidade com o Parque Nacional de Sete Cidades, conhecido por suas formações rochosas.', 'https://www.tripadvisor.com.br/Attractions-g303462-Activities-State_of_Piaui.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Delta do Parnaíba', 'PI', 'Único delta em mar aberto das Américas, com ilhas e igarapés.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Natal (capital)', 'Nordeste', 'RN', 'Capital com praias urbanas como Ponta Negra e o famoso Forte dos Reis Magos.', 'https://www.tripadvisor.com.br/Attractions-g303510-Activities-State_of_Rio_Grande_do_Norte.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Genipabu', 'Nordeste', 'RN', 'Conhecida por suas dunas móveis e passeios de buggy.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Natal (capital)', 'RN', 'Capital com praias urbanas como Ponta Negra e o famoso Forte dos Reis Magos.', 'https://www.tripadvisor.com.br/Attractions-g303510-Activities-State_of_Rio_Grande_do_Norte.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Genipabu', 'RN', 'Conhecida por suas dunas móveis e passeios de buggy.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Aracaju (capital)', 'Nordeste', 'SE', 'Capital com praias como Atalaia e Orla de Atalaia, além de museus e mercados artesanais.', 'https://www.tripadvisor.com.br/Attractions-g303637-Activities-State_of_Sergipe.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Cânion do Xingó', 'Nordeste', 'SE', 'Formações rochosas impressionantes no Rio São Francisco.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Aracaju (capital)', 'SE', 'Capital com praias como Atalaia e Orla de Atalaia, além de museus e mercados artesanais.', 'https://www.tripadvisor.com.br/Attractions-g303637-Activities-State_of_Sergipe.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Nordeste', 'Cânion do Xingó', 'SE', 'Formações rochosas impressionantes no Rio São Francisco.', NULL);
 
 -- INSERTS da tabela REGIONS: Centro-Oeste
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Goiânia (capital)', 'Centro-Oeste', 'GO', 'Cidade moderna, planejada, e um dos principais centros urbanos da região Centro-Oeste do Brasil.', 'https://www.tripadvisor.com.br/Attractions-g303323-Activities-State_of_Goias.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Chapada dos Veadeiros', 'Centro-Oeste', 'GO', 'Localizada no estado de Goiás, a Chapada dos Veadeiros é um parque nacional famoso por suas cachoeiras, trilhas e formações rochosas. Destinos como a Cachoeira de Santa Bárbara e a Cachoeira do Segredo são altamente recomendados para os amantes de natureza.', NULL),
-('Rio Quente', 'Centro-Oeste', 'GO', 'Situado no estado de Goiás, Rio Quente é famoso por suas águas termais, com temperaturas que chegam a 38°C. O Hot Park é um dos maiores parques aquáticos da região e oferece diversas atrações para todas as idades.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Centro-Oeste', 'Goiânia (capital)', 'GO', 'Cidade moderna, planejada, e um dos principais centros urbanos da região Centro-Oeste do Brasil.', 'https://www.tripadvisor.com.br/Attractions-g303323-Activities-State_of_Goias.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Centro-Oeste', 'Chapada dos Veadeiros', 'GO', 'Localizada no estado de Goiás, a Chapada dos Veadeiros é um parque nacional famoso por suas cachoeiras, trilhas e formações rochosas. Destinos como a Cachoeira de Santa Bárbara e a Cachoeira do Segredo são altamente recomendados para os amantes de natureza.', NULL),
+('Centro-Oeste', 'Rio Quente', 'GO', 'Situado no estado de Goiás, Rio Quente é famoso por suas águas termais, com temperaturas que chegam a 38°C. O Hot Park é um dos maiores parques aquáticos da região e oferece diversas atrações para todas as idades.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Cuiabá (capital)', 'Centro-Oeste', 'MT', 'Conhecida como a "porta de entrada para o Pantanal" e também pela sua localização geográfica única: é considerada o centro da América do Sul.', 'https://www.tripadvisor.com.br/Attractions-g303346-Activities-State_of_Mato_Grosso.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Chapada dos Guimarães', 'Centro-Oeste', 'MT', 'Próxima à Cuiabá, a Chapada dos Guimarães é conhecida por suas cachoeiras, cavernas e mirantes. O Parque Nacional da Chapada dos Guimarães é um local ideal para trilhas e observação da fauna local.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Centro-Oeste', 'Cuiabá (capital)', 'MT', 'Conhecida como a "porta de entrada para o Pantanal" e também pela sua localização geográfica única: é considerada o centro da América do Sul.', 'https://www.tripadvisor.com.br/Attractions-g303346-Activities-State_of_Mato_Grosso.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Centro-Oeste', 'Chapada dos Guimarães', 'MT', 'Próxima à Cuiabá, a Chapada dos Guimarães é conhecida por suas cachoeiras, cavernas e mirantes. O Parque Nacional da Chapada dos Guimarães é um local ideal para trilhas e observação da fauna local.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Campo Grande (capital)', 'Centro-Oeste', 'MS', 'Conhecida como a "Cidade Morena" devido à coloração avermelhada de seu solo, Campo Grande é um importante centro urbano e econômico do Centro-Oeste do Brasil. A cidade é uma mistura de culturas indígenas, sul-mato-grossense, paraguaia e pantaneira.', 'https://www.tripadvisor.com.br/Attractions-g303368-Activities-State_of_Mato_Grosso_do_Sul.html');
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Bonito', 'Centro-Oeste', 'MS', 'Famosa por suas águas, Bonito oferece atividades como flutuação em rios, visita a cavernas e cachoeiras. A Gruta da Lagoa Azul e o Abismo Anhumas são atrações renomadas.', NULL);
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Centro-Oeste', 'Campo Grande (capital)', 'MS', 'Conhecida como a "Cidade Morena" devido à coloração avermelhada de seu solo, Campo Grande é um importante centro urbano e econômico do Centro-Oeste do Brasil. A cidade é uma mistura de culturas indígenas, sul-mato-grossense, paraguaia e pantaneira.', 'https://www.tripadvisor.com.br/Attractions-g303368-Activities-State_of_Mato_Grosso_do_Sul.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Centro-Oeste', 'Bonito', 'MS', 'Famosa por suas águas, Bonito oferece atividades como flutuação em rios, visita a cavernas e cachoeiras. A Gruta da Lagoa Azul e o Abismo Anhumas são atrações renomadas.', NULL);
 
-INSERT INTO regions (name, region, state, text, links) VALUES
-('Brasília (distrito federal)', 'Centro-Oeste', 'DF', 'A capital federal do Brasil é reconhecida por sua arquitetura modernista, projetada por Oscar Niemeyer. Pontos turísticos como a Catedral Metropolitana, o Congresso Nacional e o Palácio da Alvorada são imperdíveis.', 'https://www.tripadvisor.com.br/Attractions-g303322-Activities-Brasilia_Federal_District.html');
+INSERT INTO regions (region, name, state, text, links) VALUES
+('Centro-Oeste', 'Brasília (distrito federal)', 'DF', 'A capital federal do Brasil é reconhecida por sua arquitetura modernista, projetada por Oscar Niemeyer. Pontos turísticos como a Catedral Metropolitana, o Congresso Nacional e o Palácio da Alvorada são imperdíveis.', 'https://www.tripadvisor.com.br/Attractions-g303322-Activities-Brasilia_Federal_District.html');
 
 -- INSERTS da tabela NEWS
 INSERT INTO news (name, place, text) VALUES
