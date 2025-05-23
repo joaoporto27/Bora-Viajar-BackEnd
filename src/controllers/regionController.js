@@ -4,7 +4,8 @@ const regionModel = require("../models/regionModel");
 
 const getAllRegions = async (req, res) => {
     try {
-        const regions = await regionModel.getRegions();
+        const { region } = req.query;
+        const regions = await regionModel.getRegions(region);
         res.status(200).json(regions);
     } catch (error) {
         res.status(404).json({ message: "Regiões não encontradas" });

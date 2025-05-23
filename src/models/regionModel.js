@@ -2,9 +2,14 @@ const pool = require("../config/database");
 
 //Buscar todas as regiões
 
-const getRegions = async () => {
-    const result = await pool.query("SELECT * FROM regions");
-    return result.rows;
+const getRegions = async (region) => {
+    if (!region){
+        const result = await pool.query("SELECT * FROM regions");
+        return result.rows;
+    } else {
+        const result = await pool.query("SELECT * FROM regions WHERE region ILIKE $1", [`%${region}%`]);
+        return result.rows;
+    }
 };
 
 //Buscar uma região pelo id
