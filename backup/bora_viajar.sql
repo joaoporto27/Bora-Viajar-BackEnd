@@ -5,7 +5,7 @@
 -- Dumped from database version 17.5
 -- Dumped by pg_dump version 17.5
 
--- Started on 2025-05-21 21:49:06
+-- Started on 2025-05-27 11:31:56
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -55,7 +55,7 @@ CREATE SEQUENCE public.comments_id_seq
 ALTER SEQUENCE public.comments_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4897 (class 0 OID 0)
+-- TOC entry 4909 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -64,7 +64,48 @@ ALTER SEQUENCE public.comments_id_seq OWNED BY public.comments.id;
 
 
 --
--- TOC entry 224 (class 1259 OID 33700)
+-- TOC entry 228 (class 1259 OID 33831)
+-- Name: feedbacks; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.feedbacks (
+    id integer NOT NULL,
+    user_id integer,
+    feedback text NOT NULL,
+    rating integer,
+    CONSTRAINT feedbacks_rating_check CHECK (((rating >= 1) AND (rating <= 5)))
+);
+
+
+ALTER TABLE public.feedbacks OWNER TO postgres;
+
+--
+-- TOC entry 227 (class 1259 OID 33830)
+-- Name: feedbacks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.feedbacks_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.feedbacks_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4910 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: feedbacks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.feedbacks_id_seq OWNED BY public.feedbacks.id;
+
+
+--
+-- TOC entry 226 (class 1259 OID 33822)
 -- Name: news; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -79,7 +120,7 @@ CREATE TABLE public.news (
 ALTER TABLE public.news OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 33699)
+-- TOC entry 225 (class 1259 OID 33821)
 -- Name: news_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -95,8 +136,8 @@ CREATE SEQUENCE public.news_id_seq
 ALTER SEQUENCE public.news_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4898 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4911 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -137,7 +178,7 @@ CREATE SEQUENCE public.posts_id_seq
 ALTER SEQUENCE public.posts_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4899 (class 0 OID 0)
+-- TOC entry 4912 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -146,7 +187,7 @@ ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
 
 
 --
--- TOC entry 226 (class 1259 OID 33774)
+-- TOC entry 224 (class 1259 OID 33812)
 -- Name: regions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -156,14 +197,15 @@ CREATE TABLE public.regions (
     name character varying(255) NOT NULL,
     state character varying(255) NOT NULL,
     text text NOT NULL,
-    links character varying(255)
+    links character varying(255),
+    image text
 );
 
 
 ALTER TABLE public.regions OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 33773)
+-- TOC entry 223 (class 1259 OID 33811)
 -- Name: regions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -179,8 +221,8 @@ CREATE SEQUENCE public.regions_id_seq
 ALTER SEQUENCE public.regions_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4900 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 4913 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: regions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -223,7 +265,7 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4901 (class 0 OID 0)
+-- TOC entry 4914 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -232,7 +274,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 4719 (class 2604 OID 33684)
+-- TOC entry 4724 (class 2604 OID 33684)
 -- Name: comments id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -240,7 +282,15 @@ ALTER TABLE ONLY public.comments ALTER COLUMN id SET DEFAULT nextval('public.com
 
 
 --
--- TOC entry 4720 (class 2604 OID 33703)
+-- TOC entry 4727 (class 2604 OID 33834)
+-- Name: feedbacks id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.feedbacks ALTER COLUMN id SET DEFAULT nextval('public.feedbacks_id_seq'::regclass);
+
+
+--
+-- TOC entry 4726 (class 2604 OID 33825)
 -- Name: news id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -248,7 +298,7 @@ ALTER TABLE ONLY public.news ALTER COLUMN id SET DEFAULT nextval('public.news_id
 
 
 --
--- TOC entry 4717 (class 2604 OID 33669)
+-- TOC entry 4722 (class 2604 OID 33669)
 -- Name: posts id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -256,7 +306,7 @@ ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_
 
 
 --
--- TOC entry 4721 (class 2604 OID 33777)
+-- TOC entry 4725 (class 2604 OID 33815)
 -- Name: regions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -264,7 +314,7 @@ ALTER TABLE ONLY public.regions ALTER COLUMN id SET DEFAULT nextval('public.regi
 
 
 --
--- TOC entry 4715 (class 2604 OID 33657)
+-- TOC entry 4720 (class 2604 OID 33657)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -272,7 +322,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 4887 (class 0 OID 33681)
+-- TOC entry 4897 (class 0 OID 33681)
 -- Dependencies: 222
 -- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -363,31 +413,63 @@ COPY public.comments (id, post_id, user_id, comment) FROM stdin;
 96	182	61	àtima promo‡Æo para quem quer aproveitar as Cataratas e o Parque das Aves juntos!
 97	183	82	Degusta‡Æo noturna no Vale dos Vinhedos deve ser uma experiˆncia inesquec¡vel!
 98	184	13	Acesso restrito na Praia do Farol ‚ importante para preservar o local, obrigado pelo aviso!
+99	72	36	Pousadas com diárias reduzidas durante a semana em Pipa. Ótima oportunidade!
+100	2	44	Viagem maravilhosa para Gramado!
 \.
 
 
 --
--- TOC entry 4889 (class 0 OID 33700)
--- Dependencies: 224
+-- TOC entry 4903 (class 0 OID 33831)
+-- Dependencies: 228
+-- Data for Name: feedbacks; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.feedbacks (id, user_id, feedback, rating) FROM stdin;
+1	11	O Bora Viajar me ajudou muito a montar um roteiro incr¡vel pelo litoral nordestino!	5
+2	42	Achei as informa‡äes sobre seguran‡a muito £teis durante minha viagem a Manaus.	4
+3	3	O app travou algumas vezes durante o uso, mas no geral ‚ bom.	3
+4	48	Fiquei encantado com as dicas de outros viajantes. Super recomendo!	5
+5	1	Faltam informa‡äes sobre transporte local em algumas cidades.	2
+6	56	Os roteiros criados pelos profissionais sÆo bem completos e f ceis de seguir.	5
+7	53	Gostei bastante da interface do site, muito intuitiva.	4
+8	27	Tive dificuldade em encontrar excursäes atualizadas para o JalapÆo.	2
+9	39	Excelente ferramenta para planejar viagens em fam¡lia!	5
+10	19	O sistema de avalia‡Æo dos destinos poderia ser mais transparente.	3
+11	8	Usei o app para planejar minha lua de mel e foi perfeito!	5
+12	15	Algumas informa‡äes estavam desatualizadas, principalmente sobre hospedagem.	3
+13	21	Adorei poder ver relatos de outros usu rios antes de decidir meu roteiro.	5
+14	32	A op‡Æo de roteiros personalizados foi o que mais me atraiu no aplicativo.	4
+15	44	Precisa melhorar o suporte ao cliente dentro do app.	2
+16	42	Com o Bora Viajar descobri lugares incr¡veis que nunca tinha ouvido falar.	5
+17	49	Muito bom para quem viaja sozinho. As dicas sÆo bem espec¡ficas e pr ticas.	4
+18	37	Fiquei decepcionada com a falta de op‡äes para o interior de alguns estados.	2
+19	47	Facilitou muito meu mochilÆo pelo sul do Brasil.	5
+20	17	Poderia ter integra‡Æo com apps de mapas como Google Maps ou Waze.	3
+\.
+
+
+--
+-- TOC entry 4901 (class 0 OID 33822)
+-- Dependencies: 226
 -- Data for Name: news; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.news (id, name, place, text) FROM stdin;
-1	Festival de Cinema agita a Serra Ga£cha com novas atra‡äes gastron“micas	Gramado (RS)	A charmosa cidade de Gramado est  em clima de celebra‡Æo com o aguardado Festival de Cinema de 2025. O evento, que atrai artistas e turistas de todo o Brasil, traz neste ano uma mostra dedicada ao cinema latino-americano contemporƒneo. Al‚m disso, a prefeitura lan‡ou a Rota do Caf‚ Colonial Artesanal, reunindo 18 produtores locais que oferecem experiˆncias £nicas de sabores coloniais em ambientes r£sticos e acolhedores. A ilumina‡Æo tem tica nas ruas centrais completa o cen rio encantador.
-2	Novo mirante e passarelas ecol¢gicas valorizam o ecoturismo	Bonito (MS)	Bonito continua sendo referˆncia em turismo sustent vel, e acaba de inaugurar o "Mirante da Nascente Azul", com passarelas suspensas que oferecem uma visÆo a‚rea das  guas cristalinas e da fauna local. Com foco na preserva‡Æo e na acessibilidade, o complexo agora conta tamb‚m com trilhas inclusivas para cadeirantes e idosos, al‚m de  reas de descanso com sombra e sinaliza‡Æo ambiental educativa. A cidade recebe ainda, neste mˆs, a Feira de Turismo Ecol¢gico do Centro-Oeste, reunindo especialistas e operadores de turismo.
-3	Festival de esportes aqu ticos e novas trilhas de aventura	Jericoacoara (CE)	A paradis¡aca vila de Jericoacoara realizou a primeira edi‡Æo do Festival de Kite e Windsurf Sustent vel, que reuniu atletas de todo o pa¡s em competi‡äes que valorizam pr ticas de baixo impacto ambiental. Novas trilhas ecol¢gicas para quadriciclos e caminhadas foram abertas na  rea da Pedra Furada, com sinaliza‡Æo bil¡ngue e mirantes panorƒmicos. O p“r do sol nas dunas continua sendo uma atra‡Æo imperd¡vel, agora com apresenta‡äes culturais ao vivo nos fins de tarde.
-4	Patrim“nio cultural em destaque na celebra‡Æo dos 60 anos da FLIP	Paraty (RJ)	Paraty se transformou num grande palco liter rio com a comemora‡Æo dos 60 anos da Festa Liter ria Internacional. A cidade recebe autores de renome, debates sobre literatura ind¡gena e oficinas de escrita criativa em casaräes hist¢ricos. Uma das grandes novidades ‚ a reabertura do Forte Defensor Perp‚tuo, agora restaurado com um museu interativo e trilhas que oferecem vista panorƒmica da ba¡a de Paraty. Restaurantes locais tamb‚m entraram na festa com menus especiais inspirados em livros e personagens liter rios.
-5	Caribe amaz“nico ganha hotel flutuante e turismo sustent vel cresce	Alter do ChÆo (PA)	As  guas claras do Rio Tapaj¢s estÆo ainda mais atrativas com a chegada do primeiro hotel flutuante ecol¢gico da regiÆo, operando com energia solar, coleta de  gua da chuva e card pios que valorizam a culin ria ribeirinha. A alta temporada das praias de rio est  a todo vapor, com destaque para a Ilha do Amor, que recebeu nova sinaliza‡Æo tur¡stica e quiosques padronizados com foco em limpeza e organiza‡Æo. Passeios guiados de canoa agora incluem oficinas sobre plantas medicinais da floresta.
-6	Concertos barrocos e nova rota noturna celebram 40 anos de patrim“nio mundial	Ouro Preto (MG)	Ouro Preto comemora quatro d‚cadas como Patrim“nio Mundial da UNESCO com uma agenda intensa de atra‡äes. As igrejas do centro hist¢rico sediam concertos noturnos com m£sica barroca ao vivo, criando uma atmosfera m gica nas ladeiras coloniais. A nova "Rota da Luz e Hist¢ria", um passeio noturno guiado, utiliza ilumina‡Æo cˆnica para valorizar os principais monumentos e casaräes. A Casa dos Contos tamb‚m abriu uma nova exposi‡Æo interativa sobre a Inconfidˆncia Mineira.
-7	Realidade aumentada e novas trilhas inclusivas encantam visitantes	Chapada dos Veadeiros (GO)	O Parque Nacional da Chapada dos Veadeiros acaba de ganhar um moderno centro de visitantes com experiˆncias em realidade aumentada, simulando voos de drone sobre os cƒnions e cachoeiras mais ic“nicos da regiÆo. As trilhas principais foram reformadas com passarelas ecol¢gicas e sinaliza‡Æo em braile, tornando o ecoturismo ainda mais acess¡vel. Restaurantes e pousadas locais estÆo adotando pr ticas sustent veis, com destaque para a gastronomia baseada em ingredientes do cerrado.
-8	Recife Antigo revive com arte de rua e nova fase do Cais do SertÆo	Recife (PE)	O bairro hist¢rico do Recife Antigo vive um momento vibrante com a reabertura ampliada do museu Cais do SertÆo, que agora conta com salas interativas sobre o ciclo do forr¢ e da poesia nordestina. As ruas do bairro estÆo tomadas pelo Festival Recife na Rua, com m£sica ao vivo, gastronomia regional, teatro de rua e maracatus que desfilam entre os casaräes coloniais. A ciclovia rec‚m-inaugurada ligando o Marco Zero … Praia de Boa Viagem estimula o turismo sustent vel.
-9	Ilha da Magia promove festival vegano e amplia ciclovias litorƒneas	Florian¢polis (SC)	Florian¢polis est  em clima de consciˆncia ecol¢gica com o Floripa Veg Festival, que re£ne chefs renomados, produtores locais e pain‚is sobre alimenta‡Æo consciente e sa£de. O evento ocorre simultaneamente em v rias praias e centros culturais da cidade. Novas ciclovias foram conclu¡das entre a Praia Mole, Joaquina e o centrinho da Lagoa da Concei‡Æo, promovendo o transporte alternativo e o contato com a natureza. Trilhas autoguiadas com QR Codes foram instaladas no Morro da Cruz e no CostÆo do Santinho.
-10	Temporada de lagoas cheias traz passaporte tur¡stico e novos voos	Len‡¢is Maranhenses (MA)	A beleza £nica dos Len‡¢is Maranhenses est  ainda mais acess¡vel com a chegada de novos voos diretos para Barreirinhas, principal porta de entrada do parque. A temporada de lagoas cheias est  deslumbrante, e os visitantes agora podem participar do programa "Passaporte dos Len‡¢is", que premia quem explora diferentes circuitos como Lagoa Azul, Lagoa Bonita e Canto do Atins. Barqueiros e guias locais estÆo sendo capacitados para oferecer experiˆncias mais seguras e informativas aos turistas.
+1	Festival de Cinema agita a Serra Gaucha com novas atracoes gastronomicas	Gramado (RS)	A charmosa cidade de Gramado esta em clima de celebracao com o aguardado Festival de Cinema de 2025. O evento, que atrai artistas e turistas de todo o Brasil, traz neste ano uma mostra dedicada ao cinema latino-americano contemporaneo. Alem disso, a prefeitura lancou a Rota do Cafe Colonial Artesanal, reunindo 18 produtores locais que oferecem experiencias unicas de sabores coloniais em ambientes rusticos e acolhedores. A iluminacao tematica nas ruas centrais completa o cenario encantador.
+2	Novo mirante e passarelas ecologicas valorizam o ecoturismo	Bonito (MS)	Bonito continua sendo referencia em turismo sustentavel, e acaba de inaugurar o "Mirante da Nascente Azul", com passarelas suspensas que oferecem uma visao aerea das aguas cristalinas e da fauna local. Com foco na preservacao e na acessibilidade, o complexo agora conta tambem com trilhas inclusivas para cadeirantes e idosos, alem de areas de descanso com sombra e sinalizacao ambiental educativa. A cidade recebe ainda, neste mes, a Feira de Turismo Ecologico do Centro-Oeste, reunindo especialistas e operadores de turismo.
+3	Festival de esportes aquaticos e novas trilhas de aventura	Jericoacoara (CE)	A paradisiaca vila de Jericoacoara realizou a primeira edicao do Festival de Kite e Windsurf Sustentavel, que reuniu atletas de todo o pais em competicoes que valorizam praticas de baixo impacto ambiental. Novas trilhas ecologicas para quadriciclos e caminhadas foram abertas na area da Pedra Furada, com sinalizacao bilingue e mirantes panoramicoss. O por do sol nas dunas continua sendo uma atracao imperdivel, agora com apresentacoes culturais ao vivo nos fins de tarde.
+4	Patrimonio cultural em destaque na celebracao dos 60 anos da FLIP	Paraty (RJ)	Paraty se transformou num grande palco literario com a comemoracao dos 60 anos da Festa Literaria Internacional. A cidade recebe autores de renome, debates sobre literatura indigena e oficinas de escrita criativa em casaroes historicos. Uma das grandes novidades e a reabertura do Forte Defensor Perpetuo, agora restaurado com um museu interativo e trilhas que oferecem vista panoramica da baia de Paraty. Restaurantes locais tambem entraram na festa com menus especiais inspirados em livros e personagens literarios.
+5	Caribe amazonico ganha hotel flutuante e turismo sustentavel cresce	Alter do Chao (PA)	As aguas claras do Rio Tapajos estao ainda mais atrativas com a chegada do primeiro hotel flutuante ecologico da regiao, operando com energia solar, coleta de agua da chuva e cardapios que valorizam a culinaria ribeirinha. A alta temporada das praias de rio esta a todo vapor, com destaque para a Ilha do Amor, que recebeu nova sinalizacao turistica e quiosques padronizados com foco em limpeza e organizacao. Passeios guiados de canoa agora incluem oficinas sobre plantas medicinais da floresta.
+6	Concertos barrocos e nova rota noturna celebram 40 anos de patrimonio mundial	Ouro Preto (MG)	Ouro Preto comemora quatro decadas como Patrimonio Mundial da UNESCO com uma agenda intensa de atracoes. As igrejas do centro historico sediam concertos noturnos com musica barroca ao vivo, criando uma atmosfera magica nas ladeiras coloniais. A nova "Rota da Luz e Historia", um passeio noturno guiado, utiliza iluminacao cenica para valorizar os principais monumentos e casaroes. A Casa dos Contos tambem abriu uma nova exposicao interativa sobre a Inconfidencia Mineira.
+7	Realidade aumentada e novas trilhas inclusivas encantam visitantes	Chapada dos Veadeiros (GO)	O Parque Nacional da Chapada dos Veadeiros acaba de ganhar um moderno centro de visitantes com experiencias em realidade aumentada, simulando voos de drone sobre os canions e cachoeiras mais iconicos da regiao. As trilhas principais foram reformadas com passarelas ecologicas e sinalizacao em braile, tornando o ecoturismo ainda mais acessivel. Restaurantes e pousadas locais estao adotando praticas sustentaveis, com destaque para a gastronomia baseada em ingredientes do cerrado.
+8	Recife Antigo revive com arte de rua e nova fase do Cais do Sertao	Recife (PE)	O bairro historico do Recife Antigo vive um momento vibrante com a reabertura ampliada do museu Cais do Sertao, que agora conta com salas interativas sobre o ciclo do forro e da poesia nordestina. As ruas do bairro estao tomadas pelo Festival Recife na Rua, com musica ao vivo, gastronomia regional, teatro de rua e maracatus que desfilam entre os casaroes coloniais. A ciclovia recem-inaugurada ligando o Marco Zero a Praia de Boa Viagem estimula o turismo sustentavel.
+9	Ilha da Magia promove festival vegano e amplia ciclovias litoraneas	Florianopolis (SC)	Florianopolis esta em clima de consciencia ecologica com o Floripa Veg Festival, que reune chefs renomados, produtores locais e paineis sobre alimentacao consciente e saude. O evento ocorre simultaneamente em varias praias e centros culturais da cidade. Novas ciclovias foram concluidas entre a Praia Mole, Joaquina e o centrinho da Lagoa da Conceicao, promovendo o transporte alternativo e o contato com a natureza. Trilhas autoguiadas com QR Codes foram instaladas no Morro da Cruz e no Costao do Santinho.
+10	Temporada de lagoas cheias traz passaporte turistico e novos voos	Lencois Maranhenses (MA)	A beleza unica dos Lencois Maranhenses esta ainda mais acessivel com a chegada de novos voos diretos para Barreirinhas, principal porta de entrada do parque. A temporada de lagoas cheias esta deslumbrante, e os visitantes agora podem participar do programa "Passaporte dos Lencois", que premia quem explora diferentes circuitos como Lagoa Azul, Lagoa Bonita e Canto do Atins. Barqueiros e guias locais estao sendo capacitados para oferecer experiencias mais seguras e informativas aos turistas.
 \.
 
 
 --
--- TOC entry 4885 (class 0 OID 33666)
+-- TOC entry 4895 (class 0 OID 33666)
 -- Dependencies: 220
 -- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -647,76 +729,76 @@ COPY public.posts (id, user_id, image, description, tag, likes_count) FROM stdin
 
 
 --
--- TOC entry 4891 (class 0 OID 33774)
--- Dependencies: 226
+-- TOC entry 4899 (class 0 OID 33812)
+-- Dependencies: 224
 -- Data for Name: regions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.regions (id, region, name, state, text, links) FROM stdin;
-1	Sudeste	SÆo Paulo (capital)	SP	Centro cultural e econ“mico do pa¡s, com atra‡äes como o MASP, Mercado Municipal, Parque Ibirapuera e a Avenida Paulista.	https://www.tripadvisor.com.br/Attractions-g303631-Activities-Sao_Paulo_State_of_Sao_Paulo.html
-2	Sudeste	Ilhabela	SP	Ilha paradis¡aca com praias intocadas, trilhas na Mata Atlƒntica e ¢timos locais para mergulho e esportes aqu ticos.	\N
-3	Sudeste	Campos do JordÆo	SP	Conhecida como a "Su¡‡a Brasileira", oferece clima ameno, arquitetura europeia e o famoso Festival de Inverno.	\N
-4	Sudeste	Holambra	SP	"Capital das Flores", com campos floridos e o maior moinho da Am‚rica Latina, refletindo a heran‡a holandesa.	\N
-5	Sudeste	Rio de Janeiro (capital)	RJ	Famosa mundialmente por suas belezas naturais, como o PÆo de A‡£car, Cristo Redentor e praias como Copacabana e Ipanema.	https://www.tripadvisor.com.br/Attractions-g303506-Activities-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html
-6	Sudeste	Paraty	RJ	 Cidade colonial charmosa, reconhecida como Patrim“nio Mundial da UNESCO, com centro hist¢rico preservado e belas praias.	\N
-7	Sudeste	RegiÆo dos Lagos:	RJ	Inclui destinos como B£zios, Arraial do Cabo e Cabo Frio, conhecidos por suas praias paradis¡acas e excelente infraestrutura tur¡stica.	\N
-8	Sudeste	Belo Horizonte (capital)	MG	Famosa por sua hospitalidade, culin ria e vida noturna animada. Ponto de partida para cidades hist¢ricas como Ouro Preto e Mariana.	https://www.tripadvisor.com.br/Attractions-g303370-Activities-State_of_Minas_Gerais.html
-9	Sudeste	Ouro Preto	MG	Cidade colonial que preserva a rica heran‡a do per¡odo do ouro no Brasil, com igrejas barrocas e ruas de paralelep¡pedos.	\N
-10	Sudeste	Parques Nacionais	MG	Como o da Serra da Canastra, onde nasce o Rio SÆo Francisco, e o da Serra do Cip¢, conhecidos por suas belezas naturais e biodiversidade.	\N
-11	Sudeste	Vit¢ria (capital)	ES	Cidade litorƒnea com praias tranquilas, como a Ilha do Boi e a Ilha do Frade, al‚m de uma rica gastronomia baseada em frutos do mar.	https://www.tripadvisor.com.br/Attractions-g303308-Activities-State_of_Espirito_Santo.html
-12	Sul	Curitiba (capital)	PR	Reconhecida por seu planejamento urbano, oferece atra‡äes como o Jardim Botƒnico, o Museu Oscar Niemeyer e o Parque Barigui.	https://www.tripadvisor.com.br/Attractions-g303435-Activities-State_of_Parana.html
-13	Sul	Foz do Igua‡u	PR	Lar das impressionantes Cataratas do Igua‡u, uma das Sete Maravilhas Naturais do Mundo, e da Represa de Itaipu. A cidade tamb‚m ‚ ponto de acesso a Ciudad del Este (Paraguai) e Puerto Iguaz£ (Argentina).	\N
-14	Sul	Serra do Mar	PR	Ideal para ecoturismo, com trilhas que levam a vilarejos hist¢ricos como Morretes e Antonina, onde se pode degustar o tradicional barreado.	\N
-15	Sul	Florian¢polis (capital)	SC	 A capital, conhecida por suas belas praias, como Joaquina e Campeche, al‚m da Lagoa da Concei‡Æo e da Ponte Herc¡lio Luz.	https://www.tripadvisor.com.br/Attractions-g303570-Activities-State_of_Santa_Catarina.html
-16	Sul	Balne rio Cambori£	SC	Famosa por sua vida noturna vibrante e pelo Parque Unipraias, que oferece vistas panorƒmicas e atividades de ecoturismo.	\N
-17	Sul	SÆo Joaquim	SC	Destino ideal para quem deseja vivenciar o inverno brasileiro, com possibilidade de neve e temperaturas negativas.	\N
-18	Sul	Porto Alegre (capital)	RS	Cidade com forte influˆncia cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade est  situada …s margens do Lago Gua¡ba e ‚ conhecida por sua diversidade cultural, gastronomia, e seus famosos centros hist¢ricos e espa‡os ao ar livre.	https://www.tripadvisor.com.br/Attractions-g303530-Activities-State_of_Rio_Grande_do_Sul.html
-19	Sul	Vale dos Vinhedos	RS	RegiÆo produtora de vinhos, onde ‚ poss¡vel visitar vin¡colas e participar de degusta‡äes.	\N
-20	Sul	Cƒnion Itaimbezinho	RS	Localizado no Parque Nacional de Aparados da Serra, oferece trilhas e vistas deslumbrantes.	\N
-21	Norte	Manaus (capital)	AM	Porta de entrada para a Amaz“nia, a capital amazonense oferece atra‡äes como o Teatro Amazonas, o Mercado Municipal e o Encontro das µguas, onde os rios Negro e Solimäes correm lado a lado sem se misturar.	https://www.tripadvisor.com.br/Attractions-g303226-Activities-State_of_Amazonas.html
-22	Norte	Floresta Amaz“nica	AM	Possibilidade de realizar passeios de barco, caminhadas na selva e observa‡Æo de fauna e flora £nicas.	\N
-23	Norte	Bel‚m (capital)	PA	Capital paraense, famosa por sua culin ria t¡pica, como o tacac  e o a‡a¡, al‚m de pontos tur¡sticos como o Mercado Ver-o-Peso e o Museu Paraense Em¡lio Goeldi.	https://www.tripadvisor.com.br/Attractions-g303402-Activities-State_of_Para.html
-24	Norte	Alter do ChÆo	PA	Conhecida como o "Caribe Amaz“nico", oferece praias de  gua doce com areia branca e  guas cristalinas, sendo considerada uma das praias mais bonitas do Brasil.	\N
-25	Norte	Rio Branco (capital)	AC	Maior cidade do estado e est  localizada na regiÆo norte do Brasil, pr¢xima … fronteira com o Peru e a Bol¡via. A cidade tem uma mistura de hist¢ria, cultura e natureza, sendo a principal porta de entrada para quem deseja explorar a Floresta Amaz“nica e as belezas naturais do Acre.	https://www.tripadvisor.com.br/Attractions-g303199-Activities-State_of_Acre.html
-26	Norte	Geoglifos do Acre	AC	Estruturas geom‚tricas misteriosas esculpidas no solo, com mais de 3.000 anos de idade, que despertam interesse arqueol¢gico.	\N
-27	Norte	Boa Vista (capital)	RR	énica capital brasileira situada completamente ao norte da linha do Equador e ‚ conhecida por sua proximidade com a natureza e por ser uma cidade com forte presen‡a de influˆncias ind¡genas e amaz“nicas.	https://www.tripadvisor.com.br/Attractions-g30362-Activities-State_of_Roraima.html
-28	Norte	Monte Roraima	RR	Uma das forma‡äes geol¢gicas mais antigas do planeta, oferece trilhas desafiadoras e vistas deslumbrantes, sendo inspira‡Æo para obras como "O Mundo Perdido" de Arthur Conan Doyle.	\N
-29	Norte	Palmas (capital)	TO	Cidade planejada, inaugurada em 1989, e est  situada …s margens do Lago de Palmas, em uma regiÆo de grande beleza natural.	https://www.tripadvisor.com.br/Attractions-g303645-Activities-State_of_Tocantins.html
-30	Norte	JalapÆo	TO	Conhecido por suas dunas douradas, fervedouros (po‡os de  gua que borbulham devido … pressÆo da  gua subterrƒnea) e cachoeiras, ‚ um destino ideal para quem busca aventura e contato com a natureza.	\N
-31	Nordeste	Salvador (capital)	BA	Capital cultural do Brasil, famosa pelo Pelourinho, igrejas hist¢ricas e o Elevador Lacerda.	https://www.tripadvisor.com.br/Attractions-g303251-Activities-State_of_Bahia.html
-32	Nordeste	Chapada Diamantina	BA	Parque nacional com cachoeiras, cavernas e trilhas, ideal para os amantes de ecoturismo.	\N
-33	Nordeste	Ilha de Itaparica	BA	Destino tranquilo com praias de  guas calmas, perfeito para relaxar.	\N
-34	Nordeste	Recife (capital)	PE	Cidade com forte influˆncia cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade est  situada …s margens do Lago Gua¡ba e ‚ conhecida por sua divePEidade cultural, gastronomia, e seus famosos centros hist¢ricos e espa‡os ao ar livre.	https://www.tripadvisor.com.br/Attractions-g303459-Activities-State_of_Pernambuco.html
-35	Nordeste	Olinda	PE	Cidade hist¢rica com igrejas barrocas e ladeiras coloridas.	\N
-36	Nordeste	Porto de Galinhas	PE	Praias paradis¡acas com piscinas naturais e  guas cristalinas.	\N
-37	Nordeste	Fortaleza (capital)	CE	Capital vibrante com praias urbanas como Praia do Futuro e atra‡äes culturais como o Mercado Central.	https://www.tripadvisor.com.br/Attractions-g303284-Activities-State_of_Ceara.html
-38	Nordeste	Jericoacoara	CE	Vila charmosa com dunas, lagoas e p“r do sol deslumbrante.	\N
-39	Nordeste	Canoa Quebrada	CE	Praia famosa por suas fal‚sias vermelhas e vida noturna animada.	\N
-40	Nordeste	SÆo Lu¡s (capital)	MA	Centro hist¢rico com casaräes coloniais e manifesta‡äes culturais como o Bumba Meu Boi.	https://www.tripadvisor.com.br/Attractions-g303325-Activities-State_of_Maranhao.html
-41	Nordeste	Len‡¢is Maranhenses	MA	Parque nacional com dunas de areia branca e lagoas de  gua doce, criando paisagens £nicas.	\N
-42	Nordeste	Macei¢ (capital)	AL	Praias urbanas como Paju‡ara e Ponta Verde, al‚m de lagoas e piscinas naturais.	https://www.tripadvisor.com.br/Attractions-g303208-Activities-State_of_Alagoas.html
-43	Nordeste	Maragogi	AL	Conhecida como o "Caribe Brasileiro", com suas  guas transparentes e recifes de corais.	\N
-44	Nordeste	JoÆo Pessoa (capital)	PB	Capital tranquila com praias como Tamba£ e Cabo Branco, al‚m do Centro Hist¢rico bem preservado.	https://www.tripadvisor.com.br/Attractions-g303422-Activities-State_of_Paraiba.html
-45	Nordeste	Praia de Coqueirinho	PB	Praia paradis¡aca com fal‚sias e  guas calmas.	\N
-46	Nordeste	Teresina (capital)	PI	Capital com rica culin ria e proximidade com o Parque Nacional de Sete Cidades, conhecido por suas forma‡äes rochosas.	https://www.tripadvisor.com.br/Attractions-g303462-Activities-State_of_Piaui.html
-47	Nordeste	Delta do Parna¡ba	PI	énico delta em mar aberto das Am‚ricas, com ilhas e igarap‚s.	\N
-48	Nordeste	Natal (capital)	RN	Capital com praias urbanas como Ponta Negra e o famoso Forte dos Reis Magos.	https://www.tripadvisor.com.br/Attractions-g303510-Activities-State_of_Rio_Grande_do_Norte.html
-49	Nordeste	Genipabu	RN	Conhecida por suas dunas m¢veis e passeios de buggy.	\N
-50	Nordeste	Aracaju (capital)	SE	Capital com praias como Atalaia e Orla de Atalaia, al‚m de museus e mercados artesanais.	https://www.tripadvisor.com.br/Attractions-g303637-Activities-State_of_Sergipe.html
-51	Nordeste	Cƒnion do Xing¢	SE	Forma‡äes rochosas impressionantes no Rio SÆo Francisco.	\N
-52	Centro-Oeste	Goiƒnia (capital)	GO	Cidade moderna, planejada, e um dos principais centros urbanos da regiÆo Centro-Oeste do Brasil.	https://www.tripadvisor.com.br/Attractions-g303323-Activities-State_of_Goias.html
-53	Centro-Oeste	Chapada dos Veadeiros	GO	Localizada no estado de Goi s, a Chapada dos Veadeiros ‚ um parque nacional famoso por suas cachoeiras, trilhas e forma‡äes rochosas. Destinos como a Cachoeira de Santa B rbara e a Cachoeira do Segredo sÆo altamente recomendados para os amantes de natureza.	\N
-54	Centro-Oeste	Rio Quente	GO	Situado no estado de Goi s, Rio Quente ‚ famoso por suas  guas termais, com temperaturas que chegam a 38øC. O Hot Park ‚ um dos maiores parques aqu ticos da regiÆo e oferece diversas atra‡äes para todas as idades.	\N
-55	Centro-Oeste	Cuiab  (capital)	MT	Conhecida como a "porta de entrada para o Pantanal" e tamb‚m pela sua localiza‡Æo geogr fica £nica: ‚ considerada o centro da Am‚rica do Sul.	https://www.tripadvisor.com.br/Attractions-g303346-Activities-State_of_Mato_Grosso.html
-56	Centro-Oeste	Chapada dos GuimarÆes	MT	Pr¢xima … Cuiab , a Chapada dos GuimarÆes ‚ conhecida por suas cachoeiras, cavernas e mirantes. O Parque Nacional da Chapada dos GuimarÆes ‚ um local ideal para trilhas e observa‡Æo da fauna local.	\N
-57	Centro-Oeste	Campo Grande (capital)	MS	Conhecida como a "Cidade Morena" devido … colora‡Æo avermelhada de seu solo, Campo Grande ‚ um importante centro urbano e econ“mico do Centro-Oeste do Brasil. A cidade ‚ uma mistura de culturas ind¡genas, sul-mato-grossense, paraguaia e pantaneira.	https://www.tripadvisor.com.br/Attractions-g303368-Activities-State_of_Mato_Grosso_do_Sul.html
-58	Centro-Oeste	Bonito	MS	Famosa por suas  guas, Bonito oferece atividades como flutua‡Æo em rios, visita a cavernas e cachoeiras. A Gruta da Lagoa Azul e o Abismo Anhumas sÆo atra‡äes renomadas.	\N
-59	Centro-Oeste	Bras¡lia (distrito federal)	DF	A capital federal do Brasil ‚ reconhecida por sua arquitetura modernista, projetada por Oscar Niemeyer. Pontos tur¡sticos como a Catedral Metropolitana, o Congresso Nacional e o Pal cio da Alvorada sÆo imperd¡veis.	https://www.tripadvisor.com.br/Attractions-g303322-Activities-Brasilia_Federal_District.html
+COPY public.regions (id, region, name, state, text, links, image) FROM stdin;
+1	Sudeste	Sao Paulo (capital)	SP	Centro cultural e economico do pais, com atracoes como o MASP, Mercado Municipal, Parque Ibirapuera e a Avenida Paulista.	https://www.tripadvisor.com.br/Attractions-g303631-Activities-Sao_Paulo_State_of_Sao_Paulo.html	1748352576513-SÃ£oPaulo(capital).jpg
+2	Sudeste	Ilhabela	SP	Ilha paradisiaca com praias intocadas, trilhas na Mata Atlantica e otimos locais para mergulho e esportes aquaticos.	\N	1748352608572-Ilhabela.jpg
+3	Sudeste	Campos do Jordao	SP	Conhecida como a Suica Brasileira, oferece clima ameno, arquitetura europeia e o famoso Festival de Inverno.	\N	1748352635888-CamposDeJordÃ£o.jpg
+4	Sudeste	Holambra	SP	Capital das Flores, com campos floridos e o maior moinho da America Latina, refletindo a heranca holandesa.	\N	1748352657756-Holambra.jpg
+5	Sudeste	Rio de Janeiro (capital)	RJ	Famosa mundialmente por suas belezas naturais, como o Pao de Acucar, Cristo Redentor e praias como Copacabana e Ipanema.	https://www.tripadvisor.com.br/Attractions-g303506-Activities-Rio_de_Janeiro_State_of_Rio_de_Janeiro.htm	1748352701266-RioDeJaneiro(capital).jpg
+6	Sudeste	Paraty	RJ	Cidade colonial charmosa, reconhecida como Patrimonio Mundial da UNESCO, com centro historico preservado e belas praias.	\N	1748352728169-Paraty.jpg
+7	Sudeste	Regiao dos Lagos	RJ	Inclui destinos como Buzios, Arraial do Cabo e Cabo Frio, conhecidos por suas praias paradisiacas e excelente infraestrutura turistica.	\N	1748352755677-RegiÃ£oDosLagos.jpg
+8	Sudeste	Belo Horizonte (capital)	MG	Famosa por sua hospitalidade, culinaria e vida noturna animada. Ponto de partida para cidades historicas como Ouro Preto e Mariana.	https://www.tripadvisor.com.br/Attractions-g303370-Activities-State_of_Minas_Gerais.html	1748352801815-BeloHorizonte.jpg
+9	Sudeste	Ouro Preto	MG	Cidade colonial que preserva a rica heranca do periodo do ouro no Brasil, com igrejas barrocas e ruas de paralelepipedos.	\N	1748352834816-OuroPreto.jpg
+10	Sudeste	Parques Nacionais	MG	Como o da Serra da Canastra, onde nasce o Rio Sao Francisco, e o da Serra do Cipo, conhecidos por suas belezas naturais e biodiversidade.	\N	1748352884576-SerraDaCanastra.jpg
+11	Sudeste	Vitoria (capital)	ES	Cidade litoranea com praias tranquilas, como a Ilha do Boi e a Ilha do Frade, alem de uma rica gastronomia baseada em frutos do mar.	https://www.tripadvisor.com.br/Attractions-g303308-Activities-State_of_Espirito_Santo.html	1748352932765-VitÃ³ria(capital).jpg
+12	Sul	Curitiba (capital)	PR	Reconhecida por seu planejamento urbano, oferece atrações como o Jardim Botânico, o Museu Oscar Niemeyer e o Parque Barigui.	https://www.tripadvisor.com.br/Attractions-g303435-Activities-State_of_Parana.html	1748353071149-Curitiba(capital).jpg
+13	Sul	Foz do Iguaçu	PR	Lar das impressionantes Cataratas do Iguaçu, uma das Sete Maravilhas Naturais do Mundo, e da Represa de Itaipu. A cidade também é ponto de acesso a Ciudad del Este (Paraguai) e Puerto Iguazú (Argentina).	\N	1748353104316-FozDoIguaÃ§u.jpg
+14	Sul	Serra do Mar	PR	Ideal para ecoturismo, com trilhas que levam a vilarejos históricos como Morretes e Antonina, onde se pode degustar o tradicional barreado.	\N	1748353124848-SerraDoMar.jpg
+15	Sul	Florianópolis (capital)	SC	A capital, conhecida por suas belas praias, como Joaquina e Campeche, além da Lagoa da Conceição e da Ponte Hercílio Luz.	https://www.tripadvisor.com.br/Attractions-g303570-Activities-State_of_Santa_Catarina.html	1748353167619-FlorianÃ³polis(capital).jpg
+16	Sul	Balneário Camboriú	SC	Famosa por sua vida noturna vibrante e pelo Parque Unipraias, que oferece vistas panorâmicas e atividades de ecoturismo.	\N	1748353190148-BalneÃ¡rioCamboriÃº.jpg
+17	Sul	São Joaquim	SC	Destino ideal para quem deseja vivenciar o inverno brasileiro, com possibilidade de neve e temperaturas negativas.	\N	1748353207675-SÃ£oJoaquim.jpg
+18	Sul	Porto Alegre (capital)	RS	Cidade com forte influência cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade está situada às margens do Lago Guaíba e é conhecida por sua diversidade cultural, gastronomia, e seus famosos centros históricos e espaços ao ar livre.	https://www.tripadvisor.com.br/Attractions-g303530-Activities-State_of_Rio_Grande_do_Sul.html	1748353281920-PortoAlegre(capital).jpg
+19	Sul	Vale dos Vinhedos	RS	Região produtora de vinhos, onde é possível visitar vinícolas e participar de degustações.	\N	1748353314814-ValedosVinhedos.jpg
+20	Sul	Cânion Itaimbezinho	RS	Localizado no Parque Nacional de Aparados da Serra, oferece trilhas e vistas deslumbrantes.	\N	1748353339153-CÃ¢nionItaimbezinho.jpg
+21	Norte	Manaus (capital)	AM	Porta de entrada para a Amazônia, a capital amazonense oferece atrações como o Teatro Amazonas, o Mercado Municipal e o Encontro das Águas, onde os rios Negro e Solimões correm lado a lado sem se misturar.	https://www.tripadvisor.com.br/Attractions-g303226-Activities-State_of_Amazonas.html	1748353489684-Manaus(capital).jpg
+22	Norte	Floresta Amazônica	AM	Possibilidade de realizar passeios de barco, caminhadas na selva e observação de fauna e flora únicas.	\N	1748353513698-FlorestaAmazÃ´nica.jpg
+23	Norte	Belém (capital)	PA	Capital paraense, famosa por sua culinária típica, como o tacacá e o açaí, além de pontos turísticos como o Mercado Ver-o-Peso e o Museu Paraense Emílio Goeldi.	https://www.tripadvisor.com.br/Attractions-g303402-Activities-State_of_Para.html	1748353548551-BelÃ©m(capital).jpg
+24	Norte	Alter do Chão	PA	Conhecida como o Caribe Amazônico, oferece praias de água doce com areia branca e águas cristalinas, sendo considerada uma das praias mais bonitas do Brasil.	\N	1748353775086-AlterdoChÃ£o.jpg
+25	Norte	Rio Branco (capital)	AC	Maior cidade do estado e está localizada na região norte do Brasil, próxima à fronteira com o Peru e a Bolívia. A cidade tem uma mistura de história, cultura e natureza, sendo a principal porta de entrada para quem deseja explorar a Floresta Amazônica e as belezas naturais do Acre.	https://www.tripadvisor.com.br/Attractions-g303199-Activities-State_of_Acre.html	1748353815386-RioBranco(capital).jpg
+26	Norte	Geoglifos do Acre	AC	Estruturas geométricas misteriosas esculpidas no solo, com mais de 3.000 anos de idade, que despertam interesse arqueológico.	\N	1748353844882-GeoglifosdoAcre.jpg
+27	Norte	Boa Vista (capital)	RR	Única capital brasileira situada completamente ao norte da linha do Equador e é conhecida por sua proximidade com a natureza e por ser uma cidade com forte presença de influências indígenas e amazônicas.	https://www.tripadvisor.com.br/Attractions-g30362-Activities-State_of_Roraima.html	1748353889845-BoaVista(capital).jpg
+28	Norte	Monte Roraima	RR	Uma das formações geológicas mais antigas do planeta, oferece trilhas desafiadoras e vistas deslumbrantes, sendo inspiração para obras como O Mundo Perdido de Arthur Conan Doyle.	\N	1748353912311-MonteRoraima.jpg
+29	Norte	Palmas (capital)	TO	Cidade planejada, inaugurada em 1989, e está situada às margens do Lago de Palmas, em uma região de grande beleza natural.	https://www.tripadvisor.com.br/Attractions-g303645-Activities-State_of_Tocantins.html	1748353947029-Palmas(capital).jpg
+30	Norte	Jalapão	TO	Conhecido por suas dunas douradas, fervedouros (poços de água que borbulham devido à pressão da água subterrânea) e cachoeiras, é um destino ideal para quem busca aventura e contato com a natureza.	\N	1748353973263-JalapÃ£o.jpg
+31	Nordeste	Salvador (capital)	BA	Capital cultural do Brasil, famosa pelo Pelourinho, igrejas históricas e o Elevador Lacerda.	https://www.tripadvisor.com.br/Attractions-g303251-Activities-State_of_Bahia.html	1748354221683-Salvador(capital).jpg
+32	Nordeste	Chapada Diamantina	BA	Parque nacional com cachoeiras, cavernas e trilhas, ideal para os amantes de ecoturismo.	\N	1748354244297-ChapadaDiamantina.jpg
+33	Nordeste	Ilha de Itaparica	BA	Destino tranquilo com praias de águas calmas, perfeito para relaxar.	\N	1748354270673-IlhaDeItaparica.jpg
+34	Nordeste	Recife (capital)	PE	Cidade com forte influência cultural, sendo um dos principais centros urbanos do sul do Brasil. A cidade está situada às margens do Lago Guaíba e é conhecida por sua divePEidade cultural, gastronomia, e seus famosos centros históricos e espaços ao ar livre.	https://www.tripadvisor.com.br/Attractions-g303459-Activities-State_of_Pernambuco.html	1748354314693-Recife(capital).jpg
+35	Nordeste	Olinda	PE	Cidade histórica com igrejas barrocas e ladeiras coloridas.	\N	1748354363802-Olinda.jpg
+36	Nordeste	Porto de Galinhas	PE	Praias paradisíacas com piscinas naturais e águas cristalinas.	\N	1748354386706-PortoDeGalinhas.jpg
+37	Nordeste	Fortaleza (capital)	CE	Capital vibrante com praias urbanas como Praia do Futuro e atrações culturais como o Mercado Central.	https://www.tripadvisor.com.br/Attractions-g303284-Activities-State_of_Ceara.html	1748354421294-Fortaleza(capital).jpg
+38	Nordeste	Jericoacoara	CE	Vila charmosa com dunas, lagoas e pôr do sol deslumbrante.	\N	1748354443236-Jericoacoara.jpg
+39	Nordeste	Canoa Quebrada	CE	Praia famosa por suas falésias vermelhas e vida noturna animada.	\N	1748354467668-CanoaQuebrada.jpg
+40	Nordeste	São Luís (capital)	MA	Centro histórico com casarões coloniais e manifestações culturais como o Bumba Meu Boi.	https://www.tripadvisor.com.br/Attractions-g303325-Activities-State_of_Maranhao.html	1748354503952-SÃ£oLuÃ­s(capital).jpg
+41	Nordeste	Lençóis Maranhenses	MA	Parque nacional com dunas de areia branca e lagoas de água doce, criando paisagens únicas.	\N	1748354536584-LenÃ§Ã³isMaranhenses.jpg
+42	Nordeste	Maceió (capital)	AL	Praias urbanas como Pajuçara e Ponta Verde, além de lagoas e piscinas naturais.	https://www.tripadvisor.com.br/Attractions-g303208-Activities-State_of_Alagoas.html	1748354572548-MaceiÃ³(capital).jpg
+43	Nordeste	Maragogi	AL	Conhecida como o Caribe Brasileiro, com suas águas transparentes e recifes de corais.	\N	1748354599452-Maragogi.jpg
+44	Nordeste	João Pessoa (capital)	PB	Capital tranquila com praias como Tambaú e Cabo Branco, além do Centro Histórico bem preservado.	https://www.tripadvisor.com.br/Attractions-g303422-Activities-State_of_Paraiba.html	1748354637655-JoÃ£oPessoa(capital).jpg
+45	Nordeste	Praia de Coqueirinho	PB	Praia paradisíaca com falésias e águas calmas.	\N	1748354663484-PraiaDeCoqueirinho.jpg
+46	Nordeste	Teresina (capital)	PI	Capital com rica culinária e proximidade com o Parque Nacional de Sete Cidades, conhecido por suas formações rochosas.	https://www.tripadvisor.com.br/Attractions-g303462-Activities-State_of_Piaui.html	1748354738836-Teresina(capital).jpg
+47	Nordeste	Delta do Parnaíba	PI	Único delta em mar aberto das Américas, com ilhas e igarapés.	\N	1748354759784-DeltaDoParnaÃ­ba.jpg
+48	Nordeste	Natal (capital)	RN	Capital com praias urbanas como Ponta Negra e o famoso Forte dos Reis Magos.	https://www.tripadvisor.com.br/Attractions-g303510-Activities-State_of_Rio_Grande_do_Norte.html	1748354814632-Natal(capital).jpg
+49	Nordeste	Genipabu	RN	Conhecida por suas dunas móveis e passeios de buggy.	\N	1748354833391-Genipabu.jpg
+50	Nordeste	Aracaju (capital)	SE	Capital com praias como Atalaia e Orla de Atalaia, além de museus e mercados artesanais.	https://www.tripadvisor.com.br/Attractions-g303637-Activities-State_of_Sergipe.html	1748354873633-Aracaju(capital).jpg
+51	Nordeste	Cânion do Xingó	SE	Formações rochosas impressionantes no Rio São Francisco.	\N	1748354901974-CÃ¢nionDoXingÃ³.jpg
+52	Centro-Oeste	Goiania (capital)	GO	Cidade moderna, planejada, e um dos principais centros urbanos da regiao Centro-Oeste do Brasil.	https://www.tripadvisor.com.br/Attractions-g303323-Activities-State_of_Goias.html	1748355116965-GoiÃ¢nia(capital).jpg
+53	Centro-Oeste	Chapada dos Veadeiros	GO	Localizada no estado de Goias, a Chapada dos Veadeiros e um parque nacional famoso por suas cachoeiras, trilhas e formacoes rochosas. Destinos como a Cachoeira de Santa Barbara e a Cachoeira do Segredo sao altamente recomendados para os amantes de natureza.	\N	1748355142603-ChapadaDosVeadeiros.jpg
+54	Centro-Oeste	Rio Quente	GO	Situado no estado de Goias, Rio Quente e famoso por suas aguas termais, com temperaturas que chegam a 38°C. O Hot Park e um dos maiores parques aquaticos da regiao e oferece diversas atracoes para todas as idades.	\N	1748355165237-RioQuente.jpg
+55	Centro-Oeste	Cuiaba (capital)	MT	Conhecida como a porta de entrada para o Pantanal e tambem pela sua localizacao geografica unica: e considerada o centro da America do Sul.	https://www.tripadvisor.com.br/Attractions-g303346-Activities-State_of_Mato_Grosso.html	1748355199353-CuiabÃ¡(capital).jpg
+56	Centro-Oeste	Chapada dos Guimaraes	MT	Proxima a Cuiaba, a Chapada dos Guimaraes e conhecida por suas cachoeiras, cavernas e mirantes. O Parque Nacional da Chapada dos Guimaraes e um local ideal para trilhas e observacao da fauna local.	\N	1748355222033-ChapadaDosGuimarÃ£es.jpg
+57	Centro-Oeste	Campo Grande (capital)	MS	Conhecida como a Cidade Morena devido a coloracao avermelhada de seu solo, Campo Grande e um importante centro urbano e economico do Centro-Oeste do Brasil. A cidade e uma mistura de culturas indigenas, sul-mato-grossense, paraguaia e pantaneira.	https://www.tripadvisor.com.br/Attractions-g303368-Activities-State_of_Mato_Grosso_do_Sul.html	1748355264898-CampoGrande(capital).jpg
+58	Centro-Oeste	Bonito	MS	Famosa por suas aguas, Bonito oferece atividades como flutuacao em rios, visita a cavernas e cachoeiras. A Gruta da Lagoa Azul e o Abismo Anhumas sao atracoes renomadas.	\N	1748355287639-Bonito.jpg
+59	Centro-Oeste	Brasilia (distrito federal)	DF	A capital federal do Brasil e reconhecida por sua arquitetura modernista, projetada por Oscar Niemeyer. Pontos turisticos como a Catedral Metropolitana, o Congresso Nacional e o Palacio da Alvorada sao imperdiveis.	https://www.tripadvisor.com.br/Attractions-g303322-Activities-Brasilia_Federal_District.html	1748355328218-BrasÃ­lia(distrito federal).jpg
 \.
 
 
 --
--- TOC entry 4883 (class 0 OID 33654)
+-- TOC entry 4893 (class 0 OID 33654)
 -- Dependencies: 218
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -826,17 +908,26 @@ COPY public.users (id, name, email, city, state, type_user, password, photo) FRO
 
 
 --
--- TOC entry 4902 (class 0 OID 0)
+-- TOC entry 4915 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.comments_id_seq', 98, true);
+SELECT pg_catalog.setval('public.comments_id_seq', 100, true);
 
 
 --
--- TOC entry 4903 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4916 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: feedbacks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.feedbacks_id_seq', 20, true);
+
+
+--
+-- TOC entry 4917 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: news_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -844,7 +935,7 @@ SELECT pg_catalog.setval('public.news_id_seq', 10, true);
 
 
 --
--- TOC entry 4904 (class 0 OID 0)
+-- TOC entry 4918 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -853,8 +944,8 @@ SELECT pg_catalog.setval('public.posts_id_seq', 250, true);
 
 
 --
--- TOC entry 4905 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 4919 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: regions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -862,7 +953,7 @@ SELECT pg_catalog.setval('public.regions_id_seq', 59, true);
 
 
 --
--- TOC entry 4906 (class 0 OID 0)
+-- TOC entry 4920 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -871,7 +962,7 @@ SELECT pg_catalog.setval('public.users_id_seq', 100, true);
 
 
 --
--- TOC entry 4729 (class 2606 OID 33688)
+-- TOC entry 4736 (class 2606 OID 33688)
 -- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -880,7 +971,16 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4731 (class 2606 OID 33707)
+-- TOC entry 4742 (class 2606 OID 33839)
+-- Name: feedbacks feedbacks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.feedbacks
+    ADD CONSTRAINT feedbacks_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4740 (class 2606 OID 33829)
 -- Name: news news_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -889,7 +989,7 @@ ALTER TABLE ONLY public.news
 
 
 --
--- TOC entry 4727 (class 2606 OID 33674)
+-- TOC entry 4734 (class 2606 OID 33674)
 -- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -898,7 +998,7 @@ ALTER TABLE ONLY public.posts
 
 
 --
--- TOC entry 4733 (class 2606 OID 33781)
+-- TOC entry 4738 (class 2606 OID 33819)
 -- Name: regions regions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -907,7 +1007,7 @@ ALTER TABLE ONLY public.regions
 
 
 --
--- TOC entry 4723 (class 2606 OID 33664)
+-- TOC entry 4730 (class 2606 OID 33664)
 -- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -916,7 +1016,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4725 (class 2606 OID 33662)
+-- TOC entry 4732 (class 2606 OID 33662)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -925,7 +1025,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4735 (class 2606 OID 33689)
+-- TOC entry 4744 (class 2606 OID 33689)
 -- Name: comments comments_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -934,7 +1034,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4736 (class 2606 OID 33694)
+-- TOC entry 4745 (class 2606 OID 33694)
 -- Name: comments comments_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -943,7 +1043,16 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4734 (class 2606 OID 33675)
+-- TOC entry 4746 (class 2606 OID 33840)
+-- Name: feedbacks feedbacks_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.feedbacks
+    ADD CONSTRAINT feedbacks_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4743 (class 2606 OID 33675)
 -- Name: posts posts_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -951,7 +1060,7 @@ ALTER TABLE ONLY public.posts
     ADD CONSTRAINT posts_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
 
 
--- Completed on 2025-05-21 21:49:10
+-- Completed on 2025-05-27 11:31:59
 
 --
 -- PostgreSQL database dump complete
