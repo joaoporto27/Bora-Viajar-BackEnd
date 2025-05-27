@@ -45,6 +45,11 @@ CREATE TABLE regions (
     links VARCHAR(255)
 );
 
+-- Alteração da tabela REGIONS
+
+ALTER TABLE regions ADD COLUMN image TEXT;
+ALTER TABLE regions CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- Tabela de NEWS
 CREATE TABLE news (
     id SERIAL PRIMARY KEY,
@@ -85,7 +90,7 @@ INSERT INTO users (name, email, city, state, type_user, password) VALUES
 ('Fernanda Rocha', 'fernanda.rocha6@gmail.com', 'Recife', 'PE', 'Usuário', '555133@'),
 ('Lucas Martins', 'lucas.martins7@gmail.com', 'Salvador', 'BA', 'Usuário', '576843$'),
 ('Camila Ribeiro', 'camila.ribeiro8@gmail.com', 'Brasília', 'DF', 'Usuário', '216441$'),
-('Pedro Almeida', 'pedro.almeida9@gmail.com', 'Fortaleza', 'CE', 'Usuário', '418251$')
+('Pedro Almeida', 'pedro.almeida9@gmail.com', 'Fortaleza', 'CE', 'Usuário', '418251$'),
 ('Aline Mendes', 'aline.mendes10@gmail.com', 'Manaus', 'AM', 'Usuário', '442272#'),
 ('Patrícia Moraes', 'patricia.moraes102@gmail.com', 'Maceió', 'AL', 'Usuário', '900128#'),
 ('Bruno Teixeira', 'bruno.teixeira103@gmail.com', 'João Pessoa', 'PB', 'Usuário', '769424#'),
@@ -528,26 +533,27 @@ INSERT INTO comments (post_id, user_id, comment) VALUES
 
 -- INSERTS da tabela REGIONS: Sudeste
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Sudeste', 'São Paulo (capital)', 'SP', 'Centro cultural e econômico do país, com atrações como o MASP, Mercado Municipal, Parque Ibirapuera e a Avenida Paulista.', 'https://www.tripadvisor.com.br/Attractions-g303631-Activities-Sao_Paulo_State_of_Sao_Paulo.html');
+('Sudeste', 'Sao Paulo (capital)', 'SP', 'Centro cultural e economico do pais, com atracoes como o MASP, Mercado Municipal, Parque Ibirapuera e a Avenida Paulista.', 'https://www.tripadvisor.com.br/Attractions-g303631-Activities-Sao_Paulo_State_of_Sao_Paulo.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Sudeste', 'Ilhabela', 'SP', 'Ilha paradisíaca com praias intocadas, trilhas na Mata Atlântica e ótimos locais para mergulho e esportes aquáticos.', NULL),
-('Sudeste', 'Campos do Jordão', 'SP', 'Conhecida como a “Suíça Brasileira”, oferece clima ameno, arquitetura europeia e o famoso Festival de Inverno.', NULL),
-('Sudeste', 'Holambra', 'SP', '"Capital das Flores", com campos floridos e o maior moinho da América Latina, refletindo a herança holandesa.', NULL);
+('Sudeste', 'Ilhabela', 'SP', 'Ilha paradisiaca com praias intocadas, trilhas na Mata Atlantica e otimos locais para mergulho e esportes aquaticos.', NULL),
+('Sudeste', 'Campos do Jordao', 'SP', 'Conhecida como a Suica Brasileira, oferece clima ameno, arquitetura europeia e o famoso Festival de Inverno.', NULL),
+('Sudeste', 'Holambra', 'SP', 'Capital das Flores, com campos floridos e o maior moinho da America Latina, refletindo a heranca holandesa.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Sudeste', 'Rio de Janeiro (capital)', 'RJ', 'Famosa mundialmente por suas belezas naturais, como o Pão de Açúcar, Cristo Redentor e praias como Copacabana e Ipanema.', 'https://www.tripadvisor.com.br/Attractions-g303506-Activities-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html');
+('Sudeste', 'Rio de Janeiro (capital)', 'RJ', 'Famosa mundialmente por suas belezas naturais, como o Pao de Acucar, Cristo Redentor e praias como Copacabana e Ipanema.', 'https://www.tripadvisor.com.br/Attractions-g303506-Activities-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Sudeste', 'Paraty', 'RJ', ' Cidade colonial charmosa, reconhecida como Patrimônio Mundial da UNESCO, com centro histórico preservado e belas praias.', NULL),
-('Sudeste', 'Região dos Lagos:', 'RJ', 'Inclui destinos como Búzios, Arraial do Cabo e Cabo Frio, conhecidos por suas praias paradisíacas e excelente infraestrutura turística.', NULL);
+('Sudeste', 'Paraty', 'RJ', 'Cidade colonial charmosa, reconhecida como Patrimonio Mundial da UNESCO, com centro historico preservado e belas praias.', NULL),
+('Sudeste', 'Regiao dos Lagos', 'RJ', 'Inclui destinos como Buzios, Arraial do Cabo e Cabo Frio, conhecidos por suas praias paradisiacas e excelente infraestrutura turistica.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Sudeste', 'Belo Horizonte (capital)', 'MG', 'Famosa por sua hospitalidade, culinária e vida noturna animada. Ponto de partida para cidades históricas como Ouro Preto e Mariana.', 'https://www.tripadvisor.com.br/Attractions-g303370-Activities-State_of_Minas_Gerais.html');
+('Sudeste', 'Belo Horizonte (capital)', 'MG', 'Famosa por sua hospitalidade, culinaria e vida noturna animada. Ponto de partida para cidades historicas como Ouro Preto e Mariana.', 'https://www.tripadvisor.com.br/Attractions-g303370-Activities-State_of_Minas_Gerais.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Sudeste', 'Ouro Preto', 'MG', 'Cidade colonial que preserva a rica herança do período do ouro no Brasil, com igrejas barrocas e ruas de paralelepípedos.', NULL),
-('Sudeste', 'Parques Nacionais', 'MG', 'Como o da Serra da Canastra, onde nasce o Rio São Francisco, e o da Serra do Cipó, conhecidos por suas belezas naturais e biodiversidade.', NULL);
+('Sudeste', 'Ouro Preto', 'MG', 'Cidade colonial que preserva a rica heranca do periodo do ouro no Brasil, com igrejas barrocas e ruas de paralelepipedos.', NULL),
+('Sudeste', 'Parques Nacionais', 'MG', 'Como o da Serra da Canastra, onde nasce o Rio Sao Francisco, e o da Serra do Cipo, conhecidos por suas belezas naturais e biodiversidade.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Sudeste', 'Vitória (capital)', 'ES', 'Cidade litorânea com praias tranquilas, como a Ilha do Boi e a Ilha do Frade, além de uma rica gastronomia baseada em frutos do mar.', 'https://www.tripadvisor.com.br/Attractions-g303308-Activities-State_of_Espirito_Santo.html');
+('Sudeste', 'Vitoria (capital)', 'ES', 'Cidade litoranea com praias tranquilas, como a Ilha do Boi e a Ilha do Frade, alem de uma rica gastronomia baseada em frutos do mar.', 'https://www.tripadvisor.com.br/Attractions-g303308-Activities-State_of_Espirito_Santo.html');
+
 
 -- INSERTS da tabela REGIONS: Sul
 INSERT INTO regions (region, name, state, text, links) VALUES
@@ -557,7 +563,7 @@ INSERT INTO regions (region, name, state, text, links) VALUES
 ('Sul', 'Serra do Mar', 'PR', 'Ideal para ecoturismo, com trilhas que levam a vilarejos históricos como Morretes e Antonina, onde se pode degustar o tradicional barreado.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Sul', 'Florianópolis (capital)', 'SC', ' A capital, conhecida por suas belas praias, como Joaquina e Campeche, além da Lagoa da Conceição e da Ponte Hercílio Luz.', 'https://www.tripadvisor.com.br/Attractions-g303570-Activities-State_of_Santa_Catarina.html');
+('Sul', 'Florianópolis (capital)', 'SC', 'A capital, conhecida por suas belas praias, como Joaquina e Campeche, além da Lagoa da Conceição e da Ponte Hercílio Luz.', 'https://www.tripadvisor.com.br/Attractions-g303570-Activities-State_of_Santa_Catarina.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
 ('Sul', 'Balneário Camboriú', 'SC', 'Famosa por sua vida noturna vibrante e pelo Parque Unipraias, que oferece vistas panorâmicas e atividades de ecoturismo.', NULL),
 ('Sul', 'São Joaquim', 'SC', 'Destino ideal para quem deseja vivenciar o inverno brasileiro, com possibilidade de neve e temperaturas negativas.', NULL);
@@ -577,7 +583,7 @@ INSERT INTO regions (region, name, state, text, links) VALUES
 INSERT INTO regions (region, name, state, text, links) VALUES
 ('Norte', 'Belém (capital)', 'PA', 'Capital paraense, famosa por sua culinária típica, como o tacacá e o açaí, além de pontos turísticos como o Mercado Ver-o-Peso e o Museu Paraense Emílio Goeldi.', 'https://www.tripadvisor.com.br/Attractions-g303402-Activities-State_of_Para.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Norte', 'Alter do Chão', 'PA', 'Conhecida como o "Caribe Amazônico", oferece praias de água doce com areia branca e águas cristalinas, sendo considerada uma das praias mais bonitas do Brasil.', NULL);
+('Norte', 'Alter do Chão', 'PA', 'Conhecida como o Caribe Amazônico, oferece praias de água doce com areia branca e águas cristalinas, sendo considerada uma das praias mais bonitas do Brasil.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
 ('Norte', 'Rio Branco (capital)', 'AC', 'Maior cidade do estado e está localizada na região norte do Brasil, próxima à fronteira com o Peru e a Bolívia. A cidade tem uma mistura de história, cultura e natureza, sendo a principal porta de entrada para quem deseja explorar a Floresta Amazônica e as belezas naturais do Acre.', 'https://www.tripadvisor.com.br/Attractions-g303199-Activities-State_of_Acre.html');
@@ -587,7 +593,7 @@ INSERT INTO regions (region, name, state, text, links) VALUES
 INSERT INTO regions (region, name, state, text, links) VALUES
 ('Norte', 'Boa Vista (capital)', 'RR', 'Única capital brasileira situada completamente ao norte da linha do Equador e é conhecida por sua proximidade com a natureza e por ser uma cidade com forte presença de influências indígenas e amazônicas.', 'https://www.tripadvisor.com.br/Attractions-g30362-Activities-State_of_Roraima.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Norte', 'Monte Roraima', 'RR', 'Uma das formações geológicas mais antigas do planeta, oferece trilhas desafiadoras e vistas deslumbrantes, sendo inspiração para obras como "O Mundo Perdido" de Arthur Conan Doyle.', NULL);
+('Norte', 'Monte Roraima', 'RR', 'Uma das formações geológicas mais antigas do planeta, oferece trilhas desafiadoras e vistas deslumbrantes, sendo inspiração para obras como O Mundo Perdido de Arthur Conan Doyle.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
 ('Norte', 'Palmas (capital)', 'TO', 'Cidade planejada, inaugurada em 1989, e está situada às margens do Lago de Palmas, em uma região de grande beleza natural.', 'https://www.tripadvisor.com.br/Attractions-g303645-Activities-State_of_Tocantins.html');
@@ -621,7 +627,7 @@ INSERT INTO regions (region, name, state, text, links) VALUES
 INSERT INTO regions (region, name, state, text, links) VALUES
 ('Nordeste', 'Maceió (capital)', 'AL', 'Praias urbanas como Pajuçara e Ponta Verde, além de lagoas e piscinas naturais.', 'https://www.tripadvisor.com.br/Attractions-g303208-Activities-State_of_Alagoas.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Nordeste', 'Maragogi', 'AL', 'Conhecida como o "Caribe Brasileiro", com suas águas transparentes e recifes de corais.', NULL);
+('Nordeste', 'Maragogi', 'AL', 'Conhecida como o Caribe Brasileiro, com suas águas transparentes e recifes de corais.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
 ('Nordeste', 'João Pessoa (capital)', 'PB', 'Capital tranquila com praias como Tambaú e Cabo Branco, além do Centro Histórico bem preservado.', 'https://www.tripadvisor.com.br/Attractions-g303422-Activities-State_of_Paraiba.html');
@@ -645,36 +651,38 @@ INSERT INTO regions (region, name, state, text, links) VALUES
 
 -- INSERTS da tabela REGIONS: Centro-Oeste
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Centro-Oeste', 'Goiânia (capital)', 'GO', 'Cidade moderna, planejada, e um dos principais centros urbanos da região Centro-Oeste do Brasil.', 'https://www.tripadvisor.com.br/Attractions-g303323-Activities-State_of_Goias.html');
+('Centro-Oeste', 'Goiania (capital)', 'GO', 'Cidade moderna, planejada, e um dos principais centros urbanos da regiao Centro-Oeste do Brasil.', 'https://www.tripadvisor.com.br/Attractions-g303323-Activities-State_of_Goias.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Centro-Oeste', 'Chapada dos Veadeiros', 'GO', 'Localizada no estado de Goiás, a Chapada dos Veadeiros é um parque nacional famoso por suas cachoeiras, trilhas e formações rochosas. Destinos como a Cachoeira de Santa Bárbara e a Cachoeira do Segredo são altamente recomendados para os amantes de natureza.', NULL),
-('Centro-Oeste', 'Rio Quente', 'GO', 'Situado no estado de Goiás, Rio Quente é famoso por suas águas termais, com temperaturas que chegam a 38°C. O Hot Park é um dos maiores parques aquáticos da região e oferece diversas atrações para todas as idades.', NULL);
+('Centro-Oeste', 'Chapada dos Veadeiros', 'GO', 'Localizada no estado de Goias, a Chapada dos Veadeiros e um parque nacional famoso por suas cachoeiras, trilhas e formacoes rochosas. Destinos como a Cachoeira de Santa Barbara e a Cachoeira do Segredo sao altamente recomendados para os amantes de natureza.', NULL),
+('Centro-Oeste', 'Rio Quente', 'GO', 'Situado no estado de Goias, Rio Quente e famoso por suas aguas termais, com temperaturas que chegam a 38°C. O Hot Park e um dos maiores parques aquaticos da regiao e oferece diversas atracoes para todas as idades.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Centro-Oeste', 'Cuiabá (capital)', 'MT', 'Conhecida como a "porta de entrada para o Pantanal" e também pela sua localização geográfica única: é considerada o centro da América do Sul.', 'https://www.tripadvisor.com.br/Attractions-g303346-Activities-State_of_Mato_Grosso.html');
+('Centro-Oeste', 'Cuiaba (capital)', 'MT', 'Conhecida como a porta de entrada para o Pantanal e tambem pela sua localizacao geografica unica: e considerada o centro da America do Sul.', 'https://www.tripadvisor.com.br/Attractions-g303346-Activities-State_of_Mato_Grosso.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Centro-Oeste', 'Chapada dos Guimarães', 'MT', 'Próxima à Cuiabá, a Chapada dos Guimarães é conhecida por suas cachoeiras, cavernas e mirantes. O Parque Nacional da Chapada dos Guimarães é um local ideal para trilhas e observação da fauna local.', NULL);
+('Centro-Oeste', 'Chapada dos Guimaraes', 'MT', 'Proxima a Cuiaba, a Chapada dos Guimaraes e conhecida por suas cachoeiras, cavernas e mirantes. O Parque Nacional da Chapada dos Guimaraes e um local ideal para trilhas e observacao da fauna local.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Centro-Oeste', 'Campo Grande (capital)', 'MS', 'Conhecida como a "Cidade Morena" devido à coloração avermelhada de seu solo, Campo Grande é um importante centro urbano e econômico do Centro-Oeste do Brasil. A cidade é uma mistura de culturas indígenas, sul-mato-grossense, paraguaia e pantaneira.', 'https://www.tripadvisor.com.br/Attractions-g303368-Activities-State_of_Mato_Grosso_do_Sul.html');
+('Centro-Oeste', 'Campo Grande (capital)', 'MS', 'Conhecida como a Cidade Morena devido a coloracao avermelhada de seu solo, Campo Grande e um importante centro urbano e economico do Centro-Oeste do Brasil. A cidade e uma mistura de culturas indigenas, sul-mato-grossense, paraguaia e pantaneira.', 'https://www.tripadvisor.com.br/Attractions-g303368-Activities-State_of_Mato_Grosso_do_Sul.html');
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Centro-Oeste', 'Bonito', 'MS', 'Famosa por suas águas, Bonito oferece atividades como flutuação em rios, visita a cavernas e cachoeiras. A Gruta da Lagoa Azul e o Abismo Anhumas são atrações renomadas.', NULL);
+('Centro-Oeste', 'Bonito', 'MS', 'Famosa por suas aguas, Bonito oferece atividades como flutuacao em rios, visita a cavernas e cachoeiras. A Gruta da Lagoa Azul e o Abismo Anhumas sao atracoes renomadas.', NULL);
 
 INSERT INTO regions (region, name, state, text, links) VALUES
-('Centro-Oeste', 'Brasília (distrito federal)', 'DF', 'A capital federal do Brasil é reconhecida por sua arquitetura modernista, projetada por Oscar Niemeyer. Pontos turísticos como a Catedral Metropolitana, o Congresso Nacional e o Palácio da Alvorada são imperdíveis.', 'https://www.tripadvisor.com.br/Attractions-g303322-Activities-Brasilia_Federal_District.html');
+('Centro-Oeste', 'Brasilia (distrito federal)', 'DF', 'A capital federal do Brasil e reconhecida por sua arquitetura modernista, projetada por Oscar Niemeyer. Pontos turisticos como a Catedral Metropolitana, o Congresso Nacional e o Palacio da Alvorada sao imperdiveis.', 'https://www.tripadvisor.com.br/Attractions-g303322-Activities-Brasilia_Federal_District.html');
+
 
 -- INSERTS da tabela NEWS
 INSERT INTO news (name, place, text) VALUES
-('Festival de Cinema agita a Serra Gaúcha com novas atrações gastronômicas', 'Gramado (RS)', 'A charmosa cidade de Gramado está em clima de celebração com o aguardado Festival de Cinema de 2025. O evento, que atrai artistas e turistas de todo o Brasil, traz neste ano uma mostra dedicada ao cinema latino-americano contemporâneo. Além disso, a prefeitura lançou a Rota do Café Colonial Artesanal, reunindo 18 produtores locais que oferecem experiências únicas de sabores coloniais em ambientes rústicos e acolhedores. A iluminação temática nas ruas centrais completa o cenário encantador.' ),
-('Novo mirante e passarelas ecológicas valorizam o ecoturismo', 'Bonito (MS)', 'Bonito continua sendo referência em turismo sustentável, e acaba de inaugurar o "Mirante da Nascente Azul", com passarelas suspensas que oferecem uma visão aérea das águas cristalinas e da fauna local. Com foco na preservação e na acessibilidade, o complexo agora conta também com trilhas inclusivas para cadeirantes e idosos, além de áreas de descanso com sombra e sinalização ambiental educativa. A cidade recebe ainda, neste mês, a Feira de Turismo Ecológico do Centro-Oeste, reunindo especialistas e operadores de turismo.'),
-('Festival de esportes aquáticos e novas trilhas de aventura', 'Jericoacoara (CE)', 'A paradisíaca vila de Jericoacoara realizou a primeira edição do Festival de Kite e Windsurf Sustentável, que reuniu atletas de todo o país em competições que valorizam práticas de baixo impacto ambiental. Novas trilhas ecológicas para quadriciclos e caminhadas foram abertas na área da Pedra Furada, com sinalização bilíngue e mirantes panorâmicos. O pôr do sol nas dunas continua sendo uma atração imperdível, agora com apresentações culturais ao vivo nos fins de tarde.'),
-('Patrimônio cultural em destaque na celebração dos 60 anos da FLIP', 'Paraty (RJ)', 'Paraty se transformou num grande palco literário com a comemoração dos 60 anos da Festa Literária Internacional. A cidade recebe autores de renome, debates sobre literatura indígena e oficinas de escrita criativa em casarões históricos. Uma das grandes novidades é a reabertura do Forte Defensor Perpétuo, agora restaurado com um museu interativo e trilhas que oferecem vista panorâmica da baía de Paraty. Restaurantes locais também entraram na festa com menus especiais inspirados em livros e personagens literários.'),
-('Caribe amazônico ganha hotel flutuante e turismo sustentável cresce', 'Alter do Chão (PA)', 'As águas claras do Rio Tapajós estão ainda mais atrativas com a chegada do primeiro hotel flutuante ecológico da região, operando com energia solar, coleta de água da chuva e cardápios que valorizam a culinária ribeirinha. A alta temporada das praias de rio está a todo vapor, com destaque para a Ilha do Amor, que recebeu nova sinalização turística e quiosques padronizados com foco em limpeza e organização. Passeios guiados de canoa agora incluem oficinas sobre plantas medicinais da floresta.'),
-('Concertos barrocos e nova rota noturna celebram 40 anos de patrimônio mundial', 'Ouro Preto (MG)', 'Ouro Preto comemora quatro décadas como Patrimônio Mundial da UNESCO com uma agenda intensa de atrações. As igrejas do centro histórico sediam concertos noturnos com música barroca ao vivo, criando uma atmosfera mágica nas ladeiras coloniais. A nova "Rota da Luz e História", um passeio noturno guiado, utiliza iluminação cênica para valorizar os principais monumentos e casarões. A Casa dos Contos também abriu uma nova exposição interativa sobre a Inconfidência Mineira.'),
-('Realidade aumentada e novas trilhas inclusivas encantam visitantes', 'Chapada dos Veadeiros (GO)', 'O Parque Nacional da Chapada dos Veadeiros acaba de ganhar um moderno centro de visitantes com experiências em realidade aumentada, simulando voos de drone sobre os cânions e cachoeiras mais icônicos da região. As trilhas principais foram reformadas com passarelas ecológicas e sinalização em braile, tornando o ecoturismo ainda mais acessível. Restaurantes e pousadas locais estão adotando práticas sustentáveis, com destaque para a gastronomia baseada em ingredientes do cerrado.'),
-('Recife Antigo revive com arte de rua e nova fase do Cais do Sertão', 'Recife (PE)', 'O bairro histórico do Recife Antigo vive um momento vibrante com a reabertura ampliada do museu Cais do Sertão, que agora conta com salas interativas sobre o ciclo do forró e da poesia nordestina. As ruas do bairro estão tomadas pelo Festival Recife na Rua, com música ao vivo, gastronomia regional, teatro de rua e maracatus que desfilam entre os casarões coloniais. A ciclovia recém-inaugurada ligando o Marco Zero à Praia de Boa Viagem estimula o turismo sustentável.'),
-('Ilha da Magia promove festival vegano e amplia ciclovias litorâneas', 'Florianópolis (SC)', 'Florianópolis está em clima de consciência ecológica com o Floripa Veg Festival, que reúne chefs renomados, produtores locais e painéis sobre alimentação consciente e saúde. O evento ocorre simultaneamente em várias praias e centros culturais da cidade. Novas ciclovias foram concluídas entre a Praia Mole, Joaquina e o centrinho da Lagoa da Conceição, promovendo o transporte alternativo e o contato com a natureza. Trilhas autoguiadas com QR Codes foram instaladas no Morro da Cruz e no Costão do Santinho.'),
-('Temporada de lagoas cheias traz passaporte turístico e novos voos', 'Lençóis Maranhenses (MA)', 'A beleza única dos Lençóis Maranhenses está ainda mais acessível com a chegada de novos voos diretos para Barreirinhas, principal porta de entrada do parque. A temporada de lagoas cheias está deslumbrante, e os visitantes agora podem participar do programa “Passaporte dos Lençóis”, que premia quem explora diferentes circuitos como Lagoa Azul, Lagoa Bonita e Canto do Atins. Barqueiros e guias locais estão sendo capacitados para oferecer experiências mais seguras e informativas aos turistas.');
+('Festival de Cinema agita a Serra Gaucha com novas atracoes gastronomicas', 'Gramado (RS)', 'A charmosa cidade de Gramado esta em clima de celebracao com o aguardado Festival de Cinema de 2025. O evento, que atrai artistas e turistas de todo o Brasil, traz neste ano uma mostra dedicada ao cinema latino-americano contemporaneo. Alem disso, a prefeitura lancou a Rota do Cafe Colonial Artesanal, reunindo 18 produtores locais que oferecem experiencias unicas de sabores coloniais em ambientes rusticos e acolhedores. A iluminacao tematica nas ruas centrais completa o cenario encantador.'),
+('Novo mirante e passarelas ecologicas valorizam o ecoturismo', 'Bonito (MS)', 'Bonito continua sendo referencia em turismo sustentavel, e acaba de inaugurar o "Mirante da Nascente Azul", com passarelas suspensas que oferecem uma visao aerea das aguas cristalinas e da fauna local. Com foco na preservacao e na acessibilidade, o complexo agora conta tambem com trilhas inclusivas para cadeirantes e idosos, alem de areas de descanso com sombra e sinalizacao ambiental educativa. A cidade recebe ainda, neste mes, a Feira de Turismo Ecologico do Centro-Oeste, reunindo especialistas e operadores de turismo.'),
+('Festival de esportes aquaticos e novas trilhas de aventura', 'Jericoacoara (CE)', 'A paradisiaca vila de Jericoacoara realizou a primeira edicao do Festival de Kite e Windsurf Sustentavel, que reuniu atletas de todo o pais em competicoes que valorizam praticas de baixo impacto ambiental. Novas trilhas ecologicas para quadriciclos e caminhadas foram abertas na area da Pedra Furada, com sinalizacao bilingue e mirantes panoramicoss. O por do sol nas dunas continua sendo uma atracao imperdivel, agora com apresentacoes culturais ao vivo nos fins de tarde.'),
+('Patrimonio cultural em destaque na celebracao dos 60 anos da FLIP', 'Paraty (RJ)', 'Paraty se transformou num grande palco literario com a comemoracao dos 60 anos da Festa Literaria Internacional. A cidade recebe autores de renome, debates sobre literatura indigena e oficinas de escrita criativa em casaroes historicos. Uma das grandes novidades e a reabertura do Forte Defensor Perpetuo, agora restaurado com um museu interativo e trilhas que oferecem vista panoramica da baia de Paraty. Restaurantes locais tambem entraram na festa com menus especiais inspirados em livros e personagens literarios.'),
+('Caribe amazonico ganha hotel flutuante e turismo sustentavel cresce', 'Alter do Chao (PA)', 'As aguas claras do Rio Tapajos estao ainda mais atrativas com a chegada do primeiro hotel flutuante ecologico da regiao, operando com energia solar, coleta de agua da chuva e cardapios que valorizam a culinaria ribeirinha. A alta temporada das praias de rio esta a todo vapor, com destaque para a Ilha do Amor, que recebeu nova sinalizacao turistica e quiosques padronizados com foco em limpeza e organizacao. Passeios guiados de canoa agora incluem oficinas sobre plantas medicinais da floresta.'),
+('Concertos barrocos e nova rota noturna celebram 40 anos de patrimonio mundial', 'Ouro Preto (MG)', 'Ouro Preto comemora quatro decadas como Patrimonio Mundial da UNESCO com uma agenda intensa de atracoes. As igrejas do centro historico sediam concertos noturnos com musica barroca ao vivo, criando uma atmosfera magica nas ladeiras coloniais. A nova "Rota da Luz e Historia", um passeio noturno guiado, utiliza iluminacao cenica para valorizar os principais monumentos e casaroes. A Casa dos Contos tambem abriu uma nova exposicao interativa sobre a Inconfidencia Mineira.'),
+('Realidade aumentada e novas trilhas inclusivas encantam visitantes', 'Chapada dos Veadeiros (GO)', 'O Parque Nacional da Chapada dos Veadeiros acaba de ganhar um moderno centro de visitantes com experiencias em realidade aumentada, simulando voos de drone sobre os canions e cachoeiras mais iconicos da regiao. As trilhas principais foram reformadas com passarelas ecologicas e sinalizacao em braile, tornando o ecoturismo ainda mais acessivel. Restaurantes e pousadas locais estao adotando praticas sustentaveis, com destaque para a gastronomia baseada em ingredientes do cerrado.'),
+('Recife Antigo revive com arte de rua e nova fase do Cais do Sertao', 'Recife (PE)', 'O bairro historico do Recife Antigo vive um momento vibrante com a reabertura ampliada do museu Cais do Sertao, que agora conta com salas interativas sobre o ciclo do forro e da poesia nordestina. As ruas do bairro estao tomadas pelo Festival Recife na Rua, com musica ao vivo, gastronomia regional, teatro de rua e maracatus que desfilam entre os casaroes coloniais. A ciclovia recem-inaugurada ligando o Marco Zero a Praia de Boa Viagem estimula o turismo sustentavel.'),
+('Ilha da Magia promove festival vegano e amplia ciclovias litoraneas', 'Florianopolis (SC)', 'Florianopolis esta em clima de consciencia ecologica com o Floripa Veg Festival, que reune chefs renomados, produtores locais e paineis sobre alimentacao consciente e saude. O evento ocorre simultaneamente em varias praias e centros culturais da cidade. Novas ciclovias foram concluidas entre a Praia Mole, Joaquina e o centrinho da Lagoa da Conceicao, promovendo o transporte alternativo e o contato com a natureza. Trilhas autoguiadas com QR Codes foram instaladas no Morro da Cruz e no Costao do Santinho.'),
+('Temporada de lagoas cheias traz passaporte turistico e novos voos', 'Lencois Maranhenses (MA)', 'A beleza unica dos Lencois Maranhenses esta ainda mais acessivel com a chegada de novos voos diretos para Barreirinhas, principal porta de entrada do parque. A temporada de lagoas cheias esta deslumbrante, e os visitantes agora podem participar do programa "Passaporte dos Lencois", que premia quem explora diferentes circuitos como Lagoa Azul, Lagoa Bonita e Canto do Atins. Barqueiros e guias locais estao sendo capacitados para oferecer experiencias mais seguras e informativas aos turistas.');
+
 
 -- INSERTS da tabela FEEDBACKS
 INSERT INTO feedbacks (user_id, feedback, rating) VALUES
@@ -698,3 +706,4 @@ INSERT INTO feedbacks (user_id, feedback, rating) VALUES
 (37, 'Fiquei decepcionada com a falta de opções para o interior de alguns estados.', 2),
 (47, 'Facilitou muito meu mochilão pelo sul do Brasil.', 5),
 (17, 'Poderia ter integração com apps de mapas como Google Maps ou Waze.', 3);
+
