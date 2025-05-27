@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const regionController = require("../controllers/regionController");
+const upload = require("./../config/upload.js");
 
 /**
  * @swagger
@@ -48,7 +49,7 @@ router.get("/:id", regionController.getRegionById);
 
 // Rota para criar um região
 
-router.post("/", regionController.createRegion);
+router.post("/", upload.single("image"), regionController.createRegion);
 /**
  * @swagger
  * /api/regions:
@@ -62,6 +63,8 @@ router.post("/", regionController.createRegion);
  *           schema:
  *             type: object
  *             properties:
+ *               region:
+ *                 type: string
  *               name:
  *                 type: string
  *               state:
@@ -72,6 +75,8 @@ router.post("/", regionController.createRegion);
  *                 type: string
  *               links:
  *                 type: string
+ *               image:
+ *                 format: binary
  *     responses:
  *       201:
  *         description: região criada com sucesso
@@ -99,15 +104,17 @@ router.put("/:id", regionController.updateRegion);
  *           schema:
  *             type: object
  *             properties:
+ *               region:
+ *                 type: string
  *               name:
  *                 type: string
  *               state:
  *                 type: string
- *               image:
- *                 type: string
  *               text:
  *                 type: string
  *               links:
+ *                 type: string
+ *               image:
  *                 type: string
  *     responses:
  *       200:

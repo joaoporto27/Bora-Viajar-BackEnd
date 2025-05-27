@@ -27,8 +27,9 @@ const getRegionById = async (req, res) => {
 
 const createRegion = async (req, res) => {
     try {
-        const { name, state, image, text, links } = req.body;
-        const newRegion = await regionModel.createRegion(name, state, image, text, links);
+        const { region, name, state, text, links } = req.body;
+        const image = req.file ? req.file.filename : null;
+        const newRegion = await regionModel.createRegion(region, name, state, text, links, image);
         res.status(201).json({ message: "Região criada com sucesso", newRegion });
     } catch (error) {
         console.error(error);
@@ -43,9 +44,9 @@ const createRegion = async (req, res) => {
 
 const updateRegion = async (req, res) => {
     try {
-        const { name, state, image, text, links } = req.body;
+        const { region, name, state, text, links, image  } = req.body;
         const {id} = req.params
-        const updatedRegion = await regionModel.updateRegion(req.params.id, id, name, state, image, text, links);
+        const updatedRegion = await regionModel.updateRegion(req.params.id, id, region, name, state, text, links, image);
         if (!updatedRegion) {
             return res.status(404).json({ message: "Região não encontrada" });
         }
