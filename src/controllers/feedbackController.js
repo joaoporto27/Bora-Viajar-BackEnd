@@ -39,8 +39,8 @@ const createFeedback = async (req, res) => {
 const updateFeedback = async (req, res) => {
     try {
         const { user_id, feedback, rating } = req.body;
-        const {id} = req.params
-        const updatedFeedback = await feedbackModel.updateFeedback(req.params.id, id, user_id, feedback, rating );
+        const {id} = req.params;
+        const updatedFeedback = await feedbackModel.updateFeedback(id, user_id, feedback, rating);
         if (!updatedFeedback) {
             return res.status(404).json({ message: "Feedback não encontrado" });
         }
