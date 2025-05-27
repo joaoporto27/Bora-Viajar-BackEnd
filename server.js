@@ -6,6 +6,7 @@ const postRouter = require("./src/routes/postRoutes");
 const commentsRouter = require("./src/routes/commentRoutes");
 const regionRouter = require("./src/routes/regionRoutes");
 const newRouter = require("./src/routes/newRoutes");
+const feedbackRouter = require("./src/routes/feedbackRoutes");
 const reportRoutes = require("./src/routes/reportRoutes");
 const setupSwagger = require('./src/config/swagger');
 const path = require("path");
@@ -22,7 +23,8 @@ app.use("/api", postRouter);
 app.use("/api", reportRoutes);
 app.use("/api", commentsRouter);
 app.use("/api/regions", regionRouter);
-app.use("/api/news", newRouter)
+app.use("/api/news", newRouter);
+app.use("/api/feedbacks", feedbackRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
