@@ -61,27 +61,6 @@ CREATE TABLE feedbacks (
     rating INTEGER CHECK (rating >= 1 AND rating <= 5)
 );
 
-INSERT INTO feedbacks (user_id, feedback, rating) VALUES
-(11, 'O Bora Viajar me ajudou muito a montar um roteiro incrível pelo litoral nordestino!', 5),
-(42, 'Achei as informações sobre segurança muito úteis durante minha viagem a Manaus.', 4),
-(3, 'O app travou algumas vezes durante o uso, mas no geral é bom.', 3),
-(88, 'Fiquei encantado com as dicas de outros viajantes. Super recomendo!', 5),
-(1 'Faltam informações sobre transporte local em algumas cidades.', 2),
-(96, 'Os roteiros criados pelos profissionais são bem completos e fáceis de seguir.', 5),
-(53, 'Gostei bastante da interface do site, muito intuitiva.', 4),
-(27, 'Tive dificuldade em encontrar excursões atualizadas para o Jalapão.', 2),
-(89, 'Excelente ferramenta para planejar viagens em família!', 5),
-(79, 'O sistema de avaliação dos destinos poderia ser mais transparente.', 3),
-(8, 'Usei o app para planejar minha lua de mel e foi perfeito!', 5),
-(15, 'Algumas informações estavam desatualizadas, principalmente sobre hospedagem.', 3),
-(21, 'Adorei poder ver relatos de outros usuários antes de decidir meu roteiro.', 5),
-(32, 'A opção de roteiros personalizados foi o que mais me atraiu no aplicativo.', 4),
-(44, 'Precisa melhorar o suporte ao cliente dentro do app.', 2),
-(72, 'Com o Bora Viajar descobri lugares incríveis que nunca tinha ouvido falar.', 5),
-(49, 'Muito bom para quem viaja sozinho. As dicas são bem específicas e práticas.', 4),
-(37, 'Fiquei decepcionada com a falta de opções para o interior de alguns estados.', 2),
-(77, 'Facilitou muito meu mochilão pelo sul do Brasil.', 5),
-(87, 'Poderia ter integração com apps de mapas como Google Maps ou Waze.', 3);
 
 
 -- INSERTS da tabela USERS: usuários
@@ -696,3 +675,27 @@ INSERT INTO news (name, place, text) VALUES
 ('Recife Antigo revive com arte de rua e nova fase do Cais do Sertão', 'Recife (PE)', 'O bairro histórico do Recife Antigo vive um momento vibrante com a reabertura ampliada do museu Cais do Sertão, que agora conta com salas interativas sobre o ciclo do forró e da poesia nordestina. As ruas do bairro estão tomadas pelo Festival Recife na Rua, com música ao vivo, gastronomia regional, teatro de rua e maracatus que desfilam entre os casarões coloniais. A ciclovia recém-inaugurada ligando o Marco Zero à Praia de Boa Viagem estimula o turismo sustentável.'),
 ('Ilha da Magia promove festival vegano e amplia ciclovias litorâneas', 'Florianópolis (SC)', 'Florianópolis está em clima de consciência ecológica com o Floripa Veg Festival, que reúne chefs renomados, produtores locais e painéis sobre alimentação consciente e saúde. O evento ocorre simultaneamente em várias praias e centros culturais da cidade. Novas ciclovias foram concluídas entre a Praia Mole, Joaquina e o centrinho da Lagoa da Conceição, promovendo o transporte alternativo e o contato com a natureza. Trilhas autoguiadas com QR Codes foram instaladas no Morro da Cruz e no Costão do Santinho.'),
 ('Temporada de lagoas cheias traz passaporte turístico e novos voos', 'Lençóis Maranhenses (MA)', 'A beleza única dos Lençóis Maranhenses está ainda mais acessível com a chegada de novos voos diretos para Barreirinhas, principal porta de entrada do parque. A temporada de lagoas cheias está deslumbrante, e os visitantes agora podem participar do programa “Passaporte dos Lençóis”, que premia quem explora diferentes circuitos como Lagoa Azul, Lagoa Bonita e Canto do Atins. Barqueiros e guias locais estão sendo capacitados para oferecer experiências mais seguras e informativas aos turistas.');
+
+
+-- INSERTS da tabela FEEDBACKS
+INSERT INTO feedbacks (user_id, feedback, rating) VALUES
+(11, 'O Bora Viajar me ajudou muito a montar um roteiro incrível pelo litoral nordestino!', 5),
+(42, 'Achei as informações sobre segurança muito úteis durante minha viagem a Manaus.', 4),
+(3, 'O app travou algumas vezes durante o uso, mas no geral é bom.', 3),
+(48, 'Fiquei encantado com as dicas de outros viajantes. Super recomendo!', 5),
+(1, 'Faltam informações sobre transporte local em algumas cidades.', 2),
+(56, 'Os roteiros criados pelos profissionais são bem completos e fáceis de seguir.', 5),
+(53, 'Gostei bastante da interface do site, muito intuitiva.', 4),
+(27, 'Tive dificuldade em encontrar excursões atualizadas para o Jalapão.', 2),
+(39, 'Excelente ferramenta para planejar viagens em família!', 5),
+(19, 'O sistema de avaliação dos destinos poderia ser mais transparente.', 3),
+(8, 'Usei o app para planejar minha lua de mel e foi perfeito!', 5),
+(15, 'Algumas informações estavam desatualizadas, principalmente sobre hospedagem.', 3),
+(21, 'Adorei poder ver relatos de outros usuários antes de decidir meu roteiro.', 5),
+(32, 'A opção de roteiros personalizados foi o que mais me atraiu no aplicativo.', 4),
+(44, 'Precisa melhorar o suporte ao cliente dentro do app.', 2),
+(42, 'Com o Bora Viajar descobri lugares incríveis que nunca tinha ouvido falar.', 5),
+(49, 'Muito bom para quem viaja sozinho. As dicas são bem específicas e práticas.', 4),
+(37, 'Fiquei decepcionada com a falta de opções para o interior de alguns estados.', 2),
+(47, 'Facilitou muito meu mochilão pelo sul do Brasil.', 5),
+(17, 'Poderia ter integração com apps de mapas como Google Maps ou Waze.', 3);
