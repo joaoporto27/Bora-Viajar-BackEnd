@@ -5,7 +5,7 @@
 -- Dumped from database version 17.5
 -- Dumped by pg_dump version 17.5
 
--- Started on 2025-05-27 11:31:56
+-- Started on 2025-05-27 15:21:41
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1060,7 +1060,7 @@ ALTER TABLE ONLY public.posts
     ADD CONSTRAINT posts_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
 
 
--- Completed on 2025-05-27 11:31:59
+-- Completed on 2025-05-27 15:21:42
 
 --
 -- PostgreSQL database dump complete
