@@ -676,7 +676,6 @@ INSERT INTO news (name, place, text) VALUES
 ('Ilha da Magia promove festival vegano e amplia ciclovias litorâneas', 'Florianópolis (SC)', 'Florianópolis está em clima de consciência ecológica com o Floripa Veg Festival, que reúne chefs renomados, produtores locais e painéis sobre alimentação consciente e saúde. O evento ocorre simultaneamente em várias praias e centros culturais da cidade. Novas ciclovias foram concluídas entre a Praia Mole, Joaquina e o centrinho da Lagoa da Conceição, promovendo o transporte alternativo e o contato com a natureza. Trilhas autoguiadas com QR Codes foram instaladas no Morro da Cruz e no Costão do Santinho.'),
 ('Temporada de lagoas cheias traz passaporte turístico e novos voos', 'Lençóis Maranhenses (MA)', 'A beleza única dos Lençóis Maranhenses está ainda mais acessível com a chegada de novos voos diretos para Barreirinhas, principal porta de entrada do parque. A temporada de lagoas cheias está deslumbrante, e os visitantes agora podem participar do programa “Passaporte dos Lençóis”, que premia quem explora diferentes circuitos como Lagoa Azul, Lagoa Bonita e Canto do Atins. Barqueiros e guias locais estão sendo capacitados para oferecer experiências mais seguras e informativas aos turistas.');
 
-
 -- INSERTS da tabela FEEDBACKS
 INSERT INTO feedbacks (user_id, feedback, rating) VALUES
 (11, 'O Bora Viajar me ajudou muito a montar um roteiro incrível pelo litoral nordestino!', 5),
