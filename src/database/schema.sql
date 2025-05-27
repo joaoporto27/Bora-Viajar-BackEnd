@@ -53,6 +53,37 @@ CREATE TABLE news (
     text TEXT NOT NULL
 );
 
+-- Tabela de FEEDBACKS
+CREATE TABLE feedbacks (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    feedback TEXT NOT NULL,
+    rating INTEGER CHECK (rating >= 1 AND rating <= 5)
+);
+
+INSERT INTO feedbacks (user_id, feedback, rating) VALUES
+(11, 'O Bora Viajar me ajudou muito a montar um roteiro incrível pelo litoral nordestino!', 5),
+(42, 'Achei as informações sobre segurança muito úteis durante minha viagem a Manaus.', 4),
+(3, 'O app travou algumas vezes durante o uso, mas no geral é bom.', 3),
+(88, 'Fiquei encantado com as dicas de outros viajantes. Super recomendo!', 5),
+(1 'Faltam informações sobre transporte local em algumas cidades.', 2),
+(96, 'Os roteiros criados pelos profissionais são bem completos e fáceis de seguir.', 5),
+(53, 'Gostei bastante da interface do site, muito intuitiva.', 4),
+(27, 'Tive dificuldade em encontrar excursões atualizadas para o Jalapão.', 2),
+(89, 'Excelente ferramenta para planejar viagens em família!', 5),
+(79, 'O sistema de avaliação dos destinos poderia ser mais transparente.', 3),
+(8, 'Usei o app para planejar minha lua de mel e foi perfeito!', 5),
+(15, 'Algumas informações estavam desatualizadas, principalmente sobre hospedagem.', 3),
+(21, 'Adorei poder ver relatos de outros usuários antes de decidir meu roteiro.', 5),
+(32, 'A opção de roteiros personalizados foi o que mais me atraiu no aplicativo.', 4),
+(44, 'Precisa melhorar o suporte ao cliente dentro do app.', 2),
+(72, 'Com o Bora Viajar descobri lugares incríveis que nunca tinha ouvido falar.', 5),
+(49, 'Muito bom para quem viaja sozinho. As dicas são bem específicas e práticas.', 4),
+(37, 'Fiquei decepcionada com a falta de opções para o interior de alguns estados.', 2),
+(77, 'Facilitou muito meu mochilão pelo sul do Brasil.', 5),
+(87, 'Poderia ter integração com apps de mapas como Google Maps ou Waze.', 3);
+
+
 -- INSERTS da tabela USERS: usuários
 INSERT INTO users (name, email, city, state, type_user, password) VALUES
 ('Amanda Gomes Mechi', 'amanda.mechi@gmail.com', 'Campinas', 'SP', 'Usuário','123456@'),
