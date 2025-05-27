@@ -48,7 +48,6 @@ CREATE TABLE regions (
 -- Alteração da tabela REGIONS
 
 ALTER TABLE regions ADD COLUMN image TEXT;
-ALTER TABLE regions CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Tabela de NEWS
 CREATE TABLE news (

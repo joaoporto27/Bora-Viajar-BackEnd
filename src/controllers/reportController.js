@@ -6,6 +6,7 @@ const postModel = require("../models/postModel");
 const commentModel = require("../models/commentModel");
 const regionModel = require("../models/regionModel");
 const newModel = require("../models/newModel");
+const feedbackModel = require("../models/feedbackModel");
 
 // Função para gerar documento PDF
 const exportUserPDF = async (req, res) => {
@@ -314,6 +315,66 @@ const exportNewPDF = async (req, res) => {
     }
 };
 
+const exportFeedbackPDF = async (req, res) => {
+    try {
+        const feedbacks = await feedbackModel.getAllFeedbacks();
+
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Content-Disposition", "inline; filename=feedbacks.pdf");
+
+        const doc = new PDFDocument({ margin: 50, layout: 'landscape' });
+        doc.pipe(res);
+
+        // Título
+        doc.fontSize(20).text("Relatório de Feedbacks", { align: "center" });
+        doc.moveDown();
+
+        // Cabeçalho da Tabela
+        const tableTop = 110;
+        const rowHeight = 30;
+        const columnWidths = [100, 400, 50];
+        let y = tableTop;
+
+        const drawTableHeader = () => {
+            doc.fontSize(12).font("Helvetica-Bold");
+            doc.text("Usuário", 50, y, { width: columnWidths[0], align: "left" });
+            doc.text("Feedback", 230, y, { width: columnWidths[1], align: "left" });
+            doc.text("Nota", 700, y, { width: columnWidths[2], align: "left" });
+            doc.moveTo(50, y + rowHeight - 5).lineTo(730, y + rowHeight - 5).stroke();
+        };
+
+        drawTableHeader();
+
+        const checkPageOverflow = () => {
+            if (y + rowHeight > doc.page.height - 50) {
+                doc.addPage();
+                y = tableTop;
+                drawTableHeader();
+                y += rowHeight; 
+                doc.font("Helvetica");
+            }
+        };
+
+        // Dados da tabela
+        doc.font("Helvetica");
+        y += rowHeight;
+        feedbacks.forEach((feedback) => {
+            checkPageOverflow(); 
+            doc.text(feedback.usuario, 50, y, { width: columnWidths[0], align: "left" });
+            doc.text(feedback.feedback, 230, y, { width: columnWidths[1], align: "left" });
+            doc.text(feedback.rating, 700, y, { width: columnWidths[2], align: "left" });
+            y += rowHeight;
+        
+            doc.moveTo(50, y - 5).lineTo(730, y - 5).stroke();
+        });
+
+        doc.end();
+    } catch (error) {
+        console.error("Erro ao gerar o PDF:", error);
+        res.status(500).json({ message: "Erro ao gerar o PDF" });
+    }
+};
+
 // Função para gerar documento CSV 
 const exportUserCSV = async (req, res) => {
     try {
@@ -436,4 +497,28 @@ const exportNewCSV = async (req, res) => {
     }
 };
 
-module.exports = {  exportUserPDF, exportPostPDF, exportCommentPDF, exportRegionPDF, exportNewPDF, exportUserCSV, exportPostCSV, exportCommentCSV, exportRegionCSV, exportNewCSV };
+const exportFeedbackCSV = async (req, res) => {
+    try {
+        const feedbacks = await feedbackModel.getAllFeedbacks();
+
+        res.setHeader("Content-Disposition", "attachment; filename=feedbacks.csv");
+        res.setHeader("Content-Type", "text-csv");
+
+        const csvStream = format({ headers: true });
+        csvStream.pipe(res);
+
+        feedbacks.forEach((feedback) => {
+            csvStream.write({
+                Usuário: feedback.usuario,
+                Feedback: feedback.feedback,
+                Nota: feedback.rating
+            });
+        });
+
+        csvStream.end();
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao gerar o CSV" });
+    }
+};
+
+module.exports = {  exportUserPDF, exportPostPDF, exportCommentPDF, exportRegionPDF, exportNewPDF, exportFeedbackPDF, exportUserCSV, exportPostCSV, exportCommentCSV, exportRegionCSV, exportNewCSV, exportFeedbackCSV };

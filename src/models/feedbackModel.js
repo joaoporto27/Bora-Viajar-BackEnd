@@ -3,7 +3,9 @@ const pool = require("../config/database");
 //Buscar todos os feedbacks
 
 const getAllFeedbacks = async () => {
-    const result = await pool.query("SELECT * FROM feedbacks");
+    const result = await pool.query(`SELECT users.name AS usuario, feedbacks.feedback, feedbacks.rating
+            FROM feedbacks 
+            LEFT JOIN users ON feedbacks.user_id = users.id`);
     return result.rows;
 };
 
