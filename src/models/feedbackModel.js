@@ -12,7 +12,10 @@ const getAllFeedbacks = async () => {
 //Buscar um feedback pelo id
 
 const getFeedbacksById = async (id) => {
-    const result = await pool.query("SELECT * FROM feedbacks WHERE id = $1", [id]);
+    const result = await pool.query(`SELECT users.name AS usuario, feedbacks.feedback, feedbacks.rating
+            FROM feedbacks 
+            LEFT JOIN users ON feedbacks.user_id = users.id
+            WHERE feedbacks.id = $1 `, [id]);
     return result.rows[0];
 };
 
