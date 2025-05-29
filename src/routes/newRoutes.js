@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const newController = require("../controllers/newController");
+const upload = require("./../config/upload.js");
 
 /**
  * @swagger
@@ -47,7 +48,7 @@ router.get("/:id", newController.getNewsById);
 
 // Rota para criar um notícia
 
-router.post("/", newController.createNews);
+router.post("/", upload.single("image"), newController.createNews);
 /**
  * @swagger
  * /api/news:
@@ -74,7 +75,7 @@ router.post("/", newController.createNews);
 
 // Rota para atualizar uma notícia
 
-router.put("/:id", newController.updateNews);
+router.put("/:id", upload.single("image"), newController.updateNews);
 /**
  * @swagger
  * /api/news/{id}:
