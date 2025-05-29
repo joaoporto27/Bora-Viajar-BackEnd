@@ -8,6 +8,19 @@ A plataforma permite que guias turísticos publiquem seus serviços, oferecendo 
 
 A plataforma oferece uma experiência interativa, com funcionalidades de postagem, comentário e compartilhamento de conteúdos sobre turismo.
 
+## 👥 Participantes da Equipe
+
+| Foto | Nome | Função | GitHub | E-mail |
+|------|------|--------|--------|--------|
+| <img src="https://avatars.githubusercontent.com/u/158229094?v=4" width="100"/> | Amanda Gomes Mechi | Front-end | [@amanda](https://github.com/Amandamecchi) | amanda.mechi@aluno.senai.br |
+| <img src="https://avatars.githubusercontent.com/u/210523238?v=4" width="100"/> | André Lucca Santos | Mobile | [@andre](https://github.com/lucca19nn) | andre.l.santos45@aluno.senai.br |
+| <img src="https://avatars.githubusercontent.com/u/158210916?v=4" width="100"/> | Flavia Regina Alexendre Mendes | Scrum Master Front-end | [@flavia](https://github.com/flaviamendes17) | flavia.r.mendes@aluno.senai.br |
+| <img src="https://avatars.githubusercontent.com/u/158209996?v=4" width="100"/> | Giovanna Caron de Barros  | Front-end | [@giovanna](https://github.com/gihcaron) | giovanna.c.barros@aluno.senai.br |
+| <img src="https://avatars.githubusercontent.com/u/158210136?v=4" width="100"/> | Isabella Borin de Moraes Rosa | Mobile | [@isabella](https://github.com/isab5) | isabella.b.rosa6@aluno.senai.br |
+| <img src="https://avatars.githubusercontent.com/u/158209646?v=4" width="100"/> | João Vitor Porto Sales | Back-end | [@joaovitor](https://github.com/joaoporto27) | joao.v.sales15@aluno.senai.br |
+| <img src="https://github.com/account" width="100"/> | Laura Ferreira Violla | P.O Back-end | [@laura](https://github.com/imlaurinhaaa?tab=repositories) | laura.violla@aluno.senai.br |
+
+
 ## ⚙️ Funcionalidades
 
 - **Postagens de Guias Turísticos**: Guias podem criar e editar postagens oferecendo seus serviços de turismo.
