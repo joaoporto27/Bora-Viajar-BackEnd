@@ -27,7 +27,8 @@ const getNewsById = async (req, res) => {
 const createNews = async (req, res) => {
     try {
         const { name, place, text } = req.body;
-        const newNews = await newModel.createNews( name, place, text );
+        const image = req.file ? req.file.filename : null;
+        const newNews = await newModel.createNews( name, place, text, image );
         res.status(201).json({ message: "Notícia criada com sucesso", newNews });
     } catch (error) {
         console.error(error);
@@ -43,8 +44,8 @@ const createNews = async (req, res) => {
 const updateNews = async (req, res) => {
     try {
         const { name, place, text } = req.body;
-        const {id} = req.params
-        const updatedNews = await newModel.updateNews(req.params.id, id, name, place, text );
+        const image = req.file ? req.file.filename : null;
+        const updatedNews = await newModel.updateNews(req.params.id, name, place, text, image );
         if (!updatedNews) {
             return res.status(404).json({ message: "Notícia não encontrada" });
         }
