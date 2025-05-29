@@ -73,7 +73,7 @@ router.post("/posts", upload.single("image"), postController.createPost);
  */
 
 // Rota para atualizar um post
-router.put("/posts/:id", postController.updatePost);
+router.put("/posts/:id", upload.single("image"), postController.updatePost);
 /**
  * @swagger
  * /api/posts/{id}:

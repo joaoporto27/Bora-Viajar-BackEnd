@@ -3,7 +3,7 @@ const postModel = require("../models/postModel");
 //Buscar todos os posts
 const getAllPosts = async (req, res) => {
     try {
-        const { tag } = req.query; 
+        const { tag } = req.query;
         const posts = await postModel.getPosts(tag);
         res.status(200).json(posts);
     } catch (error) {
@@ -28,7 +28,10 @@ const getPostById = async (req, res) => {
 const createPost = async (req, res) => {
     try {
         const image = req.file ? req.file.filename : null;
-        const { user_id, description, tag} = req.body;
+        const { user_id, description, tag } = req.body;
+        if (!tag.includes("ALERTA") && !tag.includes("NOVIDADES") && !tag.includes("PROMOÇÃO")) {
+            return res.status(400).json({ message: "Por favor inserir: ALERTA, NOVIDADES ou PROMOÇÃO" });
+        }
         const newPost = await postModel.createPost(user_id, image, description, tag);
         res.status(201).json({ message: "Post criado com sucesso!", newPost });
     } catch (error) {
@@ -42,8 +45,12 @@ const createPost = async (req, res) => {
 //Atualizar um post
 const updatePost = async (req, res) => {
     try {
-        const { image, description } = req.body;
-        const updatedPost = await postModel.updatePost(req.params.id, image, description);
+        const { description, tag } = req.body;
+        const image = req.file ? req.file.filename : null;
+        if (!tag.includes("ALERTA") && !tag.includes("NOVIDADES") && !tag.includes("PROMOÇÃO")) {
+            return res.status(400).json({ message: "Por favor inserir: ALERTA, NOVIDADES ou PROMOÇÃO" });
+        }
+        const updatedPost = await postModel.updatePost(req.params.id, image, description, tag);
         if (!updatedPost) {
             return res.status(404).json({ message: "Post não encontrado" });
         }
@@ -56,6 +63,10 @@ const updatePost = async (req, res) => {
 //Curtir um post
 const likePost = async (req, res) => {
     try {
+        const { likes_count } = req.body;
+        if (likes_count !== 1) {
+            return res.status(400).json({ message: "Só é possível curtir uma vez por vez!" });
+        }
         const likedPost = await postModel.likePost(req.params.id);
         if (!likedPost) {
             return res.status(404).json({ message: "Post não encontrado" });

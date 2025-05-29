@@ -35,7 +35,7 @@ const updateRegion = async (id, region, name, state, text, links, image) => {
     const result = await pool.query(
        `UPDATE regions 
         SET region = $1, name = $2, state = $3, text = $4, links = $5, image = $6
-        WHERE id = $7RETURNING *`, 
+        WHERE id = $7 RETURNING *`, 
         [region, name, state, text, links, image, id] 
     );
     return result.rows[0];

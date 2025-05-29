@@ -266,7 +266,7 @@ const exportNewPDF = async (req, res) => {
         doc.pipe(res);
 
         // Título
-        doc.fontSize(20).text("Relatório de Regiões", { align: "center" });
+        doc.fontSize(20).text("Relatório de Notícias", { align: "center" });
         doc.moveDown();
 
         // Cabeçalho da Tabela

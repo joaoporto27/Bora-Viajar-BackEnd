@@ -84,7 +84,7 @@ router.post("/", upload.single("image"), regionController.createRegion);
 
 // Rota para atualizar uma região
 
-router.put("/:id", regionController.updateRegion);
+router.put("/:id", upload.single("image"), regionController.updateRegion);
 /**
  * @swagger
  * /api/regions/{id}:

@@ -3,21 +3,24 @@ const pool = require("../config/database");
 //Buscar todos os posts
 const getPosts = async (tag) => {
     if (!tag) {
-        const result = await pool.query(`SELECT users.name AS usuario, posts.image, posts.description, posts.tag
+        const result = await pool.query(`SELECT users.name AS usuario, posts.image, posts.description, posts.tag, posts.likes_count
             FROM posts 
             LEFT JOIN users ON posts.user_id = users.id`);
-            return result.rows;
+        return result.rows;
     } else {
         const result = await pool.query(
             "SELECT * FROM posts WHERE tag ILIKE $1",
             [`%${tag}%`]);
-            return result.rows;
+        return result.rows;
     }
 };
 
 //Buscar um post pelo id
 const getPostById = async (id) => {
-    const result = await pool.query("SELECT * FROM post WHERE id = $1", [id]);
+    const result = await pool.query(`SELECT posts.id, users.name AS usuario, posts.image, posts.description, posts.tag, posts.likes_count
+        FROM posts 
+        LEFT JOIN users ON posts.user_id = users.id 
+        WHERE posts.id = $1`, [id]);
     return result.rows[0];
 };
 
@@ -30,9 +33,9 @@ const createPost = async (user_id, image, description, tag) => {
 };
 
 //Atualizar um post
-const updatePost = async (id, image, description) => {
-    const result = await pool.query("UPDATE posts SET image = $1, description = $2 WHERE id = $3 RETURNING *",
-        [image, description, id]
+const updatePost = async (id, image, description, tag) => {
+    const result = await pool.query("UPDATE posts SET image = $1, description = $2, tag = $3 WHERE id = $4 RETURNING *",
+        [image, description, tag, id]
     );
     return result.rows[0];
 };

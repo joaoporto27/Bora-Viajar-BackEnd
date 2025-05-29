@@ -2,16 +2,34 @@ const pool = require("../config/database");
 
 // Buscar todos os comentários
 const getComments = async () => {
-    const result = await pool.query(`SELECT users.name AS usuario, posts.image, posts.description, posts.tag, comments.comment AS comentario
+    const result = await pool.query(`SELECT 
+            dono.name AS dono_post,
+            posts.image, 
+            posts.description, 
+            posts.tag, 
+            users.name AS usuario, 
+            comments.comment AS comentario
         FROM comments
         INNER JOIN users ON comments.user_id = users.id
-        INNER JOIN posts ON comments.post_id = posts.id`);
+        INNER JOIN posts ON comments.post_id = posts.id
+        INNER JOIN users AS dono ON posts.user_id = dono.id`);
     return result.rows;
 };
 
 // Buscar um comentário pelo id
 const getCommentById = async (id) => {
-    const result = await pool.query("SELECT * FROM comments WHERE id = $1", [id]);
+    const result = await pool.query(`        SELECT 
+            dono.name AS dono_post,
+            posts.image, 
+            posts.description, 
+            posts.tag, 
+            users.name AS usuario, 
+            comments.comment AS comentario
+        FROM comments
+        INNER JOIN users ON comments.user_id = users.id
+        INNER JOIN posts ON comments.post_id = posts.id
+        INNER JOIN users AS dono ON posts.user_id = dono.id
+        WHERE comments.id = $1 `, [id]);
     return result.rows[0];
 };
 

@@ -44,9 +44,10 @@ const createRegion = async (req, res) => {
 
 const updateRegion = async (req, res) => {
     try {
-        const { region, name, state, text, links, image  } = req.body;
+        const { region, name, state, text, links  } = req.body;
+        const image = req.file ? req.file.filename : null; 
         const {id} = req.params
-        const updatedRegion = await regionModel.updateRegion(req.params.id, id, region, name, state, text, links, image);
+        const updatedRegion = await regionModel.updateRegion(id, region, name, state, text, links, image);
         if (!updatedRegion) {
             return res.status(404).json({ message: "Região não encontrada" });
         }
