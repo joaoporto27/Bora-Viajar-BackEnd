@@ -59,7 +59,7 @@ router.post("/", upload.single("image"), regionController.createRegion);
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:
@@ -69,13 +69,12 @@ router.post("/", upload.single("image"), regionController.createRegion);
  *                 type: string
  *               state:
  *                 type: string
- *               image:
- *                 type: string
  *               text:
  *                 type: string
  *               links:
  *                 type: string
  *               image:
+ *                 type: string
  *                 format: binary
  *     responses:
  *       201:
@@ -100,7 +99,7 @@ router.put("/:id", upload.single("image"), regionController.updateRegion);
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:
@@ -116,6 +115,7 @@ router.put("/:id", upload.single("image"), regionController.updateRegion);
  *                 type: string
  *               image:
  *                 type: string
+ *                 format: binary
  *     responses:
  *       200:
  *         description: Região atualizada com sucesso
