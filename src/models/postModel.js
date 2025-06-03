@@ -3,13 +3,13 @@ const pool = require("../config/database");
 //Buscar todos os posts
 const getPosts = async (tag) => {
     if (!tag) {
-        const result = await pool.query(`SELECT users.name AS usuario, posts.image, posts.description, posts.tag, posts.likes_count
+        const result = await pool.query(`SELECT  users.name AS usuario, users.photo AS foto, posts.image, posts.description, posts.tag, posts.likes_count
             FROM posts 
             LEFT JOIN users ON posts.user_id = users.id`);
         return result.rows;
     } else {
         const result = await pool.query(
-            `SELECT users.name AS usuario, posts.image, posts.description, posts.tag, posts.likes_count
+            `SELECT users.name AS usuario, users.photo AS foto, posts.image, posts.description, posts.tag, posts.likes_count
             FROM posts 
             LEFT JOIN users ON posts.user_id = users.id
             WHERE tag ILIKE $1`,
@@ -20,7 +20,7 @@ const getPosts = async (tag) => {
 
 //Buscar um post pelo id
 const getPostById = async (id) => {
-    const result = await pool.query(`SELECT posts.id, users.name AS usuario, posts.image, posts.description, posts.tag, posts.likes_count
+    const result = await pool.query(`SELECT posts.id, users.name AS usuario, users.photo AS foto, posts.image, posts.description, posts.tag, posts.likes_count
         FROM posts 
         LEFT JOIN users ON posts.user_id = users.id 
         WHERE posts.id = $1`, [id]);
