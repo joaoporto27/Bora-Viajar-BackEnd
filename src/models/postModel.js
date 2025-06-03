@@ -9,7 +9,10 @@ const getPosts = async (tag) => {
         return result.rows;
     } else {
         const result = await pool.query(
-            "SELECT * FROM posts WHERE tag ILIKE $1",
+            `SELECT users.name AS usuario, posts.image, posts.description, posts.tag, posts.likes_count
+            FROM posts 
+            LEFT JOIN users ON posts.user_id = users.id
+            WHERE tag ILIKE $1`,
             [`%${tag}%`]);
         return result.rows;
     }

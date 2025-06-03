@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const feedbackControler = require("../controllers/feedbackController");
+const feedbackController = require("../controllers/feedbackController");
+const apiKeyMiddleware = require("../config/apiKey");
 
-
+router.use(apiKeyMiddleware);
 /**
  * @swagger
  * tags:
@@ -11,7 +12,7 @@ const feedbackControler = require("../controllers/feedbackController");
  */
 
 // Rota para buscar todos os feedbacks
-router.get("/", feedbackControler.getAllFeedbacks);
+router.get("/", feedbackController.getAllFeedbacks);
 /**
  * @swagger
  * /api/feedbacks:
@@ -24,7 +25,7 @@ router.get("/", feedbackControler.getAllFeedbacks);
  */
 
 // Rota para buscar um feedback pelo ID
-router.get("/:id", feedbackControler.getFeedbacksById);
+router.get("/:id", feedbackController.getFeedbacksById);
 /**
  * @swagger
  * /api/feedbacks/{id}:
@@ -45,7 +46,7 @@ router.get("/:id", feedbackControler.getFeedbacksById);
  */
 
 // Rota para criar um feedback
-router.post("/", feedbackControler.createFeedback);
+router.post("/", feedbackController.createFeedback);
 /**
  * @swagger
  * /api/feedbacks:
@@ -77,7 +78,7 @@ router.post("/", feedbackControler.createFeedback);
  */
 
 // Rota para atualizar um feedback
-router.put("/:id", feedbackControler.updateFeedback);
+router.put("/:id", feedbackController.updateFeedback);
 /**
  * @swagger
  * /api/feedbacks/{id}:
@@ -115,7 +116,7 @@ router.put("/:id", feedbackControler.updateFeedback);
  */
 
 // Rota para deletar um feedback
-router.delete("/:id", feedbackControler.deleteFeedback);
+router.delete("/:id", feedbackController.deleteFeedback);
 /**
  * @swagger
  * /api/feedbacks/{id}:

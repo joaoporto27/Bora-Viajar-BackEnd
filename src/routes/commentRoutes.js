@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const commentController = require("../controllers/commentController");
+const apiKeyMiddleware = require("../config/apiKey");
 
+router.use(apiKeyMiddleware);
 /**
  * @swagger
  * tags:
