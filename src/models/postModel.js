@@ -3,7 +3,7 @@ const pool = require("../config/database");
 //Buscar todos os posts
 const getPosts = async (tag) => {
     if (!tag) {
-        const result = await pool.query(`SELECT posts.id, users.name AS usuario, users.photo AS foto, posts.image, posts.description, posts.tag, posts.likes_count
+        const result = await pool.query(`SELECT posts.id, posts.user.id, users.name AS usuario, users.photo AS foto, posts.image, posts.description, posts.tag, posts.likes_count
             FROM posts 
             LEFT JOIN users ON posts.user_id = users.id`);
         return result.rows;
