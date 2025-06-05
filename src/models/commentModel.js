@@ -8,7 +8,7 @@ const getComments = async () => {
             posts.description, 
             posts.tag, 
             users.name AS usuario, 
-            users.photo AS fotoComentario,
+            users.photo AS foto_comentario,
             comments.comment AS comentario
         FROM comments
         INNER JOIN users ON comments.user_id = users.id
@@ -25,6 +25,7 @@ const getCommentById = async (id) => {
             posts.description, 
             posts.tag, 
             users.name AS usuario, 
+            users.photo AS foto_comentario,
             comments.comment AS comentario
         FROM comments
         INNER JOIN users ON comments.user_id = users.id
