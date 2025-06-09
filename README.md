@@ -21,12 +21,5 @@ A plataforma oferece uma experiência interativa, com funcionalidades de postage
 | <img src="https://avatars.githubusercontent.com/u/158209993?v=4" width="100"/> | Laura Ferreira Violla | P.O Back-end | [@laura](https://github.com/imlaurinhaaa) | laura.violla@aluno.senai.br |
 
 
-## ⚙️ Funcionalidades
-
-- **Postagens de Guias Turísticos**: Guias podem criar e editar postagens oferecendo seus serviços de turismo.
-- **Publicação de Viagens**: Usuários podem compartilhar suas experiências de viagem, com fotos, dicas e informações sobre os locais visitados.
-- **Comentários e Interação**: Os usuários podem interagir com as postagens, comentando e fazendo perguntas aos guias ou outros turistas.
-- **Busca por Destinos**: Através de um sistema de busca, os turistas podem procurar por destinos específicos e encontrar guias e postagens relacionadas.
-
 ## 📚 Documentação no Postman
 - https://documenter.getpostman.com/view/42619953/2sB2qfAzPh
