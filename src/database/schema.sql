@@ -16,6 +16,7 @@ CREATE TABLE users (
 -- Alteração da tabela USERS
 
 ALTER TABLE users ADD COLUMN photo TEXT;
+ALTER TABLE users DROP COLUMN type_user;
 
 -- Tabela de POSTS
 CREATE TABLE posts (

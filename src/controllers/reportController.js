@@ -34,8 +34,7 @@ const exportUserPDF = async (req, res) => {
             doc.text("Nome", 50, y, { width: columnWidths[0], align: "left" });
             doc.text("Email", 240, y, { width: columnWidths[1], align: "left" });
             doc.text("Cidade", 450, y, { width: columnWidths[2], align: "left" });
-            doc.text("Estado", 550, y, { width: columnWidths[3], align: "left" });
-            doc.text("Tipo de usuário", 600, y, { width: columnWidths[4], align: "left" });
+            doc.text("Estado", 620, y, { width: columnWidths[3], align: "left" });
             doc.moveTo(50, y + rowHeight - 5).lineTo(730, y + rowHeight - 5).stroke();
         };
 
@@ -59,8 +58,7 @@ const exportUserPDF = async (req, res) => {
             doc.text(user.name, 50, y, { width: columnWidths[0], align: "left" });
             doc.text(user.email, 240, y, { width: columnWidths[1], align: "left" });
             doc.text(user.city, 450, y, { width: columnWidths[2], align: "left" });
-            doc.text(user.state, 550, y, { width: columnWidths[3], align: "left" });
-            doc.text(user.type_user, 600, y, { width: columnWidths[4], align: "left" });
+            doc.text(user.state, 620, y, { width: columnWidths[3], align: "left" });
             y += rowHeight;
         
             doc.moveTo(50, y - 5).lineTo(730, y - 5).stroke();
@@ -390,7 +388,9 @@ const exportUserCSV = async (req, res) => {
             csvStream.write({
                 Id: user.id,
                 Nome: user.name,
-                Senha: user.password
+                Email: user.email,
+                Cidade: user.city,
+                Estado: user.state,
             });
         });
 

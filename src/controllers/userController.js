@@ -27,7 +27,7 @@ const getUserById = async (req, res) => {
 //Criar um usuário
 const createUser = async (req, res) => {
     try {
-        const { name, email, city, state, type_user ,password } = req.body;
+        const { name, email, city, state ,password } = req.body;
         if (!email.includes("@gmail.com" || "@hotmail.com" || "@outlook.com")) {
             return res.status(400).json({ message: "Email inválido, deve conter @gmail.com, @hotmail.com ou outlook.com" });
         }
@@ -41,7 +41,7 @@ const createUser = async (req, res) => {
             return res.status(400).json({ message: "Senha deve conter pelo menos um caractere especial (@,!,#,$,%,&)" });
         }
         const photo = req.file ? req.file.filename : null;
-        const newUser = await userModel.createUser(name, email, city, state, type_user, photo, password);
+        const newUser = await userModel.createUser(name, email, city, state, photo, password);
         res.status(201).json({ message: "Bem vindo a Bora Viajar!", newUser });
     } catch (error) {
         console.error(error);

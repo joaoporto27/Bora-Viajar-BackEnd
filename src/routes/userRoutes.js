@@ -69,8 +69,6 @@ router.post("/users", upload.single("photo"), userController.createUser);
  *                 type: string
  *               state:
  *                 type: string
- *               type_user:
- *                 type: string
  *               password:
  *                 type: string
  *               photo:
