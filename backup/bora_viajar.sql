@@ -5,7 +5,7 @@
 -- Dumped from database version 17.5
 -- Dumped by pg_dump version 17.5
 
--- Started on 2025-05-29 14:30:26
+-- Started on 2025-06-09 20:54:31
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -55,7 +55,7 @@ CREATE SEQUENCE public.comments_id_seq
 ALTER SEQUENCE public.comments_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4909 (class 0 OID 0)
+-- TOC entry 4908 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -96,7 +96,7 @@ CREATE SEQUENCE public.feedbacks_id_seq
 ALTER SEQUENCE public.feedbacks_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4910 (class 0 OID 0)
+-- TOC entry 4909 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: feedbacks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -137,7 +137,7 @@ CREATE SEQUENCE public.news_id_seq
 ALTER SEQUENCE public.news_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4911 (class 0 OID 0)
+-- TOC entry 4910 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -179,7 +179,7 @@ CREATE SEQUENCE public.posts_id_seq
 ALTER SEQUENCE public.posts_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4912 (class 0 OID 0)
+-- TOC entry 4911 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -222,7 +222,7 @@ CREATE SEQUENCE public.regions_id_seq
 ALTER SEQUENCE public.regions_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4913 (class 0 OID 0)
+-- TOC entry 4912 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: regions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -241,7 +241,6 @@ CREATE TABLE public.users (
     email character varying(255) NOT NULL,
     city character varying(120) NOT NULL,
     state character varying(120) NOT NULL,
-    type_user character varying(20) DEFAULT 'usu rio'::character varying,
     password character varying(15) NOT NULL,
     photo text
 );
@@ -266,7 +265,7 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4914 (class 0 OID 0)
+-- TOC entry 4913 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -275,7 +274,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 4724 (class 2604 OID 33846)
+-- TOC entry 4723 (class 2604 OID 33846)
 -- Name: comments id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -283,7 +282,7 @@ ALTER TABLE ONLY public.comments ALTER COLUMN id SET DEFAULT nextval('public.com
 
 
 --
--- TOC entry 4726 (class 2604 OID 33847)
+-- TOC entry 4725 (class 2604 OID 33847)
 -- Name: feedbacks id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -291,7 +290,7 @@ ALTER TABLE ONLY public.feedbacks ALTER COLUMN id SET DEFAULT nextval('public.fe
 
 
 --
--- TOC entry 4727 (class 2604 OID 34084)
+-- TOC entry 4726 (class 2604 OID 34084)
 -- Name: news id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -299,7 +298,7 @@ ALTER TABLE ONLY public.news ALTER COLUMN id SET DEFAULT nextval('public.news_id
 
 
 --
--- TOC entry 4722 (class 2604 OID 33849)
+-- TOC entry 4721 (class 2604 OID 33849)
 -- Name: posts id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -307,7 +306,7 @@ ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_
 
 
 --
--- TOC entry 4725 (class 2604 OID 33850)
+-- TOC entry 4724 (class 2604 OID 33850)
 -- Name: regions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -323,7 +322,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 4897 (class 0 OID 33681)
+-- TOC entry 4896 (class 0 OID 33681)
 -- Dependencies: 222
 -- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -418,7 +417,7 @@ INSERT INTO public.comments VALUES (100, 2, 44, 'Viagem maravilhosa para Gramado
 
 
 --
--- TOC entry 4901 (class 0 OID 33831)
+-- TOC entry 4900 (class 0 OID 33831)
 -- Dependencies: 226
 -- Data for Name: feedbacks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -446,7 +445,7 @@ INSERT INTO public.feedbacks VALUES (20, 17, 'Poderia ter integra‡Æo com apps
 
 
 --
--- TOC entry 4903 (class 0 OID 34081)
+-- TOC entry 4902 (class 0 OID 34081)
 -- Dependencies: 228
 -- Data for Name: news; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -464,7 +463,7 @@ INSERT INTO public.news VALUES (10, 'Temporada de lagoas cheias traz passaporte 
 
 
 --
--- TOC entry 4895 (class 0 OID 33666)
+-- TOC entry 4894 (class 0 OID 33666)
 -- Dependencies: 220
 -- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -722,7 +721,7 @@ INSERT INTO public.posts VALUES (250, 14, '1747786336568-55.jpg', 'ALERTA: Forte
 
 
 --
--- TOC entry 4899 (class 0 OID 33812)
+-- TOC entry 4898 (class 0 OID 33812)
 -- Dependencies: 224
 -- Data for Name: regions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -789,115 +788,115 @@ INSERT INTO public.regions VALUES (59, 'Centro-Oeste', 'Brasilia (distrito feder
 
 
 --
--- TOC entry 4893 (class 0 OID 33654)
+-- TOC entry 4892 (class 0 OID 33654)
 -- Dependencies: 218
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.users VALUES (1, 'Amanda Gomes Mechi', 'amanda.mechi@gmail.com', 'Campinas', 'SP', 'Usuário', '123456@', '1747780715193-Amanda.jpg');
-INSERT INTO public.users VALUES (2, 'Andre Lucca Santos', 'andre.l.santos45@gmail.com', 'Campinas', 'SP', 'Usuário', '234561$', '1747780753314-AndrÃ©.jpg');
-INSERT INTO public.users VALUES (3, 'Flavia Regina Alexandre Mendes', 'flavia.r.mendes@gmail.com', 'Campinas', 'SP', 'Usuário', '345612%', '1747780784485-Flavia.jpg');
-INSERT INTO public.users VALUES (4, 'João Vitor Porto Sales', 'joao.v.sales15@gmail.com', 'Campinas', 'SP', 'Usuário', '678345#', '1747780835677-JoÃ£o Vitor.jpg');
-INSERT INTO public.users VALUES (5, 'Giovanna Caron de Barros', 'giovanna.c.barros@gmail.com', 'Valinhos', 'SP', 'Usuário', '456123@', '1747780866879-Giovanna.jpg');
-INSERT INTO public.users VALUES (6, 'Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@gmail.com', 'Valinhos', 'SP', 'Usuário', '567234%', '1747780956484-Isabella.jpg');
-INSERT INTO public.users VALUES (7, 'Laura Ferreira Violla', 'laura.violla@gmail.com', 'Valinhos', 'SP', 'Usuário', '789456#', '1747780983062-Laura.jpg');
-INSERT INTO public.users VALUES (8, 'Carlos Silva', 'carlo.silva435@gmail.com', 'São Paulo', 'SP', 'Usuário', '512735$', '1747781046463-Carlos Silva.jpg');
-INSERT INTO public.users VALUES (9, 'Vinícius Andrade', 'vinicius.andrade101@gmail.com', 'Campinas', 'SP', 'Usuário', '180577%', '1747781075911-VinÃ­cius Andrade.jpg');
-INSERT INTO public.users VALUES (10, 'Matheus Rocha', 'matheus.rocha217@gmail.com', 'São Bernardo do Campo', 'SP', 'Usuário', '698730&', '1747781106543-Matheus Rocha.jpg');
-INSERT INTO public.users VALUES (11, 'Ana Oliveira', 'ana.oliveira2@gmail.com', 'Rio de Janeiro', 'RJ', 'Usuário', '184767#', '1747781549319-Ana Oliveira.jpg');
-INSERT INTO public.users VALUES (12, 'Marcos Souza', 'marcos.souza3@gmail.com', 'Belo Horizonte', 'MG', 'Usuário', '941291#', '1747781584713-Marcos Souza.jpg');
-INSERT INTO public.users VALUES (13, 'Juliana Lima', 'juliana.lima4@gmail.com', 'Curitiba', 'PR', 'Usuário', '408734#', '1747781620286-Juliana Lima.jpg');
-INSERT INTO public.users VALUES (14, 'Bruna Costa', 'bruna.costa205@gmail.com', 'Maringá', 'PR', 'Usuário', '370614#', '1747781649023-Bruna Costa.jpg');
-INSERT INTO public.users VALUES (15, 'André Souza', 'andre.souza206@gmail.com', 'Londrina', 'PR', 'Usuário', '939015#', '1747781677546-AndrÃ© Souza.jpg');
-INSERT INTO public.users VALUES (16, 'Rafael Costa', 'rafael.costa5@gmail.com', 'Porto Alegre', 'RS', 'Usuário', '089987@', '1747781722599-Rafael Costa.jpg');
-INSERT INTO public.users VALUES (17, 'Tatiane Silva', 'tatiane.silva207@gmail.com', 'Caxias do Sul', 'RS', 'Usuário', '905764@', '1747781753726-Tatiane Silva.jpg');
-INSERT INTO public.users VALUES (18, 'Fernanda Rocha', 'fernanda.rocha6@gmail.com', 'Recife', 'PE', 'Usuário', '555133@', '1747781792439-Fernanda Rocha.jpg');
-INSERT INTO public.users VALUES (19, 'Lucas Martins', 'lucas.martins7@gmail.com', 'Salvador', 'BA', 'Usuário', '576843$', '1747781824271-Lucas Martins.jpg');
-INSERT INTO public.users VALUES (20, 'Camila Ribeiro', 'camila.ribeiro8@gmail.com', 'Brasília', 'BA', 'Usuário', '216441$', '1747781863584-Camila Ribeiro.jpg');
-INSERT INTO public.users VALUES (21, 'Pedro Almeida', 'pedro.almeida9@gmail.com', 'Fortaleza', 'CE', 'Usuário', '418251$', '1747781896396-Pedro Almeida.jpg');
-INSERT INTO public.users VALUES (22, 'Aline Mendes', 'aline.mendes10@gmail.com', 'Manaus', 'AM', 'Usuário', '442272#', '1747781929384-Aline Mendes.jpg');
-INSERT INTO public.users VALUES (23, 'Patrícia Moraes', 'patricia.moraes102@gmail.com', 'Maceió', 'AL', 'Usuário', '900128#', '1747781960320-PatrÃ­cia Moraes.jpg');
-INSERT INTO public.users VALUES (24, 'Bruno Teixeira', 'bruno.teixeira103@gmail.com', 'João Pessoa', 'PB', 'Usuário', '769424#', '1747781998812-Bruno Teixeira.jpg');
-INSERT INTO public.users VALUES (25, 'Larissa Pires', 'larissa.pires104@gmail.com', 'São Luís', 'MA', 'Usuário', '638515@', '1747782043429-Larissa Pires.jpg');
-INSERT INTO public.users VALUES (26, 'Tiago Nunes', 'tiago.nunes105@gmail.com', 'Goiânia', 'GO', 'Usuário', '378299@', '1747782073892-Tiago Nunes.jpg');
-INSERT INTO public.users VALUES (27, 'Amanda Barreto', 'amanda.barreto201@gmail.com', 'Blumenau', 'SC', 'Usuário', '717463@', '1747782105733-Amanda Barreto.jpg');
-INSERT INTO public.users VALUES (28, 'João Vitor Sales', 'joao.sales202@gmail.com', 'Cuiabá', 'MT', 'Usuário', '5049215%', '1747782134971-JoÃ£o Vitor Sales.jpg');
-INSERT INTO public.users VALUES (29, 'Luana Neves', 'luana.neves203@gmail.com', 'Palmas', 'TO', 'Usuário', '137840%', '1747782164469-Luana Neves.jpg');
-INSERT INTO public.users VALUES (30, 'Letícia Gomes', 'leticia.gomes209@gmail.com', 'Santarém', 'PA', 'Usuário', '304881$', '1747782196217-LetÃ­cia Gomes.jpg');
-INSERT INTO public.users VALUES (31, 'Rayssa Lopes', 'rayssa.lopes213@gmail.com', 'Aracaju', 'SE', 'Usuário', '181202#', '1747782227367-Rayssa Lopes.jpg');
-INSERT INTO public.users VALUES (32, 'Caio Antunes', 'caio.antunes214@gmail.com', 'Macapá', 'AP', 'Usuário', '641973#', '1747782264548-Caio Antunes.jpg');
-INSERT INTO public.users VALUES (33, 'Yasmin Duarte', 'yasmin.duarte218@gmail.com', 'Teresina', 'PI', 'Usuário', '390458#', '1747782300186-Yasmin Duarte.jpg');
-INSERT INTO public.users VALUES (34, 'Douglas Fernandes', 'douglas.fernandes208@gmail.com', 'RibeirÆo Preto', 'SP', 'Usu rio', '425876', NULL);
-INSERT INTO public.users VALUES (35, 'Gabriel Monteiro', 'gabriel.monteiro210@gmail.com', 'SÆo Jos‚ dos Campos', 'SP', 'Usu rio', '717008', NULL);
-INSERT INTO public.users VALUES (36, 'F bio Pimentel', 'fabio.pimentel212@gmail.com', 'Bauru', 'SP', 'Usu rio', '382112', NULL);
-INSERT INTO public.users VALUES (37, 'Murilo Batista', 'murilo.batista199@gmail.com', 'Ubatuba', 'SP', 'guia tur¡stico', '794320', NULL);
-INSERT INTO public.users VALUES (38, 'Nat lia Gomes', 'natalia.gomes196@gmail.com', 'Arraial do Cabo', 'RJ', 'guia tur¡stico', '602513', NULL);
-INSERT INTO public.users VALUES (39, 'Lorena Dias', 'lorena.dias211@gmail.com', 'Uberlƒndia', 'MG', 'Usu rio', '643917', NULL);
-INSERT INTO public.users VALUES (40, 'Priscila Martins', 'priscila.martins194@gmail.com', 'Tiradentes', 'MG', 'guia tur¡stico', '810026', NULL);
-INSERT INTO public.users VALUES (41, 'Ricardo Farias', 'ricardo.farias195@gmail.com', 'Canela', 'RS', 'guia tur¡stico', '990348', NULL);
-INSERT INTO public.users VALUES (42, 'Diego Cunha', 'diego.cunha219@gmail.com', 'Caruaru', 'PE', 'Usu rio', '952316', NULL);
-INSERT INTO public.users VALUES (43, 'Alexandre Duarte', 'alexandre.duarte193@gmail.com', 'Ilh‚us', 'BA', 'guia tur¡stico', '457680', NULL);
-INSERT INTO public.users VALUES (44, 'Helena Carvalho', 'helena.carvalho200@gmail.com', 'Itacar‚', 'BA', 'guia tur¡stico', '239851', NULL);
-INSERT INTO public.users VALUES (45, 'Isis Ferreira', 'isis.ferreira215@gmail.com', 'Boa Vista', 'RR', 'Usu rio', '104559', NULL);
-INSERT INTO public.users VALUES (46, 'Eduarda Martins', 'eduarda.martins216@gmail.com', 'Joinville', 'SC', 'Usu rio', '178194', NULL);
-INSERT INTO public.users VALUES (47, 'Rebeca Vasconcelos', 'rebeca.vasconcelos220@gmail.com', 'Juazeiro do Norte', 'CE', 'Usu rio', '820013', NULL);
-INSERT INTO public.users VALUES (48, 'Felipe Soares', 'felipe.soares197@gmail.com', 'Jericoacoara', 'CE', 'guia tur¡stico', '928471', NULL);
-INSERT INTO public.users VALUES (49, 'J‚ssica Castro', 'jessica.castro198@gmail.com', 'SÆo Miguel dos Milagres', 'AL', 'guia tur¡stico', '153709', NULL);
-INSERT INTO public.users VALUES (50, 'Rafael Castro', 'rafael.castro234@gmail.com', 'Palmas', 'TO', 'Usu rio', '785412#', NULL);
-INSERT INTO public.users VALUES (51, 'Juliana Paiva', 'juliana.paiva235@gmail.com', 'SÆo Paulo', 'SP', 'Usu rio', '634291#', NULL);
-INSERT INTO public.users VALUES (52, 'Andr‚ Nascimento', 'andre.nascimento236@gmail.com', 'Rio de Janeiro', 'RJ', 'Usu rio', '981276#', NULL);
-INSERT INTO public.users VALUES (53, 'Bruna Oliveira', 'bruna.oliveira237@gmail.com', 'Curitiba', 'PR', 'Usu rio', '453018#', NULL);
-INSERT INTO public.users VALUES (54, 'Henrique Souza', 'henrique.souza238@gmail.com', 'Recife', 'PE', 'Usu rio', '719830#', NULL);
-INSERT INTO public.users VALUES (55, 'Let¡cia Andrade', 'leticia.andrade239@gmail.com', 'Porto Seguro', 'BA', 'Usu rio', '168392#', NULL);
-INSERT INTO public.users VALUES (56, 'Gustavo Moura', 'gustavo.moura240@gmail.com', 'JoÆo Pessoa', 'PB', 'Usu rio', '823105#', NULL);
-INSERT INTO public.users VALUES (57, 'Marina Duarte', 'marina.duarte241@gmail.com', 'Aracaju', 'SE', 'Usu rio', '290186#', NULL);
-INSERT INTO public.users VALUES (58, 'Eduardo Pinto', 'eduardo.pinto242@gmail.com', 'Macap ', 'AP', 'Usu rio', '331094#', NULL);
-INSERT INTO public.users VALUES (59, 'Talita Ribeiro', 'talita.ribeiro243@gmail.com', 'Rio Branco', 'AC', 'Usu rio', '557319#', NULL);
-INSERT INTO public.users VALUES (60, 'C‚sar Martins', 'cesar.martins244@gmail.com', 'Boa Vista', 'RR', 'Usu rio', '671042#', NULL);
-INSERT INTO public.users VALUES (61, 'Mirela Cardoso', 'mirela.cardoso245@gmail.com', 'Petrolina', 'PE', 'Usu rio', '442011#', NULL);
-INSERT INTO public.users VALUES (62, 'Paulo Henrique', 'paulo.henrique246@gmail.com', 'Maragogi', 'AL', 'Usu rio', '799034#', NULL);
-INSERT INTO public.users VALUES (63, 'Nina Bastos', 'nina.bastos247@gmail.com', 'Chapada dos Veadeiros', 'GO', 'Usu rio', '915376#', NULL);
-INSERT INTO public.users VALUES (64, 'Alana Cruz', 'alana.cruz248@gmail.com', 'Foz do Igua‡u', 'PR', 'Usu rio', '348190#', NULL);
-INSERT INTO public.users VALUES (65, 'Sabrina Teles', 'sabrina.teles249@gmail.com', 'Paraty', 'RJ', 'Usu rio', '624781#', NULL);
-INSERT INTO public.users VALUES (66, 'Fernando Mello', 'fernando.mello250@gmail.com', 'SÆo Lu¡s', 'MA', 'Usu rio', '813470#', NULL);
-INSERT INTO public.users VALUES (67, 'Amanda Prado', 'amanda.prado251@gmail.com', 'Balne rio Cambori£', 'SC', 'Usu rio', '938624#', NULL);
-INSERT INTO public.users VALUES (68, 'Tatiana Correia', 'tatiana.correia253@gmail.com', 'Vit¢ria da Conquista', 'BA', 'Usu rio', '409782#', NULL);
-INSERT INTO public.users VALUES (69, 'Cristiano Neves', 'cristiano.neves254@gmail.com', 'Campina Grande', 'PB', 'Usu rio', '517209#', NULL);
-INSERT INTO public.users VALUES (70, 'Elisa Martins', 'elisa.martins255@gmail.com', 'Altamira', 'PA', 'Usu rio', '374821#', NULL);
-INSERT INTO public.users VALUES (71, 'Rodrigo Sales', 'rodrigo.sales256@gmail.com', 'Rondon¢polis', 'MT', 'Usu rio', '902184#', NULL);
-INSERT INTO public.users VALUES (72, 'Marcela Luz', 'marcela.luz258@gmail.com', 'Teres¢polis', 'RJ', 'Usu rio', '281905@', NULL);
-INSERT INTO public.users VALUES (73, 'Eduardo Lima', 'eduardo.lima259@gmail.com', 'Caxias do Sul', 'RS', 'Usu rio', '650378@', NULL);
-INSERT INTO public.users VALUES (74, 'J£lia Viana', 'julia.viana260@gmail.com', 'Franca', 'SP', 'Usu rio', '195024@', NULL);
-INSERT INTO public.users VALUES (75, 'Mariane Costa', 'mariane.costa262@gmail.com', 'Itabuna', 'BA', 'Usu rio', '347902@', NULL);
-INSERT INTO public.users VALUES (76, 'Leandro Rocha', 'leandro.rocha252@gmail.com', 'Porto Velho', 'RO', 'guia tur¡stico', '110348#', NULL);
-INSERT INTO public.users VALUES (77, 'Daniela Furtado', 'daniela.furtado257@gmail.com', 'SÆo JoÆo del-Rei', 'MG', 'guia tur¡stico', '764392@', NULL);
-INSERT INTO public.users VALUES (78, 'Pedro Cunha', 'pedro.cunha261@gmail.com', 'Piracicaba', 'SP', 'guia tur¡stico', '817402@', NULL);
-INSERT INTO public.users VALUES (79, 'Larissa Freitas', 'larissa.freitas233@gmail.com', 'Vit¢ria', 'ES', 'Usu rio', '213904#', NULL);
-INSERT INTO public.users VALUES (80, 'Ot vio Nunes', 'otavio.nunes263@gmail.com', 'Penedo', 'AL', 'guia tur¡stico', '713289@', NULL);
-INSERT INTO public.users VALUES (81, 'Cíntia Fernandes', 'cintia.fernandes190@gmail.com', 'Ilhabela', 'SP', 'Guia turístico', '300742@', '1747782356940-CÃ­ntia Fernandes.jpg');
-INSERT INTO public.users VALUES (82, 'Rodrigo Leal', 'rodrigo.leal183@gmail.com', 'Paraty', 'RJ', 'Guia turístico', '430872@', '1747782394334-Rodrigo Leal.jpg');
-INSERT INTO public.users VALUES (83, 'Marcelo Barros', 'marcelo.barros187@gmail.com', 'Ouro Preto', 'MG', 'Guia turístico', '811935@', '1747782426625-Marcelo Barros.jpg');
-INSERT INTO public.users VALUES (84, 'Eduardo Campos', 'eduardo.campos181@gmail.com', 'Foz do Iguaçu', 'PR', 'Guia turístico', '781304@', '1747782464178-Eduardo Campos.jpg');
-INSERT INTO public.users VALUES (85, 'Beatriz Tavares', 'beatriz.tavares186@gmail.com', 'Gramado', 'RS', 'Guia turístico', '540161#', '1747782504371-Beatriz Tavares.jpg');
-INSERT INTO public.users VALUES (86, 'Daniela Freitas', 'daniela.freitas182@gmail.com', 'Olinda', 'PE', 'Guia turístico', '954702#', '1747782536309-Daniela Freitas.jpg');
-INSERT INTO public.users VALUES (87, 'Tatiane Lopes', 'tatiane.lopes188@gmail.com', 'Fernando de Noronha', 'PE', 'Guia turístico', '731508%', '1747782574824-Tatiane Lopes.jpg');
-INSERT INTO public.users VALUES (88, 'Sérgio Araújo', 'sergio.araujo185@gmail.com', 'Lençóis', 'BA', 'Guia turístico', '206187%', '1747782626830-SÃ©rgio AraÃºjo.jpg');
-INSERT INTO public.users VALUES (89, 'Vanessa Prado', 'vanessa.prado184@gmail.com', 'Bonito', 'MS', 'Guia turístico', '629103%', '1747782664492-Vanessa Prado.jpg');
-INSERT INTO public.users VALUES (90, 'Rogério Melo', 'rogerio.melo189@gmail.com', 'Chapada dos Veadeiros', 'GO', 'Guia turístico', '647091%', '1747782708815-RogÃ©rio Melo.jpg');
-INSERT INTO public.users VALUES (91, 'Gustavo Reis', 'gustavo.reis191@gmail.com', 'Petrolina', 'PE', 'Guia turístico', '284105%', '1747782746332-Gustavo Reis.jpg');
-INSERT INTO public.users VALUES (92, 'Larissa Almeida', 'larissa.almeida123@gmail.com', 'Campinas', 'SP', 'Usu rio', '983214@', NULL);
-INSERT INTO public.users VALUES (93, 'Renato Cardoso', 'renato.cardoso99@gmail.com', 'Belo Horizonte', 'MG', 'Usu rio', '612347@', NULL);
-INSERT INTO public.users VALUES (94, 'Juliana Mendes', 'juliana.mendes@gmail.com', 'Curitiba', 'PR', 'Usu rio', '704128@', NULL);
-INSERT INTO public.users VALUES (95, 'Tiago Oliveira', 'tiago.oliveira87@gmail.com', 'Porto Alegre', 'RS', 'Usu rio', '559876@', NULL);
-INSERT INTO public.users VALUES (96, 'Bruna Souza', 'bruna.souza@gmail.com', 'Salvador', 'BA', 'Usu rio', '347281@', NULL);
-INSERT INTO public.users VALUES (97, 'Marcelo Ribeiro', 'marcelo.ribeiro@hotmail.com', 'Recife', 'PE', 'Usu rio', '890173$', NULL);
-INSERT INTO public.users VALUES (98, 'Diego Nascimento', 'diego.nascimento@gmail.com', 'JoÆo Pessoa', 'PB', 'Usu rio', '519283$', NULL);
-INSERT INTO public.users VALUES (99, 'Camila Duarte', 'camila.duarte@gmail.com', 'Fortaleza', 'CE', 'Usu rio', '209134$', NULL);
-INSERT INTO public.users VALUES (100, 'Andr‚ Lima', 'andre.lima@gmail.com', 'Goiƒnia', 'GO', 'Usu rio', '381947$', NULL);
+INSERT INTO public.users VALUES (1, 'Amanda Gomes Mechi', 'amanda.mechi@gmail.com', 'Campinas', 'SP', '123456@', '1747780715193-Amanda.jpg');
+INSERT INTO public.users VALUES (2, 'Andre Lucca Santos', 'andre.l.santos45@gmail.com', 'Campinas', 'SP', '234561$', '1747780753314-AndrÃ©.jpg');
+INSERT INTO public.users VALUES (3, 'Flavia Regina Alexandre Mendes', 'flavia.r.mendes@gmail.com', 'Campinas', 'SP', '345612%', '1747780784485-Flavia.jpg');
+INSERT INTO public.users VALUES (4, 'João Vitor Porto Sales', 'joao.v.sales15@gmail.com', 'Campinas', 'SP', '678345#', '1747780835677-JoÃ£o Vitor.jpg');
+INSERT INTO public.users VALUES (5, 'Giovanna Caron de Barros', 'giovanna.c.barros@gmail.com', 'Valinhos', 'SP', '456123@', '1747780866879-Giovanna.jpg');
+INSERT INTO public.users VALUES (6, 'Isabella Borin de Moraes Rosa', 'isabella.b.rosa6@gmail.com', 'Valinhos', 'SP', '567234%', '1747780956484-Isabella.jpg');
+INSERT INTO public.users VALUES (7, 'Laura Ferreira Violla', 'laura.violla@gmail.com', 'Valinhos', 'SP', '789456#', '1747780983062-Laura.jpg');
+INSERT INTO public.users VALUES (8, 'Carlos Silva', 'carlo.silva435@gmail.com', 'São Paulo', 'SP', '512735$', '1747781046463-Carlos Silva.jpg');
+INSERT INTO public.users VALUES (9, 'Vinícius Andrade', 'vinicius.andrade101@gmail.com', 'Campinas', 'SP', '180577%', '1747781075911-VinÃ­cius Andrade.jpg');
+INSERT INTO public.users VALUES (10, 'Matheus Rocha', 'matheus.rocha217@gmail.com', 'São Bernardo do Campo', 'SP', '698730&', '1747781106543-Matheus Rocha.jpg');
+INSERT INTO public.users VALUES (11, 'Ana Oliveira', 'ana.oliveira2@gmail.com', 'Rio de Janeiro', 'RJ', '184767#', '1747781549319-Ana Oliveira.jpg');
+INSERT INTO public.users VALUES (12, 'Marcos Souza', 'marcos.souza3@gmail.com', 'Belo Horizonte', 'MG', '941291#', '1747781584713-Marcos Souza.jpg');
+INSERT INTO public.users VALUES (13, 'Juliana Lima', 'juliana.lima4@gmail.com', 'Curitiba', 'PR', '408734#', '1747781620286-Juliana Lima.jpg');
+INSERT INTO public.users VALUES (14, 'Bruna Costa', 'bruna.costa205@gmail.com', 'Maringá', 'PR', '370614#', '1747781649023-Bruna Costa.jpg');
+INSERT INTO public.users VALUES (15, 'André Souza', 'andre.souza206@gmail.com', 'Londrina', 'PR', '939015#', '1747781677546-AndrÃ© Souza.jpg');
+INSERT INTO public.users VALUES (16, 'Rafael Costa', 'rafael.costa5@gmail.com', 'Porto Alegre', 'RS', '089987@', '1747781722599-Rafael Costa.jpg');
+INSERT INTO public.users VALUES (17, 'Tatiane Silva', 'tatiane.silva207@gmail.com', 'Caxias do Sul', 'RS', '905764@', '1747781753726-Tatiane Silva.jpg');
+INSERT INTO public.users VALUES (18, 'Fernanda Rocha', 'fernanda.rocha6@gmail.com', 'Recife', 'PE', '555133@', '1747781792439-Fernanda Rocha.jpg');
+INSERT INTO public.users VALUES (19, 'Lucas Martins', 'lucas.martins7@gmail.com', 'Salvador', 'BA', '576843$', '1747781824271-Lucas Martins.jpg');
+INSERT INTO public.users VALUES (20, 'Camila Ribeiro', 'camila.ribeiro8@gmail.com', 'Brasília', 'BA', '216441$', '1747781863584-Camila Ribeiro.jpg');
+INSERT INTO public.users VALUES (21, 'Pedro Almeida', 'pedro.almeida9@gmail.com', 'Fortaleza', 'CE', '418251$', '1747781896396-Pedro Almeida.jpg');
+INSERT INTO public.users VALUES (22, 'Aline Mendes', 'aline.mendes10@gmail.com', 'Manaus', 'AM', '442272#', '1747781929384-Aline Mendes.jpg');
+INSERT INTO public.users VALUES (23, 'Patrícia Moraes', 'patricia.moraes102@gmail.com', 'Maceió', 'AL', '900128#', '1747781960320-PatrÃ­cia Moraes.jpg');
+INSERT INTO public.users VALUES (24, 'Bruno Teixeira', 'bruno.teixeira103@gmail.com', 'João Pessoa', 'PB', '769424#', '1747781998812-Bruno Teixeira.jpg');
+INSERT INTO public.users VALUES (25, 'Larissa Pires', 'larissa.pires104@gmail.com', 'São Luís', 'MA', '638515@', '1747782043429-Larissa Pires.jpg');
+INSERT INTO public.users VALUES (26, 'Tiago Nunes', 'tiago.nunes105@gmail.com', 'Goiânia', 'GO', '378299@', '1747782073892-Tiago Nunes.jpg');
+INSERT INTO public.users VALUES (27, 'Amanda Barreto', 'amanda.barreto201@gmail.com', 'Blumenau', 'SC', '717463@', '1747782105733-Amanda Barreto.jpg');
+INSERT INTO public.users VALUES (28, 'João Vitor Sales', 'joao.sales202@gmail.com', 'Cuiabá', 'MT', '5049215%', '1747782134971-JoÃ£o Vitor Sales.jpg');
+INSERT INTO public.users VALUES (29, 'Luana Neves', 'luana.neves203@gmail.com', 'Palmas', 'TO', '137840%', '1747782164469-Luana Neves.jpg');
+INSERT INTO public.users VALUES (30, 'Letícia Gomes', 'leticia.gomes209@gmail.com', 'Santarém', 'PA', '304881$', '1747782196217-LetÃ­cia Gomes.jpg');
+INSERT INTO public.users VALUES (31, 'Rayssa Lopes', 'rayssa.lopes213@gmail.com', 'Aracaju', 'SE', '181202#', '1747782227367-Rayssa Lopes.jpg');
+INSERT INTO public.users VALUES (32, 'Caio Antunes', 'caio.antunes214@gmail.com', 'Macapá', 'AP', '641973#', '1747782264548-Caio Antunes.jpg');
+INSERT INTO public.users VALUES (33, 'Yasmin Duarte', 'yasmin.duarte218@gmail.com', 'Teresina', 'PI', '390458#', '1747782300186-Yasmin Duarte.jpg');
+INSERT INTO public.users VALUES (34, 'Douglas Fernandes', 'douglas.fernandes208@gmail.com', 'RibeirÆo Preto', 'SP', '425876', NULL);
+INSERT INTO public.users VALUES (35, 'Gabriel Monteiro', 'gabriel.monteiro210@gmail.com', 'SÆo Jos‚ dos Campos', 'SP', '717008', NULL);
+INSERT INTO public.users VALUES (36, 'F bio Pimentel', 'fabio.pimentel212@gmail.com', 'Bauru', 'SP', '382112', NULL);
+INSERT INTO public.users VALUES (37, 'Murilo Batista', 'murilo.batista199@gmail.com', 'Ubatuba', 'SP', '794320', NULL);
+INSERT INTO public.users VALUES (38, 'Nat lia Gomes', 'natalia.gomes196@gmail.com', 'Arraial do Cabo', 'RJ', '602513', NULL);
+INSERT INTO public.users VALUES (39, 'Lorena Dias', 'lorena.dias211@gmail.com', 'Uberlƒndia', 'MG', '643917', NULL);
+INSERT INTO public.users VALUES (40, 'Priscila Martins', 'priscila.martins194@gmail.com', 'Tiradentes', 'MG', '810026', NULL);
+INSERT INTO public.users VALUES (41, 'Ricardo Farias', 'ricardo.farias195@gmail.com', 'Canela', 'RS', '990348', NULL);
+INSERT INTO public.users VALUES (42, 'Diego Cunha', 'diego.cunha219@gmail.com', 'Caruaru', 'PE', '952316', NULL);
+INSERT INTO public.users VALUES (43, 'Alexandre Duarte', 'alexandre.duarte193@gmail.com', 'Ilh‚us', 'BA', '457680', NULL);
+INSERT INTO public.users VALUES (44, 'Helena Carvalho', 'helena.carvalho200@gmail.com', 'Itacar‚', 'BA', '239851', NULL);
+INSERT INTO public.users VALUES (45, 'Isis Ferreira', 'isis.ferreira215@gmail.com', 'Boa Vista', 'RR', '104559', NULL);
+INSERT INTO public.users VALUES (46, 'Eduarda Martins', 'eduarda.martins216@gmail.com', 'Joinville', 'SC', '178194', NULL);
+INSERT INTO public.users VALUES (47, 'Rebeca Vasconcelos', 'rebeca.vasconcelos220@gmail.com', 'Juazeiro do Norte', 'CE', '820013', NULL);
+INSERT INTO public.users VALUES (48, 'Felipe Soares', 'felipe.soares197@gmail.com', 'Jericoacoara', 'CE', '928471', NULL);
+INSERT INTO public.users VALUES (49, 'J‚ssica Castro', 'jessica.castro198@gmail.com', 'SÆo Miguel dos Milagres', 'AL', '153709', NULL);
+INSERT INTO public.users VALUES (50, 'Rafael Castro', 'rafael.castro234@gmail.com', 'Palmas', 'TO', '785412#', NULL);
+INSERT INTO public.users VALUES (51, 'Juliana Paiva', 'juliana.paiva235@gmail.com', 'SÆo Paulo', 'SP', '634291#', NULL);
+INSERT INTO public.users VALUES (52, 'Andr‚ Nascimento', 'andre.nascimento236@gmail.com', 'Rio de Janeiro', 'RJ', '981276#', NULL);
+INSERT INTO public.users VALUES (53, 'Bruna Oliveira', 'bruna.oliveira237@gmail.com', 'Curitiba', 'PR', '453018#', NULL);
+INSERT INTO public.users VALUES (54, 'Henrique Souza', 'henrique.souza238@gmail.com', 'Recife', 'PE', '719830#', NULL);
+INSERT INTO public.users VALUES (55, 'Let¡cia Andrade', 'leticia.andrade239@gmail.com', 'Porto Seguro', 'BA', '168392#', NULL);
+INSERT INTO public.users VALUES (56, 'Gustavo Moura', 'gustavo.moura240@gmail.com', 'JoÆo Pessoa', 'PB', '823105#', NULL);
+INSERT INTO public.users VALUES (57, 'Marina Duarte', 'marina.duarte241@gmail.com', 'Aracaju', 'SE', '290186#', NULL);
+INSERT INTO public.users VALUES (58, 'Eduardo Pinto', 'eduardo.pinto242@gmail.com', 'Macap ', 'AP', '331094#', NULL);
+INSERT INTO public.users VALUES (59, 'Talita Ribeiro', 'talita.ribeiro243@gmail.com', 'Rio Branco', 'AC', '557319#', NULL);
+INSERT INTO public.users VALUES (60, 'C‚sar Martins', 'cesar.martins244@gmail.com', 'Boa Vista', 'RR', '671042#', NULL);
+INSERT INTO public.users VALUES (61, 'Mirela Cardoso', 'mirela.cardoso245@gmail.com', 'Petrolina', 'PE', '442011#', NULL);
+INSERT INTO public.users VALUES (62, 'Paulo Henrique', 'paulo.henrique246@gmail.com', 'Maragogi', 'AL', '799034#', NULL);
+INSERT INTO public.users VALUES (63, 'Nina Bastos', 'nina.bastos247@gmail.com', 'Chapada dos Veadeiros', 'GO', '915376#', NULL);
+INSERT INTO public.users VALUES (64, 'Alana Cruz', 'alana.cruz248@gmail.com', 'Foz do Igua‡u', 'PR', '348190#', NULL);
+INSERT INTO public.users VALUES (65, 'Sabrina Teles', 'sabrina.teles249@gmail.com', 'Paraty', 'RJ', '624781#', NULL);
+INSERT INTO public.users VALUES (66, 'Fernando Mello', 'fernando.mello250@gmail.com', 'SÆo Lu¡s', 'MA', '813470#', NULL);
+INSERT INTO public.users VALUES (67, 'Amanda Prado', 'amanda.prado251@gmail.com', 'Balne rio Cambori£', 'SC', '938624#', NULL);
+INSERT INTO public.users VALUES (68, 'Tatiana Correia', 'tatiana.correia253@gmail.com', 'Vit¢ria da Conquista', 'BA', '409782#', NULL);
+INSERT INTO public.users VALUES (69, 'Cristiano Neves', 'cristiano.neves254@gmail.com', 'Campina Grande', 'PB', '517209#', NULL);
+INSERT INTO public.users VALUES (70, 'Elisa Martins', 'elisa.martins255@gmail.com', 'Altamira', 'PA', '374821#', NULL);
+INSERT INTO public.users VALUES (71, 'Rodrigo Sales', 'rodrigo.sales256@gmail.com', 'Rondon¢polis', 'MT', '902184#', NULL);
+INSERT INTO public.users VALUES (72, 'Marcela Luz', 'marcela.luz258@gmail.com', 'Teres¢polis', 'RJ', '281905@', NULL);
+INSERT INTO public.users VALUES (73, 'Eduardo Lima', 'eduardo.lima259@gmail.com', 'Caxias do Sul', 'RS', '650378@', NULL);
+INSERT INTO public.users VALUES (74, 'J£lia Viana', 'julia.viana260@gmail.com', 'Franca', 'SP', '195024@', NULL);
+INSERT INTO public.users VALUES (75, 'Mariane Costa', 'mariane.costa262@gmail.com', 'Itabuna', 'BA', '347902@', NULL);
+INSERT INTO public.users VALUES (76, 'Leandro Rocha', 'leandro.rocha252@gmail.com', 'Porto Velho', 'RO', '110348#', NULL);
+INSERT INTO public.users VALUES (77, 'Daniela Furtado', 'daniela.furtado257@gmail.com', 'SÆo JoÆo del-Rei', 'MG', '764392@', NULL);
+INSERT INTO public.users VALUES (78, 'Pedro Cunha', 'pedro.cunha261@gmail.com', 'Piracicaba', 'SP', '817402@', NULL);
+INSERT INTO public.users VALUES (79, 'Larissa Freitas', 'larissa.freitas233@gmail.com', 'Vit¢ria', 'ES', '213904#', NULL);
+INSERT INTO public.users VALUES (80, 'Ot vio Nunes', 'otavio.nunes263@gmail.com', 'Penedo', 'AL', '713289@', NULL);
+INSERT INTO public.users VALUES (81, 'Cíntia Fernandes', 'cintia.fernandes190@gmail.com', 'Ilhabela', 'SP', '300742@', '1747782356940-CÃ­ntia Fernandes.jpg');
+INSERT INTO public.users VALUES (82, 'Rodrigo Leal', 'rodrigo.leal183@gmail.com', 'Paraty', 'RJ', '430872@', '1747782394334-Rodrigo Leal.jpg');
+INSERT INTO public.users VALUES (83, 'Marcelo Barros', 'marcelo.barros187@gmail.com', 'Ouro Preto', 'MG', '811935@', '1747782426625-Marcelo Barros.jpg');
+INSERT INTO public.users VALUES (84, 'Eduardo Campos', 'eduardo.campos181@gmail.com', 'Foz do Iguaçu', 'PR', '781304@', '1747782464178-Eduardo Campos.jpg');
+INSERT INTO public.users VALUES (85, 'Beatriz Tavares', 'beatriz.tavares186@gmail.com', 'Gramado', 'RS', '540161#', '1747782504371-Beatriz Tavares.jpg');
+INSERT INTO public.users VALUES (86, 'Daniela Freitas', 'daniela.freitas182@gmail.com', 'Olinda', 'PE', '954702#', '1747782536309-Daniela Freitas.jpg');
+INSERT INTO public.users VALUES (87, 'Tatiane Lopes', 'tatiane.lopes188@gmail.com', 'Fernando de Noronha', 'PE', '731508%', '1747782574824-Tatiane Lopes.jpg');
+INSERT INTO public.users VALUES (88, 'Sérgio Araújo', 'sergio.araujo185@gmail.com', 'Lençóis', 'BA', '206187%', '1747782626830-SÃ©rgio AraÃºjo.jpg');
+INSERT INTO public.users VALUES (89, 'Vanessa Prado', 'vanessa.prado184@gmail.com', 'Bonito', 'MS', '629103%', '1747782664492-Vanessa Prado.jpg');
+INSERT INTO public.users VALUES (90, 'Rogério Melo', 'rogerio.melo189@gmail.com', 'Chapada dos Veadeiros', 'GO', '647091%', '1747782708815-RogÃ©rio Melo.jpg');
+INSERT INTO public.users VALUES (91, 'Gustavo Reis', 'gustavo.reis191@gmail.com', 'Petrolina', 'PE', '284105%', '1747782746332-Gustavo Reis.jpg');
+INSERT INTO public.users VALUES (92, 'Larissa Almeida', 'larissa.almeida123@gmail.com', 'Campinas', 'SP', '983214@', NULL);
+INSERT INTO public.users VALUES (93, 'Renato Cardoso', 'renato.cardoso99@gmail.com', 'Belo Horizonte', 'MG', '612347@', NULL);
+INSERT INTO public.users VALUES (94, 'Juliana Mendes', 'juliana.mendes@gmail.com', 'Curitiba', 'PR', '704128@', NULL);
+INSERT INTO public.users VALUES (95, 'Tiago Oliveira', 'tiago.oliveira87@gmail.com', 'Porto Alegre', 'RS', '559876@', NULL);
+INSERT INTO public.users VALUES (96, 'Bruna Souza', 'bruna.souza@gmail.com', 'Salvador', 'BA', '347281@', NULL);
+INSERT INTO public.users VALUES (97, 'Marcelo Ribeiro', 'marcelo.ribeiro@hotmail.com', 'Recife', 'PE', '890173$', NULL);
+INSERT INTO public.users VALUES (98, 'Diego Nascimento', 'diego.nascimento@gmail.com', 'JoÆo Pessoa', 'PB', '519283$', NULL);
+INSERT INTO public.users VALUES (99, 'Camila Duarte', 'camila.duarte@gmail.com', 'Fortaleza', 'CE', '209134$', NULL);
+INSERT INTO public.users VALUES (100, 'Andr‚ Lima', 'andre.lima@gmail.com', 'Goiƒnia', 'GO', '381947$', NULL);
 
 
 --
--- TOC entry 4915 (class 0 OID 0)
+-- TOC entry 4914 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -906,7 +905,7 @@ SELECT pg_catalog.setval('public.comments_id_seq', 101, true);
 
 
 --
--- TOC entry 4916 (class 0 OID 0)
+-- TOC entry 4915 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: feedbacks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -915,7 +914,7 @@ SELECT pg_catalog.setval('public.feedbacks_id_seq', 21, true);
 
 
 --
--- TOC entry 4917 (class 0 OID 0)
+-- TOC entry 4916 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: news_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -924,7 +923,7 @@ SELECT pg_catalog.setval('public.news_id_seq', 11, true);
 
 
 --
--- TOC entry 4918 (class 0 OID 0)
+-- TOC entry 4917 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -933,7 +932,7 @@ SELECT pg_catalog.setval('public.posts_id_seq', 251, true);
 
 
 --
--- TOC entry 4919 (class 0 OID 0)
+-- TOC entry 4918 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: regions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -942,16 +941,16 @@ SELECT pg_catalog.setval('public.regions_id_seq', 60, true);
 
 
 --
--- TOC entry 4920 (class 0 OID 0)
+-- TOC entry 4919 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 101, true);
+SELECT pg_catalog.setval('public.users_id_seq', 102, true);
 
 
 --
--- TOC entry 4736 (class 2606 OID 33688)
+-- TOC entry 4735 (class 2606 OID 33688)
 -- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -960,7 +959,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4740 (class 2606 OID 33839)
+-- TOC entry 4739 (class 2606 OID 33839)
 -- Name: feedbacks feedbacks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -969,7 +968,7 @@ ALTER TABLE ONLY public.feedbacks
 
 
 --
--- TOC entry 4742 (class 2606 OID 34088)
+-- TOC entry 4741 (class 2606 OID 34088)
 -- Name: news news_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -978,7 +977,7 @@ ALTER TABLE ONLY public.news
 
 
 --
--- TOC entry 4734 (class 2606 OID 33674)
+-- TOC entry 4733 (class 2606 OID 33674)
 -- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -987,7 +986,7 @@ ALTER TABLE ONLY public.posts
 
 
 --
--- TOC entry 4738 (class 2606 OID 33819)
+-- TOC entry 4737 (class 2606 OID 33819)
 -- Name: regions regions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -996,7 +995,7 @@ ALTER TABLE ONLY public.regions
 
 
 --
--- TOC entry 4730 (class 2606 OID 33664)
+-- TOC entry 4729 (class 2606 OID 33664)
 -- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1005,7 +1004,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4732 (class 2606 OID 33662)
+-- TOC entry 4731 (class 2606 OID 33662)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1014,7 +1013,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4744 (class 2606 OID 33689)
+-- TOC entry 4743 (class 2606 OID 33689)
 -- Name: comments comments_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1023,7 +1022,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4745 (class 2606 OID 33694)
+-- TOC entry 4744 (class 2606 OID 33694)
 -- Name: comments comments_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1032,7 +1031,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4746 (class 2606 OID 33840)
+-- TOC entry 4745 (class 2606 OID 33840)
 -- Name: feedbacks feedbacks_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1041,7 +1040,7 @@ ALTER TABLE ONLY public.feedbacks
 
 
 --
--- TOC entry 4743 (class 2606 OID 33675)
+-- TOC entry 4742 (class 2606 OID 33675)
 -- Name: posts posts_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1049,7 +1048,7 @@ ALTER TABLE ONLY public.posts
     ADD CONSTRAINT posts_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
 
 
--- Completed on 2025-05-29 14:30:26
+-- Completed on 2025-06-09 20:54:31
 
 --
 -- PostgreSQL database dump complete
