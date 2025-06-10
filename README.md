@@ -1,3 +1,5 @@
+![Capa do Projeto](./uploads/capa-de-readme.png)
+
 # Bora Viajar! - Rede Social para Turistas 🛫
 
 O projeto **Bora Viajar!** é uma rede social desenvolvida para turistas que desejam explorar novos destinos e compartilhar suas experiências de viagem. O objetivo principal da plataforma é conectar turistas e permitir que compartilhem suas aventuras e dicas de viagens.
