@@ -1,7 +1,7 @@
 const pool = require("../config/database");
 
 //Buscar todos os posts
-const getPosts = async (tag, user_id) => {
+const getPosts = async (tag, user_id, description) => {
     let query = `SELECT posts.id, users.name AS usuario, users.photo AS foto, posts.image, posts.description, posts.tag, posts.likes_count
         FROM posts 
         LEFT JOIN users ON posts.user_id = users.id`;
@@ -15,6 +15,10 @@ const getPosts = async (tag, user_id) => {
     if (user_id) {
         conditions.push(`posts.user_id = $${params.length + 1}`);
         params.push(user_id);
+    }
+    if (description) {
+        conditions.push(`posts.description ILIKE $${params.length + 1}`);
+        params.push(`%${description}%`);
     }
     if (conditions.length > 0) {
         query += " WHERE " + conditions.join(" AND ");
