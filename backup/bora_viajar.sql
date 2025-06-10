@@ -2,15 +2,14 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 17.5
--- Dumped by pg_dump version 17.5
+-- Dumped from database version 16.3
+-- Dumped by pg_dump version 16.3
 
--- Started on 2025-06-09 20:54:31
+-- Started on 2025-06-10 13:54:12
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -24,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 222 (class 1259 OID 33681)
+-- TOC entry 215 (class 1259 OID 17687)
 -- Name: comments; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -39,7 +38,7 @@ CREATE TABLE public.comments (
 ALTER TABLE public.comments OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 33680)
+-- TOC entry 216 (class 1259 OID 17692)
 -- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -55,8 +54,8 @@ CREATE SEQUENCE public.comments_id_seq
 ALTER SEQUENCE public.comments_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4908 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 4845 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -64,7 +63,7 @@ ALTER SEQUENCE public.comments_id_seq OWNED BY public.comments.id;
 
 
 --
--- TOC entry 226 (class 1259 OID 33831)
+-- TOC entry 217 (class 1259 OID 17693)
 -- Name: feedbacks; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -80,7 +79,7 @@ CREATE TABLE public.feedbacks (
 ALTER TABLE public.feedbacks OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 33830)
+-- TOC entry 218 (class 1259 OID 17699)
 -- Name: feedbacks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -96,8 +95,8 @@ CREATE SEQUENCE public.feedbacks_id_seq
 ALTER SEQUENCE public.feedbacks_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4909 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 4846 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: feedbacks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -105,7 +104,7 @@ ALTER SEQUENCE public.feedbacks_id_seq OWNED BY public.feedbacks.id;
 
 
 --
--- TOC entry 228 (class 1259 OID 34081)
+-- TOC entry 219 (class 1259 OID 17700)
 -- Name: news; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -121,7 +120,7 @@ CREATE TABLE public.news (
 ALTER TABLE public.news OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 34080)
+-- TOC entry 220 (class 1259 OID 17705)
 -- Name: news_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -137,8 +136,8 @@ CREATE SEQUENCE public.news_id_seq
 ALTER SEQUENCE public.news_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4910 (class 0 OID 0)
--- Dependencies: 227
+-- TOC entry 4847 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -146,7 +145,7 @@ ALTER SEQUENCE public.news_id_seq OWNED BY public.news.id;
 
 
 --
--- TOC entry 220 (class 1259 OID 33666)
+-- TOC entry 221 (class 1259 OID 17706)
 -- Name: posts; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -163,7 +162,7 @@ CREATE TABLE public.posts (
 ALTER TABLE public.posts OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 33665)
+-- TOC entry 222 (class 1259 OID 17712)
 -- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -179,8 +178,8 @@ CREATE SEQUENCE public.posts_id_seq
 ALTER SEQUENCE public.posts_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4911 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 4848 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -188,7 +187,7 @@ ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
 
 
 --
--- TOC entry 224 (class 1259 OID 33812)
+-- TOC entry 223 (class 1259 OID 17713)
 -- Name: regions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -206,7 +205,7 @@ CREATE TABLE public.regions (
 ALTER TABLE public.regions OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 33811)
+-- TOC entry 224 (class 1259 OID 17718)
 -- Name: regions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -222,8 +221,8 @@ CREATE SEQUENCE public.regions_id_seq
 ALTER SEQUENCE public.regions_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4912 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4849 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: regions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -231,7 +230,7 @@ ALTER SEQUENCE public.regions_id_seq OWNED BY public.regions.id;
 
 
 --
--- TOC entry 218 (class 1259 OID 33654)
+-- TOC entry 225 (class 1259 OID 17719)
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -249,7 +248,7 @@ CREATE TABLE public.users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 33653)
+-- TOC entry 226 (class 1259 OID 17724)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -265,8 +264,8 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4913 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 4850 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -274,7 +273,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 4723 (class 2604 OID 33846)
+-- TOC entry 4659 (class 2604 OID 17725)
 -- Name: comments id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -282,7 +281,7 @@ ALTER TABLE ONLY public.comments ALTER COLUMN id SET DEFAULT nextval('public.com
 
 
 --
--- TOC entry 4725 (class 2604 OID 33847)
+-- TOC entry 4660 (class 2604 OID 17726)
 -- Name: feedbacks id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -290,7 +289,7 @@ ALTER TABLE ONLY public.feedbacks ALTER COLUMN id SET DEFAULT nextval('public.fe
 
 
 --
--- TOC entry 4726 (class 2604 OID 34084)
+-- TOC entry 4661 (class 2604 OID 17727)
 -- Name: news id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -298,7 +297,7 @@ ALTER TABLE ONLY public.news ALTER COLUMN id SET DEFAULT nextval('public.news_id
 
 
 --
--- TOC entry 4721 (class 2604 OID 33849)
+-- TOC entry 4662 (class 2604 OID 17728)
 -- Name: posts id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -306,7 +305,7 @@ ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_
 
 
 --
--- TOC entry 4724 (class 2604 OID 33850)
+-- TOC entry 4664 (class 2604 OID 17729)
 -- Name: regions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -314,7 +313,7 @@ ALTER TABLE ONLY public.regions ALTER COLUMN id SET DEFAULT nextval('public.regi
 
 
 --
--- TOC entry 4720 (class 2604 OID 33851)
+-- TOC entry 4665 (class 2604 OID 17730)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -322,8 +321,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 4896 (class 0 OID 33681)
--- Dependencies: 222
+-- TOC entry 4828 (class 0 OID 17687)
+-- Dependencies: 215
 -- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -417,8 +416,8 @@ INSERT INTO public.comments VALUES (100, 2, 44, 'Viagem maravilhosa para Gramado
 
 
 --
--- TOC entry 4900 (class 0 OID 33831)
--- Dependencies: 226
+-- TOC entry 4830 (class 0 OID 17693)
+-- Dependencies: 217
 -- Data for Name: feedbacks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -445,8 +444,8 @@ INSERT INTO public.feedbacks VALUES (20, 17, 'Poderia ter integra‡Æo com apps
 
 
 --
--- TOC entry 4902 (class 0 OID 34081)
--- Dependencies: 228
+-- TOC entry 4832 (class 0 OID 17700)
+-- Dependencies: 219
 -- Data for Name: news; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -463,240 +462,223 @@ INSERT INTO public.news VALUES (10, 'Temporada de lagoas cheias traz passaporte 
 
 
 --
--- TOC entry 4894 (class 0 OID 33666)
--- Dependencies: 220
+-- TOC entry 4834 (class 0 OID 17706)
+-- Dependencies: 221
 -- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.posts VALUES (1, 38, NULL, 'ALERTA: Algumas lagoas dos Len‡¢is Maranhenses estÆo com menor volume de  gua este mˆs por causa das chuvas irregulares. Melhor confirmar com os guias antes de agendar passeio.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (2, 88, NULL, 'PROMO€ÇO imperd¡vel em Gramado! Reserve 3 noites e ganhe um jantar colonial completo em um dos caf‚s artesanais parceiros da nova rota gourmet.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (3, 7, NULL, 'PROMO€ÇO em Alter do ChÆo! Hospedagem flutuante com desconto para reservas feitas at‚ o fim do mˆs. Ideal pra quem quer dormir com vista pro rio.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (4, 61, NULL, 'PROMO€ÇO em Porto de Galinhas (PE): pacotes com desconto de 30% para quem reserva at‚ domingo. àtimo para fam¡lias com crian‡as!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (5, 53, NULL, 'ALERTA: Em Manaus (AM), o porto est  parcialmente fechado para embarques tur¡sticos devido … cheia do rio Negro. Verifiquem antes de comprar passeio.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (6, 78, NULL, 'A Serra do Cip¢ (MG) me surpreendeu! Trilhas lindas, cachoeiras de  guas cristalinas e um clima perfeito pra quem curte natureza e sossego.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (7, 76, NULL, 'PROMO€ÇO na Chapada Diamantina (BA): pousadas em Len‡¢is com at‚ 40% de desconto no mˆs de junho. Aproveitem antes da alta temporada!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (8, 21, NULL, 'ALERTA: Forte calor em Palmas (TO), especialmente nas trilhas do Parque Estadual do Lajeado. Leve bastante  gua e evite caminhadas no hor rio de pico.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (9, 14, NULL, 'ALERTA: A travessia de balsa est  com longas filas nos fins de semana. (Ilhabela (SP))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (10, 10, NULL, 'PROMO€ÇO em Len‡¢is (BA)! Nova sinaliza‡Æo nas trilhas da Chapada garante mais seguran‡a.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (11, 31, NULL, 'PROMO€ÇO em Canela (RS)! Nova ilumina‡Æo na Catedral de Pedra est  deslumbrante … noite.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (12, 90, NULL, 'ALERTA: Tour noturno com degusta‡Æo, vin¡colas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (13, 56, NULL, 'PROMO€ÇO em Foz do Igua‡u (PR)! Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (14, 13, NULL, 'PROMO€ÇO em Bel‚m (PA)! Mercado Ver-o-Peso restaurado com nova  rea gastron“mica.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (15, 48, NULL, 'PROMO€ÇO em JoÆo Pessoa (PB)! Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (16, 17, NULL, 'PROMO€ÇO em Natal (RN)! Passeio de buggy pelas dunas est  com 20% de desconto.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (17, 8, NULL, 'Aproveite a PROMO€ÇO em SÆo Miguel do Gostoso (RN): Praia calma e vento constante, ¢timo para kitesurf.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (18, 88, NULL, 'Aproveite a PROMO€ÇO em Canela (RS): Nova ilumina‡Æo na Catedral de Pedra est  deslumbrante … noite.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (19, 7, NULL, 'Aproveite a PROMO€ÇO em Natal (RN): Passeio de buggy pelas dunas est  com 20% de desconto.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (20, 30, NULL, 'Aproveite a PROMO€ÇO em Arraial do Cabo (RJ): ALERTA: Acesso limitado … Praia do Farol por excesso de turistas.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (21, 23, NULL, 'ATEN€ÇO: Orla nova com ciclovia e feirinhas noturnas animadas. (JoÆo Pessoa (PB))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (22, 51, NULL, 'ATEN€ÇO: Pousadas com di ria reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (23, 18, NULL, 'Aproveite a PROMO€ÇO em Pipa (RN): Pousadas com di ria reduzida durante o meio da semana.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (24, 8, NULL, 'Aproveite a PROMO€ÇO em Pipa (RN): Pousadas com di ria reduzida durante o meio da semana.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (25, 60, NULL, 'Aproveite a PROMO€ÇO em JalapÆo (TO): Os fervedouros sÆo impressionantes e a paisagem ‚ surreal.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (26, 5, NULL, 'ATEN€ÇO: Mercado Ver-o-Peso restaurado com nova  rea gastron“mica. (Bel‚m (PA))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (27, 40, NULL, 'Aproveite a PROMO€ÇO em Natal (RN): Passeio de buggy pelas dunas est  com 20% de desconto.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (28, 23, NULL, 'ATEN€ÇO: Nova ilumina‡Æo na Catedral de Pedra est  deslumbrante … noite. (Canela (RS))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (29, 78, NULL, 'Aproveite a PROMO€ÇO em Vale dos Vinhedos (RS): Tour noturno com degusta‡Æo, vin¡colas encantadoras.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (30, 4, NULL, 'ATEN€ÇO: Nova ilumina‡Æo na Catedral de Pedra est  deslumbrante … noite. (Canela (RS))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (31, 55, NULL, 'Aproveite a PROMO€ÇO em JalapÆo (TO): Os fervedouros sÆo impressionantes e a paisagem ‚ surreal.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (32, 7, NULL, 'Aproveite a PROMO€ÇO em Pipa (RN): Pousadas com di ria reduzida durante o meio da semana.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (33, 12, NULL, 'Aproveite a PROMO€ÇO em Arraial do Cabo (RJ): ALERTA: Acesso limitado … Praia do Farol por excesso de turistas.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (34, 31, NULL, 'ATEN€ÇO: A travessia de balsa est  com longas filas nos fins de semana. (Ilhabela (SP))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (35, 51, NULL, 'Aproveite a PROMO€ÇO em Ilhabela (SP): A travessia de balsa est  com longas filas nos fins de semana.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (36, 42, NULL, 'ATEN€ÇO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cip¢ (MG))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (37, 32, NULL, 'Aproveite a PROMO€ÇO em JalapÆo (TO): Os fervedouros sÆo impressionantes e a paisagem ‚ surreal.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (38, 53, NULL, 'ATEN€ÇO: Pacotes com desconto de 30% para reservas at‚ domingo. (Porto de Galinhas (PE))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (39, 33, NULL, 'ATEN€ÇO: Pousadas com di ria reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (40, 22, NULL, 'ATEN€ÇO: PROMO€ÇO em passeios de telef‚rico na temporada de inverno. (Balne rio Cambori£ (SC))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (41, 37, NULL, 'Aproveite a PROMO€ÇO em Balne rio Cambori£ (SC): PROMO€ÇO em passeios de telef‚rico na temporada de inverno.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (42, 8, NULL, 'ATEN€ÇO: Pousadas com di ria reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (43, 19, NULL, 'ATEN€ÇO: Novo circuito de tirolesas foi inaugurado no parque de aventuras. (Brotas (SP))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (44, 2, NULL, 'Aproveite a PROMO€ÇO em Bel‚m (PA): Mercado Ver-o-Peso restaurado com nova  rea gastron“mica.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (45, 38, NULL, 'Aproveite a PROMO€ÇO em Foz do Igua‡u (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (46, 21, NULL, 'ATEN€ÇO: Tour noturno com degusta‡Æo, vin¡colas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (47, 58, NULL, 'Aproveite a PROMO€ÇO em JalapÆo (TO): Os fervedouros sÆo impressionantes e a paisagem ‚ surreal.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (48, 78, NULL, 'ATEN€ÇO: O porto est  parcialmente fechado devido … cheia do rio Negro. (Manaus (AM))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (49, 29, NULL, 'Aproveite a PROMO€ÇO em Manaus (AM): O porto est  parcialmente fechado devido … cheia do rio Negro.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (50, 22, NULL, 'ATEN€ÇO: Praia calma e vento constante, ¢timo para kitesurf. (SÆo Miguel do Gostoso (RN))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (105, 21, NULL, 'Aproveite a super oferta para conhecer a Rota das Emo‡äes!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (51, 44, NULL, 'Aproveite a PROMO€ÇO em Arraial do Cabo (RJ): ALERTA: Acesso limitado … Praia do Farol por excesso de turistas.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (52, 42, NULL, 'ATEN€ÇO: Orla nova com ciclovia e feirinhas noturnas animadas. (JoÆo Pessoa (PB))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (53, 13, NULL, 'ATEN€ÇO: Orla nova com ciclovia e feirinhas noturnas animadas. (JoÆo Pessoa (PB))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (54, 52, NULL, 'ATEN€ÇO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cip¢ (MG))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (55, 1, NULL, 'Aproveite a PROMO€ÇO em JoÆo Pessoa (PB): Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMO€ÇO', 0);
+INSERT INTO public.posts VALUES (2, 88, NULL, 'PROMO€ÇO imperd¡vel em Gramado! Reserve 3 noites e ganhe um jantar colonial completo em um dos caf‚s artesanais parceiros da nova rota gourmet.', 'PROMO€ÇO', 4);
+INSERT INTO public.posts VALUES (3, 7, NULL, 'PROMO€ÇO em Alter do ChÆo! Hospedagem flutuante com desconto para reservas feitas at‚ o fim do mˆs. Ideal pra quem quer dormir com vista pro rio.', 'PROMO€ÇO', 4);
+INSERT INTO public.posts VALUES (4, 61, NULL, 'PROMO€ÇO em Porto de Galinhas (PE): pacotes com desconto de 30% para quem reserva at‚ domingo. àtimo para fam¡lias com crian‡as!', 'PROMO€ÇO', 4);
+INSERT INTO public.posts VALUES (5, 53, NULL, 'ALERTA: Em Manaus (AM), o porto est  parcialmente fechado para embarques tur¡sticos devido … cheia do rio Negro. Verifiquem antes de comprar passeio.', 'ALERTA', 4);
+INSERT INTO public.posts VALUES (6, 78, NULL, 'A Serra do Cip¢ (MG) me surpreendeu! Trilhas lindas, cachoeiras de  guas cristalinas e um clima perfeito pra quem curte natureza e sossego.', 'NOVIDADES', 8);
+INSERT INTO public.posts VALUES (9, 14, NULL, 'ALERTA: A travessia de balsa est  com longas filas nos fins de semana. (Ilhabela (SP))', 'ALERTA', 8);
+INSERT INTO public.posts VALUES (11, 31, NULL, 'PROMO€ÇO em Canela (RS)! Nova ilumina‡Æo na Catedral de Pedra est  deslumbrante … noite.', 'PROMO€ÇO', 8);
+INSERT INTO public.posts VALUES (12, 90, NULL, 'ALERTA: Tour noturno com degusta‡Æo, vin¡colas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA', 8);
+INSERT INTO public.posts VALUES (13, 56, NULL, 'PROMO€ÇO em Foz do Igua‡u (PR)! Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMO€ÇO', 1);
+INSERT INTO public.posts VALUES (15, 48, NULL, 'PROMO€ÇO em JoÆo Pessoa (PB)! Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMO€ÇO', 1);
+INSERT INTO public.posts VALUES (19, 7, NULL, 'Aproveite a PROMO€ÇO em Natal (RN): Passeio de buggy pelas dunas est  com 20% de desconto.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (20, 30, NULL, 'Aproveite a PROMO€ÇO em Arraial do Cabo (RJ): ALERTA: Acesso limitado … Praia do Farol por excesso de turistas.', 'PROMO€ÇO', 1);
+INSERT INTO public.posts VALUES (22, 51, NULL, 'ATEN€ÇO: Pousadas com di ria reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA', 1);
+INSERT INTO public.posts VALUES (25, 60, NULL, 'Aproveite a PROMO€ÇO em JalapÆo (TO): Os fervedouros sÆo impressionantes e a paisagem ‚ surreal.', 'PROMO€ÇO', 20);
+INSERT INTO public.posts VALUES (29, 78, NULL, 'Aproveite a PROMO€ÇO em Vale dos Vinhedos (RS): Tour noturno com degusta‡Æo, vin¡colas encantadoras.', 'PROMO€ÇO', 20);
+INSERT INTO public.posts VALUES (32, 7, NULL, 'Aproveite a PROMO€ÇO em Pipa (RN): Pousadas com di ria reduzida durante o meio da semana.', 'PROMO€ÇO', 10);
+INSERT INTO public.posts VALUES (40, 22, NULL, 'ATEN€ÇO: PROMO€ÇO em passeios de telef‚rico na temporada de inverno. (Balne rio Cambori£ (SC))', 'ALERTA', 6);
+INSERT INTO public.posts VALUES (38, 53, NULL, 'ATEN€ÇO: Pacotes com desconto de 30% para reservas at‚ domingo. (Porto de Galinhas (PE))', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (8, 21, NULL, 'ALERTA: Forte calor em Palmas (TO), especialmente nas trilhas do Parque Estadual do Lajeado. Leve bastante  gua e evite caminhadas no hor rio de pico.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (37, 32, NULL, 'Aproveite a PROMO€ÇO em JalapÆo (TO): Os fervedouros sÆo impressionantes e a paisagem ‚ surreal.', 'PROMO€ÇO', 15);
+INSERT INTO public.posts VALUES (35, 51, NULL, 'Aproveite a PROMO€ÇO em Ilhabela (SP): A travessia de balsa est  com longas filas nos fins de semana.', 'PROMO€ÇO', 16);
+INSERT INTO public.posts VALUES (45, 38, NULL, 'Aproveite a PROMO€ÇO em Foz do Igua‡u (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMO€ÇO', 6);
+INSERT INTO public.posts VALUES (48, 78, NULL, 'ATEN€ÇO: O porto est  parcialmente fechado devido … cheia do rio Negro. (Manaus (AM))', 'ALERTA', 6);
+INSERT INTO public.posts VALUES (49, 29, NULL, 'Aproveite a PROMO€ÇO em Manaus (AM): O porto est  parcialmente fechado devido … cheia do rio Negro.', 'PROMO€ÇO', 6);
+INSERT INTO public.posts VALUES (33, 12, NULL, 'Aproveite a PROMO€ÇO em Arraial do Cabo (RJ): ALERTA: Acesso limitado … Praia do Farol por excesso de turistas.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (34, 31, NULL, 'ATEN€ÇO: A travessia de balsa est  com longas filas nos fins de semana. (Ilhabela (SP))', 'ALERTA', 11);
+INSERT INTO public.posts VALUES (39, 33, NULL, 'ATEN€ÇO: Pousadas com di ria reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA', 15);
+INSERT INTO public.posts VALUES (23, 18, NULL, 'Aproveite a PROMO€ÇO em Pipa (RN): Pousadas com di ria reduzida durante o meio da semana.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (21, 23, NULL, 'ATEN€ÇO: Orla nova com ciclovia e feirinhas noturnas animadas. (JoÆo Pessoa (PB))', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (14, 13, NULL, 'PROMO€ÇO em Bel‚m (PA)! Mercado Ver-o-Peso restaurado com nova  rea gastron“mica.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (17, 8, NULL, 'Aproveite a PROMO€ÇO em SÆo Miguel do Gostoso (RN): Praia calma e vento constante, ¢timo para kitesurf.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (18, 88, NULL, 'Aproveite a PROMO€ÇO em Canela (RS): Nova ilumina‡Æo na Catedral de Pedra est  deslumbrante … noite.', 'PROMO€ÇO', 6);
+INSERT INTO public.posts VALUES (10, 10, NULL, 'PROMO€ÇO em Len‡¢is (BA)! Nova sinaliza‡Æo nas trilhas da Chapada garante mais seguran‡a.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (16, 17, NULL, 'PROMO€ÇO em Natal (RN)! Passeio de buggy pelas dunas est  com 20% de desconto.', 'PROMO€ÇO', 2);
+INSERT INTO public.posts VALUES (24, 8, NULL, 'Aproveite a PROMO€ÇO em Pipa (RN): Pousadas com di ria reduzida durante o meio da semana.', 'PROMO€ÇO', 2);
+INSERT INTO public.posts VALUES (26, 5, NULL, 'ATEN€ÇO: Mercado Ver-o-Peso restaurado com nova  rea gastron“mica. (Bel‚m (PA))', 'ALERTA', 2);
+INSERT INTO public.posts VALUES (27, 40, NULL, 'Aproveite a PROMO€ÇO em Natal (RN): Passeio de buggy pelas dunas est  com 20% de desconto.', 'PROMO€ÇO', 2);
+INSERT INTO public.posts VALUES (28, 23, NULL, 'ATEN€ÇO: Nova ilumina‡Æo na Catedral de Pedra est  deslumbrante … noite. (Canela (RS))', 'ALERTA', 2);
+INSERT INTO public.posts VALUES (30, 4, NULL, 'ATEN€ÇO: Nova ilumina‡Æo na Catedral de Pedra est  deslumbrante … noite. (Canela (RS))', 'ALERTA', 2);
+INSERT INTO public.posts VALUES (31, 55, NULL, 'Aproveite a PROMO€ÇO em JalapÆo (TO): Os fervedouros sÆo impressionantes e a paisagem ‚ surreal.', 'PROMO€ÇO', 2);
+INSERT INTO public.posts VALUES (42, 8, NULL, 'ATEN€ÇO: Pousadas com di ria reduzida durante o meio da semana. (Pipa (RN))', 'ALERTA', 2);
+INSERT INTO public.posts VALUES (44, 2, NULL, 'Aproveite a PROMO€ÇO em Bel‚m (PA): Mercado Ver-o-Peso restaurado com nova  rea gastron“mica.', 'PROMO€ÇO', 2);
+INSERT INTO public.posts VALUES (46, 21, NULL, 'ATEN€ÇO: Tour noturno com degusta‡Æo, vin¡colas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA', 2);
+INSERT INTO public.posts VALUES (50, 22, NULL, 'ATEN€ÇO: Praia calma e vento constante, ¢timo para kitesurf. (SÆo Miguel do Gostoso (RN))', 'ALERTA', 2);
+INSERT INTO public.posts VALUES (36, 42, NULL, 'ATEN€ÇO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cip¢ (MG))', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (41, 37, NULL, 'Aproveite a PROMO€ÇO em Balne rio Cambori£ (SC): PROMO€ÇO em passeios de telef‚rico na temporada de inverno.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (43, 19, NULL, 'ATEN€ÇO: Novo circuito de tirolesas foi inaugurado no parque de aventuras. (Brotas (SP))', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (47, 58, NULL, 'Aproveite a PROMO€ÇO em JalapÆo (TO): Os fervedouros sÆo impressionantes e a paisagem ‚ surreal.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (105, 21, NULL, 'Aproveite a super oferta para conhecer a Rota das Emo‡äes!', 'PROMO€ÇO', 5);
 INSERT INTO public.posts VALUES (56, 59, NULL, 'Aproveite a PROMO€ÇO em Brotas (SP): Novo circuito de tirolesas foi inaugurado no parque de aventuras.', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (57, 3, NULL, 'ATEN€ÇO: Passeio de buggy pelas dunas est  com 20% de desconto. (Natal (RN))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (58, 23, NULL, 'ATEN€ÇO: Nova sinaliza‡Æo nas trilhas da Chapada garante mais seguran‡a. (Len‡¢is (BA))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (59, 27, NULL, 'Aproveite a PROMO€ÇO em JoÆo Pessoa (PB): Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (60, 53, NULL, 'ATEN€ÇO: O porto est  parcialmente fechado devido … cheia do rio Negro. (Manaus (AM))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (61, 32, NULL, 'ATEN€ÇO: Praia calma e vento constante, ¢timo para kitesurf. (SÆo Miguel do Gostoso (RN))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (62, 17, NULL, 'ATEN€ÇO: Pacotes com desconto de 30% para reservas at‚ domingo. (Porto de Galinhas (PE))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (63, 54, NULL, 'Aproveite a PROMO€ÇO em Len‡¢is (BA): Nova sinaliza‡Æo nas trilhas da Chapada garante mais seguran‡a.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (64, 26, NULL, 'Aproveite a PROMO€ÇO em Porto de Galinhas (PE): Pacotes com desconto de 30% para reservas at‚ domingo.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (65, 3, NULL, 'Aproveite a PROMO€ÇO em Ilhabela (SP): A travessia de balsa est  com longas filas nos fins de semana.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (66, 96, NULL, 'ATEN€ÇO: Tour noturno com degusta‡Æo, vin¡colas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (67, 23, NULL, 'ATEN€ÇO: Pousadas em Len‡¢is com at‚ 40% de desconto em junho. (Chapada Diamantina (BA))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (68, 56, NULL, 'ATEN€ÇO: Tour noturno com degusta‡Æo, vin¡colas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (69, 7, NULL, 'ATEN€ÇO: Os fervedouros sÆo impressionantes e a paisagem ‚ surreal. (JalapÆo (TO))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (70, 16, NULL, 'ATEN€ÇO: Nova sinaliza‡Æo nas trilhas da Chapada garante mais seguran‡a. (Len‡¢is (BA))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (71, 40, NULL, 'ATEN€ÇO: PROMO€ÇO em passeios de telef‚rico na temporada de inverno. (Balne rio Cambori£ (SC))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (72, 45, NULL, 'Aproveite a PROMO€ÇO em Len‡¢is (BA): Nova sinaliza‡Æo nas trilhas da Chapada garante mais seguran‡a.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (73, 17, NULL, 'Aproveite a PROMO€ÇO em Pipa (RN): Pousadas com di ria reduzida durante o meio da semana.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (74, 58, NULL, 'ATEN€ÇO: Orla nova com ciclovia e feirinhas noturnas animadas. (JoÆo Pessoa (PB))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (75, 82, NULL, 'Aproveite a PROMO€ÇO em Foz do Igua‡u (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (76, 13, NULL, 'ATEN€ÇO: Forte calor nas trilhas do Parque do Lajeado, leve bastante  gua. (Palmas (TO))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (77, 13, NULL, 'Aproveite a PROMO€ÇO em Palmas (TO): Forte calor nas trilhas do Parque do Lajeado, leve bastante  gua.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (78, 78, NULL, 'Aproveite a PROMO€ÇO em Manaus (AM): O porto est  parcialmente fechado devido … cheia do rio Negro.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (79, 57, NULL, 'ATEN€ÇO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cip¢ (MG))', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (80, 55, NULL, 'ATEN€ÇO: ALERTA: Acesso limitado … Praia do Farol por excesso de turistas. (Arraial do Cabo (RJ))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (81, 54, NULL, 'ATEN€ÇO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cip¢ (MG))', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (82, 48, NULL, 'Aproveite a PROMO€ÇO em Ilhabela (SP): A travessia de balsa est  com longas filas nos fins de semana.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (83, 6, NULL, 'Aproveite a PROMO€ÇO em Ilhabela (SP): A travessia de balsa est  com longas filas nos fins de semana.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (84, 18, NULL, 'ALERTA: Acesso … Praia do Farol, em Arraial do Cabo (RJ), est  restrito devido ao grande n£mero de turistas. Planeje com antecedˆncia.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (85, 53, NULL, 'PROMO€ÇO em Pipa (RN): Passeios de barco com desconto para quem compra at‚ sexta-feira!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (86, 82, NULL, 'Fui a Piren¢polis (GO) no Festival de Inverno, e os shows e a comida t¡pica me conquistaram. Uma verdadeira festa!', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (87, 59, NULL, 'ALERTA: O calor est  muito intenso em Palmas (TO). Cuidado com as trilhas no Parque Estadual do Lajeado.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (88, 44, NULL, 'O Mercado Ver-o-Peso em Bel‚m (PA) ficou ainda melhor com a nova  rea gastron“mica. Perfeito para quem ama sabores ex¢ticos!', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (89, 28, NULL, 'PROMO€ÇO no Vale dos Vinhedos (RS): Descontos em pacotes tur¡sticos para quem visita mais de duas vin¡colas no mesmo dia.', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (90, 19, NULL, 'ALERTA em SÆo Miguel do Gostoso (RN): O vento est  muito forte, entÆo, se vocˆ vai praticar kitesurf, tome cuidado.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (91, 58, NULL, 'Descobri uma PROMO€ÇO imperd¡vel em Gramado (RS): Hospedagem com 25% de desconto no pr¢ximo feriado!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (92, 8, NULL, 'Descubra a hist¢rica cidade de Goi s Velho, repleta de charme colonial.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (93, 9, NULL, 'Promo‡Æo especial para o JalapÆo! Pacotes com at‚ 30% de desconto.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (94, 10, NULL, 'ALERTA: Praia do Gunga est  com acesso limitado devido … mar‚ alta.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (95, 76, NULL, 'Nova rota gastron“mica em Tiradentes promete encantar os visitantes.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (96, 12, NULL, 'Descontos imperd¡veis para conhecer os Len‡¢is Maranhenses!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (97, 13, NULL, 'ALERTA: Forte temporal previsto para a regiÆo de Paraty neste fim de semana.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (98, 14, NULL, 'Explore as belezas naturais da Chapada das Mesas com nossos novos pacotes.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (99, 88, NULL, 'Descontos de at‚ 40% para viagens … Serra do Cip¢!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (100, 16, NULL, 'ALERTA: Interdi‡Æo tempor ria da estrada para o Pico da Bandeira por deslizamento.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (101, 17, NULL, 'Nova trilha ecol¢gica aberta no Parque Estadual do Ibitipoca!', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (102, 18, NULL, 'Pacotes promocionais para conhecer o JalapÆo com guias locais.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (103, 19, NULL, 'ALERTA: Chuva forte e risco de enchente em Manaus. Redobre os cuidados.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (104, 20, NULL, 'Lan‡amento de circuito cultural em Salvador com foco na heran‡a afro-brasileira.', 'NOVIDADES', 0);
+INSERT INTO public.posts VALUES (102, 18, NULL, 'Pacotes promocionais para conhecer o JalapÆo com guias locais.', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (60, 53, NULL, 'ATEN€ÇO: O porto est  parcialmente fechado devido … cheia do rio Negro. (Manaus (AM))', 'ALERTA', 3);
+INSERT INTO public.posts VALUES (64, 26, NULL, 'Aproveite a PROMO€ÇO em Porto de Galinhas (PE): Pacotes com desconto de 30% para reservas at‚ domingo.', 'PROMO€ÇO', 3);
+INSERT INTO public.posts VALUES (67, 23, NULL, 'ATEN€ÇO: Pousadas em Len‡¢is com at‚ 40% de desconto em junho. (Chapada Diamantina (BA))', 'ALERTA', 3);
+INSERT INTO public.posts VALUES (70, 16, NULL, 'ATEN€ÇO: Nova sinaliza‡Æo nas trilhas da Chapada garante mais seguran‡a. (Len‡¢is (BA))', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (73, 17, NULL, 'Aproveite a PROMO€ÇO em Pipa (RN): Pousadas com di ria reduzida durante o meio da semana.', 'PROMO€ÇO', 4);
+INSERT INTO public.posts VALUES (76, 13, NULL, 'ATEN€ÇO: Forte calor nas trilhas do Parque do Lajeado, leve bastante  gua. (Palmas (TO))', 'ALERTA', 4);
+INSERT INTO public.posts VALUES (78, 78, NULL, 'Aproveite a PROMO€ÇO em Manaus (AM): O porto est  parcialmente fechado devido … cheia do rio Negro.', 'PROMO€ÇO', 4);
+INSERT INTO public.posts VALUES (79, 57, NULL, 'ATEN€ÇO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cip¢ (MG))', 'ALERTA', 4);
+INSERT INTO public.posts VALUES (80, 55, NULL, 'ATEN€ÇO: ALERTA: Acesso limitado … Praia do Farol por excesso de turistas. (Arraial do Cabo (RJ))', 'ALERTA', 4);
+INSERT INTO public.posts VALUES (83, 6, NULL, 'Aproveite a PROMO€ÇO em Ilhabela (SP): A travessia de balsa est  com longas filas nos fins de semana.', 'PROMO€ÇO', 4);
+INSERT INTO public.posts VALUES (84, 18, NULL, 'ALERTA: Acesso … Praia do Farol, em Arraial do Cabo (RJ), est  restrito devido ao grande n£mero de turistas. Planeje com antecedˆncia.', 'ALERTA', 41);
+INSERT INTO public.posts VALUES (86, 82, NULL, 'Fui a Piren¢polis (GO) no Festival de Inverno, e os shows e a comida t¡pica me conquistaram. Uma verdadeira festa!', 'NOVIDADES', 41);
+INSERT INTO public.posts VALUES (89, 28, NULL, 'PROMO€ÇO no Vale dos Vinhedos (RS): Descontos em pacotes tur¡sticos para quem visita mais de duas vin¡colas no mesmo dia.', 'PROMO€ÇO', 41);
+INSERT INTO public.posts VALUES (94, 10, NULL, 'ALERTA: Praia do Gunga est  com acesso limitado devido … mar‚ alta.', 'ALERTA', 41);
+INSERT INTO public.posts VALUES (100, 16, NULL, 'ALERTA: Interdi‡Æo tempor ria da estrada para o Pico da Bandeira por deslizamento.', 'ALERTA', 22);
+INSERT INTO public.posts VALUES (51, 44, NULL, 'Aproveite a PROMO€ÇO em Arraial do Cabo (RJ): ALERTA: Acesso limitado … Praia do Farol por excesso de turistas.', 'PROMO€ÇO', 2);
+INSERT INTO public.posts VALUES (53, 13, NULL, 'ATEN€ÇO: Orla nova com ciclovia e feirinhas noturnas animadas. (JoÆo Pessoa (PB))', 'ALERTA', 2);
+INSERT INTO public.posts VALUES (54, 52, NULL, 'ATEN€ÇO: Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo. (Serra do Cip¢ (MG))', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (55, 1, NULL, 'Aproveite a PROMO€ÇO em JoÆo Pessoa (PB): Orla nova com ciclovia e feirinhas noturnas animadas.', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (58, 23, NULL, 'ATEN€ÇO: Nova sinaliza‡Æo nas trilhas da Chapada garante mais seguran‡a. (Len‡¢is (BA))', 'ALERTA', 13);
+INSERT INTO public.posts VALUES (103, 19, NULL, 'ALERTA: Chuva forte e risco de enchente em Manaus. Redobre os cuidados.', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (104, 20, NULL, 'Lan‡amento de circuito cultural em Salvador com foco na heran‡a afro-brasileira.', 'NOVIDADES', 7);
+INSERT INTO public.posts VALUES (97, 13, NULL, 'ALERTA: Forte temporal previsto para a regiÆo de Paraty neste fim de semana.', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (98, 14, NULL, 'Explore as belezas naturais da Chapada das Mesas com nossos novos pacotes.', 'NOVIDADES', 7);
+INSERT INTO public.posts VALUES (65, 3, NULL, 'Aproveite a PROMO€ÇO em Ilhabela (SP): A travessia de balsa est  com longas filas nos fins de semana.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (66, 96, NULL, 'ATEN€ÇO: Tour noturno com degusta‡Æo, vin¡colas encantadoras. (Vale dos Vinhedos (RS))', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (74, 58, NULL, 'ATEN€ÇO: Orla nova com ciclovia e feirinhas noturnas animadas. (JoÆo Pessoa (PB))', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (75, 82, NULL, 'Aproveite a PROMO€ÇO em Foz do Igua‡u (PR): Desconto especial para quem visita as Cataratas e o Parque das Aves.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (85, 53, NULL, 'PROMO€ÇO em Pipa (RN): Passeios de barco com desconto para quem compra at‚ sexta-feira!', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (87, 59, NULL, 'ALERTA: O calor est  muito intenso em Palmas (TO). Cuidado com as trilhas no Parque Estadual do Lajeado.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (91, 58, NULL, 'Descobri uma PROMO€ÇO imperd¡vel em Gramado (RS): Hospedagem com 25% de desconto no pr¢ximo feriado!', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (92, 8, NULL, 'Descubra a hist¢rica cidade de Goi s Velho, repleta de charme colonial.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (93, 9, NULL, 'Promo‡Æo especial para o JalapÆo! Pacotes com at‚ 30% de desconto.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (95, 76, NULL, 'Nova rota gastron“mica em Tiradentes promete encantar os visitantes.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (96, 12, NULL, 'Descontos imperd¡veis para conhecer os Len‡¢is Maranhenses!', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (101, 17, NULL, 'Nova trilha ecol¢gica aberta no Parque Estadual do Ibitipoca!', 'NOVIDADES', 5);
 INSERT INTO public.posts VALUES (106, 22, NULL, 'ALERTA: Temporada de algas atinge praias de Alagoas, com impacto na balneabilidade.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (107, 24, NULL, 'Pacotes com desconto para visitas … Serra do Roncador dispon¡veis!', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (108, 25, NULL, 'ALERTA: Praia de Copacabana est  temporariamente fechada para eventos oficiais.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (109, 27, NULL, 'Super promo‡Æo para excursäes escolares … Floresta Nacional do Tapaj¢s!', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (110, 28, NULL, 'ALERTA: Interdi‡Æo parcial da trilha da Pedra da G vea por manuten‡Æo.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (111, 29, NULL, 'Reabertura do Museu do Mar em SÆo Francisco do Sul com exposi‡äes in‚ditas.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (112, 90, NULL, 'Descontos exclusivos para casais em pousadas da Serra Ga£cha.', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (113, 31, NULL, 'ALERTA: µrea de mergulho em Maragogi fechada temporariamente por preserva‡Æo.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (114, 32, NULL, 'Festival de m£sica ao ar livre chega ao Vale dos Vinhedos neste mˆs!', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (115, 33, NULL, 'Pacotes promocionais para o Pantanal durante o mˆs de junho!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (116, 34, NULL, 'ALERTA: Forte calor atinge o litoral do Esp¡rito Santo. Evite exposi‡Æo prolongada.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (117, 78, NULL, 'Oferta imperd¡vel para explorar a Ilha do Cardoso com desconto!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (118, 37, NULL, 'ALERTA: Acesso … Cachoeira da Fuma‡a restrito por riscos de queda de rochas.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (119, 39, NULL, 'Hospedagem em Alter do ChÆo com at‚ 35% de desconto por tempo limitado.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (120, 40, NULL, 'ALERTA: Interdi‡Æo da travessia para Ilha de Itamarac  por manuten‡Æo na balsa.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (121, 41, NULL, 'Lan‡amento de roteiro sustent vel na regiÆo do JalapÆo em parceria com comunidades locais.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (122, 42, NULL, 'Promo‡Æo especial para roteiros de aventura no Parque do CantÆo!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (123, 43, NULL, 'ALERTA: Forte correnteza no Rio SÆo Francisco. Cuidado ao praticar esportes aqu ticos.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (124, 45, NULL, 'Hospedagens em pousadas de charme em Paraty com pre‡os especiais!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (125, 90, NULL, 'ALERTA: N¡veis de polui‡Æo do ar elevados em Belo Horizonte. Evite atividades ao ar livre.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (126, 48, NULL, 'Viagens para Bonito com descontos especiais neste mˆs!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (127, 49, NULL, 'ALERTA: Aviso de ressaca para o litoral sul de SÆo Paulo. Cuidado com o banho de mar.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (128, 51, NULL, 'Descontos de at‚ 50% para passeios na Rota das Cachoeiras em Goi s!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (129, 88, NULL, 'ALERTA: Fauna silvestre vis¡vel em  reas urbanas de Florian¢polis. Mantenha distƒncia.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (130, 54, NULL, 'Pacotes promocionais para conhecer o Vale Europeu em SC!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (131, 55, NULL, 'ALERTA: Interdi‡Æo parcial do bondinho do PÆo de A‡£car por manuten‡Æo preventiva.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (132, 56, NULL, 'Evento especial de observa‡Æo de aves no Parque Nacional do Viru .', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (133, 34, NULL, 'Super desconto para visitas guiadas ao Parque Nacional da Serra da Capivara!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (134, 27, NULL, 'ALERTA: Trecho da Estrada Real interditado por obras de revitaliza‡Æo.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (135, 13, NULL, 'Pacotes com at‚ 45% de desconto para visitar a Serra do Espinha‡o!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (136, 48, NULL, 'ALERTA: Possibilidade de neblina densa na regiÆo da Serra do Mar durante a madrugada.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (137, 19, NULL, 'Ofertas imperd¡veis para hospedagem em Fernando de Noronha neste mˆs!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (138, 4, NULL, 'ALERTA: Trilha da Pedra Redonda fechada temporariamente por risco de deslizamento.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (139, 35, NULL, 'Festival de inverno em Campos do JordÆo come‡a com atra‡äes musicais e gastron“micas.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (140, 61, NULL, 'Descontos de baixa temporada para destinos de ecoturismo em Rond“nia.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (141, 88, NULL, 'ALERTA: Queimadas afetam visibilidade na Chapada dos GuimarÆes.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (142, 10, NULL, 'Hospedagens em Morro de SÆo Paulo com promo‡äes para grupos!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (143, 3, NULL, 'ALERTA: Animais silvestres avistados em trilhas do Parque Nacional do Capara¢. Aten‡Æo redobrada.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (144, 38, NULL, 'Pacotes com valores reduzidos para conhecer o Vale do Ribeira!', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (145, 24, NULL, 'ALERTA: Interdi‡Æo parcial do Elevador Lacerda em Salvador por manuten‡Æo el‚trica.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (146, 57, NULL, 'Pacotes promocionais para o SÆo JoÆo em Caruaru j  estÆo dispon¡veis!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (147, 2, NULL, 'ALERTA: Forte vento na orla de Fortaleza. Redobre o cuidado com barracas e guarda-s¢is.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (148, 41, NULL, 'Inaugura‡Æo de centro de visitantes no Parque Estadual do JalapÆo.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (149, 16, NULL, 'Viagens para Porto Seguro com at‚ 50% OFF para reservas antecipadas!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (150, 50, NULL, 'ALERTA: Aviso de mar‚ alta em praias do norte do Par . Acesso restrito em alguns pontos.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (151, 21, NULL, 'Pacotes para turismo de aventura na Serra do Mar com valores reduzidos.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (152, 9, NULL, 'ALERTA: Mosquitos transmissores de doen‡as tropicais em alta no litoral do Amap .', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (153, 6, NULL, 'Promo‡äes exclusivas para destinos hist¢ricos no interior paulista.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (154, 18, NULL, 'ALERTA: Obras na BR-101 provocam lentidÆo no acesso a destinos do litoral sul.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (155, 17, NULL, 'Hospedagens em Cara¡va com pacotes promocionais de fim de semana.', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (156, 44, NULL, 'ALERTA: Forte correnteza no litoral norte da Bahia. Cuidado com crian‡as e idosos.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (157, 14, NULL, 'Reabertura de centro hist¢rico em SÆo Lu¡s ap¢s restaura‡Æo de casaräes coloniais.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (158, 31, NULL, 'Pacotes para a Chapada dos Veadeiros com at‚ 35% de desconto.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (159, 76, NULL, 'ALERTA: Alta concentra‡Æo de  guas-vivas em praias do sul de Santa Catarina.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (160, 60, NULL, 'Inaugura‡Æo de ciclofaixa tur¡stica em Florian¢polis com vista para o mar.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (161, 55, NULL, 'Descontos em pacotes para conhecer o Delta do Parna¡ba!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (162, 90, NULL, 'ALERTA: Interrup‡Æo no fornecimento de energia em pontos tur¡sticos de Natal.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (163, 22, NULL, 'Pacotes com valores especiais para turismo de base comunit ria no Xingu!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (164, 30, NULL, 'ALERTA: Restri‡Æo de visitas em  reas ind¡genas por motivos sanit rios.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (165, 1, NULL, 'Reabertura de passarela sobre o Rio Tocantins com nova ilumina‡Æo noturna.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (166, 40, NULL, 'Hospedagens com at‚ 40% de desconto no Vale do Itaja¡!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (167, 43, NULL, 'ALERTA: Forte calor no sertÆo nordestino. Hidrata‡Æo e prote‡Æo solar sÆo essenciais.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (168, 7, NULL, 'Lan‡amento de aplicativo de turismo para o interior de Minas Gerais.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (169, 5, NULL, 'Promo‡Æo para pacotes de ecoturismo com foco em observa‡Æo de aves.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (170, 58, NULL, 'ALERTA: Interdi‡Æo tempor ria no Parque Nacional da Serra da Bocaina por manuten‡Æo.', 'ALERTA', 0);
+INSERT INTO public.posts VALUES (134, 27, NULL, 'ALERTA: Trecho da Estrada Real interditado por obras de revitaliza‡Æo.', 'ALERTA', 22);
+INSERT INTO public.posts VALUES (127, 49, NULL, 'ALERTA: Aviso de ressaca para o litoral sul de SÆo Paulo. Cuidado com o banho de mar.', 'ALERTA', 22);
+INSERT INTO public.posts VALUES (159, 76, NULL, 'ALERTA: Alta concentra‡Æo de  guas-vivas em praias do sul de Santa Catarina.', 'ALERTA', 22);
+INSERT INTO public.posts VALUES (135, 13, NULL, 'Pacotes com at‚ 45% de desconto para visitar a Serra do Espinha‡o!', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (137, 19, NULL, 'Ofertas imperd¡veis para hospedagem em Fernando de Noronha neste mˆs!', 'PROMO€ÇO', 2);
+INSERT INTO public.posts VALUES (140, 61, NULL, 'Descontos de baixa temporada para destinos de ecoturismo em Rond“nia.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (162, 90, NULL, 'ALERTA: Interrup‡Æo no fornecimento de energia em pontos tur¡sticos de Natal.', 'ALERTA', 9);
+INSERT INTO public.posts VALUES (111, 29, NULL, 'Reabertura do Museu do Mar em SÆo Francisco do Sul com exposi‡äes in‚ditas.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (146, 57, NULL, 'Pacotes promocionais para o SÆo JoÆo em Caruaru j  estÆo dispon¡veis!', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (161, 55, NULL, 'Descontos em pacotes para conhecer o Delta do Parna¡ba!', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (133, 34, NULL, 'Super desconto para visitas guiadas ao Parque Nacional da Serra da Capivara!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (131, 55, NULL, 'ALERTA: Interdi‡Æo parcial do bondinho do PÆo de A‡£car por manuten‡Æo preventiva.', 'ALERTA', 10);
+INSERT INTO public.posts VALUES (136, 48, NULL, 'ALERTA: Possibilidade de neblina densa na regiÆo da Serra do Mar durante a madrugada.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (138, 4, NULL, 'ALERTA: Trilha da Pedra Redonda fechada temporariamente por risco de deslizamento.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (139, 35, NULL, 'Festival de inverno em Campos do JordÆo come‡a com atra‡äes musicais e gastron“micas.', 'NOVIDADES', 7);
+INSERT INTO public.posts VALUES (141, 88, NULL, 'ALERTA: Queimadas afetam visibilidade na Chapada dos GuimarÆes.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (142, 10, NULL, 'Hospedagens em Morro de SÆo Paulo com promo‡äes para grupos!', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (143, 3, NULL, 'ALERTA: Animais silvestres avistados em trilhas do Parque Nacional do Capara¢. Aten‡Æo redobrada.', 'ALERTA', 10);
+INSERT INTO public.posts VALUES (148, 41, NULL, 'Inaugura‡Æo de centro de visitantes no Parque Estadual do JalapÆo.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (150, 50, NULL, 'ALERTA: Aviso de mar‚ alta em praias do norte do Par . Acesso restrito em alguns pontos.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (152, 9, NULL, 'ALERTA: Mosquitos transmissores de doen‡as tropicais em alta no litoral do Amap .', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (158, 31, NULL, 'Pacotes para a Chapada dos Veadeiros com at‚ 35% de desconto.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (160, 60, NULL, 'Inaugura‡Æo de ciclofaixa tur¡stica em Florian¢polis com vista para o mar.', 'NOVIDADES', 11);
+INSERT INTO public.posts VALUES (163, 22, NULL, 'Pacotes com valores especiais para turismo de base comunit ria no Xingu!', 'PROMO€ÇO', 9);
+INSERT INTO public.posts VALUES (165, 1, NULL, 'Reabertura de passarela sobre o Rio Tocantins com nova ilumina‡Æo noturna.', 'NOVIDADES', 9);
+INSERT INTO public.posts VALUES (166, 40, NULL, 'Hospedagens com at‚ 40% de desconto no Vale do Itaja¡!', 'PROMO€ÇO', 9);
+INSERT INTO public.posts VALUES (167, 43, NULL, 'ALERTA: Forte calor no sertÆo nordestino. Hidrata‡Æo e prote‡Æo solar sÆo essenciais.', 'ALERTA', 9);
+INSERT INTO public.posts VALUES (151, 21, NULL, 'Pacotes para turismo de aventura na Serra do Mar com valores reduzidos.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (153, 6, NULL, 'Promo‡äes exclusivas para destinos hist¢ricos no interior paulista.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (154, 18, NULL, 'ALERTA: Obras na BR-101 provocam lentidÆo no acesso a destinos do litoral sul.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (155, 17, NULL, 'Hospedagens em Cara¡va com pacotes promocionais de fim de semana.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (114, 32, NULL, 'Festival de m£sica ao ar livre chega ao Vale dos Vinhedos neste mˆs!', 'NOVIDADES', 7);
+INSERT INTO public.posts VALUES (115, 33, NULL, 'Pacotes promocionais para o Pantanal durante o mˆs de junho!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (116, 34, NULL, 'ALERTA: Forte calor atinge o litoral do Esp¡rito Santo. Evite exposi‡Æo prolongada.', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (118, 37, NULL, 'ALERTA: Acesso … Cachoeira da Fuma‡a restrito por riscos de queda de rochas.', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (117, 78, NULL, 'Oferta imperd¡vel para explorar a Ilha do Cardoso com desconto!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (119, 39, NULL, 'Hospedagem em Alter do ChÆo com at‚ 35% de desconto por tempo limitado.', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (121, 41, NULL, 'Lan‡amento de roteiro sustent vel na regiÆo do JalapÆo em parceria com comunidades locais.', 'NOVIDADES', 7);
+INSERT INTO public.posts VALUES (122, 42, NULL, 'Promo‡Æo especial para roteiros de aventura no Parque do CantÆo!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (123, 43, NULL, 'ALERTA: Forte correnteza no Rio SÆo Francisco. Cuidado ao praticar esportes aqu ticos.', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (124, 45, NULL, 'Hospedagens em pousadas de charme em Paraty com pre‡os especiais!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (125, 90, NULL, 'ALERTA: N¡veis de polui‡Æo do ar elevados em Belo Horizonte. Evite atividades ao ar livre.', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (126, 48, NULL, 'Viagens para Bonito com descontos especiais neste mˆs!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (128, 51, NULL, 'Descontos de at‚ 50% para passeios na Rota das Cachoeiras em Goi s!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (129, 88, NULL, 'ALERTA: Fauna silvestre vis¡vel em  reas urbanas de Florian¢polis. Mantenha distƒncia.', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (130, 54, NULL, 'Pacotes promocionais para conhecer o Vale Europeu em SC!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (132, 56, NULL, 'Evento especial de observa‡Æo de aves no Parque Nacional do Viru .', 'NOVIDADES', 7);
+INSERT INTO public.posts VALUES (147, 2, NULL, 'ALERTA: Forte vento na orla de Fortaleza. Redobre o cuidado com barracas e guarda-s¢is.', 'ALERTA', 7);
+INSERT INTO public.posts VALUES (149, 16, NULL, 'Viagens para Porto Seguro com at‚ 50% OFF para reservas antecipadas!', 'PROMO€ÇO', 7);
 INSERT INTO public.posts VALUES (171, 28, NULL, 'Festival ind¡gena em Tocantins celebra cultura com atividades abertas ao p£blico.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (172, 34, '1747784020477-1.jpg', 'Acabei de voltar de Bonito (MS) e fiquei encantado com o novo Mirante da Nascente Azul! A passarela suspensa é incrível e a vista é de tirar o fôlego.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (173, 1, '1747784062208-2.jpg', 'Visitei Ouro Preto no último fim de semana e recomendo muito a nova rota noturna com luzes cênicas. Caminhar pelas ladeiras históricas à noite foi mágico!', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (174, 43, '1747784241712-3.jpg', 'ALERTA: Trilha principal da Chapada dos Veadeiros está com interdição parcial para manutenção das passarelas ecológicas. Só está liberado o acesso ao Vale da Lua.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (175, 28, '1747784280770-4.jpg', 'Fui na FLIP em Paraty e participei de um sarau literário incrível em um dos casarões restaurados. A cidade respira cultura o tempo todo.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (176, 59, '1747784306343-5.jpg', 'Recife está um espetáculo com o Festival Recife na Rua. Tem música, teatro e comidinhas típicas em cada esquina do bairro antigo. Vale muito a visita!', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (177, 82, '1747784335809-6.jpg', 'ALERTA: Praia da Joaquina em Florianópolis com forte correnteza nesta semana. Evitem nadar em áreas sem sinalização de segurança.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (178, 26, '1747784375273-7.jpg', 'Achei ótima a nova ciclovia entre a Praia Mole e Lagoa da Conceição. Pedalei com a família inteira e foi super tranquilo!', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (179, 12, '1747784396041-8.jpg', 'Visitei o Jalapão (TO) semana passada e fiquei impressionado com os fervedouros! A água parece te empurrar pra cima. Experiência surreal!', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (180, 98, '1747784432090-9.jpg', 'ALERTA: Em Ilhabela (SP), a travessia de balsa está com longas filas nos fins de semana. Recomendo ir bem cedo pra evitar atrasos.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (181, 29, '1747784460436-10.jpg', 'Passei o feriado em São Miguel do Gostoso (RN) e foi incrível! Praia calma, vento constante, ótima pra kitesurf e descanso total.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (182, 5, '1747784488587-11.jpg', 'PROMOÇÃO rolando em Foz do Iguaçu (PR): desconto para quem visitar as Cataratas e o Parque das Aves no mesmo dia. Entrada combinada vale a pena!', 'PROMOÇÃO', 0);
-INSERT INTO public.posts VALUES (183, 13, '1747784510157-12.jpg', 'Estive em Vale dos Vinhedos (RS) recentemente. Tour noturno com degustação, vinícolas encantadoras.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (184, 9, '1747784536155-13.jpg', 'Visitei Arraial do Cabo (RJ) e adorei! ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (185, 39, '1747784583660-14.jpg', 'ATENÇÃO: Desconto especial para quem visita as Cataratas e o Parque das Aves. (Foz do Iguaçu (PR))', 'PROMOÇÃO', 0);
 INSERT INTO public.posts VALUES (186, 12, '1747784612805-15.jpg', 'Visitei Palmas (TO) e adorei! Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (187, 26, '1747784635425-16.jpg', 'Visitei Pipa (RN) e adorei! Pousadas com diária reduzida durante o meio da semana.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (188, 58, '1747784655958-17.jpg', 'Visitei Canela (RS) e adorei! Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (189, 37, '1747784678770-18.jpg', 'Visitei Serra do Cipó (MG) e adorei! Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (190, 56, '1747784722017-19.jpg', 'Visitei Belém (PA) e adorei! Mercado Ver-o-Peso restaurado com nova área gastronômica.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (191, 6, '1747784742417-20.jpg', 'Visitei Porto de Galinhas (PE) e adorei! Pacotes com desconto de 30% para reservas até domingo.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (192, 45, '1747784763273-21.jpg', 'Visitei Brotas (SP) e adorei! Novo circuito de tirolesas foi inaugurado no parque de aventuras.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (193, 78, '1747784782791-22.jpg', 'Visitei Chapada Diamantina (BA) e adorei! Pousadas em Lençóis com até 40% de desconto em junho.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (194, 11, '1747784803684-23.jpg', 'Visitei Arraial do Cabo (RJ) e adorei! ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (195, 32, '1747784833462-24.jpg', 'Visitei Natal (RN) e adorei! Passeio de buggy pelas dunas está com 20% de desconto.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (196, 8, '1747784853927-25.jpg', 'Visitei Manaus (AM) e adorei! O porto está parcialmente fechado devido à cheia do rio Negro.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (197, 9, '1747784876043-26.jpg', 'Visitei João Pessoa (PB) e adorei! Orla nova com ciclovia e feirinhas noturnas animadas.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (198, 19, '1747784902324-27.jpg', 'Visitei Palmas (TO) e adorei! Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (199, 80, '1747784921618-28.jpg', 'Visitei Balneário Camboriú (SC) e adorei! PROMOÇÃO em passeios de teleférico na temporada de inverno.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (200, 53, '1747784939634-29.jpg', 'Visitei São Miguel do Gostoso (RN) e adorei! Praia calma e vento constante, ótimo para kitesurf.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (201, 8, '1747784956915-30.jpg', 'Visitei Vale dos Vinhedos (RS) e adorei! Tour noturno com degustação, vinícolas encantadoras.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (202, 35, '1747784974954-31.jpg', 'Novo mirante aberto ao público no Parque Nacional de Aparados da Serra.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (203, 44, '1747784992565-32.jpg', 'Novo centro de visitantes no Parque Nacional da Serra dos Órgãos oferece experiências imersivas.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (204, 47, '1747785015575-33.jpg', 'Reabertura da Rota do Vinho em São Roque com novos empreendimentos.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (205, 29, '1747785039361-34.jpg', 'Novo passeio de barco em Arraial do Cabo oferece experiências ao pôr do sol.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (206, 45, '1747785060602-35.jpg', 'Rota dos Cânions é ampliada com novos mirantes e áreas de descanso.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (207, 12, '1747785078006-36.jpg', 'Novo roteiro de ecoturismo no Acre oferece experiências únicas na floresta.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (208, 76, '1747785096717-37.jpg', 'Inaugurado o novo teleférico panorâmico no Parque Nacional de Itatiaia.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (209, 38, '1747785116389-38.jpg', 'Inaugurado o circuito de cicloturismo na Serra da Mantiqueira.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (210, 23, '1747785132953-39.jpg', 'Nova atração turística em São João del Rei celebra a cultura mineira.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (211, 53, '1747785155442-40.jpg', 'Abertura de nova trilha acessível para pessoas com deficiência no Parque da Tijuca.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (212, 8, '1747785174875-41.jpg', 'Reinauguração do Museu da Imigração em São Paulo com novas exposições interativas.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (213, 59, '1747785193792-42.jpg', 'Nova feira cultural em Olinda destaca artistas locais e artesanato regional.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (214, 20, '1747785211406-43.jpg', 'Nova rota de turismo religioso no interior do Paraná é lançada.', 'NOVIDADES', 0);
+INSERT INTO public.posts VALUES (178, 26, '1747784375273-7.jpg', 'Achei ótima a nova ciclovia entre a Praia Mole e Lagoa da Conceição. Pedalei com a família inteira e foi super tranquilo!', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (201, 8, '1747784956915-30.jpg', 'Visitei Vale dos Vinhedos (RS) e adorei! Tour noturno com degustação, vinícolas encantadoras.', 'NOVIDADES', 4);
+INSERT INTO public.posts VALUES (208, 76, '1747785096717-37.jpg', 'Inaugurado o novo teleférico panorâmico no Parque Nacional de Itatiaia.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (168, 7, NULL, 'Lan‡amento de aplicativo de turismo para o interior de Minas Gerais.', 'NOVIDADES', 9);
+INSERT INTO public.posts VALUES (170, 58, NULL, 'ALERTA: Interdi‡Æo tempor ria no Parque Nacional da Serra da Bocaina por manuten‡Æo.', 'ALERTA', 10);
+INSERT INTO public.posts VALUES (174, 43, '1747784241712-3.jpg', 'ALERTA: Trilha principal da Chapada dos Veadeiros está com interdição parcial para manutenção das passarelas ecológicas. Só está liberado o acesso ao Vale da Lua.', 'ALERTA', 10);
+INSERT INTO public.posts VALUES (176, 59, '1747784306343-5.jpg', 'Recife está um espetáculo com o Festival Recife na Rua. Tem música, teatro e comidinhas típicas em cada esquina do bairro antigo. Vale muito a visita!', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (177, 82, '1747784335809-6.jpg', 'ALERTA: Praia da Joaquina em Florianópolis com forte correnteza nesta semana. Evitem nadar em áreas sem sinalização de segurança.', 'ALERTA', 12);
+INSERT INTO public.posts VALUES (179, 12, '1747784396041-8.jpg', 'Visitei o Jalapão (TO) semana passada e fiquei impressionado com os fervedouros! A água parece te empurrar pra cima. Experiência surreal!', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (180, 98, '1747784432090-9.jpg', 'ALERTA: Em Ilhabela (SP), a travessia de balsa está com longas filas nos fins de semana. Recomendo ir bem cedo pra evitar atrasos.', 'ALERTA', 10);
+INSERT INTO public.posts VALUES (183, 13, '1747784510157-12.jpg', 'Estive em Vale dos Vinhedos (RS) recentemente. Tour noturno com degustação, vinícolas encantadoras.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (185, 39, '1747784583660-14.jpg', 'ATENÇÃO: Desconto especial para quem visita as Cataratas e o Parque das Aves. (Foz do Iguaçu (PR))', 'PROMOÇÃO', 10);
+INSERT INTO public.posts VALUES (187, 26, '1747784635425-16.jpg', 'Visitei Pipa (RN) e adorei! Pousadas com diária reduzida durante o meio da semana.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (188, 58, '1747784655958-17.jpg', 'Visitei Canela (RS) e adorei! Nova iluminação na Catedral de Pedra está deslumbrante à noite.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (189, 37, '1747784678770-18.jpg', 'Visitei Serra do Cipó (MG) e adorei! Trilhas lindas e cachoeiras cristalinas, perfeito para ecoturismo.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (190, 56, '1747784722017-19.jpg', 'Visitei Belém (PA) e adorei! Mercado Ver-o-Peso restaurado com nova área gastronômica.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (193, 78, '1747784782791-22.jpg', 'Visitei Chapada Diamantina (BA) e adorei! Pousadas em Lençóis com até 40% de desconto em junho.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (192, 45, '1747784763273-21.jpg', 'Visitei Brotas (SP) e adorei! Novo circuito de tirolesas foi inaugurado no parque de aventuras.', 'NOVIDADES', 20);
+INSERT INTO public.posts VALUES (194, 11, '1747784803684-23.jpg', 'Visitei Arraial do Cabo (RJ) e adorei! ALERTA: Acesso limitado à Praia do Farol por excesso de turistas.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (195, 32, '1747784833462-24.jpg', 'Visitei Natal (RN) e adorei! Passeio de buggy pelas dunas está com 20% de desconto.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (196, 8, '1747784853927-25.jpg', 'Visitei Manaus (AM) e adorei! O porto está parcialmente fechado devido à cheia do rio Negro.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (198, 19, '1747784902324-27.jpg', 'Visitei Palmas (TO) e adorei! Forte calor nas trilhas do Parque do Lajeado, leve bastante água.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (199, 80, '1747784921618-28.jpg', 'Visitei Balneário Camboriú (SC) e adorei! PROMOÇÃO em passeios de teleférico na temporada de inverno.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (200, 53, '1747784939634-29.jpg', 'Visitei São Miguel do Gostoso (RN) e adorei! Praia calma e vento constante, ótimo para kitesurf.', 'NOVIDADES', 6);
+INSERT INTO public.posts VALUES (202, 35, '1747784974954-31.jpg', 'Novo mirante aberto ao público no Parque Nacional de Aparados da Serra.', 'NOVIDADES', 4);
+INSERT INTO public.posts VALUES (203, 44, '1747784992565-32.jpg', 'Novo centro de visitantes no Parque Nacional da Serra dos Órgãos oferece experiências imersivas.', 'NOVIDADES', 14);
+INSERT INTO public.posts VALUES (205, 29, '1747785039361-34.jpg', 'Novo passeio de barco em Arraial do Cabo oferece experiências ao pôr do sol.', 'NOVIDADES', 14);
+INSERT INTO public.posts VALUES (204, 47, '1747785015575-33.jpg', 'Reabertura da Rota do Vinho em São Roque com novos empreendimentos.', 'NOVIDADES', 28);
+INSERT INTO public.posts VALUES (211, 53, '1747785155442-40.jpg', 'Abertura de nova trilha acessível para pessoas com deficiência no Parque da Tijuca.', 'NOVIDADES', 14);
+INSERT INTO public.posts VALUES (209, 38, '1747785116389-38.jpg', 'Inaugurado o circuito de cicloturismo na Serra da Mantiqueira.', 'NOVIDADES', 14);
+INSERT INTO public.posts VALUES (207, 12, '1747785078006-36.jpg', 'Novo roteiro de ecoturismo no Acre oferece experiências únicas na floresta.', 'NOVIDADES', 28);
+INSERT INTO public.posts VALUES (212, 8, '1747785174875-41.jpg', 'Reinauguração do Museu da Imigração em São Paulo com novas exposições interativas.', 'NOVIDADES', 14);
 INSERT INTO public.posts VALUES (215, 36, '1747785230790-44.jpg', 'Nova atração interativa no Instituto Inhotim atrai visitantes de todas as idades.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (216, 32, '1747785251060-45.jpg', 'Nova linha de trem turístico ligando Curitiba a Morretes é reinaugurada.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (217, 26, '1747785276755-46.jpg', 'Nova exposição sobre biodiversidade marinha no Museu Nacional da UFRJ.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (218, 17, NULL, 'NOVIDADE em Foz do Igua‡u! O novo centro de visitantes do Parque Nacional est  incr¡vel, com experiˆncias imersivas e interativas sobre a fauna local.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (219, 22, NULL, 'ALERTA: Estrada de acesso ao Pico da Bandeira est  com trechos escorregadios devido …s chuvas intensas. Redobrem a aten‡Æo ao subir.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (220, 36, NULL, 'Participei da Festa do Divino em Alcƒntara (MA) neste mˆs e foi emocionante. As tradi‡äes locais seguem vivas e encantadoras.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (221, 91, NULL, 'PROMO€ÇO: Pacotes com 30% de desconto para passeios de barco pelo Delta do Parna¡ba at‚ o final deste mˆs. Imperd¡vel!', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (222, 4, NULL, 'Descobri um caf‚ novo em Tiradentes com vista para as montanhas e ambiente colonial. àtima parada depois das trilhas culturais.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (223, 55, NULL, 'ALERTA: O acesso … Cachoeira do Formiga, em JalapÆo, est  restrito durante a semana para recupera‡Æo da trilha. Planejem-se para visitar aos fins de semana.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (224, 12, NULL, 'PROMO€ÇO especial em Jericoacoara: pousadas com di ria gr tis na terceira noite durante a baixa temporada. Uma ¢tima oportunidade para relaxar!', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (225, 67, NULL, 'NOVIDADES em Bel‚m! O Mercado Ver-o-Peso agora conta com um espa‡o gourmet reformado, reunindo chefs locais e ingredientes t¡picos amaz“nicos.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (226, 23, NULL, 'PROMO€ÇO: Passeios guiados pelo centro hist¢rico de Salvador com 50% de desconto durante o mˆs de junho. Aproveite para conhecer mais da cultura baiana!', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (227, 38, NULL, 'ALERTA: Sobe para n¡vel m ximo o risco de incˆndios na regiÆo do JalapÆo (TO). Evite acampamentos e nÆo fa‡a fogueiras.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (228, 10, NULL, 'Nova passarela panorƒmica inaugurada na Serra do Rio do Rastro! Agora d  pra ter uma vista completa dos cƒnions com seguran‡a.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (229, 47, NULL, 'PROMO€ÇO: Resort em Caldas Novas com tarifa reduzida para fam¡lias e cortesia para crian‡as menores de 10 anos durante os fins de semana.', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (230, 61, NULL, 'ALERTA: Temporada de chuvas fortes no litoral do Esp¡rito Santo. Algumas praias estÆo com acesso restrito devido a deslizamentos.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (231, 30, NULL, 'Participei de um festival de culin ria cai‡ara em Ilhabela com pratos t¡picos e m£sica ao vivo. Um ¢timo programa para quem ama gastronomia regional.', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (232, 5, NULL, 'PROMO€ÇO relƒmpago para trilha guiada na Serra da Canastra: grupos com at‚ 4 pessoas pagam o pre‡o de 3!', 'PROMO€ÇO', 0);
@@ -705,24 +687,41 @@ INSERT INTO public.posts VALUES (234, 18, NULL, 'NOVIDADES em Curitiba: o Jardim
 INSERT INTO public.posts VALUES (235, 52, NULL, 'ALERTA: A travessia do Parque Nacional de Itatiaia est  fechada por tempo indeterminado devido a deslizamentos recentes.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (236, 7, NULL, 'PROMO€ÇO: City tour por Belo Horizonte com degusta‡Æo de queijos e doces mineiros incluso no pacote. Descontos v lidos at‚ o final do mˆs.', 'PROMO€ÇO', 0);
 INSERT INTO public.posts VALUES (237, 33, NULL, 'Descobri um novo circuito de bike em Bento Gon‡alves entre vinhedos e paisagens incr¡veis. Ideal para quem curte pedal e enoturismo.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (238, 26, NULL, 'ALERTA: Forte neblina nas estradas da Serra Ga£cha. Redobrem a aten‡Æo e evitem dirigir … noite neste per¡odo.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (239, 89, NULL, 'PROMO€ÇO: Hospedagem em hostels de SÆo Paulo com 20% OFF para reservas feitas pelo app at‚ sexta-feira.', 'PROMO€ÇO', 0);
-INSERT INTO public.posts VALUES (240, 41, NULL, 'A rota do canga‡o em Piranhas (AL) est  com novas sinaliza‡äes e pain‚is interativos contando a hist¢ria de LampiÆo e Maria Bonita. Muito bem feita!', 'NOVIDADES', 0);
 INSERT INTO public.posts VALUES (241, 13, NULL, 'ALERTA: A travessia do Vale do Pati, na Chapada Diamantina, requer guias credenciados obrigatoriamente a partir deste mˆs. Fiscaliza‡Æo aumentada.', 'ALERTA', 0);
 INSERT INTO public.posts VALUES (242, 20, '1747786139446-47.jpg', 'PROMOÇÃO em Bonito (MS): agências locais estão oferecendo combos de flutuação + trilha com 25% de desconto durante a semana.', 'PROMOÇÃO', 0);
 INSERT INTO public.posts VALUES (243, 64, '1747786166030-47.jpg', 'NOVIDADES em São Luís (MA): reabertura do Teatro Arthur Azevedo com programação cultural gratuita nas noites de sexta-feira.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (244, 11, '1747786198365-49.jpg', 'ALERTA: Praia do Rosa (SC) com alta concentração de águas-vivas nesta temporada. Atenção redobrada para quem for entrar no mar.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (245, 58, '1747786226526-50.jpg', 'PROMOÇÃO: Passeios de buggy nas dunas de Natal com valores promocionais para grupos a partir de 3 pessoas. Ideal para famílias!', 'PROMOÇÃO', 0);
-INSERT INTO public.posts VALUES (246, 39, '1747786250746-51.jpg', 'NOVIDADE em Manaus: novo mirante do Encontro das Águas oferece vista privilegiada e acesso facilitado com estacionamento.', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (247, 6, '1747786269889-52.jpg', 'ALERTA: Interdição temporária do acesso ao Morro do Pai Inácio, na Chapada Diamantina, para manutenção nas escadarias e corrimãos.', 'ALERTA', 0);
-INSERT INTO public.posts VALUES (248, 95, '1747786292444-53.jpg', 'PROMOÇÃO para amantes do frio: pousadas na Serra Catarinense com café colonial incluso e descontos de até 40% na baixa temporada.', 'PROMOÇÃO', 0);
-INSERT INTO public.posts VALUES (249, 72, '1747786315640-54.jpg', 'NOVIDADES em Brasília: o Eixo Cultural Ibero-americano foi inaugurado com exposições permanentes sobre arte e arquitetura latino-americana.'', ''NOVIDADES', 'NOVIDADES', 0);
-INSERT INTO public.posts VALUES (250, 14, '1747786336568-55.jpg', 'ALERTA: Forte ressaca atinge a orla do Rio de Janeiro, especialmente entre o Leme e o Leblon. Evitem a faixa de areia e áreas de pedras.', 'ALERTA', 0);
+INSERT INTO public.posts VALUES (1, 38, NULL, 'ALERTA: Algumas lagoas dos Len‡¢is Maranhenses estÆo com menor volume de  gua este mˆs por causa das chuvas irregulares. Melhor confirmar com os guias antes de agendar passeio.', 'ALERTA', 1);
+INSERT INTO public.posts VALUES (52, 42, NULL, 'ATEN€ÇO: Orla nova com ciclovia e feirinhas noturnas animadas. (JoÆo Pessoa (PB))', 'ALERTA', 6);
+INSERT INTO public.posts VALUES (120, 40, NULL, 'ALERTA: Interdi‡Æo da travessia para Ilha de Itamarac  por manuten‡Æo na balsa.', 'ALERTA', 22);
+INSERT INTO public.posts VALUES (225, 67, NULL, 'NOVIDADES em Bel‚m! O Mercado Ver-o-Peso agora conta com um espa‡o gourmet reformado, reunindo chefs locais e ingredientes t¡picos amaz“nicos.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (250, 14, '1747786336568-55.jpg', 'ALERTA: Forte ressaca atinge a orla do Rio de Janeiro, especialmente entre o Leme e o Leblon. Evitem a faixa de areia e áreas de pedras.', 'ALERTA', 2);
+INSERT INTO public.posts VALUES (240, 41, NULL, 'A rota do canga‡o em Piranhas (AL) est  com novas sinaliza‡äes e pain‚is interativos contando a hist¢ria de LampiÆo e Maria Bonita. Muito bem feita!', 'NOVIDADES', 2);
+INSERT INTO public.posts VALUES (220, 36, NULL, 'Participei da Festa do Divino em Alcƒntara (MA) neste mˆs e foi emocionante. As tradi‡äes locais seguem vivas e encantadoras.', 'NOVIDADES', 2);
+INSERT INTO public.posts VALUES (224, 12, NULL, 'PROMO€ÇO especial em Jericoacoara: pousadas com di ria gr tis na terceira noite durante a baixa temporada. Uma ¢tima oportunidade para relaxar!', 'PROMO€ÇO', 2);
+INSERT INTO public.posts VALUES (238, 26, NULL, 'ALERTA: Forte neblina nas estradas da Serra Ga£cha. Redobrem a aten‡Æo e evitem dirigir … noite neste per¡odo.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (218, 17, NULL, 'NOVIDADE em Foz do Igua‡u! O novo centro de visitantes do Parque Nacional est  incr¡vel, com experiˆncias imersivas e interativas sobre a fauna local.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (164, 30, NULL, 'ALERTA: Restri‡Æo de visitas em  reas ind¡genas por motivos sanit rios.', 'ALERTA', 18);
+INSERT INTO public.posts VALUES (169, 5, NULL, 'Promo‡Æo para pacotes de ecoturismo com foco em observa‡Æo de aves.', 'PROMO€ÇO', 31);
+INSERT INTO public.posts VALUES (214, 20, '1747785211406-43.jpg', 'Nova rota de turismo religioso no interior do Paraná é lançada.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (217, 26, '1747785276755-46.jpg', 'Nova exposição sobre biodiversidade marinha no Museu Nacional da UFRJ.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (221, 91, NULL, 'PROMO€ÇO: Pacotes com 30% de desconto para passeios de barco pelo Delta do Parna¡ba at‚ o final deste mˆs. Imperd¡vel!', 'PROMO€ÇO', 7);
+INSERT INTO public.posts VALUES (229, 47, NULL, 'PROMO€ÇO: Resort em Caldas Novas com tarifa reduzida para fam¡lias e cortesia para crian‡as menores de 10 anos durante os fins de semana.', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (244, 11, '1747786198365-49.jpg', 'ALERTA: Praia do Rosa (SC) com alta concentração de águas-vivas nesta temporada. Atenção redobrada para quem for entrar no mar.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (245, 58, '1747786226526-50.jpg', 'PROMOÇÃO: Passeios de buggy nas dunas de Natal com valores promocionais para grupos a partir de 3 pessoas. Ideal para famílias!', 'PROMOÇÃO', 5);
+INSERT INTO public.posts VALUES (246, 39, '1747786250746-51.jpg', 'NOVIDADE em Manaus: novo mirante do Encontro das Águas oferece vista privilegiada e acesso facilitado com estacionamento.', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (247, 6, '1747786269889-52.jpg', 'ALERTA: Interdição temporária do acesso ao Morro do Pai Inácio, na Chapada Diamantina, para manutenção nas escadarias e corrimãos.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (248, 95, '1747786292444-53.jpg', 'PROMOÇÃO para amantes do frio: pousadas na Serra Catarinense com café colonial incluso e descontos de até 40% na baixa temporada.', 'PROMOÇÃO', 5);
+INSERT INTO public.posts VALUES (249, 72, '1747786315640-54.jpg', 'NOVIDADES em Brasília: o Eixo Cultural Ibero-americano foi inaugurado com exposições permanentes sobre arte e arquitetura latino-americana.'', ''NOVIDADES', 'NOVIDADES', 5);
+INSERT INTO public.posts VALUES (172, 34, '1747784020477-1.jpg', 'Acabei de voltar de Bonito (MS) e fiquei encantado com o novo Mirante da Nascente Azul! A passarela suspensa é incrível e a vista é de tirar o fôlego.', 'NOVIDADES', 10);
+INSERT INTO public.posts VALUES (219, 22, NULL, 'ALERTA: Estrada de acesso ao Pico da Bandeira est  com trechos escorregadios devido …s chuvas intensas. Redobrem a aten‡Æo ao subir.', 'ALERTA', 5);
+INSERT INTO public.posts VALUES (7, 76, NULL, 'PROMO€ÇO na Chapada Diamantina (BA): pousadas em Len‡¢is com at‚ 40% de desconto no mˆs de junho. Aproveitem antes da alta temporada!', 'PROMO€ÇO', 5);
+INSERT INTO public.posts VALUES (62, 17, NULL, 'ATEN€ÇO: Pacotes com desconto de 30% para reservas at‚ domingo. (Porto de Galinhas (PE))', 'ALERTA', 5);
 
 
 --
--- TOC entry 4898 (class 0 OID 33812)
--- Dependencies: 224
+-- TOC entry 4836 (class 0 OID 17713)
+-- Dependencies: 223
 -- Data for Name: regions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -788,8 +787,8 @@ INSERT INTO public.regions VALUES (59, 'Centro-Oeste', 'Brasilia (distrito feder
 
 
 --
--- TOC entry 4892 (class 0 OID 33654)
--- Dependencies: 218
+-- TOC entry 4838 (class 0 OID 17719)
+-- Dependencies: 225
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -896,8 +895,8 @@ INSERT INTO public.users VALUES (100, 'Andr‚ Lima', 'andre.lima@gmail.com', 'G
 
 
 --
--- TOC entry 4914 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 4851 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -905,8 +904,8 @@ SELECT pg_catalog.setval('public.comments_id_seq', 101, true);
 
 
 --
--- TOC entry 4915 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 4852 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: feedbacks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -914,8 +913,8 @@ SELECT pg_catalog.setval('public.feedbacks_id_seq', 21, true);
 
 
 --
--- TOC entry 4916 (class 0 OID 0)
--- Dependencies: 227
+-- TOC entry 4853 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: news_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -923,8 +922,8 @@ SELECT pg_catalog.setval('public.news_id_seq', 11, true);
 
 
 --
--- TOC entry 4917 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 4854 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -932,8 +931,8 @@ SELECT pg_catalog.setval('public.posts_id_seq', 251, true);
 
 
 --
--- TOC entry 4918 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4855 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: regions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -941,8 +940,8 @@ SELECT pg_catalog.setval('public.regions_id_seq', 60, true);
 
 
 --
--- TOC entry 4919 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 4856 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -950,7 +949,7 @@ SELECT pg_catalog.setval('public.users_id_seq', 102, true);
 
 
 --
--- TOC entry 4735 (class 2606 OID 33688)
+-- TOC entry 4668 (class 2606 OID 17732)
 -- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -959,7 +958,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4739 (class 2606 OID 33839)
+-- TOC entry 4670 (class 2606 OID 17734)
 -- Name: feedbacks feedbacks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -968,7 +967,7 @@ ALTER TABLE ONLY public.feedbacks
 
 
 --
--- TOC entry 4741 (class 2606 OID 34088)
+-- TOC entry 4672 (class 2606 OID 17736)
 -- Name: news news_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -977,7 +976,7 @@ ALTER TABLE ONLY public.news
 
 
 --
--- TOC entry 4733 (class 2606 OID 33674)
+-- TOC entry 4674 (class 2606 OID 17738)
 -- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -986,7 +985,7 @@ ALTER TABLE ONLY public.posts
 
 
 --
--- TOC entry 4737 (class 2606 OID 33819)
+-- TOC entry 4676 (class 2606 OID 17740)
 -- Name: regions regions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -995,7 +994,7 @@ ALTER TABLE ONLY public.regions
 
 
 --
--- TOC entry 4729 (class 2606 OID 33664)
+-- TOC entry 4678 (class 2606 OID 17742)
 -- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1004,7 +1003,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4731 (class 2606 OID 33662)
+-- TOC entry 4680 (class 2606 OID 17744)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1013,7 +1012,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4743 (class 2606 OID 33689)
+-- TOC entry 4681 (class 2606 OID 17745)
 -- Name: comments comments_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1022,7 +1021,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4744 (class 2606 OID 33694)
+-- TOC entry 4682 (class 2606 OID 17750)
 -- Name: comments comments_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1031,7 +1030,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4745 (class 2606 OID 33840)
+-- TOC entry 4683 (class 2606 OID 17755)
 -- Name: feedbacks feedbacks_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1040,7 +1039,7 @@ ALTER TABLE ONLY public.feedbacks
 
 
 --
--- TOC entry 4742 (class 2606 OID 33675)
+-- TOC entry 4684 (class 2606 OID 17760)
 -- Name: posts posts_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1048,7 +1047,7 @@ ALTER TABLE ONLY public.posts
     ADD CONSTRAINT posts_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
 
 
--- Completed on 2025-06-09 20:54:31
+-- Completed on 2025-06-10 13:54:12
 
 --
 -- PostgreSQL database dump complete

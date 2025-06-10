@@ -62,4 +62,21 @@ const deleteComment = async (id) => {
     return result.rows[0];
 };
 
-module.exports = { getComments, getCommentById, createComment, updateComment, deleteComment };
+const getCommentsByPostId = async (post_id) => {
+    const result = await pool.query(`SELECT 
+            dono.name AS dono_post,
+            posts.image, 
+            posts.description, 
+            posts.tag, 
+            users.name AS usuario, 
+            users.photo AS foto_comentario,
+            comments.comment AS comentario
+        FROM comments
+        INNER JOIN users ON comments.user_id = users.id
+        INNER JOIN posts ON comments.post_id = posts.id
+        INNER JOIN users AS dono ON posts.user_id = dono.id
+        WHERE comments.post_id = $1`, [post_id]);
+    return result.rows;
+};
+
+module.exports = { getComments, getCommentById, createComment, updateComment, deleteComment, getCommentsByPostId };

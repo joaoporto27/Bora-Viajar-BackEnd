@@ -59,4 +59,17 @@ const deleteComment = async (req, res) => {
     }
 };
 
-module.exports = { getAllComments, getCommentById, createComment, updateComment, deleteComment };
+const getCommentsByPostId = async (req, res) => {
+    try {
+        const postId = req.params.post_id;
+        const comments = await commentModel.getCommentsByPostId(postId);
+        if (!comments || comments.length === 0) {
+            return res.status(404).json({ message: "Nenhum comentário encontrado para este post" });
+        }
+        res.status(200).json(comments);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao buscar comentários" });
+    }
+}
+
+module.exports = { getAllComments, getCommentById, createComment, updateComment, deleteComment, getCommentsByPostId };

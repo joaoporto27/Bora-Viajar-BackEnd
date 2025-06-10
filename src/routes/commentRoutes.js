@@ -118,4 +118,7 @@ router.delete("/comments/:id", commentController.deleteComment);
  *         description: Comentário deletado
  */
 
+// Buscar comentários por post_id
+router.get("/comments/post/:post_id", commentController.getCommentsByPostId);
+
 module.exports = router;
